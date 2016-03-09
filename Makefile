@@ -5,7 +5,7 @@ VPATH=core
 FRAMEWORKS:= -framework Foundation
 LIBRARIES:= -lobjc
 
-SRCS=main.m 
+SRCS=main.m generator.m
 
 OBJS=$(SRCS:%.m=objects/%.o)
 

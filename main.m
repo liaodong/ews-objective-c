@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
+#import "Generator.h"
 
+/*
 @interface XmlDeserializer
 
 + (void) registerClass:(Class) class forTag:(NString*);
@@ -50,7 +52,7 @@
     [self setItems: [stream forTag:@"Items" elemnts:[self items] forClass:[NonEmptyArrayOfItems class]]];
 }
 
-
+*/
 @interface Test : NSObject
 
 + (id) deserializeFromXml;
@@ -84,6 +86,8 @@ int main (int argc, const char* argv[]) {
     //SEL  init = NSSelectorFromString(@"initFromXml");
 
     [[cls deserializeFromXml] release];
+
+    [[[Generator alloc] initWithFile: @"ews_xsd/types.xsd"] parse];
     return 0;
 }
 
