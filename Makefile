@@ -5,8 +5,7 @@ VPATH=core
 FRAMEWORKS:= -framework Foundation
 LIBRARIES:= -lobjc
 
-SRCS=main.m \
-     EwsHttpWebRequest.m
+SRCS=main.m 
 
 OBJS=$(SRCS:%.m=objects/%.o)
 
