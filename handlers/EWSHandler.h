@@ -10,7 +10,7 @@
 @interface EWSHandler : NSObject <EWSHandlerProtocol>
 
 
-- (id) initWithClass: (Class) cls;
+- (id)initWithClass: (Class)cls;
 
 /**
  * The serialization/deserialization of property.
@@ -28,11 +28,11 @@
                 withDelegateClassKey: (Class) cls
                 useSelector         : (NSString *) sel;
 
+- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag;
 
-- (EWSHandler*) handlerForElement: (NSString *) tag;
 
 /** Return the handler for the class */
-+ (EWSHandler*) handlerForClass: (Class) cls;
++ (id<EWSHandlerProtocol>) handlerForClass: (Class) cls;
                  
 @end
 
@@ -41,7 +41,7 @@
 
 @property (readonly) EWSParserDelegate* parent;
 
-- (id) initWithHandler: (EWSHandler *) handler andParent:(EWSParserDelegate *) parent;
+- (id) initWithHandler: (id<EWSHandlerProtocol>) handler andParent:(EWSParserDelegate *) parent;
 
 - (void) parser:(NSXMLParser*)parser 
                 didStartElement: (NSString *)elementName 

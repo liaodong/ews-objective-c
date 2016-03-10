@@ -2,8 +2,13 @@
 
 @protocol EWSHandlerProtocol <NSObject>
 
-- (id) construct;
-- (void) setElement:(NSString*) elem withObject:(id) value;
+- (id) constructWithAttributes: (NSDictionary *)attributes;
+
+- (id) updateObject:(id)obj withCharacters:(NSString*)s;
+
+- (id) updateObject:(id)obj forKey:(NSString*)tag withValue:(id)v;
+
+- (id<EWSHandlerProtocol>) handlerForElement:(NSString*) elementName;
 
 @end
 
