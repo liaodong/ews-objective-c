@@ -1,13 +1,12 @@
 #import <Foundation/Foundation.h>
-
 #import "EWSPropertyTagType.h"
-@implementation EWSPropertyTagType 
 
-static int minLength = 1;
+@implementation EWSPropertyTagType 
 
 + (void) initialize
 {
-    [[EWSPropertyTagType alloc] init];}
+    [[EWSPropertyTagType alloc] init];
+}
 
 - (id) init
 {
@@ -22,14 +21,26 @@ static int minLength = 1;
 
 - (id) updateObject:(id)obj withCharacters:(NSString*) s
 {
-    return s;
+    s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+    if ([s hasPrefix:@"0x"] || [s hasPrefix:@"0X"])
+    {
+        unsigned int val;
+        NSScanner* scanner = [NSScanner scannerWithString:s];
+        [scanner scanHexInt:&val];
+        return [NSNumber numberWithUnsignedShort:val];
+    }
+    else 
+    {
+        return [NSNumber numberWithUnsignedShort:[s integerValue]]; 
+    }
+    return obj;
 }
 
 - (void) writeXmlInto:(NSMutableString*)buffer forObject:(id) object
 {
-    NSString* obj = ((NSString*) object);
-    NSAssert([obj length] >= minLength, @"String should have a min length");
-    [buffer appendString:obj];
+    NSNumber* obj = ((NSNumber*) object);
+    [buffer appendFormat:@"%d", [obj unsignedShortValue]];
 }
 
 @end
