@@ -567,6 +567,10 @@ static const char* prefix = "EWS";
                         }
                         else NSLog(@"string type is not enumeration %@ %@", [elem tagName], [elem name]);
                     }
+                    else if ([[child base] isEqual:@"xs:int"]) {
+                        if ([self forElement:child areChildren:@"minInclusive,minInclusive"]) {
+                        }
+                    }
                     else if ([[child base] isEqual:@"t:NonEmptyStringType"]) {
                         if ([[child children] count] == 0)
                         {
