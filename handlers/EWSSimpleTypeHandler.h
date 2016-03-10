@@ -5,6 +5,8 @@
 
 - (id)initWithClass: (Class)cls;
  
+- (id) construct;
+
 - (id) constructWithAttributes: (NSDictionary *)attributes;
  
 - (id) updateObject:(id)obj withCharacters:(NSString*)s;

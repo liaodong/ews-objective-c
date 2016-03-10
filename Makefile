@@ -1,6 +1,6 @@
 CC=clang # or gcc
 
-VPATH=core handlers
+VPATH=core handlers types
 
 FRAMEWORKS:= -framework Foundation
 LIBRARIES:= -lobjc
@@ -9,13 +9,19 @@ SRCS=main.m generator.m $(subst handlers/, ,$(wildcard handlers/*.m))
 
 OBJS=$(SRCS:%.m=objects/%.o)
 
+GEN_SRCS=$(subst types/, ,$(wildcard types/*.m))
+GEN_OBJS=$(GEN_SRCS:%.m=objects/%.o)
+
 CFLAGS=-Wall -Werror -g  $(SOURCE)
 LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
 OUT=-o main
 
-run : main
-	./main
+run : gen $(GEN_OBJS)
+	echo "Done $(GEN_SRCS)"
 
+gen : main
+	./main
+	touch gen
 
 main : $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(OUT)
