@@ -1,17 +1,21 @@
 CC=clang # or gcc
 
-VPATH=core
+VPATH=core handlers
 
 FRAMEWORKS:= -framework Foundation
 LIBRARIES:= -lobjc
 
-SRCS=main.m generator.m
+SRCS=main.m generator.m EWSHandler.m
 
 OBJS=$(SRCS:%.m=objects/%.o)
 
 CFLAGS=-Wall -Werror -g  $(SOURCE)
 LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
 OUT=-o main
+
+run : main
+	./main
+
 
 main : $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(OUT)

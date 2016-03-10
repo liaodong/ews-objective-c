@@ -5,10 +5,34 @@
     NSMutableArray* children;
 }
 
-+ (id) init;
+- (id) initWithParent:(Element*) parent andName:(NSString*)name;
 
-@property (assign) Element* parent;
+@property (strong) NSString* tagName;
+@property (assign) Element*  parent;
 
+@property (strong) NSString* abstract;
+@property (strong) NSString* base;
+@property (strong) NSString* elementFormDefault;
+@property (strong) NSString* fixed;
+@property (strong) NSString* id;
+@property (strong) NSString* itemType;
+@property (strong) NSString* maxOccurs;
+@property (strong) NSString* memberTypes;
+@property (strong) NSString* minOccurs;
+@property (strong) NSString* mixed;
+@property (strong) NSString* name;
+@property (strong) NSString* namespace;
+@property (strong) NSString* nillable;
+@property (strong) NSString* ref;
+@property (strong) NSString* substitutionGroup;
+@property (strong) NSString* targetNamespace;
+@property (strong) NSString* type;
+@property (strong) NSString* use;
+@property (strong) NSString* value;
+@property (strong) NSString* version;
+@property (strong) NSString* resultType;
+
+- (NSArray*) children;
 @end
 
 @interface Generator  : NSObject <NSXMLParserDelegate>
@@ -25,6 +49,8 @@
 - (void) parser:(NSXMLParser *)parser didEndMappingPrefix:(NSString *)prefix;
 
 - (void) parse;
+- (void) generate;
+
 @end
 
 

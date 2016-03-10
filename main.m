@@ -39,12 +39,35 @@
 
 + (void) initialize
 {
-    TagHelper tag = [XmlHelper registerClass:[CreateItem class] 
-                               forTag:@"CreateItem" 
-                               inNamespace:@"http://schemas.microsoft.com/exchange/services/2006/messages" ];
+    Handler handler = [Handler initWithClass:[CreateItem class]];
 
-    [tag registerElement:@"Items" withHandler:[NonEmptyArrayOfItems class] withSelector:@"items"];
+    [handler registerAttribute:@"Attr" withPropertyKey:@"attr"];
+
+    [handler registerElement:@"Items" withHandler:[NonEmptyArrayOfItems class] withPropertyKey:@"items"];
+    [handler registerElement:@"Items" withHandler:[NonEmptyArrayOfItems class] withPropertyKey:@"items" andSelector:@"addItem"];
+
+    [handler registerForCharacters:@"text"];
 }
+@end
+
+
+@implementation Deserializer
+    start ()
+    {
+        if (start) 
+        {
+            Element* elem = [[Element alloc] initWithParent: self andHandler:[Handler handlerFor:tag]];
+            [elem parseAttributes:attributes];
+            [parser setDelegate:elem];
+        }
+    }
+    end ()
+    {
+        SEL selector = [handler selectorFor:tag];
+        [[[handler xmlClass] alloc] init]
+        [parent addChild:object forTag:tag];
+        [parser setDelegate:parent];
+    }
 @end
 
 + (id) populateUsingStream:(XmlStream*) stream
@@ -78,6 +101,7 @@
 @end
 
 int main (int argc, const char* argv[]) {
+/*
     @autoreleasepool {
         NSLog (@"Hello, World!");
     }
@@ -87,7 +111,11 @@ int main (int argc, const char* argv[]) {
 
     [[cls deserializeFromXml] release];
 
-    [[[Generator alloc] initWithFile: @"ews_xsd/types.xsd"] parse];
+*/
+    Generator *generator = [[Generator alloc] initWithFile: @"ews_xsd/types.xsd"];
+
+    [generator parse];
+    [generator generate];
     return 0;
 }
 
