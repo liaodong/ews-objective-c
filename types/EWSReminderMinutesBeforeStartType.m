@@ -1,16 +1,16 @@
 #import <Foundation/Foundation.h>
-#import "EWSPropertyTagType.h"
+#import "EWSReminderMinutesBeforeStartType.h"
 
-@implementation EWSPropertyTagType 
+@implementation EWSReminderMinutesBeforeStartType 
 
 + (void) initialize
 {
-    [[EWSPropertyTagType alloc] init];
+    [[EWSReminderMinutesBeforeStartType alloc] init];
 }
 
 - (id) init
 {
-    self = [super initWithClass:[EWSPropertyTagType class]];
+    self = [super initWithClass:[EWSReminderMinutesBeforeStartType class]];
     return self;
 }
 
@@ -28,11 +28,11 @@
         unsigned int val;
         NSScanner* scanner = [NSScanner scannerWithString:s];
         [scanner scanHexInt:&val];
-        return [NSNumber numberWithUnsignedShort:val];
+        return [NSNumber numberWithUnsignedInteger:val];
     }
     else 
     {
-        return [NSNumber numberWithUnsignedShort:[s integerValue]]; 
+        return [NSNumber numberWithUnsignedInteger:[s integerValue]]; 
     }
     return obj;
 }
@@ -40,7 +40,7 @@
 - (void) writeXmlInto:(NSMutableString*)buffer forObject:(NSNumber*) object
 {
     NSNumber* obj = ((NSNumber*) object);
-    [buffer appendFormat:@"%d", [obj unsignedShortValue]];
+    [buffer appendFormat:@"%ul", [obj unsignedIntegerValue]];
 }
 
 @end
