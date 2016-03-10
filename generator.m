@@ -560,6 +560,7 @@ static const char* prefix = "EWS";
 
     fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*) s\n", returnType, returnType);
     fprintf (file, "{\n");
+    fprintf (file, "    s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];\n");
     fprintf (file, "    return [enumerations containsObject:s] ? s : obj;\n");
     fprintf (file, "}\n\n");
    
@@ -638,9 +639,13 @@ static const char* prefix = "EWS";
     for (Element* elem in [current children])
     {
         if ([[elem tagName] isEqual:simpleType]) {
-            if ([[elem name] isEqual:@"PropertyTagType"]) 
+            if ([[elem name] isEqual:@"PropertyTagType"] || [[elem name] isEqual:@"ReminderMinutesBeforeStartType"]) 
             {
                 [elem setResultType:@"NSNumber*"];
+            }
+            else if ([[elem name] isEqual:@"DaysOfWeekType"])
+            {
+                [elem setResultType:@"NSMutableArray*"];
             }
             else if ([[elem children] count] == 1)
             {

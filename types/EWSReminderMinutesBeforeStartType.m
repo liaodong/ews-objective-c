@@ -40,7 +40,7 @@
 - (void) writeXmlInto:(NSMutableString*)buffer forObject:(NSNumber*) object
 {
     NSNumber* obj = ((NSNumber*) object);
-    [buffer appendFormat:@"%ul", [obj unsignedIntegerValue]];
+    [buffer appendFormat:@"%lu", [obj unsignedIntegerValue]];
 }
 
 @end
