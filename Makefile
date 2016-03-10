@@ -5,7 +5,7 @@ VPATH=core handlers
 FRAMEWORKS:= -framework Foundation
 LIBRARIES:= -lobjc
 
-SRCS=main.m generator.m EWSHandler.m
+SRCS=main.m generator.m $(subst handlers/, ,$(wildcard handlers/*.m))
 
 OBJS=$(SRCS:%.m=objects/%.o)
 

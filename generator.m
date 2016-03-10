@@ -112,6 +112,82 @@ static NSMutableArray* array;
 
 static const char* prefix = "EWS";
 
+- (void) simpleEnumeratedString:(Element*) elem
+{
+    Element* child = [[elem children] objectAtIndex: 0];
+
+    const char* name = [[elem name] UTF8String];
+
+    char filename[1024];
+    sprintf (filename, "types/%s%s.h", prefix, name);
+    
+    FILE* file = fopen (filename, "w");
+    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
+    fprintf (file, "#import \"handlers/%sSimpleTypeHandler.h\"", prefix);
+    fprintf (file, "\n\n\n");
+    fprintf (file, "/** %s type can be one of the following:\n", name);
+
+    int idx = 1;
+    for (Element *e in [child children])
+    {
+        const char* v = [[e value] UTF8String];
+        fprintf (file, " *       %d %s\n", idx++, v);
+    }
+    fprintf (file, " */\n");
+    fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
+   
+    fprintf (file, "/** Register a handler to parse %s */\n", name);
+    fprintf (file, "+ (void) initialize;\n\n");
+
+    fprintf (file, "/** Construct the object */\n");
+    fprintf (file, "- (id) construct;\n\n");
+
+    fprintf (file, "/** Process the characters */\n");
+    fprintf (file, "- (id) updateObject:(id)obj withCharacters:(NSString*)s;\n\n");
+    
+    fprintf (file, "/** Write to the buffer the string value */\n");
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(id) object;\n\n");
+    
+    fprintf (file, "@end\n\n");
+    fclose (file);
+
+    sprintf (filename, "types/%s%s.m", prefix, name);
+    
+    file = fopen (filename, "w");
+    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
+    fprintf (file, "#import \"%s%s.h\"", prefix, name);
+    fprintf (file, "\n");
+    fprintf (file, "@implementation %s%s \n\n", prefix, name);
+    
+    fprintf (file, "+ (void) initialize\n");
+    fprintf (file, "{\n");
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "- (id) init\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    self = [super init];\n");
+    fprintf (file, "    return self;\n");
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "- (id) construct\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return nil;\n");
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "- (id) updateObject:(id)obj withCharacters:(NSString*) s\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return s;\n");
+    fprintf (file, "}\n\n");
+   
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(id) object\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    [buffer appendString:((NSString*) object)];\n"); 
+    fprintf (file, "}\n\n");
+    
+    fprintf (file, "@end\n\n");
+    fclose (file);
+}
+
 - (void) generateStrings
 {
     NSString* simpleType = @"simpleType";
@@ -125,41 +201,8 @@ static const char* prefix = "EWS";
                 if ([[child tagName] isEqual:@"restriction"]) {
                     if ([[child base] isEqual:@"xs:string"]) {
                         if ([self forElement:child areChildren:@"enumeration"]) {
-                            const char* name = [[elem name] UTF8String];
 
-                            char filename[1024];
-                            sprintf (filename, "handlers/%s%s.h", prefix, name);
-    
-                            FILE* file = fopen (filename, "w");
-                            fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
-                            fprintf (file, "#import \"%sHandler.h\"", prefix);
-                            fprintf (file, "\n");
-                            fprintf (file, "/** %s type can be one of the following:\n", name);
-
-                            int idx = 1;
-                            for (Element *e in [child children])
-                            {
-                                const char* v = [[e value] UTF8String];
-                                fprintf (file, " *       %d %s\n", idx++, v);
-                            }
-                            fprintf (file, " */\n");
-                            fprintf (file, "@interface %s%s : %sHandler \n\n", prefix, name, prefix);
-    
-                            fprintf (file, "/** Register a handler to parse the string */\n");
-                            fprintf (file, "+ (void) initialize;\n\n");
-    
-                            fprintf (file, "/** Process the characters from the XML document */\n");
-                            fprintf (file, "- (void) characters: (NSString*) string;\n\n");
-    
-                            fprintf (file, "/** The value after parsing the xml stream. */\n");
-                            fprintf (file, "- (NSString*) fromXml;\n\n");
-    
-                            fprintf (file, "/** Write to the buffer the string value */\n");
-                            fprintf (file, "- (void) toXml:(NSMutableString*)buffer;\n\n");
-    
-                            fprintf (file, "@end\n\n");
-                            fclose (file);
-    
+                            [self simpleEnumeratedString:elem];
                             [elem setResultType:@"NSString*"];
                         }
                         else NSLog(@"string type is not enumeration %@ %@", [elem tagName], [elem name]);
