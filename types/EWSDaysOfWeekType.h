@@ -25,13 +25,13 @@
 - (id) initWithClass:(Class) cls;
 
 /** construct an empty list */
-- (NSMutableArray*) construct;
+- (NSMutableArray<NSString*> *) construct;
 
 /** Process the characters */
-- (NSMutableArray *) updateObject:(NSMutableArray *)obj withCharacters:(NSString*)s;
+- (NSMutableArray<NSString *> *) updateObject:(NSMutableArray<NSString *> *)obj withCharacters:(NSString*)s;
 
 /** Write to the buffer the string value */
-- (void) writeXmlInto:(NSMutableString*)buffer forObject:(NSMutableArray *) object;
+- (void) writeXmlInto:(NSMutableString*)buffer forObject:(NSMutableArray<NSString *> *) object;
 
 @end
 

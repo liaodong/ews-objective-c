@@ -643,9 +643,9 @@ static const char* prefix = "EWS";
             {
                 [elem setResultType:@"NSNumber*"];
             }
-            else if ([[elem name] isEqual:@"DaysOfWeekType"])
+            else if ([[elem name] isEqual:@"DaysOfWeekType"] || [[elem name] isEqual:@"FreeBusyViewType"])
             {
-                [elem setResultType:@"NSMutableArray*"];
+                [elem setResultType:@"NSMutableArray<NSString*>*"];
             }
             else if ([[elem children] count] == 1)
             {

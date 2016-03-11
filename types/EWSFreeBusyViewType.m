@@ -1,18 +1,18 @@
 #import <Foundation/Foundation.h>
 
-#import "EWSDaysOfWeekType.h"
-@implementation EWSDaysOfWeekType 
+#import "EWSFreeBusyViewType.h"
+@implementation EWSFreeBusyViewType 
 
 static NSSet* enumerations = nil;
 
 + (void) initialize
 {
-    enumerations = [NSSet setWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Day", @"Weekday", @"WeekendDay", nil];
-    [[EWSDaysOfWeekType alloc] init];}
+    enumerations = [NSSet setWithObjects:@"None", @"MergedOnly", @"FreeBusy", @"FreeBusyMerged", @"Detailed", @"DetailedMerged", nil];
+    [[EWSFreeBusyViewType alloc] init];}
 
 - (id) init
 {
-    self = [super initWithClass:[EWSDaysOfWeekType class]];
+    self = [super initWithClass:[EWSFreeBusyViewType class]];
     return self;
 }
 
@@ -22,12 +22,12 @@ static NSSet* enumerations = nil;
     return self;
 }
 
-- (NSMutableArray<NSString *> *) construct
+- (NSMutableArray *) construct
 {
-    return [[NSMutableArray<NSString *> alloc] init];
+    return [[NSMutableArray alloc] init];
 }
 
-- (NSMutableArray<NSString *> *) updateObject:(NSMutableArray<NSString *> *)obj withCharacters:(NSString*) s
+- (NSMutableArray *) updateObject:(NSMutableArray *)obj withCharacters:(NSString*) s
 {
     s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];   
     for (NSString* e in [s componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]) {
@@ -38,9 +38,9 @@ static NSSet* enumerations = nil;
     return obj;
 }
 
-- (void) writeXmlInto:(NSMutableString*)buffer forObject:(NSMutableArray<NSString *> *) object
+- (void) writeXmlInto:(NSMutableString*)buffer forObject:(NSMutableArray *) object
 {
-    NSMutableArray<NSString *>* obj = ((NSMutableArray<NSString *>*) object);
+    NSMutableArray* obj = ((NSMutableArray*) object);
 
     BOOL addSpace = FALSE;
 
