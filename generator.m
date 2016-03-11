@@ -716,7 +716,7 @@ static const char* prefix = "EWS";
 }
 - (BOOL) isArrayType:(Element*) elem
 {
-    return [self isSimpleArrayType:elem] || [self isChoiceArray:elem];
+    return [self isSimpleArrayType:elem] || [self isChoiceArrayType:elem];
 }
 
 - (BOOL) isChoiceArrayType:(Element*) elem
@@ -761,14 +761,18 @@ static const char* prefix = "EWS";
 {
     if ([self isArrayType:elem]) return false;
     if (![[elem tagName] isEqual:@"complexType"]) return false;
-    if ([[elem children] count] != 1) return false;
+    if ([[elem children] count] == 0) return false;
 
     Element* child = [[elem children] objectAtIndex: 0];
-
     if (![[child tagName] isEqual:@"sequence"]) return false;
-
     if (![self forElement:child areChildren:@"element"]) return false;
 
+    for (int i = 1; i < [[elem children] count]; i++)
+    {
+    NSLog(@"count = %lu idx %d", [[elem children] count], i);
+        if (![[[[elem children] objectAtIndex:i] tagName] isEqual:@"attribute"])
+            return false;
+    }
     for (Element *e in [child children]) {
         if ([[e children] count] != 0) return false;
     }
@@ -823,10 +827,24 @@ static const char* prefix = "EWS";
         if (![e maxOccurs]) {
             fprintf (file, "@property %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
+        else if ([[e maxOccurs] isEqual:@"unbounded"])
+        {
+            NSString* str = [[NSString alloc] initWithFormat:@"NSMutableArray<%@>*", [self objectType:[e type]]];
+            fprintf (file, "@property %s %s;\n", [[self pad:str toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+        }
         else
         {
             NSLog (@"maxOccurs is %@", [e maxOccurs]);
             exit (-1);
+        }
+    }
+
+    fprintf (file, "\n\n");
+    for  (Element* e in [sequence children])
+    {
+        if ([e maxOccurs] && [[e maxOccurs] isEqual:@"unbounded"])
+        {
+            fprintf (file, "- (void) add%s:(%s) elem;\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
         }
     }
 
@@ -842,6 +860,12 @@ static const char* prefix = "EWS";
     NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
     for  (Element* e in [sequence children]) {
         [includes addObject:[self includeFile:[e type]]];
+    }
+    for (Element* e in [elem children]) {
+        if ([[e tagName] isEqual:@"attribute"])
+        {
+            [includes addObject:[self includeFile:[e type]]];
+        }
     }
     for  (NSString* i in includes) {
         fprintf (file, "#import \"%s\"\n", [i UTF8String]);
@@ -859,6 +883,13 @@ static const char* prefix = "EWS";
     {
         if (![e maxOccurs]) {
             fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+        }
+        else if ([[e maxOccurs] isEqual:@"unbounded"])
+        {
+            fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             useSelector: @\"add%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
