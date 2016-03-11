@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol EWSHandlerProtocol <NSObject>
+
 /** Object construction from XML document */
 - (id) constructWithAttributes: (NSDictionary *)attributes;
 
@@ -14,10 +15,8 @@
 - (id<EWSHandlerProtocol>) handlerForElement:(NSString*) elementName;
 
 
-/** XML String generation from Object representation */
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentationDepth:(int) depth;
+/** XML String generation from Object representation, indent should be nil for compact representation */
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
 
-/** During pretty print, is the element inlined */
-- (BOOL) isInline;
 @end
 

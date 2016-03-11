@@ -12,27 +12,26 @@
 
 - (id)initWithClass: (Class)cls;
 
-/**
- * The serialization/deserialization of property.
- */ 
-- (void) property:(NSString *) property
-                hasXmlElementTag    : (NSString*) tag
-                withDelegateClassKey: (Class) cls;
+- (void) property   :(NSString *) property
+         isRequired :(BOOL) required
+         withXmlTag :(NSString*) tag
+         withHandler:(Class) cls;
 
-/**
- * The serialization/deserialization of property.
- * Use the selector instead of property setter to set/add the value.
- */ 
-- (void) property:(NSString *) property
-                hasXmlElementTag    :  (NSString*) tag
-                withDelegateClassKey: (Class) cls
-                useSelector         : (NSString *) sel;
+- (void) property    :(NSString *) property
+         isRequired  :(BOOL) required
+         withAttrTag :(NSString*) tag
+         withHandler :(Class) cls;
+
+- (void) listProperty :(NSString *) property
+         isNonEmpty   :(BOOL) required
+         useSelector  :(NSString*) method
+         withXmlTag   :(NSString*) tag
+         withHandler  :(Class) cls;
+
 
 - (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag;
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentationDepth:(int) depth;
-
-- (BOOL) isInline;
+- (void) writeXmlInto:(NSMutableString*) buffer for:(id) object withIndentation:(NSString*) indent;
 
 @end
 

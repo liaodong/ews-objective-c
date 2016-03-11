@@ -49,37 +49,57 @@
     return selector;
 }
 
+- (BOOL) isList
+{
+    return selector ? TRUE : FALSE;
+}
+
 @end
 
 
 @implementation EWSObjectTypeHandler
 {
-    Class cls;
-    NSMutableDictionary* handlers;
+    Class clazz;
+
+    NSMutableArray*      keys;
+    NSMutableDictionary* elements;
+
+    NSMutableDictionary* attributes;
 }
 
 - (id) initWithClass: (Class) c
 {
     self = [super initWithClass:c];
 
-    cls = c;
-    handlers  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+    clazz = c;
+
+    keys      = [[NSMutableArray alloc] initWithCapacity: 32];
+    elements  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+
     return self;
 }
 
-- (id) constructWithAttributes: (NSDictionary *)attributes
+- (id) constructWithAttributes: (NSDictionary *)attrs
 {
-    id v = [[cls alloc] init];
-    for (NSString* key in attributes)
+    id v = [[clazz alloc] init];
+
+    for (NSString* key in attrs)
     {
-      [self updateObject:v forKey:key withValue:[attributes objectForKey:key]];
+        EWSHandlerValue* h = [attributes objectForKey:key];
+        if (h) {
+            id<EWSHandlerProtocol> handler = [EWSHandler handlerForClass:[h cls]];
+
+            id obj = [handler constructWithAttributes:nil];
+            obj = [handler updateObject:obj withCharacters:[attrs objectForKey:key]];
+            [obj setValue:obj forKey:[h prop]];
+        }
     }
     return v;
 }
 
 - (id) updateObject:(id)obj forKey:(NSString*)tag withValue:(id)v
 {
-    EWSHandlerValue* h = [handlers objectForKey:tag];
+    EWSHandlerValue* h = [elements objectForKey:tag];
 
     if ([h sel]) {
         [obj performSelector: [h selector] withObject:v];
@@ -95,34 +115,95 @@
     return obj;
 }
 
-- (void) property:(NSString *) property
-                hasXmlElementTag    : (NSString*) tag
-                withDelegateClassKey: (Class) c
+
+- (void) property   :(NSString *) property
+         isRequired :(BOOL) required
+         withXmlTag :(NSString*) tag
+         withHandler:(Class) cls
 {
-    [handlers setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey: c] forKey:tag];
-}
-- (void) property:(NSString *) property
-                hasXmlElementTag    :  (NSString*) tag
-                withDelegateClassKey: (Class) c
-                useSelector         : (NSString *) sel
-{
-    [handlers setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey: c withSelector:sel] forKey:tag];
+    [keys     addObject:tag];
+    [elements setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey: cls] forKey:tag];
 }
 
+- (void) property    :(NSString *) property
+         isRequired  :(BOOL) required
+         withAttrTag :(NSString*) tag
+         withHandler :(Class) cls
+{
+    [attributes setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey: cls] forKey:tag];
+}
+
+- (void) listProperty :(NSString *) property
+         isNonEmpty   :(BOOL) required
+         useSelector  :(NSString*) method
+         withXmlTag   :(NSString*) tag
+         withHandler  :(Class) cls
+{
+    [keys     addObject:tag];
+    [elements setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey:cls withSelector:method] forKey:tag];
+}
 
 - (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag
 {
-    return [handlers objectForKey: tag];
+    return [elements objectForKey: tag];
 }
 
-
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentationDepth:(int) depth
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
 {
-}
+    bool hasElements = FALSE;
 
-- (BOOL) isInline
-{
-    return FALSE;
+    for (NSString* key in attributes)
+    {
+        EWSHandlerValue* h = [attributes objectForKey:key];
+        id v = [object valueForKey:[h prop]];
+        if (v)
+        {
+            [buffer appendString:@" "];
+            [buffer appendString:key];
+            [buffer appendString:@"=\""];
+            [[EWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:v withIndentation:indent];
+            [buffer appendString:@"\""];
+        }
+    }
+    [buffer appendString:@">"];
+
+    for (NSString* key in elements)
+    {
+        EWSHandlerValue* h = [attributes objectForKey:key];
+
+        if ([h isList])
+        {
+            id v = [object valueForKey:[h prop]];
+            if (v)
+            {
+                if (!hasElements) {
+                    hasElements = TRUE;
+                    if (indent)
+                    {
+                        [buffer appendString:@"\n"];
+                        [indent appendString:@"  "];
+                        [buffer appendString:indent];
+                    }
+                }
+                [buffer appendString:@"<"];
+                [buffer appendString:key];
+                [[EWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:v withIndentation:indent];
+                [buffer appendString:@"</"];
+                [buffer appendString:key];
+                [buffer appendString:@">"];
+            }
+        }
+    }
+    if (indent && hasElements)
+    {
+        NSRange range;
+        range.location = [indent length] - 2;
+        range.length   = 2;
+
+        [buffer appendString:@"\n"];
+        [indent deleteCharactersInRange:range];
+        [buffer appendString:indent];
+    }
 }
 
 

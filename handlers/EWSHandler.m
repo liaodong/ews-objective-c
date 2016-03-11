@@ -2,6 +2,9 @@
 
 
 @implementation EWSHandler
+{
+    Class clazz;
+}
 
 static NSMutableDictionary* _handlers = nil;
 
@@ -21,8 +24,13 @@ static NSMutableDictionary* _handlers = nil;
 - (id) initWithClass: (Class) cls
 {
     self = [super init];
-    [_handlers setObject:self forKey: [cls className]];
+    clazz = cls;
     return self;
+}
+
+- (void) register
+{
+    [_handlers setObject:self forKey: [clazz className]];
 }
 
 + (id<EWSHandlerProtocol>) handlerForClass: (Class) cls
@@ -54,13 +62,8 @@ static NSMutableDictionary* _handlers = nil;
     return nil;
 }
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentationDepth:(int) depth
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
 {
-}
-
-- (BOOL) isInline
-{
-    return FALSE;
 }
 
 @end

@@ -1,6 +1,9 @@
 #import "EWSHandler.h"
 
 
+/** 
+ * These are handlers that are constructed using withCharacters data
+ */
 @interface EWSSimpleTypeHandler : EWSHandler
 
 - (id)initWithClass: (Class)cls;

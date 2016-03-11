@@ -812,6 +812,9 @@ static const char* prefix = "EWS";
     fprintf (file, "/* %s */\n", name);
 
     fprintf (file, "@interface %s%s : NSObject\n\n", prefix, name);
+
+
+    [elem setResultType:[[elem name] stringByAppendingString:@"*"]];
    
     fprintf (file, "+ (void) initialize;\n\n");
 
@@ -839,17 +842,17 @@ static const char* prefix = "EWS";
     for (int i = 1; i < [[elem children] count]; i++)
     {
             Element* e = [[elem children] objectAtIndex: i];
-            fprintf (file, "@property %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
     }
     for  (Element* e in [sequence children])
     {
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
-            fprintf (file, "@property %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
         else if ([[e maxOccurs] isEqual:@"unbounded"])
         {
             NSString* str = [[NSString alloc] initWithFormat:@"NSMutableArray<%@>*", [self objectType:[e type]]];
-            fprintf (file, "@property %s %s;\n", [[self pad:str toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "@property (retain) %s %s;\n", [[self pad:str toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
         else
         {
@@ -897,7 +900,7 @@ static const char* prefix = "EWS";
     
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
-    fprintf (file, "    %sObjectTypeHandler handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, prefix, name);
+    fprintf (file, "    %sObjectTypeHandler* handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, prefix, name);
 
     for (int i = 1; i < [[elem children] count]; i++)
     {
@@ -1116,6 +1119,17 @@ static const char* prefix = "EWS";
         if (r == [self resolved])
             break;
     }
+
+/*
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"complexType"] && ![self isResolved:elem])
+        {
+            NSLog(@"Fix %@", [elem name]);
+            exit (-1);
+        }
+    }
+*/
 }
 
 @end

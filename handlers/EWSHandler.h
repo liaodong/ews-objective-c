@@ -10,7 +10,7 @@
 
 + (void) initialize;
 
-- (id)initWithClass: (Class)cls;
+- (id) initWithClass: (Class)cls;
 
 - (id) constructWithAttributes: (NSDictionary *)attributes;
 
@@ -20,10 +20,9 @@
 
 - (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag;
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentationDepth:(int) depth;
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
 
-- (BOOL) isInline;
-
+- (void) register;
 
 /** Return the handler for the class */
 + (id<EWSHandlerProtocol>) handlerForClass: (Class) cls;
