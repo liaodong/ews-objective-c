@@ -714,9 +714,31 @@ static const char* prefix = "EWS";
         }
     }
 }
-
-
 - (BOOL) isArrayType:(Element*) elem
+{
+    return [self isSimpleArrayType:elem] || [self isChoiceArray:elem];
+}
+
+- (BOOL) isChoiceArrayType:(Element*) elem
+{
+    if (![[elem tagName] isEqual:@"complexType"]) return false;
+    if ([[elem children] count] != 1) return false;
+
+    Element* child = [[elem children] objectAtIndex: 0];
+
+    if (![[child tagName] isEqual:@"choice"]) return false;
+
+    if (![self forElement:child areChildren:@"element"]) return false;
+    if ([[child children] count] != 1) return false;
+
+    for (Element *e in [child children]) {
+        if ([[e children] count] != 0) return false;
+        if ([e maxOccurs] && [[e maxOccurs] isEqual:@"unbounded"]) return true;
+    }
+    return false;
+}
+
+- (BOOL) isSimpleArrayType:(Element*) elem
 {
     if (![[elem tagName] isEqual:@"complexType"]) return false;
     if ([[elem children] count] != 1) return false;
