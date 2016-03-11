@@ -139,7 +139,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
     fprintf (file, "\n\n\n");
-    fprintf (file, "/** %s is a regex %s string */\n", name, [pattern UTF8String]);
+    fprintf (file, "/** SimpleType: %s is a regex %s string */\n", name, [pattern UTF8String]);
 
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
@@ -168,7 +168,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"%s%s.h\"", prefix, name);
     fprintf (file, "\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
+    fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
 
     fprintf (file, "static NSString* pattern = nil;\n\n");
     
@@ -229,7 +229,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
     fprintf (file, "\n\n\n");
-    fprintf (file, "/** %s is string  */\n", name);
+    fprintf (file, "/** SimpleType: %s is string  */\n", name);
 
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
@@ -255,7 +255,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"%s%s.h\"", prefix, name);
     fprintf (file, "\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
+    fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
 
     
     fprintf (file, "+ (void) initialize\n");
@@ -318,7 +318,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
     fprintf (file, "\n\n\n");
-    fprintf (file, "/** %s is a int between [%s, %s] */\n", name, min ? [min UTF8String] : "-Inf", max ? [max  UTF8String] : "+Inf");
+    fprintf (file, "/** SimpleType: %s is a int between [%s, %s] */\n", name, min ? [min UTF8String] : "-Inf", max ? [max  UTF8String] : "+Inf");
 
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
@@ -344,7 +344,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"%s%s.h\"", prefix, name);
     fprintf (file, "\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
+    fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
 
     if (min) fprintf (file, "static int minInclusive = %s;\n\n", [min UTF8String]);
     if (max) fprintf (file, "static int maxInclusive = %s;\n\n", [max UTF8String]);
@@ -412,7 +412,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
     fprintf (file, "\n\n\n");
-    fprintf (file, "/** %s is a min length string of %s */\n", name, [min UTF8String]);
+    fprintf (file, "/** SimpleType: %s is a min length string of size %s */\n", name, [min UTF8String]);
 
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
@@ -438,7 +438,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"%s%s.h\"", prefix, name);
     fprintf (file, "\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
+    fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
 
     fprintf (file, "static int minLength = %s;\n\n", [min UTF8String]);
 
@@ -496,7 +496,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
     fprintf (file, "\n\n\n");
-    fprintf (file, "/** %s type can be one of the following:\n", name);
+    fprintf (file, "/** SimpleType: %s can be one of the following:\n", name);
 
     int idx = 1;
     for (Element *e in [child children])
@@ -536,7 +536,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"%s%s.h\"", prefix, name);
     fprintf (file, "\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
+    fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
 
     fprintf (file, "static NSSet* enumerations = nil;\n\n");
 
@@ -590,7 +590,6 @@ static const char* prefix = "EWS";
 
 -(void) extendNonEmptyStringType:(Element*) elem
 {
-    
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
@@ -600,7 +599,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"%sNonEmptyStringType.h\"", prefix);
     fprintf (file, "\n\n\n");
-    fprintf (file, "/** %s is string  */\n", name);
+    fprintf (file, "/** SimpleType: %s is string  */\n", name);
 
     fprintf (file, "@interface %s%s : %sNonEmptyStringType \n\n", prefix, name, prefix);
    
@@ -620,7 +619,7 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"%s%s.h\"", prefix, name);
     fprintf (file, "\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
+    fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
 
     
     fprintf (file, "+ (void) initialize\n");
@@ -714,6 +713,12 @@ static const char* prefix = "EWS";
         }
     }
 }
+
+- (BOOL) isResolved:(Element*) elem
+{
+    return [elem resultType] ? TRUE : FALSE;
+}
+
 - (BOOL) isArrayType:(Element*) elem
 {
     return [self isSimpleArrayType:elem] || [self isChoiceArrayType:elem];
@@ -734,6 +739,7 @@ static const char* prefix = "EWS";
     for (Element *e in [child children]) {
         if ([[e children] count] != 0) return false;
         if ([e maxOccurs] && [[e maxOccurs] isEqual:@"unbounded"]) return true;
+        if (![self objectType:[e type]]) return false;
     }
     return false;
 }
@@ -753,6 +759,7 @@ static const char* prefix = "EWS";
     for (Element *e in [child children]) {
         if ([[e children] count] != 0) return false;
         if ([e maxOccurs] && [[e maxOccurs] isEqual:@"unbounded"]) return true;
+        if (![self objectType:[e type]]) return false;
     }
     return false;
 }
@@ -769,12 +776,14 @@ static const char* prefix = "EWS";
 
     for (int i = 1; i < [[elem children] count]; i++)
     {
-    NSLog(@"count = %lu idx %d", [[elem children] count], i);
-        if (![[[[elem children] objectAtIndex:i] tagName] isEqual:@"attribute"])
+        Element* e = [[elem children] objectAtIndex:i];
+        if (![[e tagName] isEqual:@"attribute"])
             return false;
+        if (![self objectType:[e type]]) return false;
     }
     for (Element *e in [child children]) {
         if ([[e children] count] != 0) return false;
+        if (![self objectType:[e type]]) return false;
     }
     return true;
 }
@@ -808,11 +817,16 @@ static const char* prefix = "EWS";
 
     fprintf (file, "- (id) init;\n\n");
 
-
     unsigned int length = 8;
+    // Attributes
+    for (int i = 1; i < [[elem children] count]; i++)
+    {
+            Element* e = [[elem children] objectAtIndex: i];
+            length = [[self objectType:[e type]] length] > length ? [[self objectType:[e type]] length] : length;
+    }
     for  (Element* e in [sequence children])
     {
-        if (![e maxOccurs]) 
+        if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) 
         {
             length = [[self objectType:[e type]] length] > length ? [[self objectType:[e type]] length] : length;
         }
@@ -822,9 +836,14 @@ static const char* prefix = "EWS";
         }
     }
 
+    for (int i = 1; i < [[elem children] count]; i++)
+    {
+            Element* e = [[elem children] objectAtIndex: i];
+            fprintf (file, "@property %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+    }
     for  (Element* e in [sequence children])
     {
-        if (![e maxOccurs]) {
+        if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
             fprintf (file, "@property %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
         else if ([[e maxOccurs] isEqual:@"unbounded"])
@@ -879,19 +898,34 @@ static const char* prefix = "EWS";
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
     fprintf (file, "    %sObjectTypeHandler handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, prefix, name);
+
+    for (int i = 1; i < [[elem children] count]; i++)
+    {
+        Element* e = [[elem children] objectAtIndex: i];
+
+        bool required = [e use] && [[e use] isEqual:@"required"];
+        fprintf (file, "    [handler property    : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+        fprintf (file, "             isRequired  : %s\n", required ? "TRUE" : "FALSE");
+        fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
+        fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+    }
+
     for  (Element* e in [sequence children])
     {
-        if (![e maxOccurs]) {
+        bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
+        if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
             fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isRequired : %s\n", required ? "TRUE" : "FALSE");
             fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
         else if ([[e maxOccurs] isEqual:@"unbounded"])
         {
-            fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             useSelector: @\"add%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+            fprintf (file, "    [handler listProperty : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isNonEmpty   : %s\n", required ? "TRUE" : "FALSE");
+            fprintf (file, "             useSelector  : @\"add%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withXmlTag   : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler  : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
         else
         {
@@ -952,7 +986,6 @@ static const char* prefix = "EWS";
 
 
         NSLog(@"Unknown type %@", nm);
-        assert (false);
     }
 
     if ([nm hasPrefix:@"t:"])
@@ -963,14 +996,12 @@ static const char* prefix = "EWS";
         {
             if ([[elem name] isEqual:nm])
             {
-                return [elem resultType] ? [elem resultType] : @"Unknown*";
+                return [elem resultType];
             }
         }
         NSLog(@"Unknown type %@", nm);
-        assert (false);
     }
     NSLog(@"Unknown type %@", nm);
-    exit (-1);
     return nil;
 }
 
@@ -1062,10 +1093,29 @@ static const char* prefix = "EWS";
     return nil;
 }
 
+- (int) resolved
+{
+    int result = 0;
+    for (Element* elem in [current children])
+    {
+        if ([self isResolved:elem]) result++;
+    }
+    return result;
+}
+
 - (void) generate
 {
     [self generateForSimpleType];
-    [self generateForSimpleStruct];
+
+    while (TRUE)
+    {
+        int r = [self resolved];
+
+        [self generateForSimpleStruct];
+
+        if (r == [self resolved])
+            break;
+    }
 }
 
 @end

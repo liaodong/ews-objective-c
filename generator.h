@@ -50,6 +50,7 @@
 
 - (void) parse;
 - (void) generate;
+- (NSString*) objectType:(NSString*)nm;
 
 @end
 
