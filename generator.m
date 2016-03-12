@@ -797,6 +797,14 @@ static const char* prefix = "EWS";
     return s;
 }
 
+- (NSString*) trimTypeName:(NSString*)s
+{
+    if ([s hasPrefix:@"t:"]) {
+        return [s stringByReplacingOccurrencesOfString:@"t:" withString:@"EWS"];
+    }
+    return s;
+}
+
 -(void) generateForSimpleStructForElement:(Element*) elem
 {
     Element* sequence = [[elem children] objectAtIndex: 0];
@@ -809,50 +817,81 @@ static const char* prefix = "EWS";
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "\n\n\n");
+    NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
+    for  (Element* e in [sequence children]) {
+        [includes addObject:[self includeFile:[e type]]];
+    }
+    for (Element* e in [elem children]) {
+        if ([[e tagName] isEqual:@"attribute"])
+        {
+            [includes addObject:[self includeFile:[e type]]];
+        }
+    }
+    for  (NSString* i in includes) {
+        fprintf (file, "#import \"%s\"\n", [i UTF8String]);
+    }
+    fprintf (file, "\n\n\n");
     fprintf (file, "/* %s */\n", name);
 
     fprintf (file, "@interface %s%s : NSObject\n\n", prefix, name);
 
 
-    [elem setResultType:[[elem name] stringByAppendingString:@"*"]];
+    [elem setResultType:[@"EWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
    
     fprintf (file, "+ (void) initialize;\n\n");
 
-    fprintf (file, "- (id) init;\n\n");
+    fprintf (file, "- (id) init;\n");
+    fprintf (file, "- (Class) handlerClass;\n\n");
 
-    unsigned int length = 8;
+    unsigned int tlength = 8;
+    unsigned int nlength = 5;
     // Attributes
     for (int i = 1; i < [[elem children] count]; i++)
     {
             Element* e = [[elem children] objectAtIndex: i];
-            length = [[self objectType:[e type]] length] > length ? [[self objectType:[e type]] length] : length;
+            tlength = [[self objectType:[e type]] length] > tlength ? [[self objectType:[e type]] length] : tlength;
+            nlength = [[e name] length] > nlength ? [[e name] length] : nlength;
     }
     for  (Element* e in [sequence children])
     {
+        nlength = [[e name] length] > nlength ? [[e name] length] : nlength;
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) 
         {
-            length = [[self objectType:[e type]] length] > length ? [[self objectType:[e type]] length] : length;
+            tlength = [[self objectType:[e type]] length] > tlength ? [[self objectType:[e type]] length] : tlength;
         }
         else
         {
-            length = ([[self objectType:[e type]] length] + 17) > length ? ([[self objectType:[e type]] length] + 17) : length;
+            tlength = ([[self objectType:[e type]] length] + 17) > tlength ? ([[self objectType:[e type]] length] + 17) : tlength;
         }
     }
 
     for (int i = 1; i < [[elem children] count]; i++)
     {
             Element* e = [[elem children] objectAtIndex: i];
-            fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+            NSString* t = [self objectType:[e type]];
+
+            if ([t hasPrefix:@"NS"])
+                fprintf (file, "@property (retain) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
+            else
+                fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
     }
     for  (Element* e in [sequence children])
     {
+        NSString* t = [self objectType:[e type]];
+
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
-            fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+            if ([t hasPrefix:@"NS"])
+                fprintf (file, "@property (retain) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
+            else
+                fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
         else if ([[e maxOccurs] isEqual:@"unbounded"])
         {
             NSString* str = [[NSString alloc] initWithFormat:@"NSMutableArray<%@>*", [self objectType:[e type]]];
-            fprintf (file, "@property (retain) %s %s;\n", [[self pad:str toLength:length] UTF8String], [[self propertyName:[e name]] UTF8String]);
+            if ([t hasPrefix:@"NS"])
+                fprintf (file, "@property (retain) %s %s /* %s */;\n", [[self pad:str toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
+            else
+                fprintf (file, "@property (retain) %s %s;\n", [[self pad:str toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
         else
         {
@@ -879,19 +918,6 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sObjectTypeHandler.h\"\n\n", prefix);
 
-    NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
-    for  (Element* e in [sequence children]) {
-        [includes addObject:[self includeFile:[e type]]];
-    }
-    for (Element* e in [elem children]) {
-        if ([[e tagName] isEqual:@"attribute"])
-        {
-            [includes addObject:[self includeFile:[e type]]];
-        }
-    }
-    for  (NSString* i in includes) {
-        fprintf (file, "#import \"%s\"\n", [i UTF8String]);
-    }
 
     fprintf (file, "\n#import \"%s%s.h\"\n", prefix, name);
     fprintf (file, "\n\n");
@@ -943,6 +969,10 @@ static const char* prefix = "EWS";
     fprintf (file, "{\n");
     fprintf (file, "    return [super init];\n");
     fprintf (file, "}\n\n");
+    fprintf (file, "- (Class) handlerClass\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return [%s%s class];\n", prefix, name);
+    fprintf (file, "}\n\n");
 
     fprintf (file, "@end\n\n");
     fclose (file);
@@ -973,17 +1003,17 @@ static const char* prefix = "EWS";
     if ([nm hasPrefix:@"xs:"])
     {
         if ([nm isEqual:@"xs:string"])        return @"NSString*";
-        if ([nm isEqual:@"xs:int"])           return @"NSNumber*";
-        if ([nm isEqual:@"xs:boolean"])       return @"NSBoolean*";
-        if ([nm isEqual:@"xs:dateTime"])      return @"NSDateTime*";
-        if ([nm isEqual:@"xs:date"])          return @"NSDate*";
+        if ([nm isEqual:@"xs:dateTime"])      return @"NSString*";
+        if ([nm isEqual:@"xs:date"])          return @"NSString*";
         if ([nm isEqual:@"xs:anyURI"])        return @"NSString*";
         if ([nm isEqual:@"xs:base64Binary"])  return @"NSData*";
-        if ([nm isEqual:@"xs:double"])        return @"NSNumber*";
-        if ([nm isEqual:@"xs:duration"])      return @"NSDuration*";
+        if ([nm isEqual:@"xs:duration"])      return @"NSString*";
         if ([nm isEqual:@"xs:language"])      return @"NSString*";
+        if ([nm isEqual:@"xs:time"])          return @"NSString*";
         if ([nm isEqual:@"xs:short"])         return @"NSNumber*";
-        if ([nm isEqual:@"xs:time"])          return @"NSTime*";
+        if ([nm isEqual:@"xs:int"])           return @"NSNumber*";
+        if ([nm isEqual:@"xs:double"])        return @"NSNumber*";
+        if ([nm isEqual:@"xs:boolean"])       return @"NSNumber*";
         if ([nm isEqual:@"xs:unsignedInt"])   return @"NSNumber*";
         if ([nm isEqual:@"xs:unsignedShort"]) return @"NSNumber*";
 
@@ -1012,20 +1042,20 @@ static const char* prefix = "EWS";
 {
     if ([nm hasPrefix:@"xs:"])
     {
-        if ([nm isEqual:@"xs:string"])        return @"../handlers/EWSStringHandler";
-        if ([nm isEqual:@"xs:int"])           return @"../handlers/EWSIntegerHandler";
-        if ([nm isEqual:@"xs:boolean"])       return @"../handlers/EWSBooleanHandler";
-        if ([nm isEqual:@"xs:dateTime"])      return @"../handlers/EWSDateTimeHandler";
-        if ([nm isEqual:@"xs:date"])          return @"../handlers/EWSDateHandler";
-        if ([nm isEqual:@"xs:anyURI"])        return @"../handlers/EWSAnyUriHandler";
-        if ([nm isEqual:@"xs:base64Binary"])  return @"../handlers/EWSBase64BinaryHandler";
-        if ([nm isEqual:@"xs:double"])        return @"../handlers/EWSDoubleHandler";
-        if ([nm isEqual:@"xs:duration"])      return @"../handlers/EWSDurationHandler";
-        if ([nm isEqual:@"xs:language"])      return @"../handlers/EWSLanguageHandler";
-        if ([nm isEqual:@"xs:short"])         return @"../handlers/EWSShortHandler";
-        if ([nm isEqual:@"xs:time"])          return @"../handlers/EWSTimeHandler";
-        if ([nm isEqual:@"xs:unsignedInt"])   return @"../handlers/EWSUnsignedIntHandler";
-        if ([nm isEqual:@"xs:unsignedShort"]) return @"../handlers/EWSUnsignedShortHandler";
+        if ([nm isEqual:@"xs:string"])        return @"../handlers/EWSStringTypeHandler.h";
+        if ([nm isEqual:@"xs:int"])           return @"../handlers/EWSIntegerTypeHandler.h";
+        if ([nm isEqual:@"xs:boolean"])       return @"../handlers/EWSBooleanTypeHandler.h";
+        if ([nm isEqual:@"xs:dateTime"])      return @"../handlers/EWSDateTimeTypeHandler.h";
+        if ([nm isEqual:@"xs:date"])          return @"../handlers/EWSDateTypeHandler.h";
+        if ([nm isEqual:@"xs:anyURI"])        return @"../handlers/EWSAnyUriTypeHandler.h";
+        if ([nm isEqual:@"xs:base64Binary"])  return @"../handlers/EWSBase64BinaryTypeHandler.h";
+        if ([nm isEqual:@"xs:double"])        return @"../handlers/EWSDoubleTypeHandler.h";
+        if ([nm isEqual:@"xs:duration"])      return @"../handlers/EWSDurationTypeHandler.h";
+        if ([nm isEqual:@"xs:language"])      return @"../handlers/EWSLanguageTypeHandler.h";
+        if ([nm isEqual:@"xs:short"])         return @"../handlers/EWSShortTypeHandler.h";
+        if ([nm isEqual:@"xs:time"])          return @"../handlers/EWSTimeTypeHandler.h";
+        if ([nm isEqual:@"xs:unsignedInt"])   return @"../handlers/EWSUnsignedIntTypeHandler.h";
+        if ([nm isEqual:@"xs:unsignedShort"]) return @"../handlers/EWSUnsignedShortTypeHandler.h";
 
         NSLog(@"Unknown type %@", nm);
         exit(-1);
@@ -1057,20 +1087,20 @@ static const char* prefix = "EWS";
 {
     if ([nm hasPrefix:@"xs:"])
     {
-        if ([nm isEqual:@"xs:string"])        return @"StringHandler";
-        if ([nm isEqual:@"xs:int"])           return @"IntegerHandler";
-        if ([nm isEqual:@"xs:boolean"])       return @"BooleanHandler";
-        if ([nm isEqual:@"xs:dateTime"])      return @"DateTimeHandler";
-        if ([nm isEqual:@"xs:date"])          return @"DateHandler";
-        if ([nm isEqual:@"xs:anyURI"])        return @"AnyUriHandler";
-        if ([nm isEqual:@"xs:base64Binary"])  return @"Base64BinaryHandler";
-        if ([nm isEqual:@"xs:double"])        return @"DoubleHandler";
-        if ([nm isEqual:@"xs:duration"])      return @"DurationHandler";
-        if ([nm isEqual:@"xs:language"])      return @"LanguageHandler";
-        if ([nm isEqual:@"xs:short"])         return @"ShortHandler";
-        if ([nm isEqual:@"xs:time"])          return @"TimeHandler";
-        if ([nm isEqual:@"xs:unsignedInt"])   return @"UnsignedIntHandler";
-        if ([nm isEqual:@"xs:unsignedShort"]) return @"UnsignedShortHandler";
+        if ([nm isEqual:@"xs:string"])        return @"StringTypeHandler";
+        if ([nm isEqual:@"xs:int"])           return @"IntegerTypeHandler";
+        if ([nm isEqual:@"xs:boolean"])       return @"BooleanTypeHandler";
+        if ([nm isEqual:@"xs:dateTime"])      return @"DateTimeTypeHandler";
+        if ([nm isEqual:@"xs:date"])          return @"DateTypeHandler";
+        if ([nm isEqual:@"xs:anyURI"])        return @"UriTypeHandler";
+        if ([nm isEqual:@"xs:base64Binary"])  return @"Base64BinaryTypeHandler";
+        if ([nm isEqual:@"xs:double"])        return @"DoubleTypeHandler";
+        if ([nm isEqual:@"xs:duration"])      return @"DurationTypeHandler";
+        if ([nm isEqual:@"xs:language"])      return @"LanguageTypeHandler";
+        if ([nm isEqual:@"xs:short"])         return @"ShortTypeHandler";
+        if ([nm isEqual:@"xs:time"])          return @"TimeTypeHandler";
+        if ([nm isEqual:@"xs:unsignedInt"])   return @"UnsignedIntTypeHandler";
+        if ([nm isEqual:@"xs:unsignedShort"]) return @"UnsignedShortTypeHandler";
 
         NSLog(@"Unknown type %@", nm);
         exit(-1);
