@@ -1,0 +1,94 @@
+#import <Foundation/Foundation.h>
+
+#import "EWSMapiPropertyTypeType.h"
+@implementation EWSMapiPropertyTypeType /* SimpleType */
+
+static NSSet* enumerations = nil;
+
++ (void) initialize
+{
+    enumerations = [NSSet setWithObjects:
+                                         [EWSMapiPropertyTypeType ApplicationTime], 
+                                         [EWSMapiPropertyTypeType ApplicationTimeArray], 
+                                         [EWSMapiPropertyTypeType Binary], 
+                                         [EWSMapiPropertyTypeType BinaryArray], 
+                                         [EWSMapiPropertyTypeType Boolean], 
+                                         [EWSMapiPropertyTypeType CLSID], 
+                                         [EWSMapiPropertyTypeType CLSIDArray], 
+                                         [EWSMapiPropertyTypeType Currency], 
+                                         [EWSMapiPropertyTypeType CurrencyArray], 
+                                         [EWSMapiPropertyTypeType Double], 
+                                         [EWSMapiPropertyTypeType DoubleArray], 
+                                         [EWSMapiPropertyTypeType Error], 
+                                         [EWSMapiPropertyTypeType Float], 
+                                         [EWSMapiPropertyTypeType FloatArray], 
+                                         [EWSMapiPropertyTypeType Integer], 
+                                         [EWSMapiPropertyTypeType IntegerArray], 
+                                         [EWSMapiPropertyTypeType Long], 
+                                         [EWSMapiPropertyTypeType LongArray], 
+                                         [EWSMapiPropertyTypeType Null], 
+                                         [EWSMapiPropertyTypeType Object], 
+                                         [EWSMapiPropertyTypeType ObjectArray], 
+                                         [EWSMapiPropertyTypeType Short], 
+                                         [EWSMapiPropertyTypeType ShortArray], 
+                                         [EWSMapiPropertyTypeType SystemTime], 
+                                         [EWSMapiPropertyTypeType SystemTimeArray], 
+                                         [EWSMapiPropertyTypeType String], 
+                                         [EWSMapiPropertyTypeType StringArray], nil];
+    [[[EWSMapiPropertyTypeType alloc] init] register];
+}
+
+- (id) init
+{
+    self = [super initWithClass:[EWSMapiPropertyTypeType class]];
+    return self;
+}
+
+- (id) initWithClass:(Class) cls
+{
+    self = [super initWithClass:cls];
+    return self;
+}
+
+- (NSString *) updateObject:(NSString *)obj withCharacters:(NSString*) s
+{
+    s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return [enumerations containsObject:s] ? [enumerations member:s] : obj;
+}
+
+- (void) writeXmlInto:(NSMutableString*)buffer for:(NSString *) object
+{
+    NSString* obj = ((NSString*) object);
+    NSAssert([enumerations containsObject:obj], @"String is a enumerated list");
+    [buffer appendString:((NSString*) object)];
+}
+
++ (NSString *) ApplicationTime { return @"ApplicationTime"; }
++ (NSString *) ApplicationTimeArray { return @"ApplicationTimeArray"; }
++ (NSString *) Binary { return @"Binary"; }
++ (NSString *) BinaryArray { return @"BinaryArray"; }
++ (NSString *) Boolean { return @"Boolean"; }
++ (NSString *) CLSID { return @"CLSID"; }
++ (NSString *) CLSIDArray { return @"CLSIDArray"; }
++ (NSString *) Currency { return @"Currency"; }
++ (NSString *) CurrencyArray { return @"CurrencyArray"; }
++ (NSString *) Double { return @"Double"; }
++ (NSString *) DoubleArray { return @"DoubleArray"; }
++ (NSString *) Error { return @"Error"; }
++ (NSString *) Float { return @"Float"; }
++ (NSString *) FloatArray { return @"FloatArray"; }
++ (NSString *) Integer { return @"Integer"; }
++ (NSString *) IntegerArray { return @"IntegerArray"; }
++ (NSString *) Long { return @"Long"; }
++ (NSString *) LongArray { return @"LongArray"; }
++ (NSString *) Null { return @"Null"; }
++ (NSString *) Object { return @"Object"; }
++ (NSString *) ObjectArray { return @"ObjectArray"; }
++ (NSString *) Short { return @"Short"; }
++ (NSString *) ShortArray { return @"ShortArray"; }
++ (NSString *) SystemTime { return @"SystemTime"; }
++ (NSString *) SystemTimeArray { return @"SystemTimeArray"; }
++ (NSString *) String { return @"String"; }
++ (NSString *) StringArray { return @"StringArray"; }
+@end
+
