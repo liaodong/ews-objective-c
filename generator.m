@@ -893,9 +893,9 @@ static const char* prefix = "EWS";
     return s;
 }
 
--(void) generateForSimpleStructForElement:(Element*) elem withAttributes:(NSArray*) attributes withElements:(NSArray*) elements withName:(NSString*)n
+-(void) generateStructForElement:(Element*) elem withAttributes:(NSArray*) attributes withElements:(NSArray*) elements withSuperAttributes:(NSArray*) s_attributes withSuperElements:(NSArray*)s_elements andBaseClass:(NSString*) base
 {
-    const char* name = [n UTF8String];
+    const char* name = [[elem name] UTF8String];
 
     char filename[1024];
     sprintf (filename, "types/%s%s.h", prefix, name);
@@ -919,7 +919,7 @@ static const char* prefix = "EWS";
     fprintf (file, "\n\n\n");
     fprintf (file, "/* %s */\n", name);
 
-    fprintf (file, "@interface %s%s : NSObject\n\n", prefix, name);
+    fprintf (file, "@interface %s%s : %s\n\n", prefix, name, [base UTF8String]);
 
 
     [elem setResultType:[@"EWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
@@ -1013,6 +1013,15 @@ static const char* prefix = "EWS";
     fprintf (file, "{\n");
     fprintf (file, "    %sObjectTypeHandler* handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, prefix, name);
 
+    for (Element* e in s_attributes)
+    {
+        bool required = [e use] && [[e use] isEqual:@"required"];
+        fprintf (file, "    [handler property    : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+        fprintf (file, "             isRequired  : %s\n", required ? "TRUE" : "FALSE");
+        fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
+        fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+    }
+
     for (Element* e in attributes)
     {
         bool required = [e use] && [[e use] isEqual:@"required"];
@@ -1020,6 +1029,30 @@ static const char* prefix = "EWS";
         fprintf (file, "             isRequired  : %s\n", required ? "TRUE" : "FALSE");
         fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
         fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+    }
+
+    for  (Element* e in s_elements)
+    {
+        bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
+        if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
+            fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isRequired : %s\n", required ? "TRUE" : "FALSE");
+            fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+        }
+        else if ([[e maxOccurs] isEqual:@"unbounded"])
+        {
+            fprintf (file, "    [handler listProperty : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isNonEmpty   : %s\n", required ? "TRUE" : "FALSE");
+            fprintf (file, "             useSelector  : @\"add%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withXmlTag   : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler  : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+        }
+        else
+        {
+            NSLog (@"maxOccurs is %@", [e maxOccurs]);
+            exit (-1);
+        }
     }
 
     for  (Element* e in elements)
@@ -1100,210 +1133,23 @@ static const char* prefix = "EWS";
 {
     Element* sequence = [[elem children] objectAtIndex: 0];
 
-    const char* name = [[elem name] UTF8String];
 
-    char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
-    
-    FILE* file = fopen (filename, "w");
-    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
-    fprintf (file, "\n\n\n");
-    NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
+    NSMutableArray* elements   = [[NSMutableArray alloc] init];
+    NSMutableArray* attributes = [[NSMutableArray alloc] init];
+
+    NSMutableArray* s_elements   = [[NSMutableArray alloc] init];
+    NSMutableArray* s_attributes = [[NSMutableArray alloc] init];
+
     for  (Element* e in [sequence children]) {
-        [includes addObject:[self includeFile:[e type]]];
+        [elements addObject:e];
     }
     for (Element* e in [elem children]) {
         if ([[e tagName] isEqual:@"attribute"])
         {
-            [includes addObject:[self includeFile:[e type]]];
+            [attributes addObject:e];
         }
     }
-    for  (NSString* i in includes) {
-        fprintf (file, "#import \"%s\"\n", [i UTF8String]);
-    }
-    fprintf (file, "\n\n\n");
-    fprintf (file, "/* %s */\n", name);
-
-    fprintf (file, "@interface %s%s : NSObject\n\n", prefix, name);
-
-
-    [elem setResultType:[@"EWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
-   
-    fprintf (file, "+ (void) initialize;\n\n");
-
-    fprintf (file, "- (id) init;\n");
-    fprintf (file, "- (Class) handlerClass;\n");
-    fprintf (file, "- (NSString*) description;\n\n");
-
-    unsigned int tlength = 8;
-    unsigned int nlength = 5;
-    // Attributes
-    for (int i = 1; i < [[elem children] count]; i++)
-    {
-            Element* e = [[elem children] objectAtIndex: i];
-            tlength = [[self objectType:[e type]] length] > tlength ? [[self objectType:[e type]] length] : tlength;
-            nlength = [[e name] length] > nlength ? [[e name] length] : nlength;
-    }
-    for  (Element* e in [sequence children])
-    {
-        nlength = [[e name] length] > nlength ? [[e name] length] : nlength;
-        if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) 
-        {
-            tlength = [[self objectType:[e type]] length] > tlength ? [[self objectType:[e type]] length] : tlength;
-        }
-        else
-        {
-            tlength = ([[self objectType:[e type]] length] + 17) > tlength ? ([[self objectType:[e type]] length] + 17) : tlength;
-        }
-    }
-
-    for (int i = 1; i < [[elem children] count]; i++)
-    {
-            Element* e = [[elem children] objectAtIndex: i];
-            NSString* t = [self objectType:[e type]];
-
-            if ([t hasPrefix:@"NS"])
-                fprintf (file, "@property (retain) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
-            else
-                fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
-    }
-    for  (Element* e in [sequence children])
-    {
-        NSString* t = [self objectType:[e type]];
-
-        if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
-            if ([t hasPrefix:@"NS"])
-                fprintf (file, "@property (retain) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
-            else
-                fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
-        }
-        else if ([[e maxOccurs] isEqual:@"unbounded"])
-        {
-            NSString* str = [[NSString alloc] initWithFormat:@"NSMutableArray<%@>*", [self objectType:[e type]]];
-            if ([t hasPrefix:@"NS"])
-                fprintf (file, "@property (retain) %s %s /* %s */;\n", [[self pad:str toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
-            else
-                fprintf (file, "@property (retain) %s %s;\n", [[self pad:str toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
-        }
-        else
-        {
-            NSLog (@"maxOccurs is %@", [e maxOccurs]);
-            exit (-1);
-        }
-    }
-
-    fprintf (file, "\n\n");
-    for  (Element* e in [sequence children])
-    {
-        if ([e maxOccurs] && [[e maxOccurs] isEqual:@"unbounded"])
-        {
-            fprintf (file, "- (void) add%s:(%s) elem;\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
-        }
-    }
-
-    fprintf (file, "@end\n\n");
-    fclose (file);
-
-    sprintf (filename, "types/%s%s.m", prefix, name);
-    
-    file = fopen (filename, "w");
-    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
-    fprintf (file, "#import \"../handlers/%sObjectTypeHandler.h\"\n\n", prefix);
-
-
-    fprintf (file, "\n#import \"%s%s.h\"\n", prefix, name);
-    fprintf (file, "\n\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
-
-    
-    fprintf (file, "+ (void) initialize\n");
-    fprintf (file, "{\n");
-    fprintf (file, "    %sObjectTypeHandler* handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, prefix, name);
-
-    for (int i = 1; i < [[elem children] count]; i++)
-    {
-        Element* e = [[elem children] objectAtIndex: i];
-
-        bool required = [e use] && [[e use] isEqual:@"required"];
-        fprintf (file, "    [handler property    : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-        fprintf (file, "             isRequired  : %s\n", required ? "TRUE" : "FALSE");
-        fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
-        fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
-    }
-
-    for  (Element* e in [sequence children])
-    {
-        bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
-        if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
-            fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isRequired : %s\n", required ? "TRUE" : "FALSE");
-            fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
-        }
-        else if ([[e maxOccurs] isEqual:@"unbounded"])
-        {
-            fprintf (file, "    [handler listProperty : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isNonEmpty   : %s\n", required ? "TRUE" : "FALSE");
-            fprintf (file, "             useSelector  : @\"add%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withXmlTag   : @\"%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withHandler  : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
-        }
-        else
-        {
-            NSLog (@"maxOccurs is %@", [e maxOccurs]);
-            exit (-1);
-        }
-    }
-    fprintf (file, "    [handler register];\n");
-    fprintf (file, "}\n\n");
-
-    fprintf (file, "- (id) init\n");
-    fprintf (file, "{\n");
-    fprintf (file, "    return [super init];\n");
-    fprintf (file, "}\n\n");
-    fprintf (file, "- (Class) handlerClass\n");
-    fprintf (file, "{\n");
-    fprintf (file, "    return [%s%s class];\n", prefix, name);
-    fprintf (file, "}\n\n");
-
-    fprintf (file, "- (NSString*) description\n");
-    fprintf (file, "{\n");
-    fprintf (file, "    return [NSString stringWithFormat:@\"%s:", name);
-    for (int i = 1; i < [[elem children] count]; i++)
-    {
-        Element* e = [[elem children] objectAtIndex: i];
-        fprintf (file, " %s=%%@", [[e name] UTF8String]);
-    }
-    for  (Element* e in [sequence children])
-    {
-        fprintf (file, " %s=%%@", [[e name] UTF8String]);
-    }
-    fprintf (file, "\"");
-    for (int i = 1; i < [[elem children] count]; i++)
-    {
-        Element* e = [[elem children] objectAtIndex: i];
-        fprintf (file, ", _%s", [[self propertyName:[e name]] UTF8String]);
-    }
-    for  (Element* e in [sequence children])
-    {
-        fprintf (file, ", _%s", [[self propertyName:[e name]] UTF8String]);
-    }
-    fprintf (file, "];\n");
-    fprintf (file, "}\n\n");
-
-    for  (Element* e in [sequence children])
-    {
-        if ([e maxOccurs] && [[e maxOccurs] isEqual:@"unbounded"])
-        {
-            fprintf (file, "- (void) add%s:(%s) elem\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
-            fprintf (file, "{\n");
-            fprintf (file, "    [_%s addObject:elem];\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "}\n\n");
-        }
-    }
-
-    fprintf (file, "@end\n\n");
-    fclose (file);
+    [self generateStructForElement:elem withAttributes:attributes withElements:elements withSuperAttributes: s_attributes withSuperElements:s_elements andBaseClass:@"NSObject"];
 }
 
 - (NSString*) propertyName:(NSString*) name
