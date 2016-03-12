@@ -11,6 +11,7 @@
 
 
 - (id)initWithClass: (Class)cls;
+- (id) initWithClass: (Class) c andContentHandlerClass:(Class) h;
 
 - (void) property   :(NSString *) property
          isRequired :(BOOL) required

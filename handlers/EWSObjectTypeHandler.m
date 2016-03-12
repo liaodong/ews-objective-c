@@ -65,6 +65,23 @@
     NSMutableDictionary* elements;
 
     NSMutableDictionary* attributes;
+
+    Class contentHandlerClass;
+    id<EWSHandlerProtocol> contentHandler;
+}
+
+- (id) initWithClass: (Class) c andContentHandlerClass:(Class) h
+{
+    self = [super initWithClass:c];
+
+    clazz = c;
+
+    keys      = [[NSMutableArray alloc] initWithCapacity: 32];
+    elements  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+
+    contentHandlerClass = h;
+
+    return self;
 }
 
 - (id) initWithClass: (Class) c
@@ -75,6 +92,8 @@
 
     keys      = [[NSMutableArray alloc] initWithCapacity: 32];
     elements  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+
+    contentHandlerClass = nil;
 
     return self;
 }
@@ -112,6 +131,13 @@
 
 - (id) updateObject:(id)obj withCharacters:(NSString*) s
 {
+    if (contentHandlerClass) {
+        contentHandler = contentHandler ? contentHandler : [EWSHandler handlerForClass:contentHandlerClass];
+
+        id v = [obj valueForKey:@"simpleContent"];
+        v = [contentHandler updateObject:v withCharacters:s];
+        [obj setValue:v forKey:@"simpleContent"];
+    }
     return obj;
 }
 
@@ -166,6 +192,13 @@
         }
     }
     [buffer appendString:@">"];
+
+    if (contentHandlerClass) {
+        id v = [object valueForKey:@"simpleContent"];
+        if (v) {
+            [[EWSHandler handlerForClass:contentHandlerClass] writeXmlInto:buffer for:v withIndentation:indent];
+        }
+    }
 
     if (indent) {
         [indent appendString:@"  "];

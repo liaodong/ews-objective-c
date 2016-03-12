@@ -893,7 +893,10 @@ static const char* prefix = "EWS";
     return s;
 }
 
--(void) generateStructForElement:(Element*) elem withAttributes:(NSArray*) attributes withElements:(NSArray*) elements withSuperAttributes:(NSArray*) s_attributes withSuperElements:(NSArray*)s_elements andBaseClass:(NSString*) base
+-(void) generateStructForElement:(Element*) elem
+           withAttributes:(NSArray*) attributes withElements:(NSArray*) elements 
+           withSuperAttributes:(NSArray*) s_attributes withSuperElements:(NSArray*)s_elements andBaseClass:(NSString*) base
+           simpleContentHandlerClass:(NSString*) contentHandlerClass
 {
     const char* name = [[elem name] UTF8String];
 
@@ -1011,7 +1014,15 @@ static const char* prefix = "EWS";
     
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
-    fprintf (file, "    %sObjectTypeHandler* handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, prefix, name);
+
+    if (contentHandlerClass)
+    {
+        fprintf (file, "    %sObjectTypeHandler* handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class] andContentHandlerClass:[%s class]];\n\n", prefix, prefix, prefix, name, [contentHandlerClass UTF8String]);
+    }
+    else
+    {
+        fprintf (file, "    %sObjectTypeHandler* handler = [[%sObjectTypeHandler alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, prefix, name);
+    }
 
     for (Element* e in s_attributes)
     {
@@ -1129,6 +1140,23 @@ static const char* prefix = "EWS";
     fclose (file);
 }
 
+-(void) generateStructForElement:(Element*) elem
+           withAttributes:(NSArray*) attributes withElements:(NSArray*) elements 
+           withSuperAttributes:(NSArray*) s_attributes withSuperElements:(NSArray*)s_elements andBaseClass:(NSString*) base
+{
+    [self generateStructForElement:elem withAttributes:attributes withElements:elements
+           withSuperAttributes:s_attributes withSuperElements:s_elements andBaseClass:base
+           simpleContentHandlerClass:nil];
+}
+-(void) generateStructForElement:(Element*) elem
+           withAttributes:(NSArray*) attributes withElements:(NSArray*) elements 
+{
+     [self generateStructForElement:elem
+           withAttributes:attributes withElements:elements 
+           withSuperAttributes:[[NSArray alloc] init] withSuperElements:[[NSArray alloc] init] andBaseClass:@"NSObject"];
+}
+
+
 -(void) generateForSimpleStructForElement:(Element*) elem
 {
     Element* sequence = [[elem children] objectAtIndex: 0];
@@ -1136,9 +1164,6 @@ static const char* prefix = "EWS";
 
     NSMutableArray* elements   = [[NSMutableArray alloc] init];
     NSMutableArray* attributes = [[NSMutableArray alloc] init];
-
-    NSMutableArray* s_elements   = [[NSMutableArray alloc] init];
-    NSMutableArray* s_attributes = [[NSMutableArray alloc] init];
 
     for  (Element* e in [sequence children]) {
         [elements addObject:e];
@@ -1149,7 +1174,7 @@ static const char* prefix = "EWS";
             [attributes addObject:e];
         }
     }
-    [self generateStructForElement:elem withAttributes:attributes withElements:elements withSuperAttributes: s_attributes withSuperElements:s_elements andBaseClass:@"NSObject"];
+    [self generateStructForElement:elem withAttributes:attributes withElements:elements];
 }
 
 - (NSString*) propertyName:(NSString*) name
