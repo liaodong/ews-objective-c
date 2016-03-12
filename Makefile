@@ -16,15 +16,14 @@ CFLAGS=-Wall -Werror -g  $(SOURCE)
 LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
 OUT=-o main
 
-run : gen $(GEN_OBJS)
+run : main gen $(GEN_OBJS)
 	echo "Done $(GEN_SRCS)"
 
-gen : main
-	./main
-	touch gen
+gen : generator.m gen.m
+	$(CC) $(CFLAGS) $(LDFLAGS) generator.m gen.m  -o gen
 
-main : $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(OUT)
+main : $(OBJS) $(GEN_OBJS) $(SRCS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(GEN_OBJS) $(OUT)
 
 clean : 
 	+rm -f objects/*.o

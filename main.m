@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "Generator.h"
+#import "handlers/EWSDocumentHandler.h"
 
 /*
 @interface XmlDeserializer
@@ -112,10 +113,25 @@ int main (int argc, const char* argv[]) {
     [[cls deserializeFromXml] release];
 
 */
-    Generator *generator = [[Generator alloc] initWithFile: @"ews_xsd/types.xsd"];
 
-    [generator parse];
-    [generator generate];
+    if (argc > 1 && strcmp (argv[1], "test") == 0)
+    {
+        NSString* xml = @"<BasePermission><UserId><SID>sid</SID><PrimarySmtpAddress>fiberlink.com</PrimarySmtpAddress><DisplayName>Venkat Murty</DisplayName><DistinguishedUser>Default</DistinguishedUser></UserId><CanCreateItems>TRUE</CanCreateItems><EditItems>All</EditItems><DeleteItems>None</DeleteItems></BasePermission>";
+        id obj = [EWSDocumentHandler fromXml:xml];
+
+        NSMutableString* b = [[NSMutableString alloc] init];
+        [EWSDocumentHandler toXml:@"BasePermission" intoBuffer:b theObject:obj];
+
+        NSLog(@"xml = %@", xml);
+        NSLog(@"xml = %@", b);
+    }
+    else 
+    {
+        Generator *generator = [[Generator alloc] initWithFile: @"ews_xsd/types.xsd"];
+
+        [generator parse];
+        [generator generate];
+    }
     return 0;
 }
 

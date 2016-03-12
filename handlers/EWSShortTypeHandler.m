@@ -3,6 +3,11 @@
 
 @implementation EWSShortTypeHandler 
 
++ (void) initialize
+{
+    [[[EWSShortTypeHandler alloc] init] register];
+}
+
 - (id)initWithClass: (Class)cls
 {
     return [super initWithClass:cls];
@@ -24,7 +29,7 @@
     return s && [s length] > 1 ? [NSNumber numberWithShort:[s intValue]] : obj;
 }
  
-- (void) writeXmlInto:(NSMutableString*)buffer for:(NSNumber*) object withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(NSNumber*) object
 {
     NSString* s = [[NSString alloc] initWithFormat:@"%ld", [object integerValue]];
     [buffer appendString:s];

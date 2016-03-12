@@ -145,7 +145,7 @@
 
 - (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag
 {
-    return [elements objectForKey: tag];
+    return [EWSHandler handlerForClass:[[elements objectForKey: tag] cls]];
 }
 
 - (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
@@ -167,23 +167,49 @@
     }
     [buffer appendString:@">"];
 
-    for (NSString* key in elements)
+    if (indent) {
+        [indent appendString:@"  "];
+    }
+
+    for (NSString* key in keys)
     {
-        EWSHandlerValue* h = [attributes objectForKey:key];
+        EWSHandlerValue* h = [elements objectForKey:key];
 
         if ([h isList])
         {
             id v = [object valueForKey:[h prop]];
             if (v)
             {
-                if (!hasElements) {
-                    hasElements = TRUE;
+                for (id e in v) {
+                    if (!hasElements) {
+                        hasElements = TRUE;
+                    }
                     if (indent)
                     {
                         [buffer appendString:@"\n"];
-                        [indent appendString:@"  "];
                         [buffer appendString:indent];
                     }
+                    [buffer appendString:@"<"];
+                    [buffer appendString:key];
+                    [[EWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:e withIndentation:indent];
+                    [buffer appendString:@"</"];
+                    [buffer appendString:key];
+                    [buffer appendString:@">"];
+                }
+            }
+        }
+        else
+        {
+            id v = [object valueForKey:[h prop]];
+            if (v)
+            {
+                if (!hasElements) {
+                    hasElements = TRUE;
+                }
+                if (indent)
+                {
+                    [buffer appendString:@"\n"];
+                    [buffer appendString:indent];
                 }
                 [buffer appendString:@"<"];
                 [buffer appendString:key];
@@ -194,14 +220,17 @@
             }
         }
     }
-    if (indent && hasElements)
-    {
+    if (indent) {
         NSRange range;
         range.location = [indent length] - 2;
         range.length   = 2;
+        [indent deleteCharactersInRange:range];
+    }
+
+    if (indent && hasElements)
+    {
 
         [buffer appendString:@"\n"];
-        [indent deleteCharactersInRange:range];
         [buffer appendString:indent];
     }
 }

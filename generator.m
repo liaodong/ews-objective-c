@@ -157,7 +157,7 @@ static const char* prefix = "EWS";
     fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*)s;\n\n", returnType, returnType);
     
     fprintf (file, "/** Write to the buffer the string value */\n");
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object;\n\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object;\n\n", returnType);
     
     fprintf (file, "@end\n\n");
     fclose (file);
@@ -175,7 +175,7 @@ static const char* prefix = "EWS";
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
     fprintf (file, "    pattern = @\"%s\";\n", [pattern UTF8String]);
-    fprintf (file, "    [[%s%s alloc] init];\n", prefix, name);
+    fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -206,7 +206,7 @@ static const char* prefix = "EWS";
     fprintf (file, "    return TRUE;\n");
     fprintf (file, "}\n\n");
    
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    NSString* obj = ((NSString*) object);\n");
     fprintf (file, "    NSAssert([self string:obj hasPattern:pattern], @\"String should have a pattern\");\n");
@@ -244,7 +244,7 @@ static const char* prefix = "EWS";
     fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*)s;\n\n", returnType, returnType);
     
     fprintf (file, "/** Write to the buffer the string value */\n");
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object;\n\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object;\n\n", returnType);
     
     fprintf (file, "@end\n\n");
     fclose (file);
@@ -260,7 +260,7 @@ static const char* prefix = "EWS";
     
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
-    fprintf (file, "    [[%s%s alloc] init];\n", prefix, name);
+    fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -286,7 +286,7 @@ static const char* prefix = "EWS";
     fprintf (file, "    return [s length] > 0 ? s : obj;\n");
     fprintf (file, "}\n\n");
    
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    NSString* obj = ((NSString*) object);\n");
     fprintf (file, "    [buffer appendString:obj];\n"); 
@@ -333,7 +333,7 @@ static const char* prefix = "EWS";
     fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*)s;\n\n", returnType, returnType);
     
     fprintf (file, "/** Write to the buffer the string value */\n");
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object;\n\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object;\n\n", returnType);
     
     fprintf (file, "@end\n\n");
     fclose (file);
@@ -352,7 +352,7 @@ static const char* prefix = "EWS";
     
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
-    fprintf (file, "    [[%s%s alloc] init];\n", prefix, name);
+    fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -378,7 +378,7 @@ static const char* prefix = "EWS";
     fprintf (file, "    return [s length] > 0 ? [NSNumber numberWithInteger:[s integerValue]] : obj;\n");
     fprintf (file, "}\n\n");
    
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    NSNumber* obj = ((NSNumber*) object);\n");
     fprintf (file, "    NSInteger val = [obj integerValue];\n");
@@ -427,7 +427,7 @@ static const char* prefix = "EWS";
     fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*)s;\n\n", returnType, returnType);
     
     fprintf (file, "/** Write to the buffer the string value */\n");
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object;\n\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object;\n\n", returnType);
     
     fprintf (file, "@end\n\n");
     fclose (file);
@@ -445,7 +445,7 @@ static const char* prefix = "EWS";
     
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
-    fprintf (file, "    [[%s%s alloc] init];\n", prefix, name);
+    fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -471,7 +471,7 @@ static const char* prefix = "EWS";
     fprintf (file, "    return [s length] > 0 ? s : obj;\n");
     fprintf (file, "}\n\n");
    
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    NSString* obj = ((NSString*) object);\n");
     fprintf (file, "    NSAssert([obj length] >= minLength, @\"String should have a min length\");\n");
@@ -518,7 +518,7 @@ static const char* prefix = "EWS";
     fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*)s;\n\n", returnType, returnType);
     
     fprintf (file, "/** Write to the buffer the string value */\n");
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object;\n\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object;\n\n", returnType);
     
 
     fprintf (file, "\n/* Valid values */\n");
@@ -550,7 +550,7 @@ static const char* prefix = "EWS";
         fprintf (file, "\n                                         [%s%s %s], ", prefix, name, v);
     }
     fprintf (file, "nil];\n");
-    fprintf (file, "    [[%s%s alloc] init];\n", prefix, name);
+    fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -571,7 +571,7 @@ static const char* prefix = "EWS";
     fprintf (file, "    return [enumerations containsObject:s] ? [enumerations member:s] : obj;\n");
     fprintf (file, "}\n\n");
    
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer forObject:(%s) object\n", returnType);
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    NSString* obj = ((NSString*) object);\n");
     fprintf (file, "    NSAssert([enumerations containsObject:obj], @\"String is a enumerated list\");\n");
@@ -624,7 +624,7 @@ static const char* prefix = "EWS";
     
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
-    fprintf (file, "    [[%s%s alloc] init];\n", prefix, name);
+    fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -841,7 +841,8 @@ static const char* prefix = "EWS";
     fprintf (file, "+ (void) initialize;\n\n");
 
     fprintf (file, "- (id) init;\n");
-    fprintf (file, "- (Class) handlerClass;\n\n");
+    fprintf (file, "- (Class) handlerClass;\n");
+    fprintf (file, "- (NSString*) description;\n\n");
 
     unsigned int tlength = 8;
     unsigned int nlength = 5;
@@ -972,6 +973,31 @@ static const char* prefix = "EWS";
     fprintf (file, "- (Class) handlerClass\n");
     fprintf (file, "{\n");
     fprintf (file, "    return [%s%s class];\n", prefix, name);
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "- (NSString*) description\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return [NSString stringWithFormat:@\"%s:", name);
+    for (int i = 1; i < [[elem children] count]; i++)
+    {
+        Element* e = [[elem children] objectAtIndex: i];
+        fprintf (file, " %s=%%@", [[e name] UTF8String]);
+    }
+    for  (Element* e in [sequence children])
+    {
+        fprintf (file, " %s=%%@", [[e name] UTF8String]);
+    }
+    fprintf (file, "\"");
+    for (int i = 1; i < [[elem children] count]; i++)
+    {
+        Element* e = [[elem children] objectAtIndex: i];
+        fprintf (file, ", _%s", [[self propertyName:[e name]] UTF8String]);
+    }
+    for  (Element* e in [sequence children])
+    {
+        fprintf (file, ", _%s", [[self propertyName:[e name]] UTF8String]);
+    }
+    fprintf (file, "];\n");
     fprintf (file, "}\n\n");
 
     fprintf (file, "@end\n\n");

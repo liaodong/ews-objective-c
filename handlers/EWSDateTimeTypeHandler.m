@@ -3,6 +3,11 @@
 
 @implementation EWSDateTimeTypeHandler 
 
++ (void) initialize
+{
+    [[[EWSDateTimeTypeHandler alloc] init] register];
+}
+
 - (id)initWithClass: (Class)cls
 {
     return [super initWithClass:cls];
@@ -25,7 +30,7 @@
     return obj;
 }
  
-- (void) writeXmlInto:(NSMutableString*)buffer for:(NSString*) object withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(NSString*) object
 {
     [buffer appendString:object];
 }

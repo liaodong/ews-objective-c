@@ -3,6 +3,12 @@
 
 @implementation EWSStringTypeHandler 
 
+
++ (void) initialize
+{
+    [[[EWSStringTypeHandler alloc] init] register];
+}
+
 - (id)initWithClass: (Class)cls
 {
     return [super initWithClass:cls];
@@ -25,7 +31,7 @@
     return obj;
 }
  
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object
 {
     [buffer appendString:object];
 }

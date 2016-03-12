@@ -7,7 +7,10 @@
 
 @property (readonly) EWSParserDelegate* parent;
 
-- (id) initWithHandler: (id<EWSHandlerProtocol>) handler andParent:(EWSParserDelegate *) parent;
+- (id) initWithParent: (EWSParserDelegate*) parent;
+- (id) initWithHandler: (id<EWSHandlerProtocol>) handler andParent:(EWSParserDelegate*) parent andObjectWithAttributes:(NSDictionary *)attributeDict;
+
+- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) element;
 
 - (void) parser:(NSXMLParser*)parser 
                 didStartElement: (NSString *)elementName 
@@ -29,6 +32,7 @@
 
 - (void) parser:(NSXMLParser *)parser
                 didEndMappingPrefix:(NSString *)prefix;
+
 
 @end
 

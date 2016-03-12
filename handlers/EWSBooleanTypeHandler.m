@@ -3,6 +3,11 @@
 
 @implementation EWSBooleanTypeHandler 
 
++ (void) initialize
+{
+    [[[EWSBooleanTypeHandler alloc] init] register];
+}
+
 - (id)initWithClass: (Class)cls
 {
     return [super initWithClass:cls];
@@ -11,6 +16,11 @@
 - (id) init
 {
     return [super initWithClass:[EWSBooleanTypeHandler class]];
+}
+
+- (NSNumber*) constructWithAttributes: (NSDictionary*) attributeDict
+{
+    return nil;
 }
 
 - (NSNumber*) construct
@@ -29,7 +39,7 @@
     return s && [s length] > 1 ? [NSNumber numberWithBool:[self boolValue:s]] : obj;
 }
  
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object
 {
     NSString* s = [object boolValue] ? @"True" : @"False";
     [buffer appendString:s];

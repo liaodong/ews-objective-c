@@ -7,7 +7,14 @@
     id                     _object;
 }
 
-- (id) initWithHandler: (id<EWSHandlerProtocol>) handler andParent:(EWSParserDelegate *) parent
+- (id) initWithParent:(EWSParserDelegate*) parent
+{
+    self = [super init];
+    _parent = parent;
+    return self;
+}
+
+- (id) initWithHandler: (id<EWSHandlerProtocol>) handler andParent:(EWSParserDelegate*) parent andObjectWithAttributes:(NSDictionary *)attributeDict
 {
     self = [super init];
 
@@ -17,7 +24,14 @@
     if (!_parent) {
         _parent = self;
     }
+    _object = [_handler constructWithAttributes:attributeDict];
+
     return self;
+}
+
+- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) elementName
+{
+    return [_handler handlerForElement:elementName];
 }
 
 - (void) populateValue:(id) value forKey: (NSString*) tag
@@ -31,10 +45,8 @@
                 qualifiedName:   (NSString *)qName
                 attributes:      (NSDictionary *)attributeDict
 {
-    EWSParserDelegate* delegate = [[EWSParserDelegate alloc] initWithHandler: [_handler handlerForElement:elementName] andParent:self];
+    EWSParserDelegate* delegate = [[EWSParserDelegate alloc] initWithHandler: [self handlerForElementName:elementName] andParent:self andObjectWithAttributes:attributeDict];
     [parser setDelegate:delegate];
-
-    _object = [_handler constructWithAttributes:attributeDict];
 }
 
 - (void)parser:(NSXMLParser*)parser 
