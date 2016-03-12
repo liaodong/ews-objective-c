@@ -32,7 +32,6 @@ static NSMutableDictionary* elements;
 
 - (void) populateValue:(id) value forKey: (NSString*) tag
 {
-    NSLog(@"Setting result %@ for tag %@", [value class], tag);
     _result = value;
 }
 
