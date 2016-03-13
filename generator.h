@@ -14,6 +14,10 @@
 
 @property char ns;
 
+@property (retain) NSString* schemaLocation;
+@property (retain) NSString* processContents;
+@property (retain) NSString* pdefault;
+
 @property (strong) NSString* group;
 @property (strong) NSString* abstract;
 @property (strong) NSString* base;
@@ -42,7 +46,7 @@
 
 @interface Generator  : NSObject <NSXMLParserDelegate>
 
-- (id) initWithFile:(NSString*) filename;
+- (id) init;
 
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 

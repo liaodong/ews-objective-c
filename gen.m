@@ -5,7 +5,7 @@
 
 int main (int argc, const char* argv[]) {
     {
-        [[Generator alloc] initWithFile: @"ews_xsd/types.xsd"];
+        [[Generator alloc] init];
     }
     return 0;
 }

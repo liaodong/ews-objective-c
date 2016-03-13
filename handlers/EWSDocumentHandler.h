@@ -6,9 +6,8 @@
 
 + (void) initialize;
 
-+ (id) fromXml:(NSString*) xml;
-
-+ (void) toXml:(NSString*)root namespace:(char)ns  intoBuffer:(NSMutableString*)buffer theObject:(id)object;
++ (id)   toObj:(NSString*) xml;
++ (void) toXml:(id) obj buffer:(NSMutableString*)buffer;
 
 - (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) elementName namespace:(char)ns;
 

@@ -344,13 +344,7 @@
       <xs:element name="MessageText" type="xs:string" minOccurs="0"/>
       <xs:element name="ResponseCode" type="m:ResponseCodeType" minOccurs="0"/>
       <xs:element name="DescriptiveLinkKey" type="xs:int" minOccurs="0"/>
-      <xs:element name="MessageXml" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="MessageXml" minOccurs="0" type="xs:string"/>
     </xs:sequence>
     <xs:attribute name="ResponseClass" type="t:ResponseClassType" use="required"/>
   </xs:complexType>
@@ -1172,7 +1166,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:element name="GetUserOofSettingsRequest" type="tns:GetUserOofSettingsRequest" />
+  <xs:element name="GetUserOofSettingsRequest" type="m:GetUserOofSettingsRequest" />
 
   <!-- GetUserOofSettingsResponse -->
 
@@ -1184,7 +1178,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="GetUserOofSettingsResponse" type="tns:GetUserOofSettingsResponse" />
+  <xs:element name="GetUserOofSettingsResponse" type="m:GetUserOofSettingsResponse" />
 
   <!-- SetUserOofSettingsRequest -->
 
@@ -1199,7 +1193,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:element name="SetUserOofSettingsRequest" type="tns:SetUserOofSettingsRequest" />
+  <xs:element name="SetUserOofSettingsRequest" type="m:SetUserOofSettingsRequest" />
 
   <!-- SetUserOofSettingsResponse -->
 
@@ -1209,7 +1203,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="SetUserOofSettingsResponse" type="tns:SetUserOofSettingsResponse" />
+  <xs:element name="SetUserOofSettingsResponse" type="m:SetUserOofSettingsResponse" />
 
   <!-- ConvertId web method and response -->
   <xs:complexType name="ConvertIdType">

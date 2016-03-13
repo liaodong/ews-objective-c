@@ -73,13 +73,18 @@ static NSMutableArray* array;
     Element*     types;
 }
 
-static const char * dir;
 
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary *) attributeDict
 {
-    current = [[Element alloc] initWithParent: current andName:elementName];
+
+    if (![elementName isEqual:@"schema"] || !current) {
+        current = [[Element alloc] initWithParent: current andName:elementName];
+    }
+
     for (NSString *attr in attributeDict) {
-        [current setValue:[attributeDict objectForKey: attr] forKey:attr];
+        NSString* k =  [attr isEqual:@"default"] ? @"pdefault" : attr;
+
+        [current setValue:[attributeDict objectForKey: attr] forKey:k];
     }
 }
 
@@ -103,21 +108,32 @@ static const char * dir;
     NSLog (@"End mapping %@", prefix);
 }
 
-- (id) initWithFile:(NSString*) filename
+- (id) init
 {
     self = [super init];
-
-    dir = "types";
     current = nil;
-    parser  = [[NSXMLParser alloc] initWithStream: [[NSInputStream alloc] initWithFileAtPath: filename]];
+
+    NSString* filename;
+    
+    dns = 't';
+    filename = @"ews_xsd/types.xsd";
+    parser   = [[NSXMLParser alloc] initWithStream: [[NSInputStream alloc] initWithFileAtPath: filename]];
 
     [parser setShouldProcessNamespaces:TRUE];
     [parser setShouldReportNamespacePrefixes:TRUE];
-
     [parser setDelegate: self];
     [self parse];
-    [self generate];
 
+    dns = 'm';
+    filename = @"ews_xsd/messages.xsd";
+    parser   = [[NSXMLParser alloc] initWithStream: [[NSInputStream alloc] initWithFileAtPath: filename]];
+
+    [parser setShouldProcessNamespaces:TRUE];
+    [parser setShouldReportNamespacePrefixes:TRUE];
+    [parser setDelegate: self];
+    [self parse];
+
+    [self generate];
     return self;
 }
 
@@ -158,6 +174,7 @@ static const char* prefix = "EWS";
     }
 
     const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
     char filename[1024];
     sprintf (filename, "%s/%s%s.h", dir, prefix, name);
@@ -247,6 +264,8 @@ static const char* prefix = "EWS";
 -(void) simpleString:(Element*) elem
 {
     char const* returnType = "NSString *";
+
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
@@ -337,6 +356,7 @@ static const char* prefix = "EWS";
     }
 
     const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
     char filename[1024];
     sprintf (filename, "%s/%s%s.h", dir, prefix, name);
@@ -431,6 +451,7 @@ static const char* prefix = "EWS";
     }
 
     const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
     char filename[1024];
     sprintf (filename, "%s/%s%s.h", dir, prefix, name);
@@ -515,6 +536,7 @@ static const char* prefix = "EWS";
     Element* child = [[elem children] objectAtIndex: 0];
 
     const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
     char filename[1024];
     sprintf (filename, "%s/%s%s.h", dir, prefix, name);
@@ -618,6 +640,7 @@ static const char* prefix = "EWS";
 -(void) extendNonEmptyStringType:(Element*) elem
 {
     const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
     char filename[1024];
     sprintf (filename, "%s/%s%s.h", dir, prefix, name);
@@ -798,6 +821,7 @@ static const char* prefix = "EWS";
     Element* sequence = [[elem children] objectAtIndex: 0]; // sequence or choice
 
     const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
     char filename[1024];
     sprintf (filename, "%s/%s%s.h", dir, prefix, name);
@@ -952,6 +976,7 @@ static const char* prefix = "EWS";
 {
     NSLog(@"Generating struct for %@", [elem name]);
     const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
     char filename[1024];
     sprintf (filename, "%s/%s%s.h", dir,  prefix, name);
@@ -1029,7 +1054,7 @@ static const char* prefix = "EWS";
             else
                 fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
-        else if ([[e maxOccurs] isEqual:@"unbounded"])
+        else if ([[e maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"])
         {
             NSString* str = [[NSString alloc] initWithFormat:@"NSMutableArray<%@>*", [self objectType:[e type]]];
             if ([t hasPrefix:@"NS"])
@@ -1106,7 +1131,7 @@ static const char* prefix = "EWS";
             fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
-        else if ([[e maxOccurs] isEqual:@"unbounded"])
+        else if ([[e maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"])
         {
             fprintf (file, "    [handler listProperty  : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
             fprintf (file, "             isNonEmpty    : %s\n", required ? "TRUE" : "FALSE");
@@ -1132,7 +1157,7 @@ static const char* prefix = "EWS";
             fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
-        else if ([[e maxOccurs] isEqual:@"unbounded"])
+        else if ([[e maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"])
         {
             fprintf (file, "    [handler listProperty  : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
             fprintf (file, "             isNonEmpty    : %s\n", required ? "TRUE" : "FALSE");
@@ -1382,11 +1407,41 @@ static const char* prefix = "EWS";
         if ([[elem tagName] isEqual:@"complexType"] && ![self isResolved:elem])
         {
             NSLog(@"Fix me %@", elem);
-            //NSLog(@"Attributes %@", [self attributes:[elem name] getSuper:TRUE]);
-            //NSLog(@"Elements   %@", [self elements:[elem name] getSuper:TRUE]);
-            //NSLog(@"BaseClass  %@", [self baseClass:[elem name]]);
-            //NSLog(@"Content Handler  %@", [self contentHandlerClass:[elem name]]);
             exit (-1);
+        }
+    }
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"element"])
+        {
+            Element* type = [self complexTypeElement:[elem type]];
+
+            if (type)
+            {
+                NSString* cls = [NSString stringWithFormat:@"EWS%@", [type name]];
+
+                if ([type ns] == 't')
+                    fprintf (stdout, "#import \"../types/%s.h\"\n", [cls UTF8String]);
+                else
+                    fprintf (stdout, "#import \"../messages/%s.h\"\n", [cls UTF8String]);
+            }
+            else NSLog(@"Undefined element %@", elem);
+        }
+    }
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"element"])
+        {
+            Element* type = [self complexTypeElement:[elem type]];
+
+            if (type)
+            {
+                NSString* tag = [NSString stringWithFormat:@"%c:%@", [elem ns], [elem name]];
+                NSString* cls = [NSString stringWithFormat:@"EWS%@", [type name]];
+
+                fprintf (stdout, "    [EWSDocumentHandler handleTag:@\"%s\" withHandlerClass:[%s class]];\n", [tag UTF8String], [cls UTF8String]);
+            }
+            else NSLog(@"Undefined element %@", elem);
         }
     }
 }
@@ -1395,7 +1450,7 @@ static const char* prefix = "EWS";
 {
     for (Element* elem in [current children])
     {
-        if ([[elem tagName] isEqual:@"complexType"])
+        //if ([[elem tagName] isEqual:@"complexType"])
         {
             if ([name isEqual:[elem qname]]) return elem;
         }
@@ -1527,6 +1582,21 @@ static const char* prefix = "EWS";
     return nil;
 }
 
+- (NSMutableArray*) attributesFromGroup:(NSString*) n
+{
+    Element* e = [self complexTypeElement:n];
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+
+    NSAssert (e, @"cant be null");
+    for (Element* a in [e children])
+    {
+        NSAssert ([[a tagName] isEqual:@"attribute"], @"hello");
+        [result addObject:a];
+    }
+    NSLog(@"Returning %@", result);
+    return result;
+}
+
 - (NSMutableArray*) attributes:(Element*) e getSuper:(BOOL)r
 {
 
@@ -1539,12 +1609,17 @@ static const char* prefix = "EWS";
         {
             return result;
         }
-        if ([self forElement:e areChildren:@"sequence,attribute"])
+        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup"])
         {
             for (Element * a in [e children])
             {
                 if ([[a tagName] isEqual:@"attribute"] && [a name]) {
                     [result addObject:a];
+                }
+                else if ([[a tagName] isEqual:@"attributeGroup"])
+                {
+                NSLog (@"Getting attributes");
+                    [result addObjectsFromArray:[self attributesFromGroup:[a ref]]];
                 }
             }
             return result;
@@ -1593,6 +1668,10 @@ static const char* prefix = "EWS";
                 if ([[a tagName] isEqual:@"attribute"] && [a name]) {
                     [result addObject:a];
                 }
+                else if ([[a tagName] isEqual:@"attributeGroup"])
+                {
+                    [result addObjectsFromArray:[self attributesFromGroup:[a ref]]];
+                }
             }
             return result;
         }
@@ -1627,7 +1706,7 @@ static const char* prefix = "EWS";
         {
             return result;
         }
-        if ([self forElement:e areChildren:@"sequence,attribute"])
+        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup"])
         {
             for (Element * a in [e children])
             {
@@ -1672,7 +1751,7 @@ static const char* prefix = "EWS";
             if ([[extension children] count] == 0) {
                 return result;
             }
-            NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute"], @"extension has sequence or choice");
+            NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
 
             for (Element * a in [extension children]) {
                 if ([[a tagName] isEqual:@"choice"]) {
