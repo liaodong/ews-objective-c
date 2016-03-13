@@ -2,7 +2,6 @@
 
 #import "../handlers/EWSObjectTypeHandler.h"
 
-
 #import "EWSSearchExpressionType.h"
 
 

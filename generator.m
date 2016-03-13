@@ -786,7 +786,7 @@ static const char* prefix = "EWS";
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "\n\n\n");
-    fprintf (file, "#import \"../handlers/%sArrayTypeHandler.h\"\n\n", prefix);
+    fprintf (file, "#import \"../handlers/%sArrayTypeHandler.h\"\n", prefix);
     NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
     for  (Element* e in [sequence children]) {
         [includes addObject:[self includeFile:[e type]]];
@@ -1030,9 +1030,7 @@ static const char* prefix = "EWS";
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
-    fprintf (file, "#import \"../handlers/%sObjectTypeHandler.h\"\n\n", prefix);
-
-
+    fprintf (file, "#import \"../handlers/%sObjectTypeHandler.h\"\n", prefix);
     fprintf (file, "\n#import \"%s%s.h\"\n", prefix, name);
     fprintf (file, "\n\n");
     fprintf (file, "@implementation %s%s \n\n", prefix, name);
