@@ -11,65 +11,77 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSAppendToItemFieldType class]];
 
-    [handler property   : @"path"
-             isRequired : TRUE
-             withXmlTag : @"Path"
-             withHandler: [EWSBasePathToElementType class]];
+    [handler property      : @"path"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Path"
+             withHandler   : [EWSBasePathToElementType class]];
 
-    [handler property   : @"item"
-             isRequired : TRUE
-             withXmlTag : @"Item"
-             withHandler: [EWSItemType class]];
+    [handler property      : @"item"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Item"
+             withHandler   : [EWSItemType class]];
 
-    [handler property   : @"message"
-             isRequired : TRUE
-             withXmlTag : @"Message"
-             withHandler: [EWSMessageType class]];
+    [handler property      : @"message"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Message"
+             withHandler   : [EWSMessageType class]];
 
-    [handler property   : @"calendarItem"
-             isRequired : TRUE
-             withXmlTag : @"CalendarItem"
-             withHandler: [EWSCalendarItemType class]];
+    [handler property      : @"calendarItem"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"CalendarItem"
+             withHandler   : [EWSCalendarItemType class]];
 
-    [handler property   : @"contact"
-             isRequired : TRUE
-             withXmlTag : @"Contact"
-             withHandler: [EWSContactItemType class]];
+    [handler property      : @"contact"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Contact"
+             withHandler   : [EWSContactItemType class]];
 
-    [handler property   : @"distributionList"
-             isRequired : TRUE
-             withXmlTag : @"DistributionList"
-             withHandler: [EWSDistributionListType class]];
+    [handler property      : @"distributionList"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DistributionList"
+             withHandler   : [EWSDistributionListType class]];
 
-    [handler property   : @"meetingMessage"
-             isRequired : TRUE
-             withXmlTag : @"MeetingMessage"
-             withHandler: [EWSMeetingMessageType class]];
+    [handler property      : @"meetingMessage"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"MeetingMessage"
+             withHandler   : [EWSMeetingMessageType class]];
 
-    [handler property   : @"meetingRequest"
-             isRequired : TRUE
-             withXmlTag : @"MeetingRequest"
-             withHandler: [EWSMeetingRequestMessageType class]];
+    [handler property      : @"meetingRequest"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"MeetingRequest"
+             withHandler   : [EWSMeetingRequestMessageType class]];
 
-    [handler property   : @"meetingResponse"
-             isRequired : TRUE
-             withXmlTag : @"MeetingResponse"
-             withHandler: [EWSMeetingResponseMessageType class]];
+    [handler property      : @"meetingResponse"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"MeetingResponse"
+             withHandler   : [EWSMeetingResponseMessageType class]];
 
-    [handler property   : @"meetingCancellation"
-             isRequired : TRUE
-             withXmlTag : @"MeetingCancellation"
-             withHandler: [EWSMeetingCancellationMessageType class]];
+    [handler property      : @"meetingCancellation"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"MeetingCancellation"
+             withHandler   : [EWSMeetingCancellationMessageType class]];
 
-    [handler property   : @"task"
-             isRequired : TRUE
-             withXmlTag : @"Task"
-             withHandler: [EWSTaskType class]];
+    [handler property      : @"task"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Task"
+             withHandler   : [EWSTaskType class]];
 
-    [handler property   : @"postItem"
-             isRequired : TRUE
-             withXmlTag : @"PostItem"
-             withHandler: [EWSPostItemType class]];
+    [handler property      : @"postItem"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"PostItem"
+             withHandler   : [EWSPostItemType class]];
 
     [handler register];
 }

@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSNotificationType class]];
 
-    [handler property   : @"subscriptionId"
-             isRequired : TRUE
-             withXmlTag : @"SubscriptionId"
-             withHandler: [EWSSubscriptionIdType class]];
+    [handler property      : @"subscriptionId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"SubscriptionId"
+             withHandler   : [EWSSubscriptionIdType class]];
 
-    [handler property   : @"previousWatermark"
-             isRequired : TRUE
-             withXmlTag : @"PreviousWatermark"
-             withHandler: [EWSWatermarkType class]];
+    [handler property      : @"previousWatermark"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"PreviousWatermark"
+             withHandler   : [EWSWatermarkType class]];
 
-    [handler property   : @"moreEvents"
-             isRequired : TRUE
-             withXmlTag : @"MoreEvents"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"moreEvents"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"MoreEvents"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
     [handler register];
 }

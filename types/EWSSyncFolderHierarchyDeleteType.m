@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSyncFolderHierarchyDeleteType class]];
 
-    [handler property   : @"folderId"
-             isRequired : TRUE
-             withXmlTag : @"FolderId"
-             withHandler: [EWSFolderIdType class]];
+    [handler property      : @"folderId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"FolderId"
+             withHandler   : [EWSFolderIdType class]];
 
     [handler register];
 }

@@ -6,6 +6,7 @@
 {
 }
 
+static char dns = 't';
 static NSMutableArray* array;
 + (NSMutableArray*) ignore
 {
@@ -43,6 +44,7 @@ static NSMutableArray* array;
     else {
         [ self setParent : self];
     }
+    _ns  = dns;
     return self;
 }
 
@@ -57,6 +59,7 @@ static NSMutableArray* array;
 {
     NSXMLParser* parser;
     Element*     current;
+    Element*     types;
 }
 
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary *) attributeDict
@@ -98,6 +101,8 @@ static NSMutableArray* array;
     [parser setShouldReportNamespacePrefixes:TRUE];
 
     [parser setDelegate: self];
+    [self parse];
+    [self generate];
 
     return self;
 }
@@ -833,8 +838,9 @@ static const char* prefix = "EWS";
 
     for  (Element* e in [sequence children])
     {
-        fprintf (file, "    [handler elementName : @\"%s\"\n", [[e name] UTF8String]);
-        fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+        fprintf (file, "    [handler elementName   : @\"%s\"\n", [[e name] UTF8String]);
+        fprintf (file, "             withNamespace : '%c'", [e ns]);
+        fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
     }
     fprintf (file, "    [handler register];\n");
     fprintf (file, "}\n\n");
@@ -1070,18 +1076,20 @@ static const char* prefix = "EWS";
     {
         bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
-            fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isRequired : %s\n", required ? "TRUE" : "FALSE");
-            fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+            fprintf (file, "    [handler property      : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isRequired    : %s\n", required ? "TRUE" : "FALSE");
+            fprintf (file, "             withNamespace : '%c'\n", [e ns]);
+            fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
         else if ([[e maxOccurs] isEqual:@"unbounded"])
         {
-            fprintf (file, "    [handler listProperty : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isNonEmpty   : %s\n", required ? "TRUE" : "FALSE");
-            fprintf (file, "             useSelector  : @\"add%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withXmlTag   : @\"%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withHandler  : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+            fprintf (file, "    [handler listProperty  : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isNonEmpty    : %s\n", required ? "TRUE" : "FALSE");
+            fprintf (file, "             useSelector   : @\"add%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withNamespace : '%c'\n", [e ns]);
+            fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
         else
         {
@@ -1094,18 +1102,20 @@ static const char* prefix = "EWS";
     {
         bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
-            fprintf (file, "    [handler property   : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isRequired : %s\n", required ? "TRUE" : "FALSE");
-            fprintf (file, "             withXmlTag : @\"%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withHandler: [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+            fprintf (file, "    [handler property      : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isRequired    : %s\n", required ? "TRUE" : "FALSE");
+            fprintf (file, "             withNamespace : '%c'\n", [e ns]);
+            fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
         else if ([[e maxOccurs] isEqual:@"unbounded"])
         {
-            fprintf (file, "    [handler listProperty : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isNonEmpty   : %s\n", required ? "TRUE" : "FALSE");
-            fprintf (file, "             useSelector  : @\"add%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withXmlTag   : @\"%s\"\n", [[e name] UTF8String]);
-            fprintf (file, "             withHandler  : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
+            fprintf (file, "    [handler listProperty  : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "             isNonEmpty    : %s\n", required ? "TRUE" : "FALSE");
+            fprintf (file, "             useSelector   : @\"add%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withNamespace : '%c'\n", [e ns]);
+            fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
+            fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
         }
         else
         {

@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSNonEmptyArrayOfRestrictedGroupIdentifiersType alloc] initWithClass:[EWSNonEmptyArrayOfRestrictedGroupIdentifiersType class]];
 
-    [handler elementName : @"RestrictedGroupIdentifier"
-             withHandler : [EWSSidAndAttributesType class]];
+    [handler elementName   : @"RestrictedGroupIdentifier"
+             withNamespace : 't'             withHandler   : [EWSSidAndAttributesType class]];
 
     [handler register];
 }

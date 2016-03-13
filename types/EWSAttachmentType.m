@@ -11,30 +11,35 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSAttachmentType class]];
 
-    [handler property   : @"attachmentId"
-             isRequired : FALSE
-             withXmlTag : @"AttachmentId"
-             withHandler: [EWSAttachmentIdType class]];
+    [handler property      : @"attachmentId"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"AttachmentId"
+             withHandler   : [EWSAttachmentIdType class]];
 
-    [handler property   : @"name"
-             isRequired : FALSE
-             withXmlTag : @"Name"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"name"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Name"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"contentType"
-             isRequired : FALSE
-             withXmlTag : @"ContentType"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"contentType"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ContentType"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"contentId"
-             isRequired : FALSE
-             withXmlTag : @"ContentId"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"contentId"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ContentId"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"contentLocation"
-             isRequired : FALSE
-             withXmlTag : @"ContentLocation"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"contentLocation"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ContentLocation"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSConflictResultsType class]];
 
-    [handler property   : @"count"
-             isRequired : TRUE
-             withXmlTag : @"Count"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"count"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Count"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
     [handler register];
 }

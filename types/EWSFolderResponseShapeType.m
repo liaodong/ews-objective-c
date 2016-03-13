@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSFolderResponseShapeType class]];
 
-    [handler property   : @"baseShape"
-             isRequired : TRUE
-             withXmlTag : @"BaseShape"
-             withHandler: [EWSDefaultShapeNamesType class]];
+    [handler property      : @"baseShape"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"BaseShape"
+             withHandler   : [EWSDefaultShapeNamesType class]];
 
-    [handler property   : @"additionalProperties"
-             isRequired : FALSE
-             withXmlTag : @"AdditionalProperties"
-             withHandler: [EWSNonEmptyArrayOfPathsToElementType class]];
+    [handler property      : @"additionalProperties"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"AdditionalProperties"
+             withHandler   : [EWSNonEmptyArrayOfPathsToElementType class]];
 
     [handler register];
 }

@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSAttendeeType class]];
 
-    [handler property   : @"mailbox"
-             isRequired : TRUE
-             withXmlTag : @"Mailbox"
-             withHandler: [EWSEmailAddressType class]];
+    [handler property      : @"mailbox"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Mailbox"
+             withHandler   : [EWSEmailAddressType class]];
 
-    [handler property   : @"responseType"
-             isRequired : FALSE
-             withXmlTag : @"ResponseType"
-             withHandler: [EWSResponseTypeType class]];
+    [handler property      : @"responseType"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ResponseType"
+             withHandler   : [EWSResponseTypeType class]];
 
-    [handler property   : @"lastResponseTime"
-             isRequired : FALSE
-             withXmlTag : @"LastResponseTime"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"lastResponseTime"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"LastResponseTime"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
     [handler register];
 }

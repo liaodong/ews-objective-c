@@ -11,25 +11,29 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSOccurrenceInfoType class]];
 
-    [handler property   : @"itemId"
-             isRequired : TRUE
-             withXmlTag : @"ItemId"
-             withHandler: [EWSItemIdType class]];
+    [handler property      : @"itemId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [EWSItemIdType class]];
 
-    [handler property   : @"start"
-             isRequired : TRUE
-             withXmlTag : @"Start"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"start"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Start"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
-    [handler property   : @"end"
-             isRequired : TRUE
-             withXmlTag : @"End"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"end"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"End"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
-    [handler property   : @"originalStart"
-             isRequired : TRUE
-             withXmlTag : @"OriginalStart"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"originalStart"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"OriginalStart"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
     [handler register];
 }

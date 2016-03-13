@@ -24,12 +24,12 @@
     return nil;
 }
  
-- (id) updateObject:(id)obj forKey:(NSString*)tag withValue:(id)v
+- (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char)ns  withValue:(id)v
 {
     return nil;
 }
  
-- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag
+- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag namespace:(char) ns
 {
     return nil;
 }

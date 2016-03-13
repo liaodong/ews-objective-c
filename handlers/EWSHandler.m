@@ -6,13 +6,23 @@
     Class clazz;
 }
 
+static EWSHandler* _noop = nil;
 static NSMutableDictionary* _handlers = nil;
 
 + (void) initialize
 {
     if (_handlers == nil) {
         _handlers = [[NSMutableDictionary alloc] initWithCapacity: 1024];
+        [EWSHandler noop];
     }
+}
+
++ (EWSHandler*) noop
+{
+    if (_noop == nil) {
+        _noop = [[EWSHandler alloc] init];
+    }
+    return _noop;
 }
 
 + (NSMutableDictionary*) handlers
@@ -27,6 +37,12 @@ static NSMutableDictionary* _handlers = nil;
     clazz = cls;
     return self;
 }
+
+- (id) init
+{
+    return [super init];
+}
+
 
 - (void) register
 {
@@ -47,7 +63,7 @@ static NSMutableDictionary* _handlers = nil;
     return nil;
 }
 
-- (id) updateObject:(id)obj forKey:(NSString*)tag withValue:(id)v
+- (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char) ns withValue:(id)v
 {
     return nil;
 }
@@ -57,7 +73,7 @@ static NSMutableDictionary* _handlers = nil;
     return nil;
 }
 
-- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag
+- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag namespace : (char) ns
 {
     return nil;
 }

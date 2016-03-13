@@ -16,30 +16,35 @@
              withAttrTag : @"Key"
              withHandler : [EWSPhysicalAddressKeyType class]];
 
-    [handler property   : @"street"
-             isRequired : FALSE
-             withXmlTag : @"Street"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"street"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Street"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"city"
-             isRequired : FALSE
-             withXmlTag : @"City"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"city"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"City"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"state"
-             isRequired : FALSE
-             withXmlTag : @"State"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"state"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"State"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"countryOrRegion"
-             isRequired : FALSE
-             withXmlTag : @"CountryOrRegion"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"countryOrRegion"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"CountryOrRegion"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"postalCode"
-             isRequired : FALSE
-             withXmlTag : @"PostalCode"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"postalCode"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"PostalCode"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

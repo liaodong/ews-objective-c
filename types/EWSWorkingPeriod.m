@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSWorkingPeriod class]];
 
-    [handler property   : @"dayOfWeek"
-             isRequired : TRUE
-             withXmlTag : @"DayOfWeek"
-             withHandler: [EWSDaysOfWeekType class]];
+    [handler property      : @"dayOfWeek"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DayOfWeek"
+             withHandler   : [EWSDaysOfWeekType class]];
 
-    [handler property   : @"startTimeInMinutes"
-             isRequired : TRUE
-             withXmlTag : @"StartTimeInMinutes"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"startTimeInMinutes"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"StartTimeInMinutes"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"endTimeInMinutes"
-             isRequired : TRUE
-             withXmlTag : @"EndTimeInMinutes"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"endTimeInMinutes"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"EndTimeInMinutes"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
     [handler register];
 }

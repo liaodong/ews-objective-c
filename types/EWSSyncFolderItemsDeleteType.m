@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSyncFolderItemsDeleteType class]];
 
-    [handler property   : @"itemId"
-             isRequired : TRUE
-             withXmlTag : @"ItemId"
-             withHandler: [EWSItemIdType class]];
+    [handler property      : @"itemId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [EWSItemIdType class]];
 
     [handler register];
 }

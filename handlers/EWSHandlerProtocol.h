@@ -9,10 +9,10 @@
 - (id) updateObject:(id)obj withCharacters:(NSString*)s;
 
 /** Handling of subelements */
-- (id) updateObject:(id)obj forKey:(NSString*)tag withValue:(id)v;
+- (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char) ns  withValue:(id)v;
 
 /** The handler for a sub tag. */
-- (id<EWSHandlerProtocol>) handlerForElement:(NSString*) elementName;
+- (id<EWSHandlerProtocol>) handlerForElement:(NSString*) elementName namespace:(char) ns;
 
 
 /** XML String generation from Object representation, indent should be nil for compact representation */

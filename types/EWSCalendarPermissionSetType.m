@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSCalendarPermissionSetType class]];
 
-    [handler property   : @"calendarPermissions"
-             isRequired : TRUE
-             withXmlTag : @"CalendarPermissions"
-             withHandler: [EWSArrayOfCalendarPermissionsType class]];
+    [handler property      : @"calendarPermissions"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"CalendarPermissions"
+             withHandler   : [EWSArrayOfCalendarPermissionsType class]];
 
-    [handler property   : @"unknownEntries"
-             isRequired : FALSE
-             withXmlTag : @"UnknownEntries"
-             withHandler: [EWSArrayOfUnknownEntriesType class]];
+    [handler property      : @"unknownEntries"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"UnknownEntries"
+             withHandler   : [EWSArrayOfUnknownEntriesType class]];
 
     [handler register];
 }

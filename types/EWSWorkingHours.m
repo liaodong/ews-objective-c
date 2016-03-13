@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSWorkingHours class]];
 
-    [handler property   : @"timeZone"
-             isRequired : TRUE
-             withXmlTag : @"TimeZone"
-             withHandler: [EWSSerializableTimeZone class]];
+    [handler property      : @"timeZone"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"TimeZone"
+             withHandler   : [EWSSerializableTimeZone class]];
 
-    [handler property   : @"workingPeriodArray"
-             isRequired : TRUE
-             withXmlTag : @"WorkingPeriodArray"
-             withHandler: [EWSArrayOfWorkingPeriod class]];
+    [handler property      : @"workingPeriodArray"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"WorkingPeriodArray"
+             withHandler   : [EWSArrayOfWorkingPeriod class]];
 
     [handler register];
 }

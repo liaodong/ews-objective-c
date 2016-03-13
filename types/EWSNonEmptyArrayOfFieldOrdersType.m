@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSNonEmptyArrayOfFieldOrdersType alloc] initWithClass:[EWSNonEmptyArrayOfFieldOrdersType class]];
 
-    [handler elementName : @"FieldOrder"
-             withHandler : [EWSFieldOrderType class]];
+    [handler elementName   : @"FieldOrder"
+             withNamespace : 't'             withHandler   : [EWSFieldOrderType class]];
 
     [handler register];
 }

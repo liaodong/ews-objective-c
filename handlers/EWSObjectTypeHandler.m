@@ -116,8 +116,10 @@
     return v;
 }
 
-- (id) updateObject:(id)obj forKey:(NSString*)tag withValue:(id)v
+- (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char) ns withValue:(id)v
 {
+    tag = [NSString stringWithFormat:@"%c:%@", ns, tag];
+
     EWSHandlerValue* h = [elements objectForKey:tag];
 
     if ([h sel]) {
@@ -142,11 +144,13 @@
 }
 
 
-- (void) property   :(NSString *) property
-         isRequired :(BOOL) required
-         withXmlTag :(NSString*) tag
-         withHandler:(Class) cls
+- (void) property      :(NSString *) property
+         isRequired    :(BOOL) required
+         withNamespace :(char) ns
+         withXmlTag    :(NSString*) tag
+         withHandler   :(Class) cls
 {
+    tag = [NSString stringWithFormat:@"%c:%@", ns, tag];
     [keys     addObject:tag];
     [elements setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey: cls] forKey:tag];
 }
@@ -159,18 +163,22 @@
     [attributes setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey: cls] forKey:tag];
 }
 
-- (void) listProperty :(NSString *) property
-         isNonEmpty   :(BOOL) required
-         useSelector  :(NSString*) method
-         withXmlTag   :(NSString*) tag
-         withHandler  :(Class) cls
+- (void) listProperty  :(NSString *) property
+         isNonEmpty    :(BOOL) required
+         useSelector   :(NSString*) method
+         withNamespace :(char) ns
+         withXmlTag    :(NSString*) tag
+         withHandler   :(Class) cls
 {
-    [keys     addObject:tag];
+    tag = [NSString stringWithFormat:@"%c:%@", ns, tag];
+
+    [keys addObject:tag];
     [elements setObject:[[EWSHandlerValue alloc] initProperty: property withHandlerKey:cls withSelector:method] forKey:tag];
 }
 
-- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag
+- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag namespace:(char) ns
 {
+    tag = [NSString stringWithFormat:@"%c:%@", ns, tag];
     return [EWSHandler handlerForClass:[[elements objectForKey: tag] cls]];
 }
 

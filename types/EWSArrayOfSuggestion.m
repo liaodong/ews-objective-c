@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSArrayOfSuggestion alloc] initWithClass:[EWSArrayOfSuggestion class]];
 
-    [handler elementName : @"Suggestion"
-             withHandler : [EWSSuggestion class]];
+    [handler elementName   : @"Suggestion"
+             withNamespace : 't'             withHandler   : [EWSSuggestion class]];
 
     [handler register];
 }

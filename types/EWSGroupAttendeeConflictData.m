@@ -11,25 +11,29 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSGroupAttendeeConflictData class]];
 
-    [handler property   : @"numberOfMembers"
-             isRequired : TRUE
-             withXmlTag : @"NumberOfMembers"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"numberOfMembers"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"NumberOfMembers"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"numberOfMembersAvailable"
-             isRequired : TRUE
-             withXmlTag : @"NumberOfMembersAvailable"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"numberOfMembersAvailable"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"NumberOfMembersAvailable"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"numberOfMembersWithConflict"
-             isRequired : TRUE
-             withXmlTag : @"NumberOfMembersWithConflict"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"numberOfMembersWithConflict"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"NumberOfMembersWithConflict"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"numberOfMembersWithNoData"
-             isRequired : TRUE
-             withXmlTag : @"NumberOfMembersWithNoData"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"numberOfMembersWithNoData"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"NumberOfMembersWithNoData"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
     [handler register];
 }

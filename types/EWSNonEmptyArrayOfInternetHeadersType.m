@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSNonEmptyArrayOfInternetHeadersType alloc] initWithClass:[EWSNonEmptyArrayOfInternetHeadersType class]];
 
-    [handler elementName : @"InternetMessageHeader"
-             withHandler : [EWSInternetHeaderType class]];
+    [handler elementName   : @"InternetMessageHeader"
+             withNamespace : 't'             withHandler   : [EWSInternetHeaderType class]];
 
     [handler register];
 }

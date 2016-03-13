@@ -16,7 +16,8 @@ static NSMutableDictionary* elements;
     if (!elements)
     { 
         elements = [[NSMutableDictionary alloc] init];
-        [elements setObject:[EWSHandler handlerForClass:[EWSBasePermissionType class]] forKey:@"BasePermission"];
+        [elements setObject:[EWSHandler handlerForClass:[EWSBasePermissionType class]] forKey:@"t:BasePermission"];
+        [elements setObject:[EWSHandler handlerForClass:[EWSBasePermissionType class]] forKey:@"m:BasePermission"];
     }
 }
 
@@ -25,12 +26,13 @@ static NSMutableDictionary* elements;
     return [super init];
 }
 
-- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) elementName
+- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) elementName namespace:(char) ns
 {
+    elementName = [NSString stringWithFormat:@"%c:%@", ns, elementName];
     return [elements valueForKey:elementName];
 }
 
-- (void) populateValue:(id) value forKey: (NSString*) tag
+- (void) populateValue:(id) value forKey: (NSString*) tag namespace:(char) ns
 {
     _result = value;
 }
@@ -56,14 +58,18 @@ static NSMutableDictionary* elements;
     return [doc result];
 }
 
-+ (void) toXml:(NSString*)root intoBuffer:(NSMutableString*)buffer theObject:(id)object;
++ (void) toXml:(NSString*)root namespace:(char)ns intoBuffer:(NSMutableString*)buffer theObject:(id)object;
 {
+    
     NSMutableString* indent = nil; // [[NSMutableString alloc] init];
 
-    id<EWSHandlerProtocol> handler = [elements valueForKey:root];
+    id<EWSHandlerProtocol> handler = [elements valueForKey:[NSString stringWithFormat:@"%c:%@", ns, root]];
 
     [buffer appendString:@"<"];
     [buffer appendString:root];
+    [buffer appendString:@" xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\""];
+    [buffer appendString:@" xmlns:m=\"http://schemas.microsoft.com/exchange/services/2006/messages\""];
+    [buffer appendString:@" xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\""];
 
     [handler  writeXmlInto:buffer for:object withIndentation:indent];
 

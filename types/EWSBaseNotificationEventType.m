@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSBaseNotificationEventType class]];
 
-    [handler property   : @"watermark"
-             isRequired : TRUE
-             withXmlTag : @"Watermark"
-             withHandler: [EWSWatermarkType class]];
+    [handler property      : @"watermark"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Watermark"
+             withHandler   : [EWSWatermarkType class]];
 
     [handler register];
 }

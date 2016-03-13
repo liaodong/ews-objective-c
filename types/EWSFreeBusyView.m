@@ -11,25 +11,29 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSFreeBusyView class]];
 
-    [handler property   : @"freeBusyViewType"
-             isRequired : TRUE
-             withXmlTag : @"FreeBusyViewType"
-             withHandler: [EWSFreeBusyViewType class]];
+    [handler property      : @"freeBusyViewType"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"FreeBusyViewType"
+             withHandler   : [EWSFreeBusyViewType class]];
 
-    [handler property   : @"mergedFreeBusy"
-             isRequired : FALSE
-             withXmlTag : @"MergedFreeBusy"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"mergedFreeBusy"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"MergedFreeBusy"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"calendarEventArray"
-             isRequired : FALSE
-             withXmlTag : @"CalendarEventArray"
-             withHandler: [EWSArrayOfCalendarEvent class]];
+    [handler property      : @"calendarEventArray"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"CalendarEventArray"
+             withHandler   : [EWSArrayOfCalendarEvent class]];
 
-    [handler property   : @"workingHours"
-             isRequired : FALSE
-             withXmlTag : @"WorkingHours"
-             withHandler: [EWSWorkingHours class]];
+    [handler property      : @"workingHours"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"WorkingHours"
+             withHandler   : [EWSWorkingHours class]];
 
     [handler register];
 }

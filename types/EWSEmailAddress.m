@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSEmailAddress class]];
 
-    [handler property   : @"name"
-             isRequired : FALSE
-             withXmlTag : @"Name"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"name"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Name"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"address"
-             isRequired : TRUE
-             withXmlTag : @"Address"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"address"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Address"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"routingType"
-             isRequired : FALSE
-             withXmlTag : @"RoutingType"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"routingType"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"RoutingType"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

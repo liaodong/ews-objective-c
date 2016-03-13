@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSerializableTimeZone class]];
 
-    [handler property   : @"bias"
-             isRequired : TRUE
-             withXmlTag : @"Bias"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"bias"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Bias"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"standardTime"
-             isRequired : TRUE
-             withXmlTag : @"StandardTime"
-             withHandler: [EWSSerializableTimeZoneTime class]];
+    [handler property      : @"standardTime"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"StandardTime"
+             withHandler   : [EWSSerializableTimeZoneTime class]];
 
-    [handler property   : @"daylightTime"
-             isRequired : TRUE
-             withXmlTag : @"DaylightTime"
-             withHandler: [EWSSerializableTimeZoneTime class]];
+    [handler property      : @"daylightTime"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DaylightTime"
+             withHandler   : [EWSSerializableTimeZoneTime class]];
 
     [handler register];
 }

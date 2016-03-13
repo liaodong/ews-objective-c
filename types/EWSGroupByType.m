@@ -16,10 +16,11 @@
              withAttrTag : @"Order"
              withHandler : [EWSSortDirectionType class]];
 
-    [handler property   : @"aggregateOn"
-             isRequired : TRUE
-             withXmlTag : @"AggregateOn"
-             withHandler: [EWSAggregateOnType class]];
+    [handler property      : @"aggregateOn"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"AggregateOn"
+             withHandler   : [EWSAggregateOnType class]];
 
     [handler register];
 }

@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSDuration class]];
 
-    [handler property   : @"startTime"
-             isRequired : TRUE
-             withXmlTag : @"StartTime"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"startTime"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"StartTime"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
-    [handler property   : @"endTime"
-             isRequired : TRUE
-             withXmlTag : @"EndTime"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"endTime"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"EndTime"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
     [handler register];
 }

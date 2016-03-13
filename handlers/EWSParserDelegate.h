@@ -10,7 +10,7 @@
 - (id) initWithParent: (EWSParserDelegate*) parent;
 - (id) initWithHandler: (id<EWSHandlerProtocol>) handler andParent:(EWSParserDelegate*) parent andObjectWithAttributes:(NSDictionary *)attributeDict;
 
-- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) element;
+- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) element namespace:(char) ns;
 
 - (void) parser:(NSXMLParser*)parser 
                 didStartElement: (NSString *)elementName 

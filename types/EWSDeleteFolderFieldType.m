@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSDeleteFolderFieldType class]];
 
-    [handler property   : @"path"
-             isRequired : TRUE
-             withXmlTag : @"Path"
-             withHandler: [EWSBasePathToElementType class]];
+    [handler property      : @"path"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Path"
+             withHandler   : [EWSBasePathToElementType class]];
 
     [handler register];
 }

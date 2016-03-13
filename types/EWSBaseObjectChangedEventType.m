@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSBaseObjectChangedEventType class]];
 
-    [handler property   : @"watermark"
-             isRequired : TRUE
-             withXmlTag : @"Watermark"
-             withHandler: [EWSWatermarkType class]];
+    [handler property      : @"watermark"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Watermark"
+             withHandler   : [EWSWatermarkType class]];
 
-    [handler property   : @"timeStamp"
-             isRequired : TRUE
-             withXmlTag : @"TimeStamp"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"timeStamp"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"TimeStamp"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
-    [handler property   : @"parentFolderId"
-             isRequired : TRUE
-             withXmlTag : @"ParentFolderId"
-             withHandler: [EWSFolderIdType class]];
+    [handler property      : @"parentFolderId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ParentFolderId"
+             withHandler   : [EWSFolderIdType class]];
 
     [handler register];
 }

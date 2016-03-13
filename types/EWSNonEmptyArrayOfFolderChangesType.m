@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSNonEmptyArrayOfFolderChangesType alloc] initWithClass:[EWSNonEmptyArrayOfFolderChangesType class]];
 
-    [handler elementName : @"FolderChange"
-             withHandler : [EWSFolderChangeType class]];
+    [handler elementName   : @"FolderChange"
+             withNamespace : 't'             withHandler   : [EWSFolderChangeType class]];
 
     [handler register];
 }

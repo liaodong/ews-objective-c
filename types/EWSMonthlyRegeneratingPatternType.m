@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSMonthlyRegeneratingPatternType class]];
 
-    [handler property   : @"interval"
-             isRequired : TRUE
-             withXmlTag : @"Interval"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"interval"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Interval"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
     [handler register];
 }

@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSRelativeYearlyRecurrencePatternType class]];
 
-    [handler property   : @"daysOfWeek"
-             isRequired : TRUE
-             withXmlTag : @"DaysOfWeek"
-             withHandler: [EWSDayOfWeekType class]];
+    [handler property      : @"daysOfWeek"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DaysOfWeek"
+             withHandler   : [EWSDayOfWeekType class]];
 
-    [handler property   : @"dayOfWeekIndex"
-             isRequired : TRUE
-             withXmlTag : @"DayOfWeekIndex"
-             withHandler: [EWSDayOfWeekIndexType class]];
+    [handler property      : @"dayOfWeekIndex"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DayOfWeekIndex"
+             withHandler   : [EWSDayOfWeekIndexType class]];
 
-    [handler property   : @"month"
-             isRequired : TRUE
-             withXmlTag : @"Month"
-             withHandler: [EWSMonthNamesType class]];
+    [handler property      : @"month"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Month"
+             withHandler   : [EWSMonthNamesType class]];
 
     [handler register];
 }

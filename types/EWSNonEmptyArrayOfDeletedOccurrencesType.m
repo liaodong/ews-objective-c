@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSNonEmptyArrayOfDeletedOccurrencesType alloc] initWithClass:[EWSNonEmptyArrayOfDeletedOccurrencesType class]];
 
-    [handler elementName : @"DeletedOccurrence"
-             withHandler : [EWSDeletedOccurrenceInfoType class]];
+    [handler elementName   : @"DeletedOccurrence"
+             withNamespace : 't'             withHandler   : [EWSDeletedOccurrenceInfoType class]];
 
     [handler register];
 }

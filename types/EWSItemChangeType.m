@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSItemChangeType class]];
 
-    [handler property   : @"updates"
-             isRequired : TRUE
-             withXmlTag : @"Updates"
-             withHandler: [EWSNonEmptyArrayOfItemChangeDescriptionsType class]];
+    [handler property      : @"updates"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Updates"
+             withHandler   : [EWSNonEmptyArrayOfItemChangeDescriptionsType class]];
 
     [handler register];
 }

@@ -11,30 +11,35 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSUserOofSettings class]];
 
-    [handler property   : @"oofState"
-             isRequired : TRUE
-             withXmlTag : @"OofState"
-             withHandler: [EWSOofState class]];
+    [handler property      : @"oofState"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"OofState"
+             withHandler   : [EWSOofState class]];
 
-    [handler property   : @"externalAudience"
-             isRequired : TRUE
-             withXmlTag : @"ExternalAudience"
-             withHandler: [EWSExternalAudience class]];
+    [handler property      : @"externalAudience"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ExternalAudience"
+             withHandler   : [EWSExternalAudience class]];
 
-    [handler property   : @"duration"
-             isRequired : FALSE
-             withXmlTag : @"Duration"
-             withHandler: [EWSDuration class]];
+    [handler property      : @"duration"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Duration"
+             withHandler   : [EWSDuration class]];
 
-    [handler property   : @"internalReply"
-             isRequired : FALSE
-             withXmlTag : @"InternalReply"
-             withHandler: [EWSReplyBody class]];
+    [handler property      : @"internalReply"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"InternalReply"
+             withHandler   : [EWSReplyBody class]];
 
-    [handler property   : @"externalReply"
-             isRequired : FALSE
-             withXmlTag : @"ExternalReply"
-             withHandler: [EWSReplyBody class]];
+    [handler property      : @"externalReply"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ExternalReply"
+             withHandler   : [EWSReplyBody class]];
 
     [handler register];
 }

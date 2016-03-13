@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSuggestionDayResult class]];
 
-    [handler property   : @"date"
-             isRequired : TRUE
-             withXmlTag : @"Date"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"date"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Date"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
-    [handler property   : @"dayQuality"
-             isRequired : TRUE
-             withXmlTag : @"DayQuality"
-             withHandler: [EWSSuggestionQuality class]];
+    [handler property      : @"dayQuality"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DayQuality"
+             withHandler   : [EWSSuggestionQuality class]];
 
-    [handler property   : @"suggestionArray"
-             isRequired : FALSE
-             withXmlTag : @"SuggestionArray"
-             withHandler: [EWSArrayOfSuggestion class]];
+    [handler property      : @"suggestionArray"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"SuggestionArray"
+             withHandler   : [EWSArrayOfSuggestion class]];
 
     [handler register];
 }

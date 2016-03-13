@@ -11,30 +11,35 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSEmailAddressType class]];
 
-    [handler property   : @"name"
-             isRequired : FALSE
-             withXmlTag : @"Name"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"name"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Name"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"emailAddress"
-             isRequired : FALSE
-             withXmlTag : @"EmailAddress"
-             withHandler: [EWSNonEmptyStringType class]];
+    [handler property      : @"emailAddress"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"EmailAddress"
+             withHandler   : [EWSNonEmptyStringType class]];
 
-    [handler property   : @"routingType"
-             isRequired : FALSE
-             withXmlTag : @"RoutingType"
-             withHandler: [EWSNonEmptyStringType class]];
+    [handler property      : @"routingType"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"RoutingType"
+             withHandler   : [EWSNonEmptyStringType class]];
 
-    [handler property   : @"mailboxType"
-             isRequired : FALSE
-             withXmlTag : @"MailboxType"
-             withHandler: [EWSMailboxTypeType class]];
+    [handler property      : @"mailboxType"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"MailboxType"
+             withHandler   : [EWSMailboxTypeType class]];
 
-    [handler property   : @"itemId"
-             isRequired : FALSE
-             withXmlTag : @"ItemId"
-             withHandler: [EWSItemIdType class]];
+    [handler property      : @"itemId"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [EWSItemIdType class]];
 
     [handler register];
 }

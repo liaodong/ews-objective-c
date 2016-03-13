@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSNonEmptyArrayOfItemChangesType alloc] initWithClass:[EWSNonEmptyArrayOfItemChangesType class]];
 
-    [handler elementName : @"ItemChange"
-             withHandler : [EWSItemChangeType class]];
+    [handler elementName   : @"ItemChange"
+             withNamespace : 't'             withHandler   : [EWSItemChangeType class]];
 
     [handler register];
 }

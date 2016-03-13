@@ -10,6 +10,8 @@
 @property (strong) NSString* tagName;
 @property (assign) Element*  parent;
 
+@property char ns;
+
 @property (strong) NSString* group;
 @property (strong) NSString* abstract;
 @property (strong) NSString* base;

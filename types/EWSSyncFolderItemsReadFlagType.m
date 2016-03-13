@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSyncFolderItemsReadFlagType class]];
 
-    [handler property   : @"itemId"
-             isRequired : TRUE
-             withXmlTag : @"ItemId"
-             withHandler: [EWSItemIdType class]];
+    [handler property      : @"itemId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [EWSItemIdType class]];
 
-    [handler property   : @"isRead"
-             isRequired : TRUE
-             withXmlTag : @"IsRead"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"isRead"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"IsRead"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
     [handler register];
 }

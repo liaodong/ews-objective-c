@@ -16,10 +16,11 @@
              withAttrTag : @"Order"
              withHandler : [EWSSortDirectionType class]];
 
-    [handler property   : @"standardGroupBy"
-             isRequired : TRUE
-             withXmlTag : @"StandardGroupBy"
-             withHandler: [EWSStandardGroupByType class]];
+    [handler property      : @"standardGroupBy"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"StandardGroupBy"
+             withHandler   : [EWSStandardGroupByType class]];
 
     [handler register];
 }

@@ -11,25 +11,29 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSUserIdType class]];
 
-    [handler property   : @"sID"
-             isRequired : FALSE
-             withXmlTag : @"SID"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"sID"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"SID"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"primarySmtpAddress"
-             isRequired : FALSE
-             withXmlTag : @"PrimarySmtpAddress"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"primarySmtpAddress"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"PrimarySmtpAddress"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"displayName"
-             isRequired : FALSE
-             withXmlTag : @"DisplayName"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"displayName"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"DisplayName"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"distinguishedUser"
-             isRequired : FALSE
-             withXmlTag : @"DistinguishedUser"
-             withHandler: [EWSDistinguishedUserType class]];
+    [handler property      : @"distinguishedUser"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"DistinguishedUser"
+             withHandler   : [EWSDistinguishedUserType class]];
 
     [handler register];
 }

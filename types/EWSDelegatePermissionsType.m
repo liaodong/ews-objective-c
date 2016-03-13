@@ -11,35 +11,41 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSDelegatePermissionsType class]];
 
-    [handler property   : @"calendarFolderPermissionLevel"
-             isRequired : FALSE
-             withXmlTag : @"CalendarFolderPermissionLevel"
-             withHandler: [EWSDelegateFolderPermissionLevelType class]];
+    [handler property      : @"calendarFolderPermissionLevel"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"CalendarFolderPermissionLevel"
+             withHandler   : [EWSDelegateFolderPermissionLevelType class]];
 
-    [handler property   : @"tasksFolderPermissionLevel"
-             isRequired : FALSE
-             withXmlTag : @"TasksFolderPermissionLevel"
-             withHandler: [EWSDelegateFolderPermissionLevelType class]];
+    [handler property      : @"tasksFolderPermissionLevel"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"TasksFolderPermissionLevel"
+             withHandler   : [EWSDelegateFolderPermissionLevelType class]];
 
-    [handler property   : @"inboxFolderPermissionLevel"
-             isRequired : FALSE
-             withXmlTag : @"InboxFolderPermissionLevel"
-             withHandler: [EWSDelegateFolderPermissionLevelType class]];
+    [handler property      : @"inboxFolderPermissionLevel"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"InboxFolderPermissionLevel"
+             withHandler   : [EWSDelegateFolderPermissionLevelType class]];
 
-    [handler property   : @"contactsFolderPermissionLevel"
-             isRequired : FALSE
-             withXmlTag : @"ContactsFolderPermissionLevel"
-             withHandler: [EWSDelegateFolderPermissionLevelType class]];
+    [handler property      : @"contactsFolderPermissionLevel"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ContactsFolderPermissionLevel"
+             withHandler   : [EWSDelegateFolderPermissionLevelType class]];
 
-    [handler property   : @"notesFolderPermissionLevel"
-             isRequired : FALSE
-             withXmlTag : @"NotesFolderPermissionLevel"
-             withHandler: [EWSDelegateFolderPermissionLevelType class]];
+    [handler property      : @"notesFolderPermissionLevel"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"NotesFolderPermissionLevel"
+             withHandler   : [EWSDelegateFolderPermissionLevelType class]];
 
-    [handler property   : @"journalFolderPermissionLevel"
-             isRequired : FALSE
-             withXmlTag : @"JournalFolderPermissionLevel"
-             withHandler: [EWSDelegateFolderPermissionLevelType class]];
+    [handler property      : @"journalFolderPermissionLevel"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"JournalFolderPermissionLevel"
+             withHandler   : [EWSDelegateFolderPermissionLevelType class]];
 
     [handler register];
 }

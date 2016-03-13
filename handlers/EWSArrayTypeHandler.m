@@ -25,7 +25,7 @@
     return [[NSMutableArray alloc] init];
 }
 
-- (NSMutableArray*) updateObject:(NSMutableArray*)obj forKey:(NSString*)tag withValue:(id)v
+- (NSMutableArray*) updateObject:(NSMutableArray*)obj forKey:(NSString*)tag namespace:(char)ns withValue:(id)v
 {
     [obj addObject:v];
     return obj;
@@ -46,15 +46,19 @@
     return nil;
 }
 
-- (void) elementName :(NSString *) tag
-         withHandler :(Class) cls
+- (void) elementName  :(NSString *) tag
+         withNamespace: (char) ns
+         withHandler  :(Class) cls
 {
+    tag = [NSString stringWithFormat:@"%c:%@", ns, tag];
+
     [handlers setObject:cls forKey:tag];
     [elements setObject:tag forKey:[cls className]];
 }
 
-- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag
+- (id<EWSHandlerProtocol>) handlerForElement: (NSString *) tag namespace: (char) ns
 {
+    tag = [NSString stringWithFormat:@"%c:%@", ns, tag];
     return [EWSHandler handlerForClass:[handlers objectForKey: tag]];
 }
 

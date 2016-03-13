@@ -16,10 +16,11 @@
              withAttrTag : @"TimeZoneName"
              withHandler : [EWSStringTypeHandler class]];
 
-    [handler property   : @"baseOffset"
-             isRequired : TRUE
-             withXmlTag : @"BaseOffset"
-             withHandler: [EWSDurationTypeHandler class]];
+    [handler property      : @"baseOffset"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"BaseOffset"
+             withHandler   : [EWSDurationTypeHandler class]];
 
     [handler register];
 }

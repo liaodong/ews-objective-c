@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSDeletedOccurrenceInfoType class]];
 
-    [handler property   : @"start"
-             isRequired : TRUE
-             withXmlTag : @"Start"
-             withHandler: [EWSDateTimeTypeHandler class]];
+    [handler property      : @"start"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Start"
+             withHandler   : [EWSDateTimeTypeHandler class]];
 
     [handler register];
 }

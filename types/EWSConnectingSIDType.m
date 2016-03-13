@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSConnectingSIDType class]];
 
-    [handler property   : @"principalName"
-             isRequired : FALSE
-             withXmlTag : @"PrincipalName"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"principalName"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"PrincipalName"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"sID"
-             isRequired : FALSE
-             withXmlTag : @"SID"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"sID"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"SID"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"primarySmtpAddress"
-             isRequired : FALSE
-             withXmlTag : @"PrimarySmtpAddress"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"primarySmtpAddress"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"PrimarySmtpAddress"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

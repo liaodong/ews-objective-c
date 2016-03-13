@@ -113,25 +113,15 @@ int main (int argc, const char* argv[]) {
     [[cls deserializeFromXml] release];
 
 */
-
-    if (argc > 1 && strcmp (argv[1], "test") == 0)
-    {
-        NSString* xml = @"<BasePermission><UserId><SID>sid</SID><PrimarySmtpAddress>fiberlink.com</PrimarySmtpAddress><DisplayName>Venkat Murty</DisplayName><DistinguishedUser>Default</DistinguishedUser></UserId><CanCreateItems>TRUE</CanCreateItems><EditItems>All</EditItems><DeleteItems>None</DeleteItems></BasePermission>";
+        NSString* xml = @"<BasePermission xmlns=\"ews_xsd/messages\" xmlns:t=\"ews_xsd/types\"><t:UserId><t:SID>sid</t:SID><Ignore><Foo></Foo><Foo></Foo></Ignore><t:PrimarySmtpAddress>fiberlink.com</t:PrimarySmtpAddress><t:DisplayName>Venkat Murty</t:DisplayName><t:DistinguishedUser>Default</t:DistinguishedUser></t:UserId><t:CanCreateItems>TRUE</t:CanCreateItems><t:EditItems>All</t:EditItems><t:DeleteItems>None</t:DeleteItems></BasePermission>";
         id obj = [EWSDocumentHandler fromXml:xml];
 
+        NSLog(@"obj = %@", obj);
+
         NSMutableString* b = [[NSMutableString alloc] init];
-        [EWSDocumentHandler toXml:@"BasePermission" intoBuffer:b theObject:obj];
+        [EWSDocumentHandler toXml:@"BasePermission" namespace:'m' intoBuffer:b theObject:obj];
 
         NSLog(@"xml = %@", xml);
         NSLog(@"xml = %@", b);
-    }
-    else 
-    {
-        Generator *generator = [[Generator alloc] initWithFile: @"ews_xsd/types.xsd"];
-
-        [generator parse];
-        [generator generate];
-    }
-    return 0;
 }
 

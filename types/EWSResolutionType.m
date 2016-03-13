@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSResolutionType class]];
 
-    [handler property   : @"mailbox"
-             isRequired : TRUE
-             withXmlTag : @"Mailbox"
-             withHandler: [EWSEmailAddressType class]];
+    [handler property      : @"mailbox"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Mailbox"
+             withHandler   : [EWSEmailAddressType class]];
 
-    [handler property   : @"contact"
-             isRequired : FALSE
-             withXmlTag : @"Contact"
-             withHandler: [EWSContactItemType class]];
+    [handler property      : @"contact"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Contact"
+             withHandler   : [EWSContactItemType class]];
 
     [handler register];
 }

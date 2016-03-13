@@ -21,15 +21,17 @@
              withAttrTag : @"ContainmentComparison"
              withHandler : [EWSContainmentComparisonType class]];
 
-    [handler property   : @"path"
-             isRequired : TRUE
-             withXmlTag : @"Path"
-             withHandler: [EWSBasePathToElementType class]];
+    [handler property      : @"path"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Path"
+             withHandler   : [EWSBasePathToElementType class]];
 
-    [handler property   : @"constant"
-             isRequired : TRUE
-             withXmlTag : @"Constant"
-             withHandler: [EWSConstantValueType class]];
+    [handler property      : @"constant"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Constant"
+             withHandler   : [EWSConstantValueType class]];
 
     [handler register];
 }

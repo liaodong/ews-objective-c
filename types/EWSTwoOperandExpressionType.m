@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSTwoOperandExpressionType class]];
 
-    [handler property   : @"path"
-             isRequired : TRUE
-             withXmlTag : @"Path"
-             withHandler: [EWSBasePathToElementType class]];
+    [handler property      : @"path"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Path"
+             withHandler   : [EWSBasePathToElementType class]];
 
-    [handler property   : @"fieldURIOrConstant"
-             isRequired : TRUE
-             withXmlTag : @"FieldURIOrConstant"
-             withHandler: [EWSFieldURIOrConstantType class]];
+    [handler property      : @"fieldURIOrConstant"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"FieldURIOrConstant"
+             withHandler   : [EWSFieldURIOrConstantType class]];
 
     [handler register];
 }

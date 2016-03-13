@@ -1,5 +1,6 @@
 #import "EWSParserDelegate.h"
 
+#import "EWSHandler.h"
 
 @implementation EWSParserDelegate 
 {
@@ -19,7 +20,7 @@
     self = [super init];
 
     _parent  = parent;
-    _handler = handler;
+    _handler = handler ? handler : [EWSHandler noop];
 
     if (!_parent) {
         _parent = self;
@@ -29,14 +30,17 @@
     return self;
 }
 
-- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) elementName
+- (id<EWSHandlerProtocol>) handlerForElementName:(NSString*) elementName namespace:(char) ns
 {
-    return [_handler handlerForElement:elementName];
+    return [_handler handlerForElement:elementName namespace:ns];
 }
 
-- (void) populateValue:(id) value forKey: (NSString*) tag
+- (void) populateValue:(id) value forKey: (NSString*) tag namespace:(char) ns
 {
-    _object = [_handler updateObject:_object forKey: tag withValue:value];
+    if (value) {
+        _object = [_handler updateObject:_object forKey: tag namespace:ns withValue:value];
+    }
+    else NSLog(@"value is null");
 }
 
 - (void) parser:(NSXMLParser*)parser 
@@ -45,7 +49,13 @@
                 qualifiedName:   (NSString *)qName
                 attributes:      (NSDictionary *)attributeDict
 {
-    EWSParserDelegate* delegate = [[EWSParserDelegate alloc] initWithHandler: [self handlerForElementName:elementName] andParent:self andObjectWithAttributes:attributeDict];
+    char ns = 'x';
+    ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
+    ns = [namespaceURI hasSuffix:@"messages"] ? 'm' : ns;
+
+    NSLog(@"begin %@ %@ %@", elementName, namespaceURI, qName);
+
+    EWSParserDelegate* delegate = [[EWSParserDelegate alloc] initWithHandler: [self handlerForElementName:elementName namespace:ns] andParent:self andObjectWithAttributes:attributeDict];
     [parser setDelegate:delegate];
 }
 
@@ -60,8 +70,13 @@
                 namespaceURI:    (NSString *)namespaceURI
                 qualifiedName:   (NSString *)qName
 {
-    [_parent populateValue:_object forKey:elementName];
+    char ns = 'x';
+    ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
+    ns = [namespaceURI hasSuffix:@"messages"] ? 'm' : ns;
+
+    [_parent populateValue:_object forKey:elementName namespace:ns];
     [parser setDelegate:_parent];
+    [self release];
 }
 
 - (void) parser:(NSXMLParser *)parser

@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSFreeBusyViewOptionsType class]];
 
-    [handler property   : @"timeWindow"
-             isRequired : TRUE
-             withXmlTag : @"TimeWindow"
-             withHandler: [EWSDuration class]];
+    [handler property      : @"timeWindow"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"TimeWindow"
+             withHandler   : [EWSDuration class]];
 
-    [handler property   : @"mergedFreeBusyIntervalInMinutes"
-             isRequired : FALSE
-             withXmlTag : @"MergedFreeBusyIntervalInMinutes"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"mergedFreeBusyIntervalInMinutes"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"MergedFreeBusyIntervalInMinutes"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"requestedView"
-             isRequired : FALSE
-             withXmlTag : @"RequestedView"
-             withHandler: [EWSFreeBusyViewType class]];
+    [handler property      : @"requestedView"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"RequestedView"
+             withHandler   : [EWSFreeBusyViewType class]];
 
     [handler register];
 }

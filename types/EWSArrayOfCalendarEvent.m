@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSArrayOfCalendarEvent alloc] initWithClass:[EWSArrayOfCalendarEvent class]];
 
-    [handler elementName : @"CalendarEvent"
-             withHandler : [EWSCalendarEvent class]];
+    [handler elementName   : @"CalendarEvent"
+             withNamespace : 't'             withHandler   : [EWSCalendarEvent class]];
 
     [handler register];
 }

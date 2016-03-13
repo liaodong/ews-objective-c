@@ -11,35 +11,41 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSerializableTimeZoneTime class]];
 
-    [handler property   : @"bias"
-             isRequired : TRUE
-             withXmlTag : @"Bias"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"bias"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Bias"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"time"
-             isRequired : TRUE
-             withXmlTag : @"Time"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"time"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Time"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"dayOrder"
-             isRequired : TRUE
-             withXmlTag : @"DayOrder"
-             withHandler: [EWSShortTypeHandler class]];
+    [handler property      : @"dayOrder"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DayOrder"
+             withHandler   : [EWSShortTypeHandler class]];
 
-    [handler property   : @"month"
-             isRequired : TRUE
-             withXmlTag : @"Month"
-             withHandler: [EWSShortTypeHandler class]];
+    [handler property      : @"month"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Month"
+             withHandler   : [EWSShortTypeHandler class]];
 
-    [handler property   : @"dayOfWeek"
-             isRequired : TRUE
-             withXmlTag : @"DayOfWeek"
-             withHandler: [EWSDayOfWeekType class]];
+    [handler property      : @"dayOfWeek"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DayOfWeek"
+             withHandler   : [EWSDayOfWeekType class]];
 
-    [handler property   : @"year"
-             isRequired : FALSE
-             withXmlTag : @"Year"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"year"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Year"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

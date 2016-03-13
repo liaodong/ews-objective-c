@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSIndividualAttendeeConflictData class]];
 
-    [handler property   : @"busyType"
-             isRequired : TRUE
-             withXmlTag : @"BusyType"
-             withHandler: [EWSLegacyFreeBusyType class]];
+    [handler property      : @"busyType"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"BusyType"
+             withHandler   : [EWSLegacyFreeBusyType class]];
 
     [handler register];
 }

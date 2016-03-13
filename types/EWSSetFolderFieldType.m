@@ -11,35 +11,41 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSetFolderFieldType class]];
 
-    [handler property   : @"path"
-             isRequired : TRUE
-             withXmlTag : @"Path"
-             withHandler: [EWSBasePathToElementType class]];
+    [handler property      : @"path"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Path"
+             withHandler   : [EWSBasePathToElementType class]];
 
-    [handler property   : @"folder"
-             isRequired : TRUE
-             withXmlTag : @"Folder"
-             withHandler: [EWSFolderType class]];
+    [handler property      : @"folder"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Folder"
+             withHandler   : [EWSFolderType class]];
 
-    [handler property   : @"calendarFolder"
-             isRequired : TRUE
-             withXmlTag : @"CalendarFolder"
-             withHandler: [EWSCalendarFolderType class]];
+    [handler property      : @"calendarFolder"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"CalendarFolder"
+             withHandler   : [EWSCalendarFolderType class]];
 
-    [handler property   : @"contactsFolder"
-             isRequired : TRUE
-             withXmlTag : @"ContactsFolder"
-             withHandler: [EWSContactsFolderType class]];
+    [handler property      : @"contactsFolder"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ContactsFolder"
+             withHandler   : [EWSContactsFolderType class]];
 
-    [handler property   : @"searchFolder"
-             isRequired : TRUE
-             withXmlTag : @"SearchFolder"
-             withHandler: [EWSSearchFolderType class]];
+    [handler property      : @"searchFolder"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"SearchFolder"
+             withHandler   : [EWSSearchFolderType class]];
 
-    [handler property   : @"tasksFolder"
-             isRequired : TRUE
-             withXmlTag : @"TasksFolder"
-             withHandler: [EWSTasksFolderType class]];
+    [handler property      : @"tasksFolder"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"TasksFolder"
+             withHandler   : [EWSTasksFolderType class]];
 
     [handler register];
 }

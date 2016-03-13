@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSEndDateRecurrenceRangeType class]];
 
-    [handler property   : @"startDate"
-             isRequired : TRUE
-             withXmlTag : @"StartDate"
-             withHandler: [EWSDateTypeHandler class]];
+    [handler property      : @"startDate"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"StartDate"
+             withHandler   : [EWSDateTypeHandler class]];
 
-    [handler property   : @"endDate"
-             isRequired : TRUE
-             withXmlTag : @"EndDate"
-             withHandler: [EWSDateTypeHandler class]];
+    [handler property      : @"endDate"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"EndDate"
+             withHandler   : [EWSDateTypeHandler class]];
 
     [handler register];
 }

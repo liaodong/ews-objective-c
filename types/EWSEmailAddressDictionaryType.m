@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSEmailAddressDictionaryType alloc] initWithClass:[EWSEmailAddressDictionaryType class]];
 
-    [handler elementName : @"Entry"
-             withHandler : [EWSEmailAddressDictionaryEntryType class]];
+    [handler elementName   : @"Entry"
+             withNamespace : 't'             withHandler   : [EWSEmailAddressDictionaryEntryType class]];
 
     [handler register];
 }

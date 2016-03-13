@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSExchangeImpersonationType class]];
 
-    [handler property   : @"connectingSID"
-             isRequired : TRUE
-             withXmlTag : @"ConnectingSID"
-             withHandler: [EWSConnectingSIDType class]];
+    [handler property      : @"connectingSID"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ConnectingSID"
+             withHandler   : [EWSConnectingSIDType class]];
 
     [handler register];
 }

@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSExcludesType class]];
 
-    [handler property   : @"path"
-             isRequired : TRUE
-             withXmlTag : @"Path"
-             withHandler: [EWSBasePathToElementType class]];
+    [handler property      : @"path"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Path"
+             withHandler   : [EWSBasePathToElementType class]];
 
-    [handler property   : @"bitmask"
-             isRequired : TRUE
-             withXmlTag : @"Bitmask"
-             withHandler: [EWSExcludesValueType class]];
+    [handler property      : @"bitmask"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Bitmask"
+             withHandler   : [EWSExcludesValueType class]];
 
     [handler register];
 }

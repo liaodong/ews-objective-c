@@ -16,15 +16,17 @@
              withAttrTag : @"Traversal"
              withHandler : [EWSSearchFolderTraversalType class]];
 
-    [handler property   : @"restriction"
-             isRequired : TRUE
-             withXmlTag : @"Restriction"
-             withHandler: [EWSRestrictionType class]];
+    [handler property      : @"restriction"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Restriction"
+             withHandler   : [EWSRestrictionType class]];
 
-    [handler property   : @"baseFolderIds"
-             isRequired : TRUE
-             withXmlTag : @"BaseFolderIds"
-             withHandler: [EWSNonEmptyArrayOfBaseFolderIdsType class]];
+    [handler property      : @"baseFolderIds"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"BaseFolderIds"
+             withHandler   : [EWSNonEmptyArrayOfBaseFolderIdsType class]];
 
     [handler register];
 }

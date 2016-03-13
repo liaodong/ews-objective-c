@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSPhoneNumberDictionaryType alloc] initWithClass:[EWSPhoneNumberDictionaryType class]];
 
-    [handler elementName : @"Entry"
-             withHandler : [EWSPhoneNumberDictionaryEntryType class]];
+    [handler elementName   : @"Entry"
+             withNamespace : 't'             withHandler   : [EWSPhoneNumberDictionaryEntryType class]];
 
     [handler register];
 }

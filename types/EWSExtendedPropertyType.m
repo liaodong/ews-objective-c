@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSExtendedPropertyType class]];
 
-    [handler property   : @"extendedFieldURI"
-             isRequired : TRUE
-             withXmlTag : @"ExtendedFieldURI"
-             withHandler: [EWSPathToExtendedFieldType class]];
+    [handler property      : @"extendedFieldURI"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ExtendedFieldURI"
+             withHandler   : [EWSPathToExtendedFieldType class]];
 
     [handler register];
 }

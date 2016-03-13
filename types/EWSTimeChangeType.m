@@ -16,25 +16,29 @@
              withAttrTag : @"TimeZoneName"
              withHandler : [EWSStringTypeHandler class]];
 
-    [handler property   : @"offset"
-             isRequired : TRUE
-             withXmlTag : @"Offset"
-             withHandler: [EWSDurationTypeHandler class]];
+    [handler property      : @"offset"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Offset"
+             withHandler   : [EWSDurationTypeHandler class]];
 
-    [handler property   : @"relativeYearlyRecurrence"
-             isRequired : TRUE
-             withXmlTag : @"RelativeYearlyRecurrence"
-             withHandler: [EWSRelativeYearlyRecurrencePatternType class]];
+    [handler property      : @"relativeYearlyRecurrence"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"RelativeYearlyRecurrence"
+             withHandler   : [EWSRelativeYearlyRecurrencePatternType class]];
 
-    [handler property   : @"absoluteDate"
-             isRequired : TRUE
-             withXmlTag : @"AbsoluteDate"
-             withHandler: [EWSDateTypeHandler class]];
+    [handler property      : @"absoluteDate"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"AbsoluteDate"
+             withHandler   : [EWSDateTypeHandler class]];
 
-    [handler property   : @"time"
-             isRequired : TRUE
-             withXmlTag : @"Time"
-             withHandler: [EWSTimeTypeHandler class]];
+    [handler property      : @"time"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Time"
+             withHandler   : [EWSTimeTypeHandler class]];
 
     [handler register];
 }

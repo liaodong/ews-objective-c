@@ -11,35 +11,41 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSEffectiveRightsType class]];
 
-    [handler property   : @"createAssociated"
-             isRequired : TRUE
-             withXmlTag : @"CreateAssociated"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"createAssociated"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"CreateAssociated"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"createContents"
-             isRequired : TRUE
-             withXmlTag : @"CreateContents"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"createContents"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"CreateContents"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"createHierarchy"
-             isRequired : TRUE
-             withXmlTag : @"CreateHierarchy"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"createHierarchy"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"CreateHierarchy"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"delete"
-             isRequired : TRUE
-             withXmlTag : @"Delete"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"delete"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Delete"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"modify"
-             isRequired : TRUE
-             withXmlTag : @"Modify"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"modify"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Modify"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"read"
-             isRequired : TRUE
-             withXmlTag : @"Read"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"read"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Read"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
     [handler register];
 }

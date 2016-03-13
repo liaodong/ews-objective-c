@@ -16,10 +16,11 @@
              withAttrTag : @"Attributes"
              withHandler : [EWSUnsignedIntTypeHandler class]];
 
-    [handler property   : @"securityIdentifier"
-             isRequired : TRUE
-             withXmlTag : @"SecurityIdentifier"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"securityIdentifier"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"SecurityIdentifier"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

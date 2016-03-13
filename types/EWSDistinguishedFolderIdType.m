@@ -21,10 +21,11 @@
              withAttrTag : @"ChangeKey"
              withHandler : [EWSStringTypeHandler class]];
 
-    [handler property   : @"mailbox"
-             isRequired : FALSE
-             withXmlTag : @"Mailbox"
-             withHandler: [EWSEmailAddressType class]];
+    [handler property      : @"mailbox"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Mailbox"
+             withHandler   : [EWSEmailAddressType class]];
 
     [handler register];
 }

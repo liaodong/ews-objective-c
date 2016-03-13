@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSWeeklyRecurrencePatternType class]];
 
-    [handler property   : @"interval"
-             isRequired : TRUE
-             withXmlTag : @"Interval"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"interval"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Interval"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"daysOfWeek"
-             isRequired : TRUE
-             withXmlTag : @"DaysOfWeek"
-             withHandler: [EWSDaysOfWeekType class]];
+    [handler property      : @"daysOfWeek"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DaysOfWeek"
+             withHandler   : [EWSDaysOfWeekType class]];
 
     [handler register];
 }

@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSArrayOfStringsType alloc] initWithClass:[EWSArrayOfStringsType class]];
 
-    [handler elementName : @"String"
-             withHandler : [EWSStringTypeHandler class]];
+    [handler elementName   : @"String"
+             withNamespace : 't'             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

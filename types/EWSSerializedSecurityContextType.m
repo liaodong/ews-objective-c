@@ -11,25 +11,29 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSSerializedSecurityContextType class]];
 
-    [handler property   : @"userSid"
-             isRequired : TRUE
-             withXmlTag : @"UserSid"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"userSid"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"UserSid"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"groupSids"
-             isRequired : FALSE
-             withXmlTag : @"GroupSids"
-             withHandler: [EWSNonEmptyArrayOfGroupIdentifiersType class]];
+    [handler property      : @"groupSids"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"GroupSids"
+             withHandler   : [EWSNonEmptyArrayOfGroupIdentifiersType class]];
 
-    [handler property   : @"restrictedGroupSids"
-             isRequired : FALSE
-             withXmlTag : @"RestrictedGroupSids"
-             withHandler: [EWSNonEmptyArrayOfRestrictedGroupIdentifiersType class]];
+    [handler property      : @"restrictedGroupSids"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"RestrictedGroupSids"
+             withHandler   : [EWSNonEmptyArrayOfRestrictedGroupIdentifiersType class]];
 
-    [handler property   : @"primarySmtpAddress"
-             isRequired : FALSE
-             withXmlTag : @"PrimarySmtpAddress"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"primarySmtpAddress"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"PrimarySmtpAddress"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

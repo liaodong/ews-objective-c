@@ -5,10 +5,7 @@
 
 int main (int argc, const char* argv[]) {
     {
-        Generator *generator = [[Generator alloc] initWithFile: @"ews_xsd/types.xsd"];
-
-        [generator parse];
-        [generator generate];
+        [[Generator alloc] initWithFile: @"ews_xsd/types.xsd"];
     }
     return 0;
 }

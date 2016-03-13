@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSGroupedItemsType class]];
 
-    [handler property   : @"groupIndex"
-             isRequired : TRUE
-             withXmlTag : @"GroupIndex"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"groupIndex"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"GroupIndex"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"items"
-             isRequired : TRUE
-             withXmlTag : @"Items"
-             withHandler: [EWSArrayOfRealItemsType class]];
+    [handler property      : @"items"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Items"
+             withHandler   : [EWSArrayOfRealItemsType class]];
 
     [handler register];
 }

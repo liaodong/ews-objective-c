@@ -11,20 +11,23 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSMailboxData class]];
 
-    [handler property   : @"email"
-             isRequired : TRUE
-             withXmlTag : @"Email"
-             withHandler: [EWSEmailAddress class]];
+    [handler property      : @"email"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Email"
+             withHandler   : [EWSEmailAddress class]];
 
-    [handler property   : @"attendeeType"
-             isRequired : TRUE
-             withXmlTag : @"AttendeeType"
-             withHandler: [EWSMeetingAttendeeType class]];
+    [handler property      : @"attendeeType"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"AttendeeType"
+             withHandler   : [EWSMeetingAttendeeType class]];
 
-    [handler property   : @"excludeConflicts"
-             isRequired : FALSE
-             withXmlTag : @"ExcludeConflicts"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"excludeConflicts"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ExcludeConflicts"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
     [handler register];
 }

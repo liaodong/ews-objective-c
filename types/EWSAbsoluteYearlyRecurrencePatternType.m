@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSAbsoluteYearlyRecurrencePatternType class]];
 
-    [handler property   : @"dayOfMonth"
-             isRequired : TRUE
-             withXmlTag : @"DayOfMonth"
-             withHandler: [EWSIntegerTypeHandler class]];
+    [handler property      : @"dayOfMonth"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"DayOfMonth"
+             withHandler   : [EWSIntegerTypeHandler class]];
 
-    [handler property   : @"month"
-             isRequired : TRUE
-             withXmlTag : @"Month"
-             withHandler: [EWSMonthNamesType class]];
+    [handler property      : @"month"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Month"
+             withHandler   : [EWSMonthNamesType class]];
 
     [handler register];
 }

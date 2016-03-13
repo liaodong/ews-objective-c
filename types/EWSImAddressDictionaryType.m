@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSImAddressDictionaryType alloc] initWithClass:[EWSImAddressDictionaryType class]];
 
-    [handler elementName : @"Entry"
-             withHandler : [EWSImAddressDictionaryEntryType class]];
+    [handler elementName   : @"Entry"
+             withNamespace : 't'             withHandler   : [EWSImAddressDictionaryEntryType class]];
 
     [handler register];
 }

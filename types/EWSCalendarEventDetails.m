@@ -11,45 +11,53 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSCalendarEventDetails class]];
 
-    [handler property   : @"iD"
-             isRequired : FALSE
-             withXmlTag : @"ID"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"iD"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"ID"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"subject"
-             isRequired : FALSE
-             withXmlTag : @"Subject"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"subject"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Subject"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"location"
-             isRequired : FALSE
-             withXmlTag : @"Location"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"location"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Location"
+             withHandler   : [EWSStringTypeHandler class]];
 
-    [handler property   : @"isMeeting"
-             isRequired : TRUE
-             withXmlTag : @"IsMeeting"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"isMeeting"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"IsMeeting"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"isRecurring"
-             isRequired : TRUE
-             withXmlTag : @"IsRecurring"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"isRecurring"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"IsRecurring"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"isException"
-             isRequired : TRUE
-             withXmlTag : @"IsException"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"isException"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"IsException"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"isReminderSet"
-             isRequired : TRUE
-             withXmlTag : @"IsReminderSet"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"isReminderSet"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"IsReminderSet"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
-    [handler property   : @"isPrivate"
-             isRequired : TRUE
-             withXmlTag : @"IsPrivate"
-             withHandler: [EWSBooleanTypeHandler class]];
+    [handler property      : @"isPrivate"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"IsPrivate"
+             withHandler   : [EWSBooleanTypeHandler class]];
 
     [handler register];
 }

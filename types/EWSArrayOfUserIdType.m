@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSArrayOfUserIdType alloc] initWithClass:[EWSArrayOfUserIdType class]];
 
-    [handler elementName : @"UserId"
-             withHandler : [EWSUserIdType class]];
+    [handler elementName   : @"UserId"
+             withNamespace : 't'             withHandler   : [EWSUserIdType class]];
 
     [handler register];
 }

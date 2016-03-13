@@ -11,10 +11,11 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSReplyBody class]];
 
-    [handler property   : @"message"
-             isRequired : FALSE
-             withXmlTag : @"Message"
-             withHandler: [EWSStringTypeHandler class]];
+    [handler property      : @"message"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"Message"
+             withHandler   : [EWSStringTypeHandler class]];
 
     [handler register];
 }

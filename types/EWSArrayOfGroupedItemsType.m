@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSArrayOfGroupedItemsType alloc] initWithClass:[EWSArrayOfGroupedItemsType class]];
 
-    [handler elementName : @"GroupedItems"
-             withHandler : [EWSGroupedItemsType class]];
+    [handler elementName   : @"GroupedItems"
+             withNamespace : 't'             withHandler   : [EWSGroupedItemsType class]];
 
     [handler register];
 }

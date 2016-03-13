@@ -8,8 +8,8 @@
 {
     EWSArrayTypeHandler* handler = [[EWSArrayOfMailboxData alloc] initWithClass:[EWSArrayOfMailboxData class]];
 
-    [handler elementName : @"MailboxData"
-             withHandler : [EWSMailboxData class]];
+    [handler elementName   : @"MailboxData"
+             withNamespace : 't'             withHandler   : [EWSMailboxData class]];
 
     [handler register];
 }

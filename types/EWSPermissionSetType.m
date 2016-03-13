@@ -11,15 +11,17 @@
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSPermissionSetType class]];
 
-    [handler property   : @"permissions"
-             isRequired : TRUE
-             withXmlTag : @"Permissions"
-             withHandler: [EWSArrayOfPermissionsType class]];
+    [handler property      : @"permissions"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"Permissions"
+             withHandler   : [EWSArrayOfPermissionsType class]];
 
-    [handler property   : @"unknownEntries"
-             isRequired : FALSE
-             withXmlTag : @"UnknownEntries"
-             withHandler: [EWSArrayOfUnknownEntriesType class]];
+    [handler property      : @"unknownEntries"
+             isRequired    : FALSE
+             withNamespace : 't'
+             withXmlTag    : @"UnknownEntries"
+             withHandler   : [EWSArrayOfUnknownEntriesType class]];
 
     [handler register];
 }
