@@ -3,8 +3,8 @@
 
 
 
-#import "EWSDictionaryURIType.h"
 #import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDictionaryURIType.h"
 #import "EWSBasePathToElementType.h"
 
 

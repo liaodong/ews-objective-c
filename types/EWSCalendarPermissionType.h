@@ -3,8 +3,8 @@
 
 
 
-#import "EWSCalendarPermissionLevelType.h"
-#import "EWSCalendarPermissionReadAccessType.h"
+#import "../types/EWSCalendarPermissionLevelType.h"
+#import "../types/EWSCalendarPermissionReadAccessType.h"
 #import "EWSBasePermissionType.h"
 
 

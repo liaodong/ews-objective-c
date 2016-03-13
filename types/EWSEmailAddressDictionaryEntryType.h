@@ -3,7 +3,7 @@
 
 
 
-#import "EWSEmailAddressKeyType.h"
+#import "../types/EWSEmailAddressKeyType.h"
 #import "EWSStringType.h"
 
 

@@ -3,7 +3,7 @@
 
 
 
-#import "EWSSortDirectionType.h"
+#import "../types/EWSSortDirectionType.h"
 
 
 

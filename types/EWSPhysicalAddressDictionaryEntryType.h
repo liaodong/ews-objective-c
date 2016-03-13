@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSPhysicalAddressKeyType.h"
+#import "../types/EWSPhysicalAddressKeyType.h"
 
 
 

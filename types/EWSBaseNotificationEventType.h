@@ -3,7 +3,7 @@
 
 
 
-#import "EWSWatermarkType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 

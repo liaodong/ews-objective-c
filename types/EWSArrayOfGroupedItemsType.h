@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSGroupedItemsType.h"
+#import "../types/EWSGroupedItemsType.h"
 
 
 

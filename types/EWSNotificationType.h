@@ -3,9 +3,9 @@
 
 
 
-#import "EWSSubscriptionIdType.h"
-#import "EWSWatermarkType.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSSubscriptionIdType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 

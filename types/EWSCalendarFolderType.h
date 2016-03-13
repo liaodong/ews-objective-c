@@ -3,7 +3,7 @@
 
 
 
-#import "EWSCalendarPermissionSetType.h"
+#import "../types/EWSCalendarPermissionSetType.h"
 #import "EWSBaseFolderType.h"
 
 

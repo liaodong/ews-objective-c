@@ -3,9 +3,9 @@
 
 
 
-#import "EWSRestrictionType.h"
-#import "EWSNonEmptyArrayOfBaseFolderIdsType.h"
-#import "EWSSearchFolderTraversalType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSRestrictionType.h"
+#import "../types/EWSSearchFolderTraversalType.h"
 
 
 

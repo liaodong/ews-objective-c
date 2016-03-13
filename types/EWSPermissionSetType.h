@@ -3,8 +3,8 @@
 
 
 
-#import "EWSArrayOfUnknownEntriesType.h"
-#import "EWSArrayOfPermissionsType.h"
+#import "../types/EWSArrayOfPermissionsType.h"
+#import "../types/EWSArrayOfUnknownEntriesType.h"
 
 
 

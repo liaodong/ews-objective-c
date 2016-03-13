@@ -3,8 +3,8 @@
 
 
 
-#import "EWSDaysOfWeekType.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSDaysOfWeekType.h"
 
 
 

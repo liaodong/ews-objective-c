@@ -3,7 +3,7 @@
 
 
 
-#import "EWSExcludesAttributeType.h"
+#import "../types/EWSExcludesAttributeType.h"
 
 
 

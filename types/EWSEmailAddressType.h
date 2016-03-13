@@ -4,9 +4,9 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSNonEmptyStringType.h"
-#import "EWSMailboxTypeType.h"
-#import "EWSItemIdType.h"
+#import "../types/EWSItemIdType.h"
+#import "../types/EWSMailboxTypeType.h"
+#import "../types/EWSNonEmptyStringType.h"
 #import "EWSBaseEmailAddressType.h"
 
 

@@ -3,7 +3,7 @@
 
 
 
-#import "EWSBodyTypeType.h"
+#import "../types/EWSBodyTypeType.h"
 #import "EWSStringType.h"
 
 

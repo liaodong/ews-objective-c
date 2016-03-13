@@ -4,8 +4,8 @@
 
 
 #import "../handlers/EWSDateTimeTypeHandler.h"
-#import "EWSLegacyFreeBusyType.h"
-#import "EWSCalendarEventDetails.h"
+#import "../types/EWSCalendarEventDetails.h"
+#import "../types/EWSLegacyFreeBusyType.h"
 
 
 

@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSDistinguishedUserType.h"
+#import "../types/EWSDistinguishedUserType.h"
 
 
 

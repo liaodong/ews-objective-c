@@ -4,8 +4,8 @@
 
 
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSFreeBusyViewType.h"
-#import "EWSDuration.h"
+#import "../types/EWSDuration.h"
+#import "../types/EWSFreeBusyViewType.h"
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-#import "EWSStandardGroupByType.h"
+#import "../types/EWSStandardGroupByType.h"
 #import "EWSBaseGroupByType.h"
 
 

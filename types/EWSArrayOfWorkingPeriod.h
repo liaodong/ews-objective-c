@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSWorkingPeriod.h"
+#import "../types/EWSWorkingPeriod.h"
 
 
 

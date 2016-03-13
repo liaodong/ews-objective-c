@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSPhoneNumberDictionaryEntryType.h"
+#import "../types/EWSPhoneNumberDictionaryEntryType.h"
 
 
 

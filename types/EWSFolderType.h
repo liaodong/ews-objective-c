@@ -3,8 +3,8 @@
 
 
 
-#import "EWSPermissionSetType.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSPermissionSetType.h"
 #import "EWSBaseFolderType.h"
 
 

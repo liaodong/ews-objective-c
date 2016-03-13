@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSSidAndAttributesType.h"
+#import "../types/EWSSidAndAttributesType.h"
 
 
 

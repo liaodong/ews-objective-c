@@ -3,7 +3,7 @@
 
 
 
-#import "EWSBasePathToElementType.h"
+#import "../types/EWSBasePathToElementType.h"
 #import "EWSSearchExpressionType.h"
 
 

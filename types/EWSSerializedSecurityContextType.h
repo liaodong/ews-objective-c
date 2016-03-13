@@ -4,8 +4,8 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSNonEmptyArrayOfGroupIdentifiersType.h"
-#import "EWSNonEmptyArrayOfRestrictedGroupIdentifiersType.h"
+#import "../types/EWSNonEmptyArrayOfGroupIdentifiersType.h"
+#import "../types/EWSNonEmptyArrayOfRestrictedGroupIdentifiersType.h"
 
 
 

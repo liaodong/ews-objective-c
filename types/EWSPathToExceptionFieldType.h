@@ -3,7 +3,7 @@
 
 
 
-#import "EWSExceptionPropertyURIType.h"
+#import "../types/EWSExceptionPropertyURIType.h"
 #import "EWSBasePathToElementType.h"
 
 

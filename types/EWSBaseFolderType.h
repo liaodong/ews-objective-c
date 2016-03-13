@@ -3,12 +3,12 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-#import "EWSEffectiveRightsType.h"
-#import "EWSExtendedPropertyType.h"
-#import "EWSManagedFolderInformationType.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSFolderIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSEffectiveRightsType.h"
+#import "../types/EWSExtendedPropertyType.h"
+#import "../types/EWSFolderIdType.h"
+#import "../types/EWSManagedFolderInformationType.h"
 
 
 

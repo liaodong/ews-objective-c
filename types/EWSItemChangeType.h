@@ -3,7 +3,7 @@
 
 
 
-#import "EWSNonEmptyArrayOfItemChangeDescriptionsType.h"
+#import "../types/EWSNonEmptyArrayOfItemChangeDescriptionsType.h"
 
 
 

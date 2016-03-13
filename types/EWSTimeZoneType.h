@@ -3,8 +3,8 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
 #import "../handlers/EWSDurationTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 

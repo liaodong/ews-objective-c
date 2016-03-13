@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSSubscriptionStatusFrequencyType.h"
+#import "../types/EWSSubscriptionStatusFrequencyType.h"
 #import "EWSBaseSubscriptionRequestType.h"
 
 

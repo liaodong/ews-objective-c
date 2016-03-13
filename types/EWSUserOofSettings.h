@@ -3,10 +3,10 @@
 
 
 
-#import "EWSOofState.h"
-#import "EWSReplyBody.h"
-#import "EWSExternalAudience.h"
-#import "EWSDuration.h"
+#import "../types/EWSDuration.h"
+#import "../types/EWSExternalAudience.h"
+#import "../types/EWSOofState.h"
+#import "../types/EWSReplyBody.h"
 
 
 

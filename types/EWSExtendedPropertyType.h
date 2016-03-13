@@ -3,7 +3,7 @@
 
 
 
-#import "EWSPathToExtendedFieldType.h"
+#import "../types/EWSPathToExtendedFieldType.h"
 
 
 

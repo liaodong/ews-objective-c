@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSSerializableTimeZoneTime.h"
+#import "../types/EWSSerializableTimeZoneTime.h"
 
 
 

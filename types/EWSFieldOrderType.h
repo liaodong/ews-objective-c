@@ -3,8 +3,8 @@
 
 
 
-#import "EWSBasePathToElementType.h"
-#import "EWSSortDirectionType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSSortDirectionType.h"
 
 
 

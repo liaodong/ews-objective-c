@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSContactSourceType.h"
+#import "../types/EWSContactSourceType.h"
 #import "EWSItemType.h"
 
 

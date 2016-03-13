@@ -3,8 +3,8 @@
 
 
 
-#import "EWSBasePathToElementType.h"
-#import "EWSFieldURIOrConstantType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSFieldURIOrConstantType.h"
 #import "EWSSearchExpressionType.h"
 
 

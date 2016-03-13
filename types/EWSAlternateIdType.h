@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSNonEmptyStringType.h"
+#import "../types/EWSNonEmptyStringType.h"
 #import "EWSAlternateIdBaseType.h"
 
 

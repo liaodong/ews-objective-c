@@ -3,7 +3,7 @@
 
 
 
-#import "EWSLegacyFreeBusyType.h"
+#import "../types/EWSLegacyFreeBusyType.h"
 #import "EWSAttendeeConflictData.h"
 
 

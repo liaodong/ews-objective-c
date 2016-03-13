@@ -3,9 +3,9 @@
 
 
 
-#import "EWSDelegatePermissionsType.h"
-#import "EWSUserIdType.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSDelegatePermissionsType.h"
+#import "../types/EWSUserIdType.h"
 
 
 

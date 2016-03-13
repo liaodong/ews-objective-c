@@ -3,11 +3,11 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "EWSItemIdType.h"
-#import "EWSResponseTypeType.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSItemIdType.h"
+#import "../types/EWSResponseTypeType.h"
 #import "EWSMessageType.h"
 
 

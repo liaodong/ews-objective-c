@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSMonthNamesType.h"
+#import "../types/EWSMonthNamesType.h"
 #import "EWSRecurrencePatternBaseType.h"
 
 

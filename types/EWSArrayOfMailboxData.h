@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSMailboxData.h"
+#import "../types/EWSMailboxData.h"
 
 
 

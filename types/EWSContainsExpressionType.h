@@ -3,10 +3,10 @@
 
 
 
-#import "EWSBasePathToElementType.h"
-#import "EWSContainmentModeType.h"
-#import "EWSContainmentComparisonType.h"
-#import "EWSConstantValueType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSConstantValueType.h"
+#import "../types/EWSContainmentComparisonType.h"
+#import "../types/EWSContainmentModeType.h"
 #import "EWSSearchExpressionType.h"
 
 

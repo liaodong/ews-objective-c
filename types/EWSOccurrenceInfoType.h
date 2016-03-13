@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSDateTimeTypeHandler.h"
-#import "EWSItemIdType.h"
+#import "../types/EWSItemIdType.h"
 
 
 

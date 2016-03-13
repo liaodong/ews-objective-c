@@ -3,10 +3,10 @@
 
 
 
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "EWSSuggestionQuality.h"
-#import "EWSArrayOfAttendeeConflictData.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../types/EWSArrayOfAttendeeConflictData.h"
+#import "../types/EWSSuggestionQuality.h"
 
 
 

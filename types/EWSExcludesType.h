@@ -3,8 +3,8 @@
 
 
 
-#import "EWSBasePathToElementType.h"
-#import "EWSExcludesValueType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSExcludesValueType.h"
 #import "EWSSearchExpressionType.h"
 
 

@@ -3,7 +3,7 @@
 
 
 
-#import "EWSConnectingSIDType.h"
+#import "../types/EWSConnectingSIDType.h"
 
 
 

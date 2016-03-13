@@ -3,11 +3,11 @@
 
 
 
-#import "EWSContactsFolderType.h"
-#import "EWSTasksFolderType.h"
-#import "EWSCalendarFolderType.h"
-#import "EWSSearchFolderType.h"
-#import "EWSFolderType.h"
+#import "../types/EWSCalendarFolderType.h"
+#import "../types/EWSContactsFolderType.h"
+#import "../types/EWSFolderType.h"
+#import "../types/EWSSearchFolderType.h"
+#import "../types/EWSTasksFolderType.h"
 #import "EWSFolderChangeDescriptionType.h"
 
 

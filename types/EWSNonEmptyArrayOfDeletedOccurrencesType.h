@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSDeletedOccurrenceInfoType.h"
+#import "../types/EWSDeletedOccurrenceInfoType.h"
 
 
 

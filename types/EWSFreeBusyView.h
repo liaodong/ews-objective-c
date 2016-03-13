@@ -4,9 +4,9 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSArrayOfCalendarEvent.h"
-#import "EWSFreeBusyViewType.h"
-#import "EWSWorkingHours.h"
+#import "../types/EWSArrayOfCalendarEvent.h"
+#import "../types/EWSFreeBusyViewType.h"
+#import "../types/EWSWorkingHours.h"
 
 
 

@@ -3,8 +3,8 @@
 
 
 
-#import "EWSAttachmentIdType.h"
 #import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSAttachmentIdType.h"
 
 
 

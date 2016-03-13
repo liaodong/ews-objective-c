@@ -4,10 +4,10 @@
 
 
 #import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "EWSSuggestionQuality.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSDuration.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDuration.h"
+#import "../types/EWSSuggestionQuality.h"
 
 
 

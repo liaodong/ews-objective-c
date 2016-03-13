@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSArrayOfRealItemsType.h"
+#import "../types/EWSArrayOfRealItemsType.h"
 
 
 

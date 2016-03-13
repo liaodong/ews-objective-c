@@ -3,12 +3,12 @@
 
 
 
-#import "EWSDistinguishedPropertySetType.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "EWSMapiPropertyTypeType.h"
-#import "EWSPropertyTagType.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSGuidType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDistinguishedPropertySetType.h"
+#import "../types/EWSGuidType.h"
+#import "../types/EWSMapiPropertyTypeType.h"
+#import "../types/EWSPropertyTagType.h"
 #import "EWSBasePathToElementType.h"
 
 

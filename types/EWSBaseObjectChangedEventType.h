@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSDateTimeTypeHandler.h"
-#import "EWSFolderIdType.h"
+#import "../types/EWSFolderIdType.h"
 #import "EWSBaseNotificationEventType.h"
 
 

@@ -4,10 +4,10 @@
 
 
 #import "../handlers/EWSDateTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "EWSRelativeYearlyRecurrencePatternType.h"
 #import "../handlers/EWSDurationTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
 #import "../handlers/EWSTimeTypeHandler.h"
+#import "../types/EWSRelativeYearlyRecurrencePatternType.h"
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-#import "EWSItemIdType.h"
+#import "../types/EWSItemIdType.h"
 
 
 

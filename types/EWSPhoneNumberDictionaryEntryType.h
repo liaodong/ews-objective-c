@@ -3,7 +3,7 @@
 
 
 
-#import "EWSPhoneNumberKeyType.h"
+#import "../types/EWSPhoneNumberKeyType.h"
 #import "EWSStringType.h"
 
 

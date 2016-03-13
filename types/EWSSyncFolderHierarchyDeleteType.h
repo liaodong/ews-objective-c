@@ -3,7 +3,7 @@
 
 
 
-#import "EWSFolderIdType.h"
+#import "../types/EWSFolderIdType.h"
 
 
 

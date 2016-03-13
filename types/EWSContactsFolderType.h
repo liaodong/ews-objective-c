@@ -3,7 +3,7 @@
 
 
 
-#import "EWSPermissionSetType.h"
+#import "../types/EWSPermissionSetType.h"
 #import "EWSBaseFolderType.h"
 
 

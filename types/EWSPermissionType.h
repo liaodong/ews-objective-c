@@ -3,8 +3,8 @@
 
 
 
-#import "EWSPermissionReadAccessType.h"
-#import "EWSPermissionLevelType.h"
+#import "../types/EWSPermissionLevelType.h"
+#import "../types/EWSPermissionReadAccessType.h"
 #import "EWSBasePermissionType.h"
 
 

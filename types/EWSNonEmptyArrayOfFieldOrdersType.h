@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSFieldOrderType.h"
+#import "../types/EWSFieldOrderType.h"
 
 
 

@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSEmailAddressDictionaryEntryType.h"
+#import "../types/EWSEmailAddressDictionaryEntryType.h"
 
 
 

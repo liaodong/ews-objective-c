@@ -3,10 +3,10 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-#import "EWSDayOfWeekType.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
 #import "../handlers/EWSShortTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDayOfWeekType.h"
 
 
 

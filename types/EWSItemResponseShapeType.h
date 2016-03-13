@@ -3,10 +3,10 @@
 
 
 
-#import "EWSBodyTypeResponseType.h"
-#import "EWSNonEmptyArrayOfPathsToElementType.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
-#import "EWSDefaultShapeNamesType.h"
+#import "../types/EWSBodyTypeResponseType.h"
+#import "../types/EWSDefaultShapeNamesType.h"
+#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
 
 
 

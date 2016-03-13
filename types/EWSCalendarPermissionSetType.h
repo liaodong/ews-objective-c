@@ -3,8 +3,8 @@
 
 
 
-#import "EWSArrayOfCalendarPermissionsType.h"
-#import "EWSArrayOfUnknownEntriesType.h"
+#import "../types/EWSArrayOfCalendarPermissionsType.h"
+#import "../types/EWSArrayOfUnknownEntriesType.h"
 
 
 

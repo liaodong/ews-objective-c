@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSIndexBasePointType.h"
+#import "../types/EWSIndexBasePointType.h"
 #import "EWSBasePagingType.h"
 
 

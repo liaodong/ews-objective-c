@@ -3,9 +3,9 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-#import "EWSBodyType.h"
+#import "../types/EWSBodyType.h"
 #import "EWSPostReplyItemBaseType.h"
 
 

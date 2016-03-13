@@ -3,15 +3,15 @@
 
 
 
-#import "EWSArrayOfStringsType.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "EWSTaskRecurrenceType.h"
-#import "EWSTaskDelegateStateType.h"
-#import "../handlers/EWSDoubleTypeHandler.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
-#import "EWSTaskStatusType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../handlers/EWSDoubleTypeHandler.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSArrayOfStringsType.h"
+#import "../types/EWSTaskDelegateStateType.h"
+#import "../types/EWSTaskRecurrenceType.h"
+#import "../types/EWSTaskStatusType.h"
 #import "EWSItemType.h"
 
 

@@ -3,7 +3,7 @@
 
 
 
-#import "EWSIdFormatType.h"
+#import "../types/EWSIdFormatType.h"
 
 
 

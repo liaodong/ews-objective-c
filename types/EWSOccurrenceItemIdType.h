@@ -3,9 +3,9 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
 #import "../handlers/EWSIntegerTypeHandler.h"
-#import "EWSDerivedItemIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDerivedItemIdType.h"
 #import "EWSBaseItemIdType.h"
 
 

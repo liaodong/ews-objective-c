@@ -3,7 +3,7 @@
 
 
 
-#import "EWSImAddressKeyType.h"
+#import "../types/EWSImAddressKeyType.h"
 #import "EWSStringType.h"
 
 

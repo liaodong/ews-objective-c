@@ -3,7 +3,7 @@
 
 
 
-#import "EWSNonEmptyArrayOfFolderChangeDescriptionsType.h"
+#import "../types/EWSNonEmptyArrayOfFolderChangeDescriptionsType.h"
 
 
 

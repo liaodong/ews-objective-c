@@ -3,9 +3,9 @@
 
 
 
-#import "EWSNonEmptyArrayOfNotificationEventTypesType.h"
-#import "EWSNonEmptyArrayOfBaseFolderIdsType.h"
-#import "EWSWatermarkType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSNonEmptyArrayOfNotificationEventTypesType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 

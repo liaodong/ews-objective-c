@@ -3,7 +3,7 @@
 
 
 
-#import "EWSSearchParametersType.h"
+#import "../types/EWSSearchParametersType.h"
 #import "EWSFolderType.h"
 
 

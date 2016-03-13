@@ -4,8 +4,8 @@
 
 
 #import "../handlers/EWSDateTimeTypeHandler.h"
-#import "EWSArrayOfSuggestion.h"
-#import "EWSSuggestionQuality.h"
+#import "../types/EWSArrayOfSuggestion.h"
+#import "../types/EWSSuggestionQuality.h"
 
 
 

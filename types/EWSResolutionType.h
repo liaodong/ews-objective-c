@@ -3,8 +3,8 @@
 
 
 
-#import "EWSContactItemType.h"
-#import "EWSEmailAddressType.h"
+#import "../types/EWSContactItemType.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 

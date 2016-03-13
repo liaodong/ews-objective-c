@@ -3,9 +3,9 @@
 
 
 
-#import "EWSEmailAddress.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
-#import "EWSMeetingAttendeeType.h"
+#import "../types/EWSEmailAddress.h"
+#import "../types/EWSMeetingAttendeeType.h"
 
 
 

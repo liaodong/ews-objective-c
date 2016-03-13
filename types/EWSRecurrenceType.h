@@ -3,15 +3,15 @@
 
 
 
-#import "EWSEndDateRecurrenceRangeType.h"
-#import "EWSAbsoluteMonthlyRecurrencePatternType.h"
-#import "EWSRelativeMonthlyRecurrencePatternType.h"
-#import "EWSDailyRecurrencePatternType.h"
-#import "EWSWeeklyRecurrencePatternType.h"
-#import "EWSAbsoluteYearlyRecurrencePatternType.h"
-#import "EWSNoEndRecurrenceRangeType.h"
-#import "EWSRelativeYearlyRecurrencePatternType.h"
-#import "EWSNumberedRecurrenceRangeType.h"
+#import "../types/EWSAbsoluteMonthlyRecurrencePatternType.h"
+#import "../types/EWSAbsoluteYearlyRecurrencePatternType.h"
+#import "../types/EWSDailyRecurrencePatternType.h"
+#import "../types/EWSEndDateRecurrenceRangeType.h"
+#import "../types/EWSNoEndRecurrenceRangeType.h"
+#import "../types/EWSNumberedRecurrenceRangeType.h"
+#import "../types/EWSRelativeMonthlyRecurrencePatternType.h"
+#import "../types/EWSRelativeYearlyRecurrencePatternType.h"
+#import "../types/EWSWeeklyRecurrencePatternType.h"
 
 
 

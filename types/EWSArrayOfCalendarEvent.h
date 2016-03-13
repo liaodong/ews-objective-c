@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSCalendarEvent.h"
+#import "../types/EWSCalendarEvent.h"
 
 
 

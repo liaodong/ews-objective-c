@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSSuggestionDayResult.h"
+#import "../types/EWSSuggestionDayResult.h"
 
 
 

@@ -3,9 +3,9 @@
 
 
 
-#import "EWSMonthNamesType.h"
-#import "EWSDayOfWeekType.h"
-#import "EWSDayOfWeekIndexType.h"
+#import "../types/EWSDayOfWeekIndexType.h"
+#import "../types/EWSDayOfWeekType.h"
+#import "../types/EWSMonthNamesType.h"
 #import "EWSRecurrencePatternBaseType.h"
 
 

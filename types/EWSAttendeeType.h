@@ -3,9 +3,9 @@
 
 
 
-#import "EWSResponseTypeType.h"
 #import "../handlers/EWSDateTimeTypeHandler.h"
-#import "EWSEmailAddressType.h"
+#import "../types/EWSEmailAddressType.h"
+#import "../types/EWSResponseTypeType.h"
 
 
 

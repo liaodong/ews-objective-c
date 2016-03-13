@@ -3,9 +3,9 @@
 
 
 
-#import "EWSBodyTypeResponseType.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
-#import "EWSNonEmptyArrayOfPathsToElementType.h"
+#import "../types/EWSBodyTypeResponseType.h"
+#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
 
 
 

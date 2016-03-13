@@ -18,6 +18,17 @@ static NSMutableArray* array;
     return array;
 }
 
+- (NSString*) qname
+{
+    return [NSString stringWithFormat:@"%c:%@", [self ns], [self name]];
+}
+
+- (NSString*) headerFile
+{
+    NSString * r = [self ns] == 't' ? @"../types/EWS" : @"../messages/EWS";
+    return [[r stringByAppendingString:[self name]] stringByAppendingString:@".h"];
+}
+
 - (NSMutableArray*) m_children
 {
     return children;
@@ -799,7 +810,7 @@ static const char* prefix = "EWS";
     for  (Element* e in [sequence children]) {
         [includes addObject:[self includeFile:[e type]]];
     }
-    for  (NSString* i in includes) {
+    for  (NSString* i in [self sorted:includes]) {
         fprintf (file, "#import \"%s\"\n", [i UTF8String]);
     }
     fprintf (file, "\n\n\n");
@@ -907,6 +918,9 @@ static const char* prefix = "EWS";
     if ([s hasPrefix:@"t:"]) {
         return [s stringByReplacingOccurrencesOfString:@"t:" withString:@"EWS"];
     }
+    if ([s hasPrefix:@"m:"]) {
+        return [s stringByReplacingOccurrencesOfString:@"m:" withString:@"EWS"];
+    }
     return s;
 }
 
@@ -922,6 +936,13 @@ static const char* prefix = "EWS";
         return [s stringByReplacingOccurrencesOfString:@"xs" withString:@""];
     }
     return s;
+}
+
+- (NSArray<NSString*>*) sorted:(NSMutableSet<NSString*>*) set
+{
+    NSMutableArray<NSString*>* result = [[NSMutableArray alloc] init];
+    for (NSString* s in set) [result addObject:s];
+    return  [result sortedArrayUsingSelector:@selector(compare:)];
 }
 
 -(void) generateStructForElement:(Element*) elem
@@ -948,7 +969,7 @@ static const char* prefix = "EWS";
             [includes addObject:[self includeFile:[e type]]];
         }
     }
-    for  (NSString* i in includes) {
+    for  (NSString* i in [self sorted:includes]) {
         fprintf (file, "#import \"%s\"\n", [i UTF8String]);
     }
     if (![base isEqual:@"NSObject"]) {
@@ -1200,27 +1221,6 @@ static const char* prefix = "EWS";
            withSuperAttributes:[[NSArray alloc] init] withSuperElements:[[NSArray alloc] init] andBaseClass:@"NSObject"];
 }
 
-
--(void) generateForSimpleStructForElement:(Element*) elem
-{
-    Element* sequence = [[elem children] objectAtIndex: 0];
-
-
-    NSMutableArray* elements   = [[NSMutableArray alloc] init];
-    NSMutableArray* attributes = [[NSMutableArray alloc] init];
-
-    for  (Element* e in [sequence children]) {
-        [elements addObject:e];
-    }
-    for (Element* e in [elem children]) {
-        if ([[e tagName] isEqual:@"attribute"])
-        {
-            [attributes addObject:e];
-        }
-    }
-    [self generateStructForElement:elem withAttributes:attributes withElements:elements];
-}
-
 - (NSString*) propertyName:(NSString*) name
 {
     if ([name hasPrefix:@"New"])
@@ -1239,12 +1239,6 @@ static const char* prefix = "EWS";
     for (Element* elem in [current children])
     {
         [self generateStructForElement:elem];
-    /*
-        if ([self isSimpleStruct:elem]) {
-            NSLog(@"Simple struct %@ %@",  [elem tagName], [elem name]);
-            [self generateForSimpleStructForElement:elem];
-        }
-    */
     }
 }
 
@@ -1273,19 +1267,14 @@ static const char* prefix = "EWS";
         NSAssert(NO, @"Unknown type");
     }
 
-    if ([nm hasPrefix:@"t:"])
+    for (Element* elem in [current children])
     {
-        nm = [nm stringByReplacingOccurrencesOfString:@"t:" withString:@""];
-
-        for (Element* elem in [current children])
+        if ([[elem qname] isEqual:nm])
         {
-            if ([[elem name] isEqual:nm])
-            {
-                return [elem resultType];
-            }
+            return [elem resultType];
         }
-        NSLog(@"Unknown type %@", nm);
     }
+
     NSLog(@"Unknown type %@", nm);
     return nil;
 }
@@ -1314,21 +1303,11 @@ static const char* prefix = "EWS";
         NSAssert(NO, @"Unknown type");
     }
 
-    if ([nm hasPrefix:@"t:"])
+    for (Element* elem in [current children])
     {
-        nm = [nm stringByReplacingOccurrencesOfString:@"t:" withString:@""];
-
-        for (Element* elem in [current children])
-        {
-            if ([[elem name] isEqual:nm])
-            {
-                NSString * r = @"EWS";
-
-                return [[r stringByAppendingString:[elem name]] stringByAppendingString:@".h"];
-            }
+        if ([[elem qname] isEqual:nm]) {
+            return [elem headerFile];
         }
-        NSLog(@"Unknown type %@", nm);
-        assert (false);
     }
     NSLog(@"Unknown type %@", nm);
     exit(-1);
@@ -1360,19 +1339,12 @@ static const char* prefix = "EWS";
         NSAssert(NO, @"Unknown type");
     }
 
-    if ([nm hasPrefix:@"t:"])
+    for (Element* elem in [current children])
     {
-        nm = [nm stringByReplacingOccurrencesOfString:@"t:" withString:@""];
-
-        for (Element* elem in [current children])
+        if ([[elem qname] isEqual:nm])
         {
-            if ([[elem name] isEqual:nm])
-            {
-                return [elem name];
-            }
+            return [elem name];
         }
-        NSLog(@"Unknown type %@", nm);
-        assert (false);
     }
     NSLog(@"Unknown type %@", nm);
     exit(-1);
@@ -1421,15 +1393,11 @@ static const char* prefix = "EWS";
 
 - (Element*) complexTypeElement:(NSString*) name
 {
-    if ([name hasPrefix:@"t:"])
-    {
-        name = [name stringByReplacingOccurrencesOfString:@"t:" withString:@""];
-    }
     for (Element* elem in [current children])
     {
         if ([[elem tagName] isEqual:@"complexType"])
         {
-            if ([name isEqual:[elem name]]) return elem;
+            if ([name isEqual:[elem qname]]) return elem;
         }
     }
     return nil;
@@ -1437,12 +1405,11 @@ static const char* prefix = "EWS";
 
 - (NSMutableArray*) elementsFromGroup:(NSString*)name
 {
-    name = [self trimNS:name];
     for (Element* elem in [current children])
     {
         if ([[elem tagName] isEqual:@"group"])
         {
-            if ([name isEqual:[elem name]])
+            if ([name isEqual:[elem qname]])
             {
                 NSMutableArray *result = [[NSMutableArray alloc] init];
 
@@ -1459,9 +1426,9 @@ static const char* prefix = "EWS";
     return nil;
 }
 
-- (Element*) baseClassElement:(NSString*) elem
+- (Element*) baseClassElement:(Element*) e
 {
-    Element* e = [self complexTypeElement:elem];
+    //Element* e = [self complexTypeElement:elem];
     if (e)
     {
         if ([self forElement:e areChildren:@"complexContent"])
@@ -1479,12 +1446,12 @@ static const char* prefix = "EWS";
      return nil;
 }
 
-- (NSString*) baseClass:(NSString*) elem
+- (NSString*) baseClass:(Element*) e
 {
-    Element* e = [self complexTypeElement:elem];
-    if ([self baseClassElement:elem])
+    //Element* e = [self complexTypeElement:elem];
+    if ([self baseClassElement:e])
     {
-        e = [self baseClassElement:elem];
+        e = [self baseClassElement:e];
         return [[e resultType] stringByReplacingOccurrencesOfString:@"*" withString:@""];
     }
 
@@ -1517,9 +1484,9 @@ static const char* prefix = "EWS";
     return @"NSObject";
 }
 
-- (NSString*) contentHandlerClass:(NSString*) elem
+- (NSString*) contentHandlerClass:(Element*) e
 {
-    Element* e = [self complexTypeElement:elem];
+    //Element* e = [self complexTypeElement:elem];
     if (e)
     {
         if ([[e children] count] == 0)
@@ -1554,18 +1521,18 @@ static const char* prefix = "EWS";
             Element* extension = [[complexContent children] objectAtIndex:0];
 
             NSAssert ([extension base], @"extension should have base spec");
-            return [self contentHandlerClass:[extension base]];
+            return [self contentHandlerClass:[self complexTypeElement:[extension base]]];
         }
     }
     return nil;
 }
 
-- (NSMutableArray*) attributes:(NSString*) elem getSuper:(BOOL)r
+- (NSMutableArray*) attributes:(Element*) e getSuper:(BOOL)r
 {
 
     NSMutableArray* result = [[NSMutableArray alloc] init];
 
-    Element* e = [self complexTypeElement:elem];
+    //Element* e = [self complexTypeElement:elem];
     if (e)
     {
         if ([[e children] count] == 0)
@@ -1609,7 +1576,7 @@ static const char* prefix = "EWS";
 
             if ([[extension tagName] isEqual:@"restriction"]) {
                 if (r) {
-                    [result addObjectsFromArray:[self attributes:[extension base] getSuper:r]];
+                    [result addObjectsFromArray:[self attributes:[self complexTypeElement:[extension base]] getSuper:r]];
                 }
                 return result;
             }
@@ -1619,7 +1586,7 @@ static const char* prefix = "EWS";
             NSAssert ([extension base], @"extension should have base spec");
 
             if (r) {
-                [result addObjectsFromArray:[self attributes:[extension base] getSuper:r]];
+                [result addObjectsFromArray:[self attributes:[self complexTypeElement:[extension base]] getSuper:r]];
             }
 
             for (Element * a in [extension children]) {
@@ -1647,13 +1614,13 @@ static const char* prefix = "EWS";
     return nil;
 }
 
-- (NSMutableArray*) elements:(NSString*) elem getSuper:(BOOL)r
+- (NSMutableArray*) elements:(Element*)e getSuper:(BOOL)r
 {
     int grp = 0;
 
     NSMutableArray* result = [[NSMutableArray alloc] init];
 
-    Element* e = [self complexTypeElement:elem];
+    //Element* e = [self complexTypeElement:elem];
     if (e)
     {
         if ([[e children] count] == 0)
@@ -1691,7 +1658,7 @@ static const char* prefix = "EWS";
             if ([[extension tagName] isEqual:@"restriction"])
             {
                 if (r) {
-                    [result addObjectsFromArray:[self elements:[extension base] getSuper:r]];
+                    [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
                 }
                 return result;
             }
@@ -1700,7 +1667,7 @@ static const char* prefix = "EWS";
             NSAssert ([extension base], @"extension should have base spec");
 
             if (r) {
-                [result addObjectsFromArray:[self elements:[extension base] getSuper:r]];
+                [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
             }
             if ([[extension children] count] == 0) {
                 return result;
@@ -1712,7 +1679,7 @@ static const char* prefix = "EWS";
                     for (Element * x in [a children])
                     {
                         NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
-                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", elem, ++grp]];
+                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", [e name], ++grp]];
                         [result addObject:[self resolved:x]];
                     }
                 }
@@ -1762,16 +1729,16 @@ static const char* prefix = "EWS";
 
     NSLog(@"Testing struct %@", [elem name]);
 
-    Element* base = [self baseClassElement:name];
+    Element* base = [self baseClassElement:elem];
     if (base && ![self resolved:base]) return;
 
-    NSString* baseClassName = [self baseClass:name];
+    NSString* baseClassName = [self baseClass:elem];
 
-    NSArray* attributes = [self attributes:name getSuper:FALSE];
-    NSArray* elements   = [self elements:name getSuper:FALSE];
+    NSArray* attributes = [self attributes:elem getSuper:FALSE];
+    NSArray* elements   = [self elements:elem getSuper:FALSE];
 
-    NSArray* s_attributes = base ? [self attributes:[base name] getSuper:TRUE] : [[NSArray alloc] init];
-    NSArray* s_elements   = base ? [self elements:[base name]   getSuper:TRUE] : [[NSArray alloc] init];
+    NSArray* s_attributes = base ? [self attributes:base getSuper:TRUE] : [[NSArray alloc] init];
+    NSArray* s_elements   = base ? [self elements:base   getSuper:TRUE] : [[NSArray alloc] init];
 
     if ([self allResolved:attributes] &&
         [self allResolved:elements]   &&
@@ -1781,7 +1748,7 @@ static const char* prefix = "EWS";
         [self generateStructForElement:elem
               withAttributes:attributes withElements:elements 
               withSuperAttributes:s_attributes withSuperElements:s_elements andBaseClass:baseClassName
-              simpleContentHandlerClass:[self contentHandlerClass:name]];
+              simpleContentHandlerClass:[self contentHandlerClass:elem]];
     }
 }
 

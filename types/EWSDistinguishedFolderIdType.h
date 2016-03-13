@@ -3,9 +3,9 @@
 
 
 
-#import "EWSDistinguishedFolderIdNameType.h"
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSEmailAddressType.h"
+#import "../types/EWSDistinguishedFolderIdNameType.h"
+#import "../types/EWSEmailAddressType.h"
 #import "EWSBaseFolderIdType.h"
 
 

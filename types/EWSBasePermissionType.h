@@ -3,9 +3,9 @@
 
 
 
-#import "EWSPermissionActionType.h"
-#import "EWSUserIdType.h"
 #import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSPermissionActionType.h"
+#import "../types/EWSUserIdType.h"
 
 
 

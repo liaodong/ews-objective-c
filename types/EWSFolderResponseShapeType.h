@@ -3,8 +3,8 @@
 
 
 
-#import "EWSNonEmptyArrayOfPathsToElementType.h"
-#import "EWSDefaultShapeNamesType.h"
+#import "../types/EWSDefaultShapeNamesType.h"
+#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
 
 
 

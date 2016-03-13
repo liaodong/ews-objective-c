@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSInternetHeaderType.h"
+#import "../types/EWSInternetHeaderType.h"
 
 
 

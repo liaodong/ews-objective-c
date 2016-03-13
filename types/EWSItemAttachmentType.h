@@ -3,16 +3,16 @@
 
 
 
-#import "EWSCalendarItemType.h"
-#import "EWSMeetingMessageType.h"
-#import "EWSContactItemType.h"
-#import "EWSItemType.h"
-#import "EWSMeetingRequestMessageType.h"
-#import "EWSMeetingResponseMessageType.h"
-#import "EWSMeetingCancellationMessageType.h"
-#import "EWSMessageType.h"
-#import "EWSPostItemType.h"
-#import "EWSTaskType.h"
+#import "../types/EWSCalendarItemType.h"
+#import "../types/EWSContactItemType.h"
+#import "../types/EWSItemType.h"
+#import "../types/EWSMeetingCancellationMessageType.h"
+#import "../types/EWSMeetingMessageType.h"
+#import "../types/EWSMeetingRequestMessageType.h"
+#import "../types/EWSMeetingResponseMessageType.h"
+#import "../types/EWSMessageType.h"
+#import "../types/EWSPostItemType.h"
+#import "../types/EWSTaskType.h"
 #import "EWSAttachmentType.h"
 
 

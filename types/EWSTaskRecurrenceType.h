@@ -3,19 +3,19 @@
 
 
 
-#import "EWSNoEndRecurrenceRangeType.h"
-#import "EWSWeeklyRegeneratingPatternType.h"
-#import "EWSYearlyRegeneratingPatternType.h"
-#import "EWSAbsoluteYearlyRecurrencePatternType.h"
-#import "EWSMonthlyRegeneratingPatternType.h"
-#import "EWSNumberedRecurrenceRangeType.h"
-#import "EWSWeeklyRecurrencePatternType.h"
-#import "EWSEndDateRecurrenceRangeType.h"
-#import "EWSRelativeYearlyRecurrencePatternType.h"
-#import "EWSAbsoluteMonthlyRecurrencePatternType.h"
-#import "EWSRelativeMonthlyRecurrencePatternType.h"
-#import "EWSDailyRecurrencePatternType.h"
-#import "EWSDailyRegeneratingPatternType.h"
+#import "../types/EWSAbsoluteMonthlyRecurrencePatternType.h"
+#import "../types/EWSAbsoluteYearlyRecurrencePatternType.h"
+#import "../types/EWSDailyRecurrencePatternType.h"
+#import "../types/EWSDailyRegeneratingPatternType.h"
+#import "../types/EWSEndDateRecurrenceRangeType.h"
+#import "../types/EWSMonthlyRegeneratingPatternType.h"
+#import "../types/EWSNoEndRecurrenceRangeType.h"
+#import "../types/EWSNumberedRecurrenceRangeType.h"
+#import "../types/EWSRelativeMonthlyRecurrencePatternType.h"
+#import "../types/EWSRelativeYearlyRecurrencePatternType.h"
+#import "../types/EWSWeeklyRecurrencePatternType.h"
+#import "../types/EWSWeeklyRegeneratingPatternType.h"
+#import "../types/EWSYearlyRegeneratingPatternType.h"
 
 
 

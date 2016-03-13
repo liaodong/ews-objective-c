@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSImAddressDictionaryEntryType.h"
+#import "../types/EWSImAddressDictionaryEntryType.h"
 
 
 

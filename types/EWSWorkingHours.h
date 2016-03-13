@@ -3,8 +3,8 @@
 
 
 
-#import "EWSSerializableTimeZone.h"
-#import "EWSArrayOfWorkingPeriod.h"
+#import "../types/EWSArrayOfWorkingPeriod.h"
+#import "../types/EWSSerializableTimeZone.h"
 
 
 

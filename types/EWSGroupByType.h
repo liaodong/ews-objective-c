@@ -3,7 +3,7 @@
 
 
 
-#import "EWSAggregateOnType.h"
+#import "../types/EWSAggregateOnType.h"
 #import "EWSBaseGroupByType.h"
 
 

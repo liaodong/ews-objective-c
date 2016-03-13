@@ -3,8 +3,8 @@
 
 
 
-#import "EWSDayOfWeekType.h"
-#import "EWSDayOfWeekIndexType.h"
+#import "../types/EWSDayOfWeekIndexType.h"
+#import "../types/EWSDayOfWeekType.h"
 #import "EWSIntervalRecurrencePatternBaseType.h"
 
 

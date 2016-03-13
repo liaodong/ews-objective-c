@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSStringTypeHandler.h"
-#import "EWSDerivedItemIdType.h"
+#import "../types/EWSDerivedItemIdType.h"
 #import "EWSBaseItemIdType.h"
 
 

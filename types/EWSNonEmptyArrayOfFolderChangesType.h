@@ -4,7 +4,7 @@
 
 
 #import "../handlers/EWSArrayTypeHandler.h"
-#import "EWSFolderChangeType.h"
+#import "../types/EWSFolderChangeType.h"
 
 
 

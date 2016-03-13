@@ -3,7 +3,7 @@
 
 
 
-#import "EWSSearchExpressionType.h"
+#import "../types/EWSSearchExpressionType.h"
 
 
 

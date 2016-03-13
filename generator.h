@@ -7,6 +7,8 @@
 
 - (id) initWithParent:(Element*) parent andName:(NSString*)name;
 
+- (NSString*) qname;
+
 @property (strong) NSString* tagName;
 @property (assign) Element*  parent;
 

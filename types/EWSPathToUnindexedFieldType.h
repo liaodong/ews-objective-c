@@ -3,7 +3,7 @@
 
 
 
-#import "EWSUnindexedFieldURIType.h"
+#import "../types/EWSUnindexedFieldURIType.h"
 #import "EWSBasePathToElementType.h"
 
 

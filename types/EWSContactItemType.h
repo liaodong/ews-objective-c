@@ -3,18 +3,18 @@
 
 
 
-#import "EWSPhysicalAddressIndexType.h"
-#import "EWSPhysicalAddressDictionaryType.h"
-#import "EWSCompleteNameType.h"
-#import "EWSArrayOfStringsType.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "EWSPhoneNumberDictionaryType.h"
-#import "EWSContactSourceType.h"
-#import "EWSImAddressDictionaryType.h"
-#import "EWSFileAsMappingType.h"
-#import "EWSEmailAddressDictionaryType.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
 #import "../handlers/EWSAnyUriTypeHandler.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSArrayOfStringsType.h"
+#import "../types/EWSCompleteNameType.h"
+#import "../types/EWSContactSourceType.h"
+#import "../types/EWSEmailAddressDictionaryType.h"
+#import "../types/EWSFileAsMappingType.h"
+#import "../types/EWSImAddressDictionaryType.h"
+#import "../types/EWSPhoneNumberDictionaryType.h"
+#import "../types/EWSPhysicalAddressDictionaryType.h"
+#import "../types/EWSPhysicalAddressIndexType.h"
 #import "EWSItemType.h"
 
 

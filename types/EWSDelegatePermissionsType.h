@@ -3,7 +3,7 @@
 
 
 
-#import "EWSDelegateFolderPermissionLevelType.h"
+#import "../types/EWSDelegateFolderPermissionLevelType.h"
 
 
 

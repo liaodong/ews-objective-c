@@ -3,7 +3,7 @@
 
 
 
-#import "EWSSubscriptionTimeoutType.h"
+#import "../types/EWSSubscriptionTimeoutType.h"
 #import "EWSBaseSubscriptionRequestType.h"
 
 
