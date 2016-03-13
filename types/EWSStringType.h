@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+#import "../handlers/EWSStringTypeHandler.h"
+
 @interface EWSStringType : NSObject
 
 + (void) initialize;

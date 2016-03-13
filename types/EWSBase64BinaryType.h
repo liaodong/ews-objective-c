@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+#import "../handlers/EWSBase64BinaryTypeHandler.h"
+
 @interface EWSBase64BinaryType : NSObject
 
 + (void) initialize;

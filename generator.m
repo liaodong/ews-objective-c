@@ -22,6 +22,11 @@ static NSMutableArray* array;
     return children;
 }
 
+-(NSString*) description
+{
+    return [NSString stringWithFormat:@"%@ %@ of type (%@)  with %lu children", _tagName, _name ? _name : @"-", [self type] ? [self type] : @".", [[self children] count]];
+}
+
 - (id) initWithParent:(Element*) parent andName:(NSString*) name
 {
     self = [super init];
@@ -112,7 +117,10 @@ static NSMutableArray* array;
         for (NSString* n in names) {
             found = found || [[e tagName] isEqual:n];
         }
-        if (!found) return FALSE;
+        if (!found) 
+        {
+            return FALSE;
+        }
     }
     return result;
 }
@@ -893,11 +901,26 @@ static const char* prefix = "EWS";
     return s;
 }
 
+- (NSString*) trimNS:(NSString*)s
+{
+    if ([s hasPrefix:@"t:"]) {
+        return [s stringByReplacingOccurrencesOfString:@"t:" withString:@""];
+    }
+    if ([s hasPrefix:@"m:"]) {
+        return [s stringByReplacingOccurrencesOfString:@"m:" withString:@""];
+    }
+    if ([s hasPrefix:@"xs:"]) {
+        return [s stringByReplacingOccurrencesOfString:@"xs" withString:@""];
+    }
+    return s;
+}
+
 -(void) generateStructForElement:(Element*) elem
            withAttributes:(NSArray*) attributes withElements:(NSArray*) elements 
            withSuperAttributes:(NSArray*) s_attributes withSuperElements:(NSArray*)s_elements andBaseClass:(NSString*) base
            simpleContentHandlerClass:(NSString*) contentHandlerClass
 {
+    NSLog(@"Generating struct for %@", [elem name]);
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
@@ -918,6 +941,9 @@ static const char* prefix = "EWS";
     }
     for  (NSString* i in includes) {
         fprintf (file, "#import \"%s\"\n", [i UTF8String]);
+    }
+    if (![base isEqual:@"NSObject"]) {
+        fprintf (file, "#import \"%s.h\"\n", [base UTF8String]);
     }
     fprintf (file, "\n\n\n");
     fprintf (file, "/* %s */\n", name);
@@ -1104,7 +1130,6 @@ static const char* prefix = "EWS";
     fprintf (file, "- (NSString*) description\n");
     fprintf (file, "{\n");
     fprintf (file, "    return [NSString stringWithFormat:@\"%s:", name);
-    for (int i = 1; i < [[elem children] count]; i++)
     for (Element* e in attributes)
     {
         fprintf (file, " %s=%%@", [[e name] UTF8String]);
@@ -1112,6 +1137,10 @@ static const char* prefix = "EWS";
     for  (Element* e in elements)
     {
         fprintf (file, " %s=%%@", [[e name] UTF8String]);
+    }
+    if (![base isEqual:@"NSObject"])
+    {
+        fprintf (file, " super=%%@");
     }
     fprintf (file, "\"");
     for (Element* e in attributes)
@@ -1121,6 +1150,10 @@ static const char* prefix = "EWS";
     for  (Element* e in elements)
     {
         fprintf (file, ", _%s", [[self propertyName:[e name]] UTF8String]);
+    }
+    if (![base isEqual:@"NSObject"])
+    {
+        fprintf (file, ", [super description]");
     }
     fprintf (file, "];\n");
     fprintf (file, "}\n\n");
@@ -1179,6 +1212,10 @@ static const char* prefix = "EWS";
 
 - (NSString*) propertyName:(NSString*) name
 {
+    if ([name hasPrefix:@"New"])
+    {
+        name = [NSString stringWithFormat:@"p%@", name];
+    }
     NSString* first = [[name substringToIndex:1] lowercaseString];
     NSString* rest  = [name substringFromIndex:1];
 
@@ -1190,16 +1227,19 @@ static const char* prefix = "EWS";
 {
     for (Element* elem in [current children])
     {
+        [self generateStructForElement:elem];
+    /*
         if ([self isSimpleStruct:elem]) {
             NSLog(@"Simple struct %@ %@",  [elem tagName], [elem name]);
             [self generateForSimpleStructForElement:elem];
         }
+    */
     }
 }
 
 - (NSString*) objectType:(NSString*)nm
 {
-    if ([nm hasPrefix:@"xs:"])
+    if ([nm hasPrefix:@"xs:"] || [nm hasPrefix:@"xml:"])
     {
         if ([nm isEqual:@"xs:string"])        return @"NSString*";
         if ([nm isEqual:@"xs:dateTime"])      return @"NSString*";
@@ -1208,6 +1248,7 @@ static const char* prefix = "EWS";
         if ([nm isEqual:@"xs:base64Binary"])  return @"NSData*";
         if ([nm isEqual:@"xs:duration"])      return @"NSString*";
         if ([nm isEqual:@"xs:language"])      return @"NSString*";
+        if ([nm isEqual:@"xml:lang"])         return @"NSString*";
         if ([nm isEqual:@"xs:time"])          return @"NSString*";
         if ([nm isEqual:@"xs:short"])         return @"NSNumber*";
         if ([nm isEqual:@"xs:int"])           return @"NSNumber*";
@@ -1218,6 +1259,7 @@ static const char* prefix = "EWS";
 
 
         NSLog(@"Unknown type %@", nm);
+        NSAssert(NO, @"Unknown type");
     }
 
     if ([nm hasPrefix:@"t:"])
@@ -1239,7 +1281,7 @@ static const char* prefix = "EWS";
 
 - (NSString*) includeFile:(NSString*)nm
 {
-    if ([nm hasPrefix:@"xs:"])
+    if ([nm hasPrefix:@"xs:"] || [nm hasPrefix:@"xml:"])
     {
         if ([nm isEqual:@"xs:string"])        return @"../handlers/EWSStringTypeHandler.h";
         if ([nm isEqual:@"xs:int"])           return @"../handlers/EWSIntegerTypeHandler.h";
@@ -1251,13 +1293,14 @@ static const char* prefix = "EWS";
         if ([nm isEqual:@"xs:double"])        return @"../handlers/EWSDoubleTypeHandler.h";
         if ([nm isEqual:@"xs:duration"])      return @"../handlers/EWSDurationTypeHandler.h";
         if ([nm isEqual:@"xs:language"])      return @"../handlers/EWSLanguageTypeHandler.h";
+        if ([nm isEqual:@"xml:lang"])         return @"../handlers/EWSXmlLanguageTypeHandler.h";
         if ([nm isEqual:@"xs:short"])         return @"../handlers/EWSShortTypeHandler.h";
         if ([nm isEqual:@"xs:time"])          return @"../handlers/EWSTimeTypeHandler.h";
         if ([nm isEqual:@"xs:unsignedInt"])   return @"../handlers/EWSUnsignedIntTypeHandler.h";
         if ([nm isEqual:@"xs:unsignedShort"]) return @"../handlers/EWSUnsignedShortTypeHandler.h";
 
         NSLog(@"Unknown type %@", nm);
-        exit(-1);
+        NSAssert(NO, @"Unknown type");
     }
 
     if ([nm hasPrefix:@"t:"])
@@ -1284,17 +1327,18 @@ static const char* prefix = "EWS";
 
 - (NSString*) handler:(NSString*)nm
 {
-    if ([nm hasPrefix:@"xs:"])
+    if ([nm hasPrefix:@"xs:"] || [nm hasPrefix:@"xml:"])
     {
         if ([nm isEqual:@"xs:string"])        return @"StringTypeHandler";
         if ([nm isEqual:@"xs:int"])           return @"IntegerTypeHandler";
         if ([nm isEqual:@"xs:boolean"])       return @"BooleanTypeHandler";
         if ([nm isEqual:@"xs:dateTime"])      return @"DateTimeTypeHandler";
         if ([nm isEqual:@"xs:date"])          return @"DateTypeHandler";
-        if ([nm isEqual:@"xs:anyURI"])        return @"UriTypeHandler";
+        if ([nm isEqual:@"xs:anyURI"])        return @"AnyUriTypeHandler";
         if ([nm isEqual:@"xs:base64Binary"])  return @"Base64BinaryTypeHandler";
         if ([nm isEqual:@"xs:double"])        return @"DoubleTypeHandler";
         if ([nm isEqual:@"xs:duration"])      return @"DurationTypeHandler";
+        if ([nm isEqual:@"xml:lang"])         return @"XmlLanguageTypeHandler";
         if ([nm isEqual:@"xs:language"])      return @"LanguageTypeHandler";
         if ([nm isEqual:@"xs:short"])         return @"ShortTypeHandler";
         if ([nm isEqual:@"xs:time"])          return @"TimeTypeHandler";
@@ -1302,7 +1346,7 @@ static const char* prefix = "EWS";
         if ([nm isEqual:@"xs:unsignedShort"]) return @"UnsignedShortTypeHandler";
 
         NSLog(@"Unknown type %@", nm);
-        exit(-1);
+        NSAssert(NO, @"Unknown type");
     }
 
     if ([nm hasPrefix:@"t:"])
@@ -1354,12 +1398,381 @@ static const char* prefix = "EWS";
     {
         if ([[elem tagName] isEqual:@"complexType"] && ![self isResolved:elem])
         {
-            NSLog(@"Fix %@", [elem name]);
+            NSLog(@"Fix me %@", elem);
+            //NSLog(@"Attributes %@", [self attributes:[elem name] getSuper:TRUE]);
+            //NSLog(@"Elements   %@", [self elements:[elem name] getSuper:TRUE]);
+            //NSLog(@"BaseClass  %@", [self baseClass:[elem name]]);
+            //NSLog(@"Content Handler  %@", [self contentHandlerClass:[elem name]]);
             exit (-1);
         }
     }
 }
 
+- (Element*) complexTypeElement:(NSString*) name
+{
+    if ([name hasPrefix:@"t:"])
+    {
+        name = [name stringByReplacingOccurrencesOfString:@"t:" withString:@""];
+    }
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"complexType"])
+        {
+            if ([name isEqual:[elem name]]) return elem;
+        }
+    }
+    return nil;
+}
+
+- (NSMutableArray*) elementsFromGroup:(NSString*)name
+{
+    name = [self trimNS:name];
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"group"])
+        {
+            if ([name isEqual:[elem name]])
+            {
+                NSMutableArray *result = [[NSMutableArray alloc] init];
+
+                for (Element* e in  [[[[[elem children] objectAtIndex:0] children] objectAtIndex:0] children])
+                {
+                    [e setGroup:name];
+                    [result addObject:e];
+                }
+                return result;
+            }
+        }
+    }
+    NSAssert(NO, @"group not found");
+    return nil;
+}
+
+- (Element*) baseClassElement:(NSString*) elem
+{
+    Element* e = [self complexTypeElement:elem];
+    if (e)
+    {
+        if ([self forElement:e areChildren:@"complexContent"])
+        {
+            Element* complexContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
+            NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
+
+            Element* extension = [[complexContent children] objectAtIndex:0];
+            NSAssert ([extension base], @"extension should have base spec");
+
+            return [self complexTypeElement:[extension base]];
+        }
+     }
+     return nil;
+}
+
+- (NSString*) baseClass:(NSString*) elem
+{
+    Element* e = [self complexTypeElement:elem];
+    if ([self baseClassElement:elem])
+    {
+        e = [self baseClassElement:elem];
+        return [[e resultType] stringByReplacingOccurrencesOfString:@"*" withString:@""];
+    }
+
+    if (e)
+    {
+        if ([[e children] count] == 0)
+        {
+            return @"NSObject";
+        }
+        if ([self forElement:e areChildren:@"simpleContent"])
+        {
+            Element* simpleContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"simpleContent should be the only element");
+            NSAssert ([[simpleContent children] count] == 1, @"simpleContent should have only element");
+
+            Element* extension = [[simpleContent children] objectAtIndex:0];
+            NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+
+            if ([[extension base] isEqual:@"xs:string"])
+            {
+                return @"EWSStringType";
+            }
+            if ([[extension base] isEqual:@"xs:base64Binary"])
+            {
+                return @"EWSBase64BinaryType";
+            }
+            NSAssert (NO, @"base extension can be string or base64Binary");
+        }
+    }
+    return @"NSObject";
+}
+
+- (NSString*) contentHandlerClass:(NSString*) elem
+{
+    Element* e = [self complexTypeElement:elem];
+    if (e)
+    {
+        if ([[e children] count] == 0)
+        {
+            return nil;
+        }
+        if ([self forElement:e areChildren:@"simpleContent"])
+        {
+            Element* simpleContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"simpleContent should be the only element");
+            NSAssert ([[simpleContent children] count] == 1, @"simpleContent should have only element");
+
+            Element* extension = [[simpleContent children] objectAtIndex:0];
+            NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+
+            if ([[extension base] isEqual:@"xs:string"])
+            {
+                return @"EWSStringTypeHandler";
+            }
+            if ([[extension base] isEqual:@"xs:base64Binary"])
+            {
+                return @"EWSBase64BinaryTypeHandler";
+            }
+            NSAssert (NO, @"base extension can be string or base64Binary");
+        }
+        else if ([self forElement:e areChildren:@"complexContent"])
+        {
+            Element* complexContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
+            NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
+
+            Element* extension = [[complexContent children] objectAtIndex:0];
+
+            NSAssert ([extension base], @"extension should have base spec");
+            return [self contentHandlerClass:[extension base]];
+        }
+    }
+    return nil;
+}
+
+- (NSMutableArray*) attributes:(NSString*) elem getSuper:(BOOL)r
+{
+
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+
+    Element* e = [self complexTypeElement:elem];
+    if (e)
+    {
+        if ([[e children] count] == 0)
+        {
+            return result;
+        }
+        if ([self forElement:e areChildren:@"sequence,attribute"])
+        {
+            for (Element * a in [e children])
+            {
+                if ([[a tagName] isEqual:@"attribute"] && [a name]) {
+                    [result addObject:a];
+                }
+            }
+            return result;
+        }
+        else if ([self forElement:e areChildren:@"simpleContent"])
+        {
+            Element* simpleContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"simpleContent should be the only element");
+            NSAssert ([[simpleContent children] count] == 1, @"simpleContent should have only element");
+
+            Element* extension = [[simpleContent children] objectAtIndex:0];
+            NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+
+            for (Element * a in [extension children])
+            {
+                if ([[a tagName] isEqual:@"attribute"] && [a name]) {
+                    [result addObject:a];
+                }
+            }
+            return result;
+        }
+        else if ([self forElement:e areChildren:@"complexContent"])
+        {
+            Element* complexContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
+            NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
+
+            Element* extension = [[complexContent children] objectAtIndex:0];
+
+            if ([[extension tagName] isEqual:@"restriction"]) {
+                if (r) {
+                    [result addObjectsFromArray:[self attributes:[extension base] getSuper:r]];
+                }
+                return result;
+            }
+
+            NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+
+            NSAssert ([extension base], @"extension should have base spec");
+
+            if (r) {
+                [result addObjectsFromArray:[self attributes:[extension base] getSuper:r]];
+            }
+
+            for (Element * a in [extension children]) {
+                if ([[a tagName] isEqual:@"attribute"] && [a name]) {
+                    [result addObject:a];
+                }
+            }
+            return result;
+        }
+        else return nil;
+    }
+    return nil;
+}
+
+- (Element*) resolved:(Element*) elem
+{
+    if (![elem ref]) return elem;
+
+    for (Element* e in [current children])
+    {
+        if ([[e tagName] isEqual:@"element"] && [[e name] isEqual:[self trimNS:[elem ref]]])
+            return [self resolved:e];
+    }
+    NSAssert (NO, @"can't resolve");
+    return nil;
+}
+
+- (NSMutableArray*) elements:(NSString*) elem getSuper:(BOOL)r
+{
+    int grp = 0;
+
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+
+    Element* e = [self complexTypeElement:elem];
+    if (e)
+    {
+        if ([[e children] count] == 0)
+        {
+            return result;
+        }
+        if ([self forElement:e areChildren:@"sequence,attribute"])
+        {
+            for (Element * a in [e children])
+            {
+                if ([[a tagName] isEqual:@"sequence"]) {
+                    for (Element * x in [a children])
+                    {
+                        if ([[x tagName] isEqual:@"element"])
+                        {
+                            [result addObject:[self resolved:x]];
+                        }
+                        else if ([[x tagName] isEqual:@"group"])
+                        {
+                            [result addObjectsFromArray:[self elementsFromGroup:[x ref]]];
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+        else if ([self forElement:e areChildren:@"complexContent"])
+        {
+            Element* complexContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
+            NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
+
+            Element* extension = [[complexContent children] objectAtIndex:0];
+
+            if ([[extension tagName] isEqual:@"restriction"])
+            {
+                if (r) {
+                    [result addObjectsFromArray:[self elements:[extension base] getSuper:r]];
+                }
+                return result;
+            }
+            NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+
+            NSAssert ([extension base], @"extension should have base spec");
+
+            if (r) {
+                [result addObjectsFromArray:[self elements:[extension base] getSuper:r]];
+            }
+            if ([[extension children] count] == 0) {
+                return result;
+            }
+            NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute"], @"extension has sequence or choice");
+
+            for (Element * a in [extension children]) {
+                if ([[a tagName] isEqual:@"choice"]) {
+                    for (Element * x in [a children])
+                    {
+                        NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
+                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", elem, ++grp]];
+                        [result addObject:[self resolved:x]];
+                    }
+                }
+                if ([[a tagName] isEqual:@"sequence"]) {
+                    for (Element * x in [a children])
+                    {
+                        if ([[x tagName] isEqual:@"element"])
+                        {
+                            [result addObject:[self resolved:x]];
+                        }
+                        else if ([[x tagName] isEqual:@"group"])
+                        {
+                            [result addObjectsFromArray:[self elementsFromGroup:[x name]]];
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+        else  {
+          return nil;
+        }
+    }
+    return nil;
+}
+
+- (BOOL) allResolved:(NSArray*) elements
+{
+    for (Element* e in elements)
+    {
+        if (![self objectType:[e type]])
+        {
+            NSLog(@"Unresolved element %@", e);
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
+- (void) generateStructForElement:(Element*) elem
+{
+    if ([self isArrayType:elem checkResolved:FALSE]) return;
+    if (![[elem tagName] isEqual:@"complexType"])    return;
+
+    NSString* name = [elem name];
+    if (!name) return;
+
+    NSLog(@"Testing struct %@", [elem name]);
+
+    Element* base = [self baseClassElement:name];
+    if (base && ![self resolved:base]) return;
+
+    NSString* baseClassName = [self baseClass:name];
+
+    NSArray* attributes = [self attributes:name getSuper:FALSE];
+    NSArray* elements   = [self elements:name getSuper:FALSE];
+
+    NSArray* s_attributes = base ? [self attributes:[base name] getSuper:TRUE] : [[NSArray alloc] init];
+    NSArray* s_elements   = base ? [self elements:[base name]   getSuper:TRUE] : [[NSArray alloc] init];
+
+    if ([self allResolved:attributes] &&
+        [self allResolved:elements]   &&
+        [self allResolved:s_attributes] &&
+        [self allResolved:s_elements])
+    {
+        [self generateStructForElement:elem
+              withAttributes:attributes withElements:elements 
+              withSuperAttributes:s_attributes withSuperElements:s_elements andBaseClass:baseClassName
+              simpleContentHandlerClass:[self contentHandlerClass:name]];
+    }
+}
 
 @end
 

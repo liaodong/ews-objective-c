@@ -1,7 +1,6 @@
 #import "EWSStringType.h"
 
 #import "../handlers/EWSObjectTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
 
 @implementation EWSStringType
 
