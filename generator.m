@@ -62,6 +62,8 @@ static NSMutableArray* array;
     Element*     types;
 }
 
+static const char * dir;
+
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary *) attributeDict
 {
     current = [[Element alloc] initWithParent: current andName:elementName];
@@ -94,6 +96,7 @@ static NSMutableArray* array;
 {
     self = [super init];
 
+    dir = "types";
     current = nil;
     parser  = [[NSXMLParser alloc] initWithStream: [[NSInputStream alloc] initWithFileAtPath: filename]];
 
@@ -146,7 +149,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -175,7 +178,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir,  prefix, name);
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -236,7 +239,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -262,7 +265,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir, prefix, name);
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -325,7 +328,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -351,7 +354,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir, prefix, name);
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -419,7 +422,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -445,7 +448,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir,  prefix, name);
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -503,7 +506,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -543,7 +546,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir, prefix, name);
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -606,7 +609,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -626,7 +629,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir, prefix, name);
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -786,7 +789,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -823,7 +826,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir, prefix, name);
     
     file = fopen (filename, "w");
 
@@ -930,7 +933,7 @@ static const char* prefix = "EWS";
     const char* name = [[elem name] UTF8String];
 
     char filename[1024];
-    sprintf (filename, "types/%s%s.h", prefix, name);
+    sprintf (filename, "%s/%s%s.h", dir,  prefix, name);
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
@@ -1032,7 +1035,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 
-    sprintf (filename, "types/%s%s.m", prefix, name);
+    sprintf (filename, "%s/%s%s.m", dir,  prefix, name);
     
     file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
