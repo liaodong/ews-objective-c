@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSerializedSecurityContextType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSNonEmptyArrayOfGroupIdentifiersType.h"
+#import "../types/EWSNonEmptyArrayOfRestrictedGroupIdentifiersType.h"
 
 
 @implementation EWSSerializedSecurityContextType 

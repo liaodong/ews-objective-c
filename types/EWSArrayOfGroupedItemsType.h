@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSGroupedItemsType.h"
+@class EWSGroupedItemsType;
 
 
 
 /* ArrayOfGroupedItemsType */
-@interface EWSArrayOfGroupedItemsType : EWSArrayTypeHandler
+@interface EWSArrayOfGroupedItemsType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSGroupedItemsType*>* groupedItems;
+
+
+- (void) addGroupedItems:(EWSGroupedItemsType*) elem;
 @end
 

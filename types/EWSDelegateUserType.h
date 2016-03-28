@@ -2,10 +2,8 @@
 
 
 
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../types/EWSDelegatePermissionsType.h"
-#import "../types/EWSUserIdType.h"
+@class EWSDelegatePermissionsType;
+@class EWSUserIdType;
 
 
 
@@ -18,10 +16,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSUserIdType*              userId;
-@property (retain) EWSDelegatePermissionsType* delegatePermissions;
-@property (retain) NSNumber*                   receiveCopiesOfMeetingMessages  /* xs:boolean */;
-@property (retain) NSNumber*                   viewPrivateItems                /* xs:boolean */;
+@property (strong) EWSUserIdType*              userId;
+@property (strong) EWSDelegatePermissionsType* delegatePermissions;
+@property (strong) NSNumber*                   receiveCopiesOfMeetingMessages  /* xs:boolean */;
+@property (strong) NSNumber*                   viewPrivateItems                /* xs:boolean */;
 
 
 @end

@@ -5,7 +5,6 @@
 
 
 
-
 /* AttendeeConflictData */
 @interface EWSAttendeeConflictData : NSObject
 

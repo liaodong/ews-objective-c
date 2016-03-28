@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAddDelegateType.h"
+#import "../types/EWSArrayOfDelegateUserType.h"
+#import "../types/EWSDeliverMeetingRequestsType.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 @implementation EWSAddDelegateType 

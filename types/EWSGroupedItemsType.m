@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGroupedItemsType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSArrayOfRealItemsType.h"
 
 
 @implementation EWSGroupedItemsType 

@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSMovedCopiedEventType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../types/EWSFolderIdType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSMovedCopiedEventType 

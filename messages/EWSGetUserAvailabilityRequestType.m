@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetUserAvailabilityRequestType.h"
+#import "../types/EWSArrayOfMailboxData.h"
+#import "../types/EWSFreeBusyViewOptionsType.h"
+#import "../types/EWSSerializableTimeZone.h"
+#import "../types/EWSSuggestionsViewOptionsType.h"
 
 
 @implementation EWSGetUserAvailabilityRequestType 

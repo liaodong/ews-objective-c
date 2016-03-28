@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSEmailAddressDictionaryEntryType.h"
+#import "../types/EWSEmailAddressKeyType.h"
 
 
 @implementation EWSEmailAddressDictionaryEntryType 

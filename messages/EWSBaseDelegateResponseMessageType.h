@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../messages/EWSArrayOfDelegateUserResponseMessageType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSArrayOfDelegateUserResponseMessageType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSArray<EWSDelegateUserResponseMessageType*>* responseMessages  /* EWSArrayOfDelegateUserResponseMessageType */;
+@property (strong) EWSArrayOfDelegateUserResponseMessageType* responseMessages;
 
 
 @end

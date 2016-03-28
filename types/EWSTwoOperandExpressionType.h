@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSBasePathToElementType.h"
-#import "../types/EWSFieldURIOrConstantType.h"
 #import "EWSSearchExpressionType.h"
+
+
+
+@class EWSBasePathToElementType;
+@class EWSFieldURIOrConstantType;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSBasePathToElementType*  path;
-@property (retain) EWSFieldURIOrConstantType* fieldURIOrConstant;
+@property (strong) EWSBasePathToElementType*  path;
+@property (strong) EWSFieldURIOrConstantType* fieldURIOrConstant;
 
 
 @end

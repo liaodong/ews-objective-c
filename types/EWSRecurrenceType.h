@@ -2,16 +2,15 @@
 
 
 
-
-#import "../types/EWSAbsoluteMonthlyRecurrencePatternType.h"
-#import "../types/EWSAbsoluteYearlyRecurrencePatternType.h"
-#import "../types/EWSDailyRecurrencePatternType.h"
-#import "../types/EWSEndDateRecurrenceRangeType.h"
-#import "../types/EWSNoEndRecurrenceRangeType.h"
-#import "../types/EWSNumberedRecurrenceRangeType.h"
-#import "../types/EWSRelativeMonthlyRecurrencePatternType.h"
-#import "../types/EWSRelativeYearlyRecurrencePatternType.h"
-#import "../types/EWSWeeklyRecurrencePatternType.h"
+@class EWSAbsoluteMonthlyRecurrencePatternType;
+@class EWSAbsoluteYearlyRecurrencePatternType;
+@class EWSDailyRecurrencePatternType;
+@class EWSEndDateRecurrenceRangeType;
+@class EWSNoEndRecurrenceRangeType;
+@class EWSNumberedRecurrenceRangeType;
+@class EWSRelativeMonthlyRecurrencePatternType;
+@class EWSRelativeYearlyRecurrencePatternType;
+@class EWSWeeklyRecurrencePatternType;
 
 
 
@@ -24,15 +23,15 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSRelativeYearlyRecurrencePatternType*  relativeYearlyRecurrence;
-@property (retain) EWSAbsoluteYearlyRecurrencePatternType*  absoluteYearlyRecurrence;
-@property (retain) EWSRelativeMonthlyRecurrencePatternType* relativeMonthlyRecurrence;
-@property (retain) EWSAbsoluteMonthlyRecurrencePatternType* absoluteMonthlyRecurrence;
-@property (retain) EWSWeeklyRecurrencePatternType*          weeklyRecurrence;
-@property (retain) EWSDailyRecurrencePatternType*           dailyRecurrence;
-@property (retain) EWSNoEndRecurrenceRangeType*             noEndRecurrence;
-@property (retain) EWSEndDateRecurrenceRangeType*           endDateRecurrence;
-@property (retain) EWSNumberedRecurrenceRangeType*          numberedRecurrence;
+@property (strong) EWSRelativeYearlyRecurrencePatternType*  relativeYearlyRecurrence;
+@property (strong) EWSAbsoluteYearlyRecurrencePatternType*  absoluteYearlyRecurrence;
+@property (strong) EWSRelativeMonthlyRecurrencePatternType* relativeMonthlyRecurrence;
+@property (strong) EWSAbsoluteMonthlyRecurrencePatternType* absoluteMonthlyRecurrence;
+@property (strong) EWSWeeklyRecurrencePatternType*          weeklyRecurrence;
+@property (strong) EWSDailyRecurrencePatternType*           dailyRecurrence;
+@property (strong) EWSNoEndRecurrenceRangeType*             noEndRecurrence;
+@property (strong) EWSEndDateRecurrenceRangeType*           endDateRecurrence;
+@property (strong) EWSNumberedRecurrenceRangeType*          numberedRecurrence;
 
 
 @end

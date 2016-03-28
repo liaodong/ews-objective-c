@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFreeBusyView.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSArrayOfCalendarEvent.h"
+#import "../types/EWSFreeBusyViewType.h"
+#import "../types/EWSWorkingHours.h"
 
 
 @implementation EWSFreeBusyView 

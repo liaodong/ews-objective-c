@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSDateTimeTypeHandler.h"
 #import "EWSBasePagingType.h"
+
+
+
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* startDate  /* xs:dateTime */;
-@property (retain) NSString* endDate    /* xs:dateTime */;
+@property (strong) NSString* startDate  /* xs:dateTime */;
+@property (strong) NSString* endDate    /* xs:dateTime */;
 
 
 @end

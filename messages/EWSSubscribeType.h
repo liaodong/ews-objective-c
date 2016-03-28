@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSPullSubscriptionRequestType.h"
-#import "../types/EWSPushSubscriptionRequestType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSPullSubscriptionRequestType;
+@class EWSPushSubscriptionRequestType;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSPullSubscriptionRequestType* pullSubscriptionRequest;
-@property (retain) EWSPushSubscriptionRequestType* pushSubscriptionRequest;
+@property (strong) EWSPullSubscriptionRequestType* pullSubscriptionRequest;
+@property (strong) EWSPushSubscriptionRequestType* pushSubscriptionRequest;
 
 
 @end

@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSIntegerTypeHandler.h"
-
 
 
 /* ConflictResultsType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* count  /* xs:int */;
+@property (strong) NSNumber* count  /* xs:int */;
 
 
 @end

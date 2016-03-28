@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAppendToFolderFieldType.h"
+#import "../types/EWSBasePathToElementType.h"
 
 
 @implementation EWSAppendToFolderFieldType 

@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBasePermissionType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSPermissionActionType.h"
+#import "../types/EWSUserIdType.h"
 
 
 @implementation EWSBasePermissionType 

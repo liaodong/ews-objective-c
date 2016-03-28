@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSPhysicalAddressDictionaryEntryType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSPhysicalAddressKeyType.h"
 
 
 @implementation EWSPhysicalAddressDictionaryEntryType 

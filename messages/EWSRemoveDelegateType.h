@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSArrayOfUserIdType.h"
 #import "EWSBaseDelegateType.h"
+
+
+
+@class EWSArrayOfUserIdType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSArray<EWSUserIdType*>* userIds  /* EWSArrayOfUserIdType */;
+@property (strong) EWSArrayOfUserIdType* userIds;
 
 
 @end

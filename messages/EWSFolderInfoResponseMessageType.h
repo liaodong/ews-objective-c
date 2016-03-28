@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSArrayOfFoldersType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSArrayOfFoldersType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSArrayOfFoldersType* folders;
+@property (strong) EWSArrayOfFoldersType* folders;
 
 
 @end

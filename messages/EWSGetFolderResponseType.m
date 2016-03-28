@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetFolderResponseType.h"
+#import "../messages/EWSArrayOfResponseMessagesType.h"
 
 
 @implementation EWSGetFolderResponseType 

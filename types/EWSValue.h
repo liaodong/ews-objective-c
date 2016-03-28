@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
 #import "EWSStringType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* name   /* xs:string */;
+@property (strong) NSString* name   /* xs:string */;
 
 
 @end

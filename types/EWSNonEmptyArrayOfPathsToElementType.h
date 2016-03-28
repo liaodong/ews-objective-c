@@ -2,7 +2,7 @@
 
 
 
-
+@class EWSBasePathToElementType;
 
 
 
@@ -15,6 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSBasePathToElementType* path;
 
 
 @end

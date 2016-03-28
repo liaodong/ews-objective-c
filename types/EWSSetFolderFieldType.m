@@ -3,6 +3,12 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSetFolderFieldType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSCalendarFolderType.h"
+#import "../types/EWSContactsFolderType.h"
+#import "../types/EWSFolderType.h"
+#import "../types/EWSSearchFolderType.h"
+#import "../types/EWSTasksFolderType.h"
 
 
 @implementation EWSSetFolderFieldType 

@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSResolutionType.h"
+#import "../types/EWSContactItemType.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 @implementation EWSResolutionType 

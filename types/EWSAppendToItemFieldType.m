@@ -3,6 +3,18 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAppendToItemFieldType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSCalendarItemType.h"
+#import "../types/EWSContactItemType.h"
+#import "../types/EWSDistributionListType.h"
+#import "../types/EWSItemType.h"
+#import "../types/EWSMeetingCancellationMessageType.h"
+#import "../types/EWSMeetingMessageType.h"
+#import "../types/EWSMeetingRequestMessageType.h"
+#import "../types/EWSMeetingResponseMessageType.h"
+#import "../types/EWSMessageType.h"
+#import "../types/EWSPostItemType.h"
+#import "../types/EWSTaskType.h"
 
 
 @implementation EWSAppendToItemFieldType 

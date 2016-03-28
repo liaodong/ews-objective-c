@@ -2,9 +2,7 @@
 
 
 
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../types/EWSItemIdType.h"
+@class EWSItemIdType;
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSItemIdType* itemId;
-@property (retain) NSNumber*      isRead  /* xs:boolean */;
+@property (strong) EWSItemIdType* itemId;
+@property (strong) NSNumber*      isRead  /* xs:boolean */;
 
 
 @end

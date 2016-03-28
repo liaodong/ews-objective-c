@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDuration.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
 
 
 @implementation EWSDuration 

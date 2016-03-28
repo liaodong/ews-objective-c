@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSSubscriptionStatusFrequencyType.h"
 #import "EWSBaseSubscriptionRequestType.h"
+
+
+
 
 
 
@@ -18,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* statusFrequency  /* EWSSubscriptionStatusFrequencyType */;
-@property (retain) NSString* uRL              /* xs:string */;
+@property (strong) NSNumber* statusFrequency  /* EWSSubscriptionStatusFrequencyType */;
+@property (strong) NSString* uRL              /* xs:string */;
 
 
 @end

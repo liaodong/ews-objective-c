@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* TimeZoneDefinitionType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* id     /* xs:string */;
+@property (strong) NSString* id     /* xs:string */;
 
 
 @end

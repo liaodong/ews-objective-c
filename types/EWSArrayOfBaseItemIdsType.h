@@ -2,7 +2,7 @@
 
 
 
-
+@class EWSItemIdType;
 
 
 
@@ -15,6 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSItemIdType* itemId;
 
 
 @end

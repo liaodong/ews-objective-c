@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAttendeeType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../types/EWSEmailAddressType.h"
+#import "../types/EWSResponseTypeType.h"
 
 
 @implementation EWSAttendeeType 

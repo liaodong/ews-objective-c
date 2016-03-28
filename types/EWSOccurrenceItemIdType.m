@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSOccurrenceItemIdType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDerivedItemIdType.h"
 
 
 @implementation EWSOccurrenceItemIdType 

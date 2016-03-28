@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetEventsResponseType.h"
+#import "../messages/EWSArrayOfResponseMessagesType.h"
 
 
 @implementation EWSGetEventsResponseType 

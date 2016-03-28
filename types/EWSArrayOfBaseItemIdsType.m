@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSArrayOfBaseItemIdsType.h"
+#import "../types/EWSItemIdType.h"
 
 
 @implementation EWSArrayOfBaseItemIdsType 
@@ -10,6 +11,12 @@
 + (void) initialize
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSArrayOfBaseItemIdsType class]];
+
+    [handler property      : @"itemId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [EWSItemIdType class]];
 
     [handler register];
 }
@@ -26,7 +33,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ArrayOfBaseItemIdsType:"];
+    return [NSString stringWithFormat:@"ArrayOfBaseItemIdsType: ItemId=%@", _itemId];
 }
 
 @end

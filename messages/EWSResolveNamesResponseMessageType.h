@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSArrayOfResolutionType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSArrayOfResolutionType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSArrayOfResolutionType* resolutionSet;
+@property (strong) EWSArrayOfResolutionType* resolutionSet;
 
 
 @end

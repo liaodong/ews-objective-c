@@ -2,9 +2,7 @@
 
 
 
-
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../types/EWSSerializableTimeZoneTime.h"
+@class EWSSerializableTimeZoneTime;
 
 
 
@@ -17,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber*                    bias          /* xs:int */;
-@property (retain) EWSSerializableTimeZoneTime* standardTime;
-@property (retain) EWSSerializableTimeZoneTime* daylightTime;
+@property (strong) NSNumber*                    bias          /* xs:int */;
+@property (strong) EWSSerializableTimeZoneTime* standardTime;
+@property (strong) EWSSerializableTimeZoneTime* daylightTime;
 
 
 @end

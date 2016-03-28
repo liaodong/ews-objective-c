@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* ConstantValueType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* value  /* xs:string */;
+@property (strong) NSString* value  /* xs:string */;
 
 
 @end

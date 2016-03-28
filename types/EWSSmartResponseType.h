@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSBodyType.h"
 #import "EWSSmartResponseBaseType.h"
+
+
+
+@class EWSBodyType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSBodyType* pNewBodyContent;
+@property (strong) EWSBodyType* pNewBodyContent;
 
 
 @end

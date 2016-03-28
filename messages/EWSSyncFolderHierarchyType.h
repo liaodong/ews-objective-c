@@ -1,12 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSFolderResponseShapeType.h"
-#import "../types/EWSTargetFolderIdType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSFolderResponseShapeType;
+@class EWSTargetFolderIdType;
 
 
 
@@ -19,9 +17,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSFolderResponseShapeType* folderShape;
-@property (retain) EWSTargetFolderIdType*      syncFolderId;
-@property (retain) NSString*                   syncState     /* xs:string */;
+@property (strong) EWSFolderResponseShapeType* folderShape;
+@property (strong) EWSTargetFolderIdType*      syncFolderId;
+@property (strong) NSString*                   syncState     /* xs:string */;
 
 
 @end

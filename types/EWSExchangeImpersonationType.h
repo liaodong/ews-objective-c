@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSConnectingSIDType.h"
+@class EWSConnectingSIDType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSConnectingSIDType* connectingSID;
+@property (strong) EWSConnectingSIDType* connectingSID;
 
 
 @end

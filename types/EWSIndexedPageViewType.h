@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../types/EWSIndexBasePointType.h"
 #import "EWSBasePagingType.h"
+
+
+
 
 
 
@@ -18,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* offset     /* xs:int */;
-@property (retain) NSString* basePoint  /* EWSIndexBasePointType */;
+@property (strong) NSNumber* offset     /* xs:int */;
+@property (strong) NSString* basePoint  /* EWSIndexBasePointType */;
 
 
 @end

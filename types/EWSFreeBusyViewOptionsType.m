@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFreeBusyViewOptionsType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSDuration.h"
+#import "../types/EWSFreeBusyViewType.h"
 
 
 @implementation EWSFreeBusyViewOptionsType 

@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSDictionaryURIType.h"
 #import "EWSBasePathToElementType.h"
+
+
+
 
 
 
@@ -18,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* fieldURI    /* EWSDictionaryURIType */;
-@property (retain) NSString* fieldIndex  /* xs:string */;
+@property (strong) NSString* fieldURI    /* EWSDictionaryURIType */;
+@property (strong) NSString* fieldIndex  /* xs:string */;
 
 
 @end

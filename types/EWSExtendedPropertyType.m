@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSExtendedPropertyType.h"
+#import "../types/EWSPathToExtendedFieldType.h"
 
 
 @implementation EWSExtendedPropertyType 

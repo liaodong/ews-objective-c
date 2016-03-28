@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSNonEmptyArrayOfRequestAttachmentIdsType.h"
+#import "../types/EWSRequestAttachmentIdType.h"
 
 
 @implementation EWSNonEmptyArrayOfRequestAttachmentIdsType 
@@ -10,6 +11,12 @@
 + (void) initialize
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSNonEmptyArrayOfRequestAttachmentIdsType class]];
+
+    [handler property      : @"attachmentId"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"AttachmentId"
+             withHandler   : [EWSRequestAttachmentIdType class]];
 
     [handler register];
 }
@@ -26,7 +33,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"NonEmptyArrayOfRequestAttachmentIdsType:"];
+    return [NSString stringWithFormat:@"NonEmptyArrayOfRequestAttachmentIdsType: AttachmentId=%@", _attachmentId];
 }
 
 @end

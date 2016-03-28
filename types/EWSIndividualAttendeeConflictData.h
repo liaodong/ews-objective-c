@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSLegacyFreeBusyType.h"
 #import "EWSAttendeeConflictData.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* busyType  /* EWSLegacyFreeBusyType */;
+@property (strong) NSString* busyType  /* EWSLegacyFreeBusyType */;
 
 
 @end

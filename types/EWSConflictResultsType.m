@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSConflictResultsType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
 
 
 @implementation EWSConflictResultsType 

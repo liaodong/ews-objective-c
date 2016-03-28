@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSArrayOfDLExpansionType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 @implementation EWSArrayOfDLExpansionType 
@@ -63,6 +66,9 @@
 
 - (void) addMailbox:(EWSEmailAddressType*) elem
 {
+    if (![self mailbox]) {
+        [self setMailbox:[[NSMutableArray<EWSEmailAddressType*> alloc] init]];
+    }
     [_mailbox addObject:elem];
 }
 

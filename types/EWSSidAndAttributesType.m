@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSidAndAttributesType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../handlers/EWSUnsignedIntTypeHandler.h"
 
 
 @implementation EWSSidAndAttributesType 

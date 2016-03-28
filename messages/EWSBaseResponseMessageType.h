@@ -2,8 +2,7 @@
 
 
 
-
-#import "../messages/EWSArrayOfResponseMessagesType.h"
+@class EWSArrayOfResponseMessagesType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSArrayOfResponseMessagesType* responseMessages;
+@property (strong) EWSArrayOfResponseMessagesType* responseMessages;
 
 
 @end

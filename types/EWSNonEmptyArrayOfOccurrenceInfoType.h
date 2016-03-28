@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSOccurrenceInfoType.h"
+@class EWSOccurrenceInfoType;
 
 
 
 /* NonEmptyArrayOfOccurrenceInfoType */
-@interface EWSNonEmptyArrayOfOccurrenceInfoType : EWSArrayTypeHandler
+@interface EWSNonEmptyArrayOfOccurrenceInfoType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSOccurrenceInfoType*>* occurrence;
+
+
+- (void) addOccurrence:(EWSOccurrenceInfoType*) elem;
 @end
 

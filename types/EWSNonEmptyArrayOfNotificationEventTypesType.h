@@ -5,7 +5,6 @@
 
 
 
-
 /* NonEmptyArrayOfNotificationEventTypesType */
 @interface EWSNonEmptyArrayOfNotificationEventTypesType : NSObject
 
@@ -15,6 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) NSString* eventType  /* EWSNotificationEventTypeType */;
 
 
 @end

@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
 #import "EWSAlternateIdBaseType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* folderId  /* xs:string */;
+@property (strong) NSString* folderId  /* xs:string */;
 
 
 @end

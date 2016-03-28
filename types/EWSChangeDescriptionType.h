@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSBasePathToElementType.h"
+@class EWSBasePathToElementType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSBasePathToElementType* path;
+@property (strong) EWSBasePathToElementType* path;
 
 
 @end

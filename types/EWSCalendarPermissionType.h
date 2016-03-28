@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSCalendarPermissionLevelType.h"
-#import "../types/EWSCalendarPermissionReadAccessType.h"
 #import "EWSBasePermissionType.h"
+
+
+
 
 
 
@@ -18,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* readItems                /* EWSCalendarPermissionReadAccessType */;
-@property (retain) NSString* calendarPermissionLevel  /* EWSCalendarPermissionLevelType */;
+@property (strong) NSString* readItems                /* EWSCalendarPermissionReadAccessType */;
+@property (strong) NSString* calendarPermissionLevel  /* EWSCalendarPermissionLevelType */;
 
 
 @end

@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSendItemType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSNonEmptyArrayOfBaseItemIdsType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSSendItemType 

@@ -5,7 +5,6 @@
 
 
 
-
 /* SyncFolderHierarchyChangesType */
 @interface EWSSyncFolderHierarchyChangesType : NSObject
 

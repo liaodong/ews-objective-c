@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSSuggestionDayResult.h"
+@class EWSSuggestionDayResult;
 
 
 
 /* ArrayOfSuggestionDayResult */
-@interface EWSArrayOfSuggestionDayResult : EWSArrayTypeHandler
+@interface EWSArrayOfSuggestionDayResult : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSSuggestionDayResult*>* suggestionDayResult;
+
+
+- (void) addSuggestionDayResult:(EWSSuggestionDayResult*) elem;
 @end
 

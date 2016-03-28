@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSDayOfWeekIndexType.h"
-#import "../types/EWSDayOfWeekType.h"
 #import "EWSIntervalRecurrencePatternBaseType.h"
+
+
+
 
 
 
@@ -18,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* daysOfWeek      /* EWSDayOfWeekType */;
-@property (retain) NSString* dayOfWeekIndex  /* EWSDayOfWeekIndexType */;
+@property (strong) NSString* daysOfWeek      /* EWSDayOfWeekType */;
+@property (strong) NSString* dayOfWeekIndex  /* EWSDayOfWeekIndexType */;
 
 
 @end

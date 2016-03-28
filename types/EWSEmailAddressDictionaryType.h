@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSEmailAddressDictionaryEntryType.h"
+@class EWSEmailAddressDictionaryEntryType;
 
 
 
 /* EmailAddressDictionaryType */
-@interface EWSEmailAddressDictionaryType : EWSArrayTypeHandler
+@interface EWSEmailAddressDictionaryType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSEmailAddressDictionaryEntryType*>* entry;
+
+
+- (void) addEntry:(EWSEmailAddressDictionaryEntryType*) elem;
 @end
 

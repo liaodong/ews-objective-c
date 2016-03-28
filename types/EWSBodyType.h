@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSBodyTypeType.h"
 #import "EWSStringType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* bodyType  /* EWSBodyTypeType */;
+@property (strong) NSString* bodyType  /* EWSBodyTypeType */;
 
 
 @end

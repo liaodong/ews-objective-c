@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSUpdateItemResponseType.h"
+#import "../messages/EWSArrayOfResponseMessagesType.h"
 
 
 @implementation EWSUpdateItemResponseType 

@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* ReplyBody */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* message  /* xs:string */;
+@property (strong) NSString* message  /* xs:string */;
 
 
 @end

@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBaseSubscriptionRequestType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSNonEmptyArrayOfNotificationEventTypesType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSBaseSubscriptionRequestType 

@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSResolveNamesResponseMessageType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSArrayOfResolutionType.h"
+#import "../types/EWSResponseClassType.h"
 
 
 @implementation EWSResolveNamesResponseMessageType 

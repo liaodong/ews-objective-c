@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSMoveFolderType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSMoveFolderType 

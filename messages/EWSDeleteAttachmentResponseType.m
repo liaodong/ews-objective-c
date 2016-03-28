@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDeleteAttachmentResponseType.h"
+#import "../messages/EWSArrayOfResponseMessagesType.h"
 
 
 @implementation EWSDeleteAttachmentResponseType 

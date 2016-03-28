@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSNonEmptyArrayOfItemChangeDescriptionsType.h"
+@class EWSNonEmptyArrayOfItemChangeDescriptionsType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSNonEmptyArrayOfItemChangeDescriptionsType* updates;
+@property (strong) EWSNonEmptyArrayOfItemChangeDescriptionsType* updates;
 
 
 @end

@@ -2,7 +2,7 @@
 
 
 
-
+@class EWSPermissionType;
 
 
 
@@ -15,6 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSPermissionType* permission;
 
 
 @end

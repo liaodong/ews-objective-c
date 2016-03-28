@@ -3,9 +3,6 @@
 
 
 
-#import "../handlers/EWSDurationTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* TimeZoneType */
@@ -17,8 +14,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* timeZoneName  /* xs:string */;
-@property (retain) NSString* baseOffset    /* xs:duration */;
+@property (strong) NSString* timeZoneName  /* xs:string */;
+@property (strong) NSString* baseOffset    /* xs:duration */;
 
 
 @end

@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDelegateUserType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSDelegatePermissionsType.h"
+#import "../types/EWSUserIdType.h"
 
 
 @implementation EWSDelegateUserType 

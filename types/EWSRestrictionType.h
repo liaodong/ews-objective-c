@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSSearchExpressionType.h"
+@class EWSSearchExpressionType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSSearchExpressionType* searchExpression;
+@property (strong) EWSSearchExpressionType* searchExpression;
 
 
 @end

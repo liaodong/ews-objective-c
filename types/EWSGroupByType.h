@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSAggregateOnType.h"
 #import "EWSBaseGroupByType.h"
+
+
+
+@class EWSAggregateOnType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSAggregateOnType* aggregateOn;
+@property (strong) EWSAggregateOnType* aggregateOn;
 
 
 @end

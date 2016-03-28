@@ -2,9 +2,7 @@
 
 
 
-
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../types/EWSItemIdType.h"
+@class EWSItemIdType;
 
 
 
@@ -17,10 +15,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSItemIdType* itemId;
-@property (retain) NSString*      start          /* xs:dateTime */;
-@property (retain) NSString*      end            /* xs:dateTime */;
-@property (retain) NSString*      originalStart  /* xs:dateTime */;
+@property (strong) EWSItemIdType* itemId;
+@property (strong) NSString*      start          /* xs:dateTime */;
+@property (strong) NSString*      end            /* xs:dateTime */;
+@property (strong) NSString*      originalStart  /* xs:dateTime */;
 
 
 @end

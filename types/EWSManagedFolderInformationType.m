@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSManagedFolderInformationType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSManagedFolderInformationType 

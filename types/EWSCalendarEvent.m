@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCalendarEvent.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../types/EWSCalendarEventDetails.h"
+#import "../types/EWSLegacyFreeBusyType.h"
 
 
 @implementation EWSCalendarEvent 

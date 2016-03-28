@@ -3,8 +3,6 @@
 
 
 
-#import "../types/EWSExcludesAttributeType.h"
-
 
 
 /* ExcludesValueType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* value  /* EWSExcludesAttributeType */;
+@property (strong) NSString* value  /* EWSExcludesAttributeType */;
 
 
 @end

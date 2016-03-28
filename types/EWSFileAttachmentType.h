@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSBase64BinaryTypeHandler.h"
 #import "EWSAttachmentType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSData*  content  /* xs:base64Binary */;
+@property (strong) NSData*  content  /* xs:base64Binary */;
 
 
 @end

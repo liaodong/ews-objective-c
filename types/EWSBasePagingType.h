@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSIntegerTypeHandler.h"
-
 
 
 /* BasePagingType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* maxEntriesReturned  /* xs:int */;
+@property (strong) NSNumber* maxEntriesReturned  /* xs:int */;
 
 
 @end

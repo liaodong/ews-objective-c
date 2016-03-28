@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSuggestion.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../types/EWSArrayOfAttendeeConflictData.h"
+#import "../types/EWSSuggestionQuality.h"
 
 
 @implementation EWSSuggestion 

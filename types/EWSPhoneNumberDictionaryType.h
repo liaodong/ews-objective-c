@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSPhoneNumberDictionaryEntryType.h"
+@class EWSPhoneNumberDictionaryEntryType;
 
 
 
 /* PhoneNumberDictionaryType */
-@interface EWSPhoneNumberDictionaryType : EWSArrayTypeHandler
+@interface EWSPhoneNumberDictionaryType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSPhoneNumberDictionaryEntryType*>* entry;
+
+
+- (void) addEntry:(EWSPhoneNumberDictionaryEntryType*) elem;
 @end
 

@@ -1,11 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../types/EWSFolderIdType.h"
 #import "EWSBaseNotificationEventType.h"
+
+
+
+@class EWSFolderIdType;
 
 
 
@@ -18,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*        timeStamp       /* xs:dateTime */;
-@property (retain) EWSFolderIdType* parentFolderId;
+@property (strong) NSString*        timeStamp       /* xs:dateTime */;
+@property (strong) EWSFolderIdType* parentFolderId;
 
 
 @end

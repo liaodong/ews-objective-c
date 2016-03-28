@@ -1,13 +1,11 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSFolderQueryTraversalType.h"
-#import "../types/EWSFolderResponseShapeType.h"
-#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
-#import "../types/EWSRestrictionType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSFolderResponseShapeType;
+@class EWSNonEmptyArrayOfBaseFolderIdsType;
+@class EWSRestrictionType;
 
 
 
@@ -20,10 +18,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                            traversal        /* EWSFolderQueryTraversalType */;
-@property (retain) EWSFolderResponseShapeType*          folderShape;
-@property (retain) EWSRestrictionType*                  restriction;
-@property (retain) EWSNonEmptyArrayOfBaseFolderIdsType* parentFolderIds;
+@property (strong) NSString*                            traversal        /* EWSFolderQueryTraversalType */;
+@property (strong) EWSFolderResponseShapeType*          folderShape;
+@property (strong) EWSRestrictionType*                  restriction;
+@property (strong) EWSNonEmptyArrayOfBaseFolderIdsType* parentFolderIds;
 
 
 @end

@@ -1,11 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../types/EWSPermissionSetType.h"
 #import "EWSBaseFolderType.h"
+
+
+
+@class EWSPermissionSetType;
 
 
 
@@ -18,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSPermissionSetType* permissionSet;
-@property (retain) NSNumber*             unreadCount    /* xs:int */;
+@property (strong) EWSPermissionSetType* permissionSet;
+@property (strong) NSNumber*             unreadCount    /* xs:int */;
 
 
 @end

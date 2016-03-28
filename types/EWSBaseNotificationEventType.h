@@ -3,8 +3,6 @@
 
 
 
-#import "../types/EWSWatermarkType.h"
-
 
 
 /* BaseNotificationEventType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* watermark  /* EWSWatermarkType */;
+@property (strong) NSString* watermark  /* EWSWatermarkType */;
 
 
 @end

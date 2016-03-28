@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSExchangeImpersonationType.h"
+#import "../types/EWSConnectingSIDType.h"
 
 
 @implementation EWSExchangeImpersonationType 

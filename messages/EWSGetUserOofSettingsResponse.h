@@ -2,10 +2,8 @@
 
 
 
-
-#import "../messages/EWSResponseMessageType.h"
-#import "../types/EWSExternalAudience.h"
-#import "../types/EWSUserOofSettings.h"
+@class EWSResponseMessageType;
+@class EWSUserOofSettings;
 
 
 
@@ -18,9 +16,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSResponseMessageType* responseMessage;
-@property (retain) EWSUserOofSettings*     oofSettings;
-@property (retain) NSString*               allowExternalOof  /* EWSExternalAudience */;
+@property (strong) EWSResponseMessageType* responseMessage;
+@property (strong) EWSUserOofSettings*     oofSettings;
+@property (strong) NSString*               allowExternalOof  /* EWSExternalAudience */;
 
 
 @end

@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../messages/EWSDelegateUserResponseMessageType.h"
+@class EWSDelegateUserResponseMessageType;
 
 
 
 /* ArrayOfDelegateUserResponseMessageType */
-@interface EWSArrayOfDelegateUserResponseMessageType : EWSArrayTypeHandler
+@interface EWSArrayOfDelegateUserResponseMessageType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSDelegateUserResponseMessageType*>* delegateUserResponseMessageType;
+
+
+- (void) addDelegateUserResponseMessageType:(EWSDelegateUserResponseMessageType*) elem;
 @end
 

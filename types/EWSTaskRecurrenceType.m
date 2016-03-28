@@ -3,6 +3,19 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSTaskRecurrenceType.h"
+#import "../types/EWSAbsoluteMonthlyRecurrencePatternType.h"
+#import "../types/EWSAbsoluteYearlyRecurrencePatternType.h"
+#import "../types/EWSDailyRecurrencePatternType.h"
+#import "../types/EWSDailyRegeneratingPatternType.h"
+#import "../types/EWSEndDateRecurrenceRangeType.h"
+#import "../types/EWSMonthlyRegeneratingPatternType.h"
+#import "../types/EWSNoEndRecurrenceRangeType.h"
+#import "../types/EWSNumberedRecurrenceRangeType.h"
+#import "../types/EWSRelativeMonthlyRecurrencePatternType.h"
+#import "../types/EWSRelativeYearlyRecurrencePatternType.h"
+#import "../types/EWSWeeklyRecurrencePatternType.h"
+#import "../types/EWSWeeklyRegeneratingPatternType.h"
+#import "../types/EWSYearlyRegeneratingPatternType.h"
 
 
 @implementation EWSTaskRecurrenceType 

@@ -2,7 +2,7 @@
 
 
 
-
+@class EWSEmailAddressType;
 
 
 
@@ -15,6 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSEmailAddressType* mailbox;
 
 
 @end

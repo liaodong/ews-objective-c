@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSItemResponseShapeType.h"
-#import "../types/EWSNonEmptyArrayOfBaseItemIdsType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSItemResponseShapeType;
+@class EWSNonEmptyArrayOfBaseItemIdsType;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSItemResponseShapeType*          itemShape;
-@property (retain) EWSNonEmptyArrayOfBaseItemIdsType* itemIds;
+@property (strong) EWSItemResponseShapeType*          itemShape;
+@property (strong) EWSNonEmptyArrayOfBaseItemIdsType* itemIds;
 
 
 @end

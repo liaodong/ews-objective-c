@@ -2,9 +2,7 @@
 
 
 
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSArrayOfRealItemsType.h"
+@class EWSArrayOfRealItemsType;
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                groupIndex  /* xs:string */;
-@property (retain) EWSArrayOfRealItemsType* items;
+@property (strong) NSString*                groupIndex  /* xs:string */;
+@property (strong) EWSArrayOfRealItemsType* items;
 
 
 @end

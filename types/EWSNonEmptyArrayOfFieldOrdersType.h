@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSFieldOrderType.h"
+@class EWSFieldOrderType;
 
 
 
 /* NonEmptyArrayOfFieldOrdersType */
-@interface EWSNonEmptyArrayOfFieldOrdersType : EWSArrayTypeHandler
+@interface EWSNonEmptyArrayOfFieldOrdersType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSFieldOrderType*>* fieldOrder;
+
+
+- (void) addFieldOrder:(EWSFieldOrderType*) elem;
 @end
 

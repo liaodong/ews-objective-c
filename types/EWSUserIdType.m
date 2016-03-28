@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSUserIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDistinguishedUserType.h"
 
 
 @implementation EWSUserIdType 

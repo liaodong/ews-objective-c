@@ -1,13 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSBasePathToElementType.h"
-#import "../types/EWSConstantValueType.h"
-#import "../types/EWSContainmentComparisonType.h"
-#import "../types/EWSContainmentModeType.h"
 #import "EWSSearchExpressionType.h"
+
+
+
+@class EWSBasePathToElementType;
+@class EWSConstantValueType;
 
 
 
@@ -20,10 +17,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                 containmentMode        /* EWSContainmentModeType */;
-@property (retain) NSString*                 containmentComparison  /* EWSContainmentComparisonType */;
-@property (retain) EWSBasePathToElementType* path;
-@property (retain) EWSConstantValueType*     constant;
+@property (strong) NSString*                 containmentMode        /* EWSContainmentModeType */;
+@property (strong) NSString*                 containmentComparison  /* EWSContainmentComparisonType */;
+@property (strong) EWSBasePathToElementType* path;
+@property (strong) EWSConstantValueType*     constant;
 
 
 @end

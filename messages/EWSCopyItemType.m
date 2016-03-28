@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCopyItemType.h"
+#import "../types/EWSNonEmptyArrayOfBaseItemIdsType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSCopyItemType 

@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCalendarViewType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
 
 
 @implementation EWSCalendarViewType 

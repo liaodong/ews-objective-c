@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSFolderChangeType.h"
+@class EWSFolderChangeType;
 
 
 
 /* NonEmptyArrayOfFolderChangesType */
-@interface EWSNonEmptyArrayOfFolderChangesType : EWSArrayTypeHandler
+@interface EWSNonEmptyArrayOfFolderChangesType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSFolderChangeType*>* folderChange;
+
+
+- (void) addFolderChange:(EWSFolderChangeType*) elem;
 @end
 

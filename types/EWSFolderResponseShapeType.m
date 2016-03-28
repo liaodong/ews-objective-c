@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFolderResponseShapeType.h"
+#import "../types/EWSDefaultShapeNamesType.h"
+#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
 
 
 @implementation EWSFolderResponseShapeType 

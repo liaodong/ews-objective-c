@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSyncFolderItemsDeleteType.h"
+#import "../types/EWSItemIdType.h"
 
 
 @implementation EWSSyncFolderItemsDeleteType 

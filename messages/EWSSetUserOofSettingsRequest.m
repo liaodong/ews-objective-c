@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSetUserOofSettingsRequest.h"
+#import "../types/EWSEmailAddress.h"
+#import "../types/EWSUserOofSettings.h"
 
 
 @implementation EWSSetUserOofSettingsRequest 

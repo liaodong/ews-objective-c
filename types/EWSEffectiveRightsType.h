@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSBooleanTypeHandler.h"
-
 
 
 /* EffectiveRightsType */
@@ -16,12 +14,12 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* createAssociated  /* xs:boolean */;
-@property (retain) NSNumber* createContents    /* xs:boolean */;
-@property (retain) NSNumber* createHierarchy   /* xs:boolean */;
-@property (retain) NSNumber* delete            /* xs:boolean */;
-@property (retain) NSNumber* modify            /* xs:boolean */;
-@property (retain) NSNumber* read              /* xs:boolean */;
+@property (strong) NSNumber* createAssociated  /* xs:boolean */;
+@property (strong) NSNumber* createContents    /* xs:boolean */;
+@property (strong) NSNumber* createHierarchy   /* xs:boolean */;
+@property (strong) NSNumber* delete            /* xs:boolean */;
+@property (strong) NSNumber* modify            /* xs:boolean */;
+@property (strong) NSNumber* read              /* xs:boolean */;
 
 
 @end

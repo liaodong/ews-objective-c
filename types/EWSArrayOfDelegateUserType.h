@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSDelegateUserType.h"
+@class EWSDelegateUserType;
 
 
 
 /* ArrayOfDelegateUserType */
-@interface EWSArrayOfDelegateUserType : EWSArrayTypeHandler
+@interface EWSArrayOfDelegateUserType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSDelegateUserType*>* delegateUser;
+
+
+- (void) addDelegateUser:(EWSDelegateUserType*) elem;
 @end
 

@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSFolderIdType.h"
+@class EWSFolderIdType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSFolderIdType* folderId;
+@property (strong) EWSFolderIdType* folderId;
 
 
 @end

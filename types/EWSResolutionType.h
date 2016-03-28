@@ -2,9 +2,8 @@
 
 
 
-
-#import "../types/EWSContactItemType.h"
-#import "../types/EWSEmailAddressType.h"
+@class EWSContactItemType;
+@class EWSEmailAddressType;
 
 
 
@@ -17,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSEmailAddressType* mailbox;
-@property (retain) EWSContactItemType*  contact;
+@property (strong) EWSEmailAddressType* mailbox;
+@property (strong) EWSContactItemType*  contact;
 
 
 @end

@@ -3,6 +3,13 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCalendarFolderType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSCalendarPermissionSetType.h"
+#import "../types/EWSEffectiveRightsType.h"
+#import "../types/EWSExtendedPropertyType.h"
+#import "../types/EWSFolderIdType.h"
+#import "../types/EWSManagedFolderInformationType.h"
 
 
 @implementation EWSCalendarFolderType 

@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSRegeneratingPatternBaseType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
 
 
 @implementation EWSRegeneratingPatternBaseType 

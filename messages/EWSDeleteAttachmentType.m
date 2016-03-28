@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDeleteAttachmentType.h"
+#import "../types/EWSNonEmptyArrayOfRequestAttachmentIdsType.h"
 
 
 @implementation EWSDeleteAttachmentType 

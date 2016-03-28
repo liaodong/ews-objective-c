@@ -2,9 +2,8 @@
 
 
 
-
-#import "../messages/EWSResponseMessageType.h"
-#import "../types/EWSArrayOfSuggestionDayResult.h"
+@class EWSArrayOfSuggestionDayResult;
+@class EWSResponseMessageType;
 
 
 
@@ -17,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSResponseMessageType*           responseMessage;
-@property (retain) NSArray<EWSSuggestionDayResult*>* suggestionDayResultArray  /* EWSArrayOfSuggestionDayResult */;
+@property (strong) EWSResponseMessageType*        responseMessage;
+@property (strong) EWSArrayOfSuggestionDayResult* suggestionDayResultArray;
 
 
 @end

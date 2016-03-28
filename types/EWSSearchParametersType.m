@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSearchParametersType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSRestrictionType.h"
+#import "../types/EWSSearchFolderTraversalType.h"
 
 
 @implementation EWSSearchParametersType 

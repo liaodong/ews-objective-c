@@ -5,7 +5,6 @@
 
 
 
-
 /* RecurrencePatternBaseType */
 @interface EWSRecurrencePatternBaseType : NSObject
 

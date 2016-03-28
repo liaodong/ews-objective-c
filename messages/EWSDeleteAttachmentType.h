@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSNonEmptyArrayOfRequestAttachmentIdsType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSNonEmptyArrayOfRequestAttachmentIdsType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSNonEmptyArrayOfRequestAttachmentIdsType* attachmentIds;
+@property (strong) EWSNonEmptyArrayOfRequestAttachmentIdsType* attachmentIds;
 
 
 @end

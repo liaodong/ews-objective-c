@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSuggestionsResponseType.h"
+#import "../messages/EWSResponseMessageType.h"
+#import "../types/EWSArrayOfSuggestionDayResult.h"
 
 
 @implementation EWSSuggestionsResponseType 

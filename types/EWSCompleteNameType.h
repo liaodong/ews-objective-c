@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* CompleteNameType */
@@ -16,16 +14,16 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* title          /* xs:string */;
-@property (retain) NSString* firstName      /* xs:string */;
-@property (retain) NSString* middleName     /* xs:string */;
-@property (retain) NSString* lastName       /* xs:string */;
-@property (retain) NSString* suffix         /* xs:string */;
-@property (retain) NSString* initials       /* xs:string */;
-@property (retain) NSString* fullName       /* xs:string */;
-@property (retain) NSString* nickname       /* xs:string */;
-@property (retain) NSString* yomiFirstName  /* xs:string */;
-@property (retain) NSString* yomiLastName   /* xs:string */;
+@property (strong) NSString* title          /* xs:string */;
+@property (strong) NSString* firstName      /* xs:string */;
+@property (strong) NSString* middleName     /* xs:string */;
+@property (strong) NSString* lastName       /* xs:string */;
+@property (strong) NSString* suffix         /* xs:string */;
+@property (strong) NSString* initials       /* xs:string */;
+@property (strong) NSString* fullName       /* xs:string */;
+@property (strong) NSString* nickname       /* xs:string */;
+@property (strong) NSString* yomiFirstName  /* xs:string */;
+@property (strong) NSString* yomiLastName   /* xs:string */;
 
 
 @end

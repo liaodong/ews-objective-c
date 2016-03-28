@@ -2,9 +2,7 @@
 
 
 
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSAttachmentIdType.h"
+@class EWSAttachmentIdType;
 
 
 
@@ -17,11 +15,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSAttachmentIdType* attachmentId;
-@property (retain) NSString*            name             /* xs:string */;
-@property (retain) NSString*            contentType      /* xs:string */;
-@property (retain) NSString*            contentId        /* xs:string */;
-@property (retain) NSString*            contentLocation  /* xs:string */;
+@property (strong) EWSAttachmentIdType* attachmentId;
+@property (strong) NSString*            name             /* xs:string */;
+@property (strong) NSString*            contentType      /* xs:string */;
+@property (strong) NSString*            contentId        /* xs:string */;
+@property (strong) NSString*            contentLocation  /* xs:string */;
 
 
 @end

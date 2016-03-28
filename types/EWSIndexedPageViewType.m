@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSIndexedPageViewType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSIndexBasePointType.h"
 
 
 @implementation EWSIndexedPageViewType 

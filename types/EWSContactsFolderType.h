@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSPermissionSetType.h"
 #import "EWSBaseFolderType.h"
+
+
+
+@class EWSPermissionSetType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSPermissionSetType* permissionSet;
+@property (strong) EWSPermissionSetType* permissionSet;
 
 
 @end

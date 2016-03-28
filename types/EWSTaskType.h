@@ -1,18 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../handlers/EWSDoubleTypeHandler.h"
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSArrayOfStringsType.h"
-#import "../types/EWSTaskDelegateStateType.h"
-#import "../types/EWSTaskRecurrenceType.h"
-#import "../types/EWSTaskStatusType.h"
 #import "EWSItemType.h"
+
+
+
+@class EWSArrayOfStringsType;
+@class EWSTaskRecurrenceType;
 
 
 
@@ -25,28 +17,28 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber*              actualWork            /* xs:int */;
-@property (retain) NSString*              assignedTime          /* xs:dateTime */;
-@property (retain) NSString*              billingInformation    /* xs:string */;
-@property (retain) NSNumber*              changeCount           /* xs:int */;
-@property (retain) NSArray<NSString*>*    companies             /* EWSArrayOfStringsType */;
-@property (retain) NSString*              completeDate          /* xs:dateTime */;
-@property (retain) NSArray<NSString*>*    contacts              /* EWSArrayOfStringsType */;
-@property (retain) NSString*              delegationState       /* EWSTaskDelegateStateType */;
-@property (retain) NSString*              delegator             /* xs:string */;
-@property (retain) NSString*              dueDate               /* xs:dateTime */;
-@property (retain) NSNumber*              isAssignmentEditable  /* xs:int */;
-@property (retain) NSNumber*              isComplete            /* xs:boolean */;
-@property (retain) NSNumber*              isRecurring           /* xs:boolean */;
-@property (retain) NSNumber*              isTeamTask            /* xs:boolean */;
-@property (retain) NSString*              mileage               /* xs:string */;
-@property (retain) NSString*              owner                 /* xs:string */;
-@property (retain) NSNumber*              percentComplete       /* xs:double */;
-@property (retain) EWSTaskRecurrenceType* recurrence;
-@property (retain) NSString*              startDate             /* xs:dateTime */;
-@property (retain) NSString*              status                /* EWSTaskStatusType */;
-@property (retain) NSString*              statusDescription     /* xs:string */;
-@property (retain) NSNumber*              totalWork             /* xs:int */;
+@property (strong) NSNumber*              actualWork            /* xs:int */;
+@property (strong) NSString*              assignedTime          /* xs:dateTime */;
+@property (strong) NSString*              billingInformation    /* xs:string */;
+@property (strong) NSNumber*              changeCount           /* xs:int */;
+@property (strong) EWSArrayOfStringsType* companies;
+@property (strong) NSString*              completeDate          /* xs:dateTime */;
+@property (strong) EWSArrayOfStringsType* contacts;
+@property (strong) NSString*              delegationState       /* EWSTaskDelegateStateType */;
+@property (strong) NSString*              delegator             /* xs:string */;
+@property (strong) NSString*              dueDate               /* xs:dateTime */;
+@property (strong) NSNumber*              isAssignmentEditable  /* xs:int */;
+@property (strong) NSNumber*              isComplete            /* xs:boolean */;
+@property (strong) NSNumber*              isRecurring           /* xs:boolean */;
+@property (strong) NSNumber*              isTeamTask            /* xs:boolean */;
+@property (strong) NSString*              mileage               /* xs:string */;
+@property (strong) NSString*              owner                 /* xs:string */;
+@property (strong) NSNumber*              percentComplete       /* xs:double */;
+@property (strong) EWSTaskRecurrenceType* recurrence;
+@property (strong) NSString*              startDate             /* xs:dateTime */;
+@property (strong) NSString*              status                /* EWSTaskStatusType */;
+@property (strong) NSString*              statusDescription     /* xs:string */;
+@property (strong) NSNumber*              totalWork             /* xs:int */;
 
 
 @end

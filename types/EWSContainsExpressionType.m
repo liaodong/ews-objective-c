@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSContainsExpressionType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSConstantValueType.h"
+#import "../types/EWSContainmentComparisonType.h"
+#import "../types/EWSContainmentModeType.h"
 
 
 @implementation EWSContainsExpressionType 

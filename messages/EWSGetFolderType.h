@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSFolderResponseShapeType.h"
-#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSFolderResponseShapeType;
+@class EWSNonEmptyArrayOfBaseFolderIdsType;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSFolderResponseShapeType*          folderShape;
-@property (retain) EWSNonEmptyArrayOfBaseFolderIdsType* folderIds;
+@property (strong) EWSFolderResponseShapeType*          folderShape;
+@property (strong) EWSNonEmptyArrayOfBaseFolderIdsType* folderIds;
 
 
 @end

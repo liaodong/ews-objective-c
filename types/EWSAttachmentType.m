@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAttachmentType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSAttachmentIdType.h"
 
 
 @implementation EWSAttachmentType 

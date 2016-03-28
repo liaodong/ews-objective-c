@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSSubscriptionIdType.h"
 #import "EWSBaseRequestType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* subscriptionId  /* EWSSubscriptionIdType */;
+@property (strong) NSString* subscriptionId  /* EWSSubscriptionIdType */;
 
 
 @end

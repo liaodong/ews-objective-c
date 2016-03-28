@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFindItemResponseMessageType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSFindItemParentType.h"
+#import "../types/EWSResponseClassType.h"
 
 
 @implementation EWSFindItemResponseMessageType 

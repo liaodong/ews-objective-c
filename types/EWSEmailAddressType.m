@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSEmailAddressType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSItemIdType.h"
+#import "../types/EWSMailboxTypeType.h"
+#import "../types/EWSNonEmptyStringType.h"
 
 
 @implementation EWSEmailAddressType 

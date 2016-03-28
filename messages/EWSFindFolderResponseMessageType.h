@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSFindFolderParentType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSFindFolderParentType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSFindFolderParentType* rootFolder;
+@property (strong) EWSFindFolderParentType* rootFolder;
 
 
 @end

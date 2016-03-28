@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSFolderIdType.h"
 #import "EWSBaseObjectChangedEventType.h"
+
+
+
+@class EWSFolderIdType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSFolderIdType* oldParentFolderId;
+@property (strong) EWSFolderIdType* oldParentFolderId;
 
 
 @end

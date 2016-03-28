@@ -1,12 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../types/EWSArrayOfDLExpansionType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSArrayOfDLExpansionType;
 
 
 
@@ -19,12 +16,12 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber*                  indexedPagingOffset      /* xs:int */;
-@property (retain) NSNumber*                  numeratorOffset          /* xs:int */;
-@property (retain) NSNumber*                  absoluteDenominator      /* xs:int */;
-@property (retain) NSNumber*                  includesLastItemInRange  /* xs:boolean */;
-@property (retain) NSNumber*                  totalItemsInView         /* xs:int */;
-@property (retain) EWSArrayOfDLExpansionType* dLExpansion;
+@property (strong) NSNumber*                  indexedPagingOffset      /* xs:int */;
+@property (strong) NSNumber*                  numeratorOffset          /* xs:int */;
+@property (strong) NSNumber*                  absoluteDenominator      /* xs:int */;
+@property (strong) NSNumber*                  includesLastItemInRange  /* xs:boolean */;
+@property (strong) NSNumber*                  totalItemsInView         /* xs:int */;
+@property (strong) EWSArrayOfDLExpansionType* dLExpansion;
 
 
 @end

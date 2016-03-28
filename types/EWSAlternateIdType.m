@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAlternateIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSIdFormatType.h"
+#import "../types/EWSNonEmptyStringType.h"
 
 
 @implementation EWSAlternateIdType 

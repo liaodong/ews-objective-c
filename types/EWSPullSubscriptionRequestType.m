@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSPullSubscriptionRequestType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSNonEmptyArrayOfNotificationEventTypesType.h"
+#import "../types/EWSSubscriptionTimeoutType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSPullSubscriptionRequestType 

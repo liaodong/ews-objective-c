@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSConvertIdType.h"
+#import "../types/EWSIdFormatType.h"
+#import "../types/EWSNonEmptyArrayOfAlternateIdsType.h"
 
 
 @implementation EWSConvertIdType 

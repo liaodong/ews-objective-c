@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFreeBusyResponseType.h"
+#import "../messages/EWSResponseMessageType.h"
+#import "../types/EWSFreeBusyView.h"
 
 
 @implementation EWSFreeBusyResponseType 

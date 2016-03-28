@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSItemResponseShapeType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSBodyTypeResponseType.h"
+#import "../types/EWSDefaultShapeNamesType.h"
+#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
 
 
 @implementation EWSItemResponseShapeType 

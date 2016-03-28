@@ -2,10 +2,8 @@
 
 
 
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSNonEmptyArrayOfGroupIdentifiersType.h"
-#import "../types/EWSNonEmptyArrayOfRestrictedGroupIdentifiersType.h"
+@class EWSNonEmptyArrayOfGroupIdentifiersType;
+@class EWSNonEmptyArrayOfRestrictedGroupIdentifiersType;
 
 
 
@@ -18,10 +16,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                          userSid              /* xs:string */;
-@property (retain) NSArray<EWSSidAndAttributesType*>* groupSids            /* EWSNonEmptyArrayOfGroupIdentifiersType */;
-@property (retain) NSArray<EWSSidAndAttributesType*>* restrictedGroupSids  /* EWSNonEmptyArrayOfRestrictedGroupIdentifiersType */;
-@property (retain) NSString*                          primarySmtpAddress   /* xs:string */;
+@property (strong) NSString*                                         userSid              /* xs:string */;
+@property (strong) EWSNonEmptyArrayOfGroupIdentifiersType*           groupSids;
+@property (strong) EWSNonEmptyArrayOfRestrictedGroupIdentifiersType* restrictedGroupSids;
+@property (strong) NSString*                                         primarySmtpAddress   /* xs:string */;
 
 
 @end

@@ -2,9 +2,8 @@
 
 
 
-
-#import "../types/EWSArrayOfCalendarPermissionsType.h"
-#import "../types/EWSArrayOfUnknownEntriesType.h"
+@class EWSArrayOfCalendarPermissionsType;
+@class EWSArrayOfUnknownEntriesType;
 
 
 
@@ -17,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSArrayOfCalendarPermissionsType* calendarPermissions;
-@property (retain) EWSArrayOfUnknownEntriesType*      unknownEntries;
+@property (strong) EWSArrayOfCalendarPermissionsType* calendarPermissions;
+@property (strong) EWSArrayOfUnknownEntriesType*      unknownEntries;
 
 
 @end

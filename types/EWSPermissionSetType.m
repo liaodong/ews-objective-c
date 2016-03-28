@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSPermissionSetType.h"
+#import "../types/EWSArrayOfPermissionsType.h"
+#import "../types/EWSArrayOfUnknownEntriesType.h"
 
 
 @implementation EWSPermissionSetType 

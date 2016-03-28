@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDistinguishedFolderIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDistinguishedFolderIdNameType.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 @implementation EWSDistinguishedFolderIdType 

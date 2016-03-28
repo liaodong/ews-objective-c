@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSIndividualAttendeeConflictData.h"
+#import "../types/EWSLegacyFreeBusyType.h"
 
 
 @implementation EWSIndividualAttendeeConflictData 

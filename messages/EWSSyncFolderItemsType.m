@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSyncFolderItemsType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSArrayOfBaseItemIdsType.h"
+#import "../types/EWSItemResponseShapeType.h"
+#import "../types/EWSMaxSyncChangesReturnedType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSSyncFolderItemsType 

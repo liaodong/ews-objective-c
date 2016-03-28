@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSExpandDLType.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 @implementation EWSExpandDLType 

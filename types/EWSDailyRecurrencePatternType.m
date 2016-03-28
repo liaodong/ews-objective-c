@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDailyRecurrencePatternType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
 
 
 @implementation EWSDailyRecurrencePatternType 

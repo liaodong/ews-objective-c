@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSNonEmptyStringType.h"
 #import "EWSAlternateIdBaseType.h"
+
+
+
 
 
 
@@ -18,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* id       /* xs:string */;
-@property (retain) NSString* mailbox  /* EWSNonEmptyStringType */;
+@property (strong) NSString* id       /* xs:string */;
+@property (strong) NSString* mailbox  /* EWSNonEmptyStringType */;
 
 
 @end

@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSNotType.h"
+#import "../types/EWSSearchExpressionType.h"
 
 
 @implementation EWSNotType 

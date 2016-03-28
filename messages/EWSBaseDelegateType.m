@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBaseDelegateType.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 @implementation EWSBaseDelegateType 

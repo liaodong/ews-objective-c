@@ -3,6 +3,28 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAcceptItemType.h"
+#import "../handlers/EWSBase64BinaryTypeHandler.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSLanguageTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSArrayOfRecipientsType.h"
+#import "../types/EWSArrayOfStringsType.h"
+#import "../types/EWSBodyType.h"
+#import "../types/EWSEffectiveRightsType.h"
+#import "../types/EWSExtendedPropertyType.h"
+#import "../types/EWSFolderIdType.h"
+#import "../types/EWSImportanceChoicesType.h"
+#import "../types/EWSItemClassType.h"
+#import "../types/EWSItemIdType.h"
+#import "../types/EWSMimeContentType.h"
+#import "../types/EWSNonEmptyArrayOfAttachmentsType.h"
+#import "../types/EWSNonEmptyArrayOfInternetHeadersType.h"
+#import "../types/EWSNonEmptyArrayOfResponseObjectsType.h"
+#import "../types/EWSReminderMinutesBeforeStartType.h"
+#import "../types/EWSSensitivityChoicesType.h"
+#import "../types/EWSSingleRecipientType.h"
 
 
 @implementation EWSAcceptItemType 

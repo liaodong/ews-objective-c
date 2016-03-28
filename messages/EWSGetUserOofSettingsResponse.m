@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetUserOofSettingsResponse.h"
+#import "../messages/EWSResponseMessageType.h"
+#import "../types/EWSExternalAudience.h"
+#import "../types/EWSUserOofSettings.h"
 
 
 @implementation EWSGetUserOofSettingsResponse 

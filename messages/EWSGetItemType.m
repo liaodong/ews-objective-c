@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetItemType.h"
+#import "../types/EWSItemResponseShapeType.h"
+#import "../types/EWSNonEmptyArrayOfBaseItemIdsType.h"
 
 
 @implementation EWSGetItemType 

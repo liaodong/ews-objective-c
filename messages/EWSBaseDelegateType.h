@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSEmailAddressType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSEmailAddressType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSEmailAddressType* mailbox;
+@property (strong) EWSEmailAddressType* mailbox;
 
 
 @end

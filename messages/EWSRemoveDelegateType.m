@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSRemoveDelegateType.h"
+#import "../types/EWSArrayOfUserIdType.h"
+#import "../types/EWSEmailAddressType.h"
 
 
 @implementation EWSRemoveDelegateType 

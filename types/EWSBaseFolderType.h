@@ -2,13 +2,10 @@
 
 
 
-
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSEffectiveRightsType.h"
-#import "../types/EWSExtendedPropertyType.h"
-#import "../types/EWSFolderIdType.h"
-#import "../types/EWSManagedFolderInformationType.h"
+@class EWSEffectiveRightsType;
+@class EWSExtendedPropertyType;
+@class EWSFolderIdType;
+@class EWSManagedFolderInformationType;
 
 
 
@@ -21,15 +18,15 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSFolderIdType*                          folderId;
-@property (retain) EWSFolderIdType*                          parentFolderId;
-@property (retain) NSString*                                 folderClass               /* xs:string */;
-@property (retain) NSString*                                 displayName               /* xs:string */;
-@property (retain) NSNumber*                                 totalCount                /* xs:int */;
-@property (retain) NSNumber*                                 childFolderCount          /* xs:int */;
-@property (retain) NSMutableArray<EWSExtendedPropertyType*>* extendedProperty;
-@property (retain) EWSManagedFolderInformationType*          managedFolderInformation;
-@property (retain) EWSEffectiveRightsType*                   effectiveRights;
+@property (strong) EWSFolderIdType*                          folderId;
+@property (strong) EWSFolderIdType*                          parentFolderId;
+@property (strong) NSString*                                 folderClass               /* xs:string */;
+@property (strong) NSString*                                 displayName               /* xs:string */;
+@property (strong) NSNumber*                                 totalCount                /* xs:int */;
+@property (strong) NSNumber*                                 childFolderCount          /* xs:int */;
+@property (strong) NSMutableArray<EWSExtendedPropertyType*>* extendedProperty;
+@property (strong) EWSManagedFolderInformationType*          managedFolderInformation;
+@property (strong) EWSEffectiveRightsType*                   effectiveRights;
 
 
 - (void) addExtendedProperty:(EWSExtendedPropertyType*) elem;

@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSArrayOfCalendarPermissionsType.h"
+#import "../types/EWSCalendarPermissionType.h"
 
 
 @implementation EWSArrayOfCalendarPermissionsType 
@@ -10,6 +11,12 @@
 + (void) initialize
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSArrayOfCalendarPermissionsType class]];
+
+    [handler property      : @"calendarPermission"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"CalendarPermission"
+             withHandler   : [EWSCalendarPermissionType class]];
 
     [handler register];
 }
@@ -26,7 +33,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ArrayOfCalendarPermissionsType:"];
+    return [NSString stringWithFormat:@"ArrayOfCalendarPermissionsType: CalendarPermission=%@", _calendarPermission];
 }
 
 @end

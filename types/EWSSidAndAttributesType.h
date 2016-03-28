@@ -3,9 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../handlers/EWSUnsignedIntTypeHandler.h"
-
 
 
 /* SidAndAttributesType */
@@ -17,8 +14,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* attributes          /* xs:unsignedInt */;
-@property (retain) NSString* securityIdentifier  /* xs:string */;
+@property (strong) NSNumber* attributes          /* xs:unsignedInt */;
+@property (strong) NSString* securityIdentifier  /* xs:string */;
 
 
 @end

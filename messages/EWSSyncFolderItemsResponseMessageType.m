@@ -3,6 +3,12 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSyncFolderItemsResponseMessageType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSResponseClassType.h"
+#import "../types/EWSSyncFolderItemsChangesType.h"
 
 
 @implementation EWSSyncFolderItemsResponseMessageType 

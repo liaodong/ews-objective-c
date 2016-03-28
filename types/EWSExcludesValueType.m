@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSExcludesValueType.h"
+#import "../types/EWSExcludesAttributeType.h"
 
 
 @implementation EWSExcludesValueType 

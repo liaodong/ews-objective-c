@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDeleteItemType.h"
+#import "../types/EWSAffectedTaskOccurrencesType.h"
+#import "../types/EWSCalendarItemCreateOrDeleteOperationType.h"
+#import "../types/EWSDisposalType.h"
+#import "../types/EWSNonEmptyArrayOfBaseItemIdsType.h"
 
 
 @implementation EWSDeleteItemType 

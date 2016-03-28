@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSMailboxData.h"
+@class EWSMailboxData;
 
 
 
 /* ArrayOfMailboxData */
-@interface EWSArrayOfMailboxData : EWSArrayTypeHandler
+@interface EWSArrayOfMailboxData : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSMailboxData*>* mailboxData;
+
+
+- (void) addMailboxData:(EWSMailboxData*) elem;
 @end
 

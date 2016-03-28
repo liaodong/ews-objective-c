@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSerializableTimeZone.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSSerializableTimeZoneTime.h"
 
 
 @implementation EWSSerializableTimeZone 

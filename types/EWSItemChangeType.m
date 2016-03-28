@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSItemChangeType.h"
+#import "../types/EWSNonEmptyArrayOfItemChangeDescriptionsType.h"
 
 
 @implementation EWSItemChangeType 

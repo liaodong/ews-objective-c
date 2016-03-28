@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSItemIdType.h"
+@class EWSItemIdType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSItemIdType* itemId;
+@property (strong) EWSItemIdType* itemId;
 
 
 @end

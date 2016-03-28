@@ -2,11 +2,8 @@
 
 
 
-
-#import "../types/EWSDuration.h"
-#import "../types/EWSExternalAudience.h"
-#import "../types/EWSOofState.h"
-#import "../types/EWSReplyBody.h"
+@class EWSDuration;
+@class EWSReplyBody;
 
 
 
@@ -19,11 +16,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*     oofState          /* EWSOofState */;
-@property (retain) NSString*     externalAudience  /* EWSExternalAudience */;
-@property (retain) EWSDuration*  duration;
-@property (retain) EWSReplyBody* internalReply;
-@property (retain) EWSReplyBody* externalReply;
+@property (strong) NSString*     oofState          /* EWSOofState */;
+@property (strong) NSString*     externalAudience  /* EWSExternalAudience */;
+@property (strong) EWSDuration*  duration;
+@property (strong) EWSReplyBody* internalReply;
+@property (strong) EWSReplyBody* externalReply;
 
 
 @end

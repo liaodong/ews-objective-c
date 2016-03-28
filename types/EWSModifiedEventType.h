@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
 #import "EWSBaseObjectChangedEventType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* unreadCount  /* xs:int */;
+@property (strong) NSNumber* unreadCount  /* xs:int */;
 
 
 @end

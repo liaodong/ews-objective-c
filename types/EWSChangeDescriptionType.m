@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSChangeDescriptionType.h"
+#import "../types/EWSBasePathToElementType.h"
 
 
 @implementation EWSChangeDescriptionType 

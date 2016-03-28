@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSArrayOfRealItemsType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSArrayOfRealItemsType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSArrayOfRealItemsType* items;
+@property (strong) EWSArrayOfRealItemsType* items;
 
 
 @end

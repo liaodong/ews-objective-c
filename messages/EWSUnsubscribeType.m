@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSUnsubscribeType.h"
+#import "../types/EWSSubscriptionIdType.h"
 
 
 @implementation EWSUnsubscribeType 

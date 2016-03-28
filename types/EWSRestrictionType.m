@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSRestrictionType.h"
+#import "../types/EWSSearchExpressionType.h"
 
 
 @implementation EWSRestrictionType 

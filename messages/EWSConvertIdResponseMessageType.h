@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSAlternateIdBaseType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSAlternateIdBaseType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSAlternateIdBaseType* alternateId;
+@property (strong) EWSAlternateIdBaseType* alternateId;
 
 
 @end

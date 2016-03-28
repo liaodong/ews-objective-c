@@ -2,9 +2,7 @@
 
 
 
-
-#import "../types/EWSBasePathToElementType.h"
-#import "../types/EWSSortDirectionType.h"
+@class EWSBasePathToElementType;
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                 order  /* EWSSortDirectionType */;
-@property (retain) EWSBasePathToElementType* path;
+@property (strong) NSString*                 order  /* EWSSortDirectionType */;
+@property (strong) EWSBasePathToElementType* path;
 
 
 @end

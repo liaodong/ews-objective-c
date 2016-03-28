@@ -2,10 +2,7 @@
 
 
 
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../types/EWSArrayOfFoldersType.h"
+@class EWSArrayOfFoldersType;
 
 
 
@@ -18,12 +15,12 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber*              indexedPagingOffset      /* xs:int */;
-@property (retain) NSNumber*              numeratorOffset          /* xs:int */;
-@property (retain) NSNumber*              absoluteDenominator      /* xs:int */;
-@property (retain) NSNumber*              includesLastItemInRange  /* xs:boolean */;
-@property (retain) NSNumber*              totalItemsInView         /* xs:int */;
-@property (retain) EWSArrayOfFoldersType* folders;
+@property (strong) NSNumber*              indexedPagingOffset      /* xs:int */;
+@property (strong) NSNumber*              numeratorOffset          /* xs:int */;
+@property (strong) NSNumber*              absoluteDenominator      /* xs:int */;
+@property (strong) NSNumber*              includesLastItemInRange  /* xs:boolean */;
+@property (strong) NSNumber*              totalItemsInView         /* xs:int */;
+@property (strong) EWSArrayOfFoldersType* folders;
 
 
 @end

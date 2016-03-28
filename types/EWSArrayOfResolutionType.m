@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSArrayOfResolutionType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSResolutionType.h"
 
 
 @implementation EWSArrayOfResolutionType 

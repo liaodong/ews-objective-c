@@ -1,14 +1,13 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSCalendarFolderType.h"
-#import "../types/EWSContactsFolderType.h"
-#import "../types/EWSFolderType.h"
-#import "../types/EWSSearchFolderType.h"
-#import "../types/EWSTasksFolderType.h"
 #import "EWSFolderChangeDescriptionType.h"
+
+
+
+@class EWSCalendarFolderType;
+@class EWSContactsFolderType;
+@class EWSFolderType;
+@class EWSSearchFolderType;
+@class EWSTasksFolderType;
 
 
 
@@ -21,11 +20,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSFolderType*         folder;
-@property (retain) EWSCalendarFolderType* calendarFolder;
-@property (retain) EWSContactsFolderType* contactsFolder;
-@property (retain) EWSSearchFolderType*   searchFolder;
-@property (retain) EWSTasksFolderType*    tasksFolder;
+@property (strong) EWSFolderType*         folder;
+@property (strong) EWSCalendarFolderType* calendarFolder;
+@property (strong) EWSContactsFolderType* contactsFolder;
+@property (strong) EWSSearchFolderType*   searchFolder;
+@property (strong) EWSTasksFolderType*    tasksFolder;
 
 
 @end

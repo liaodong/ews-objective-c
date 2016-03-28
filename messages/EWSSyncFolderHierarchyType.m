@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSyncFolderHierarchyType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSFolderResponseShapeType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSSyncFolderHierarchyType 

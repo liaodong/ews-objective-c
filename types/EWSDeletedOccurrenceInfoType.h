@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSDateTimeTypeHandler.h"
-
 
 
 /* DeletedOccurrenceInfoType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* start  /* xs:dateTime */;
+@property (strong) NSString* start  /* xs:dateTime */;
 
 
 @end

@@ -2,11 +2,7 @@
 
 
 
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../types/EWSArrayOfAttendeeConflictData.h"
-#import "../types/EWSSuggestionQuality.h"
+@class EWSArrayOfAttendeeConflictData;
 
 
 
@@ -19,10 +15,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                       meetingTime                /* xs:dateTime */;
-@property (retain) NSNumber*                       isWorkTime                 /* xs:boolean */;
-@property (retain) NSString*                       suggestionQuality          /* EWSSuggestionQuality */;
-@property (retain) EWSArrayOfAttendeeConflictData* attendeeConflictDataArray;
+@property (strong) NSString*                       meetingTime                /* xs:dateTime */;
+@property (strong) NSNumber*                       isWorkTime                 /* xs:boolean */;
+@property (strong) NSString*                       suggestionQuality          /* EWSSuggestionQuality */;
+@property (strong) EWSArrayOfAttendeeConflictData* attendeeConflictDataArray;
 
 
 @end

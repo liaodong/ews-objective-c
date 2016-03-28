@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCalendarEventDetails.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSCalendarEventDetails 

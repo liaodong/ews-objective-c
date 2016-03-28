@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSIsLessThanType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSFieldURIOrConstantType.h"
 
 
 @implementation EWSIsLessThanType 

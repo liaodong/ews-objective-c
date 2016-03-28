@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSNonEmptyArrayOfFolderChangeDescriptionsType.h"
+@class EWSNonEmptyArrayOfFolderChangeDescriptionsType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSNonEmptyArrayOfFolderChangeDescriptionsType* updates;
+@property (strong) EWSNonEmptyArrayOfFolderChangeDescriptionsType* updates;
 
 
 @end

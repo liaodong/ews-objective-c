@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAlternatePublicFolderIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSIdFormatType.h"
 
 
 @implementation EWSAlternatePublicFolderIdType 

@@ -5,7 +5,6 @@
 
 
 
-
 /* SyncFolderItemsChangesType */
 @interface EWSSyncFolderItemsChangesType : NSObject
 

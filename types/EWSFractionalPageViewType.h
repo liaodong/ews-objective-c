@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
 #import "EWSBasePagingType.h"
+
+
+
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* numerator    /* xs:int */;
-@property (retain) NSNumber* denominator  /* xs:int */;
+@property (strong) NSNumber* numerator    /* xs:int */;
+@property (strong) NSNumber* denominator  /* xs:int */;
 
 
 @end

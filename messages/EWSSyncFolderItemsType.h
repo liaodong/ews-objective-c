@@ -1,14 +1,11 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSArrayOfBaseItemIdsType.h"
-#import "../types/EWSItemResponseShapeType.h"
-#import "../types/EWSMaxSyncChangesReturnedType.h"
-#import "../types/EWSTargetFolderIdType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSArrayOfBaseItemIdsType;
+@class EWSItemResponseShapeType;
+@class EWSTargetFolderIdType;
 
 
 
@@ -21,11 +18,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSItemResponseShapeType*  itemShape;
-@property (retain) EWSTargetFolderIdType*     syncFolderId;
-@property (retain) NSString*                  syncState           /* xs:string */;
-@property (retain) EWSArrayOfBaseItemIdsType* ignore;
-@property (retain) NSNumber*                  maxChangesReturned  /* EWSMaxSyncChangesReturnedType */;
+@property (strong) EWSItemResponseShapeType*  itemShape;
+@property (strong) EWSTargetFolderIdType*     syncFolderId;
+@property (strong) NSString*                  syncState           /* xs:string */;
+@property (strong) EWSArrayOfBaseItemIdsType* ignore;
+@property (strong) NSNumber*                  maxChangesReturned  /* EWSMaxSyncChangesReturnedType */;
 
 
 @end

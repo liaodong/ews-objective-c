@@ -2,7 +2,7 @@
 
 
 
-
+@class EWSCalendarPermissionType;
 
 
 
@@ -15,6 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSCalendarPermissionType* calendarPermission;
 
 
 @end

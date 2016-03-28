@@ -769,165 +769,6 @@ static const char* prefix = "EWS";
     return [elem resultType] ? TRUE : FALSE;
 }
 
-- (BOOL) isArrayType:(Element*) elem checkResolved:(BOOL) r
-{
-    return [self isSimpleArrayType:elem checkResolved: r] || [self isChoiceArrayType:elem checkResolved: r];
-}
-
-- (BOOL) isChoiceArrayType:(Element*) elem checkResolved:(BOOL) r
-{
-    if (![[elem tagName] isEqual:@"complexType"]) return false;
-    if ([[elem children] count] != 1) return false;
-
-    Element* child = [[elem children] objectAtIndex: 0];
-
-    if (![[child tagName] isEqual:@"choice"]) return false;
-
-    if (![self forElement:child areChildren:@"element"]) return false;
-    if ([[child children] count] == 0) return false;
-
-    for (Element *e in [child children]) {
-        if ([[e children] count] != 0) return false;
-        if (![e maxOccurs]) return false;
-        if (![[e maxOccurs] isEqual:@"unbounded"]) return false;
-        if (r) { if (![self objectType:[e type]]) return false; }
-    }
-    return true;
-}
-
-- (BOOL) isSimpleArrayType:(Element*) elem checkResolved:(BOOL) r
-{
-    if (![[elem tagName] isEqual:@"complexType"]) return false;
-    if ([[elem children] count] != 1) return false;
-
-    Element* child = [[elem children] objectAtIndex: 0];
-
-    if (![[child tagName] isEqual:@"sequence"]) return false;
-
-    if (![self forElement:child areChildren:@"element"]) return false;
-    if ([[child children] count] != 1) return false;
-
-    for (Element *e in [child children]) {
-        if ([[e children] count] != 0) return false;
-        if (![e maxOccurs]) return false;
-        if (![[e maxOccurs] isEqual:@"unbounded"]) return false;
-        if (r) { if (![self objectType:[e type]]) return false; }
-    }
-    return true;
-}
-
--(void) generateForArrayElement:(Element*) elem
-{
-    Element* sequence = [[elem children] objectAtIndex: 0]; // sequence or choice
-
-    const char* name = [[elem name] UTF8String];
-    const char* dir  = [elem ns] == 't' ? "types" : "messages";
-
-    char filename[1024];
-    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
-    
-    FILE* file = fopen (filename, "w");
-    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
-    fprintf (file, "\n\n\n");
-    fprintf (file, "#import \"../handlers/%sArrayTypeHandler.h\"\n", prefix);
-    NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
-    for  (Element* e in [sequence children]) {
-        [includes addObject:[self includeFile:[e type]]];
-    }
-    for  (NSString* i in [self sorted:includes]) {
-        fprintf (file, "#import \"%s\"\n", [i UTF8String]);
-    }
-    fprintf (file, "\n\n\n");
-    fprintf (file, "/* %s */\n", name);
-
-    fprintf (file, "@interface %s%s : EWSArrayTypeHandler\n\n", prefix, name);
-
-
-    if ([[sequence children] count] == 1)
-    {
-        Element* f = [[sequence children] objectAtIndex:0];
-        NSString* type = [self objectType:[f type]];
-        [elem setResultType:[@"NSArray<" stringByAppendingString:[type stringByAppendingString:@">*"]]];   
-    }
-    else
-    {
-        [elem setResultType:@"NSArray*"];   
-    }
-   
-    fprintf (file, "+ (void) initialize;\n\n");
-
-    fprintf (file, "- (id) init;\n");
-
-    fprintf (file, "@end\n\n");
-    fclose (file);
-
-    sprintf (filename, "%s/%s%s.m", dir, prefix, name);
-    
-    file = fopen (filename, "w");
-
-    fprintf (file, "\n#import \"%s%s.h\"\n", prefix, name);
-    fprintf (file, "\n\n");
-    fprintf (file, "@implementation %s%s \n\n", prefix, name);
-
-    
-    fprintf (file, "+ (void) initialize\n");
-    fprintf (file, "{\n");
-    fprintf (file, "    %sArrayTypeHandler* handler = [[%s%s alloc] initWithClass:[%s%s class]];\n\n", prefix, prefix, name, prefix, name);
-
-    for  (Element* e in [sequence children])
-    {
-        fprintf (file, "    [handler elementName   : @\"%s\"\n", [[e name] UTF8String]);
-        fprintf (file, "             withNamespace : '%c'", [e ns]);
-        fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
-    }
-    fprintf (file, "    [handler register];\n");
-    fprintf (file, "}\n\n");
-
-    fprintf (file, "- (id) init\n");
-    fprintf (file, "{\n");
-    fprintf (file, "    return [super init];\n");
-    fprintf (file, "}\n\n");
-
-    fprintf (file, "@end\n\n");
-    fclose (file);
-}
-
-- (void) generateForArray
-{
-    for (Element* elem in [current children])
-    {
-        if ([self isArrayType:elem checkResolved:TRUE]) {
-            NSLog(@"array %@ %@",  [elem tagName], [elem name]);
-            [self generateForArrayElement:elem];
-        }
-    }
-}
-
-
-- (BOOL) isSimpleStruct:(Element*) elem
-{
-    if ([self isArrayType:elem checkResolved:FALSE]) return false;
-    if (![[elem tagName] isEqual:@"complexType"]) return false;
-    if ([[elem children] count] == 0) return false;
-
-    Element* child = [[elem children] objectAtIndex: 0];
-    if (![[child tagName] isEqual:@"sequence"]) return false;
-    if (![self forElement:child areChildren:@"element"]) return false;
-
-    for (int i = 1; i < [[elem children] count]; i++)
-    {
-        Element* e = [[elem children] objectAtIndex:i];
-        if (![[e tagName] isEqual:@"attribute"])
-            return false;
-        if (![self objectType:[e type]]) return false;
-    }
-    for (Element *e in [child children]) {
-        if ([[e children] count] != 0) return false;
-        if (![self objectType:[e type]]) return false;
-    }
-    return true;
-}
-
 - (NSString*) pad:(NSString*)s toLength:(int) l
 {
     while ([s length] < l)
@@ -982,23 +823,31 @@ static const char* prefix = "EWS";
     sprintf (filename, "%s/%s%s.h", dir,  prefix, name);
     
     FILE* file = fopen (filename, "w");
-    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
+    fprintf (file, "#import <Foundation/Foundation.h>\n"); 
+    if (![base isEqual:@"NSObject"]) {
+        fprintf (file, "#import \"%s.h\"\n", [base UTF8String]);
+    }
     fprintf (file, "\n\n\n");
-    NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
+    NSMutableSet<NSString*>* forwards = [[NSMutableSet<NSString*> alloc] init];
     for  (Element* e in elements) {
-        [includes addObject:[self includeFile:[e type]]];
+            NSString* n = [self objectType:[e type]];
+            if (n && ![n hasPrefix:@"NS"] && [n hasSuffix:@"*"]) {
+                    n = [n stringByReplacingOccurrencesOfString:@"*" withString:@";"];
+                    [forwards addObject:n];
+            }
     }
     for (Element* e in attributes) {
         if ([[e tagName] isEqual:@"attribute"])
         {
-            [includes addObject:[self includeFile:[e type]]];
+            NSString* n = [self objectType:[e type]];
+            if (n && ![n hasPrefix:@"NS"] && [n hasSuffix:@"*"]) {
+                    n = [n stringByReplacingOccurrencesOfString:@"*" withString:@";"];
+                    [forwards addObject:n];
+            }
         }
     }
-    for  (NSString* i in [self sorted:includes]) {
-        fprintf (file, "#import \"%s\"\n", [i UTF8String]);
-    }
-    if (![base isEqual:@"NSObject"]) {
-        fprintf (file, "#import \"%s.h\"\n", [base UTF8String]);
+    for  (NSString* i in [self sorted:forwards]) {
+        fprintf (file, "@class %s\n", [i UTF8String]);
     }
     fprintf (file, "\n\n\n");
     fprintf (file, "/* %s */\n", name);
@@ -1040,9 +889,9 @@ static const char* prefix = "EWS";
             NSString* t = [self objectType:[e type]];
 
             if ([t hasPrefix:@"NS"])
-                fprintf (file, "@property (retain) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
+                fprintf (file, "@property (strong) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
             else
-                fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
+                fprintf (file, "@property (strong) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
     }
     for  (Element* e in elements)
     {
@@ -1050,17 +899,17 @@ static const char* prefix = "EWS";
 
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
             if ([t hasPrefix:@"NS"])
-                fprintf (file, "@property (retain) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
+                fprintf (file, "@property (strong) %s %s  /* %s */;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
             else
-                fprintf (file, "@property (retain) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
+                fprintf (file, "@property (strong) %s %s;\n", [[self pad:[self objectType:[e type]] toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
         else if ([[e maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"])
         {
             NSString* str = [[NSString alloc] initWithFormat:@"NSMutableArray<%@>*", [self objectType:[e type]]];
             if ([t hasPrefix:@"NS"])
-                fprintf (file, "@property (retain) %s %s /* %s */;\n", [[self pad:str toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
+                fprintf (file, "@property (strong) %s %s /* %s */;\n", [[self pad:str toLength:tlength] UTF8String], [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String], [[self trimTypeName:[e type]] UTF8String]);
             else
-                fprintf (file, "@property (retain) %s %s;\n", [[self pad:str toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
+                fprintf (file, "@property (strong) %s %s;\n", [[self pad:str toLength:tlength] UTF8String], [[self propertyName:[e name]] UTF8String]);
         }
         else
         {
@@ -1087,6 +936,29 @@ static const char* prefix = "EWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sObjectTypeHandler.h\"\n", prefix);
     fprintf (file, "\n#import \"%s%s.h\"\n", prefix, name);
+
+    NSMutableSet<NSString*>* includes = [[NSMutableSet<NSString*> alloc] init];
+    for  (Element* e in elements) {
+        [includes addObject:[self includeFile:[e type]]];
+    }
+    for (Element* e in attributes) {
+        if ([[e tagName] isEqual:@"attribute"])
+        {
+            [includes addObject:[self includeFile:[e type]]];
+        }
+    }
+    for  (Element* e in s_elements) {
+        [includes addObject:[self includeFile:[e type]]];
+    }
+    for (Element* e in s_attributes) {
+        if ([[e tagName] isEqual:@"attribute"])
+        {
+            [includes addObject:[self includeFile:[e type]]];
+        }
+    }
+    for  (NSString* i in [self sorted:includes]) {
+        fprintf (file, "#import \"%s\"\n", [i UTF8String]);
+    }
     fprintf (file, "\n\n");
     fprintf (file, "@implementation %s%s \n\n", prefix, name);
 
@@ -1221,6 +1093,9 @@ static const char* prefix = "EWS";
         {
             fprintf (file, "- (void) add%s:(%s) elem\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
             fprintf (file, "{\n");
+            fprintf (file, "    if (![self %s]) {\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "        [self set%s:[[NSMutableArray<%s> alloc] init]];\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
+            fprintf (file, "    }\n");
             fprintf (file, "    [_%s addObject:elem];\n", [[self propertyName:[e name]] UTF8String]);
             fprintf (file, "}\n\n");
         }
@@ -1249,6 +1124,10 @@ static const char* prefix = "EWS";
 - (NSString*) propertyName:(NSString*) name
 {
     if ([name hasPrefix:@"New"])
+    {
+        name = [NSString stringWithFormat:@"p%@", name];
+    }
+    if ([name hasPrefix:@"Copy"])
     {
         name = [NSString stringWithFormat:@"p%@", name];
     }
@@ -1394,9 +1273,7 @@ static const char* prefix = "EWS";
     while (TRUE)
     {
         int r = [self resolved];
-
         [self generateForSimpleStruct];
-        [self generateForArray];
 
         if (r == [self resolved])
             break;
@@ -1609,7 +1486,7 @@ static const char* prefix = "EWS";
         {
             return result;
         }
-        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup"])
+        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice"])
         {
             for (Element * a in [e children])
             {
@@ -1706,10 +1583,18 @@ static const char* prefix = "EWS";
         {
             return result;
         }
-        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup"])
+        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice"])
         {
             for (Element * a in [e children])
             {
+                if ([[a tagName] isEqual:@"choice"]) {
+                    for (Element * x in [a children])
+                    {
+                        NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
+                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", [e name], ++grp]];
+                        [result addObject:[self resolved:x]];
+                    }
+                }
                 if ([[a tagName] isEqual:@"sequence"]) {
                     for (Element * x in [a children])
                     {
@@ -1800,7 +1685,6 @@ static const char* prefix = "EWS";
 
 - (void) generateStructForElement:(Element*) elem
 {
-    if ([self isArrayType:elem checkResolved:FALSE]) return;
     if (![[elem tagName] isEqual:@"complexType"])    return;
 
     NSString* name = [elem name];
@@ -1818,6 +1702,9 @@ static const char* prefix = "EWS";
 
     NSArray* s_attributes = base ? [self attributes:base getSuper:TRUE] : [[NSArray alloc] init];
     NSArray* s_elements   = base ? [self elements:base   getSuper:TRUE] : [[NSArray alloc] init];
+
+
+    [elem setResultType:[@"EWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
 
     if ([self allResolved:attributes] &&
         [self allResolved:elements]   &&

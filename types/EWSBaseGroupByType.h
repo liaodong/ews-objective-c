@@ -3,8 +3,6 @@
 
 
 
-#import "../types/EWSSortDirectionType.h"
-
 
 
 /* BaseGroupByType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* order  /* EWSSortDirectionType */;
+@property (strong) NSString* order  /* EWSSortDirectionType */;
 
 
 @end

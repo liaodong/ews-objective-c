@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSNonEmptyArrayOfBaseItemIdsType.h"
-#import "../types/EWSTargetFolderIdType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSNonEmptyArrayOfBaseItemIdsType;
+@class EWSTargetFolderIdType;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSTargetFolderIdType*             toFolderId;
-@property (retain) EWSNonEmptyArrayOfBaseItemIdsType* itemIds;
+@property (strong) EWSTargetFolderIdType*             toFolderId;
+@property (strong) EWSNonEmptyArrayOfBaseItemIdsType* itemIds;
 
 
 @end

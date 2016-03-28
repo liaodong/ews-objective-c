@@ -2,7 +2,9 @@
 
 
 
-
+@class EWSAppendToFolderFieldType;
+@class EWSDeleteFolderFieldType;
+@class EWSSetFolderFieldType;
 
 
 
@@ -15,6 +17,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSAppendToFolderFieldType* appendToFolderField;
+@property (strong) EWSSetFolderFieldType*      setFolderField;
+@property (strong) EWSDeleteFolderFieldType*   deleteFolderField;
 
 
 @end

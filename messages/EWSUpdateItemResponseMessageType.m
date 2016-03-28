@@ -3,6 +3,12 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSUpdateItemResponseMessageType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSArrayOfRealItemsType.h"
+#import "../types/EWSConflictResultsType.h"
+#import "../types/EWSResponseClassType.h"
 
 
 @implementation EWSUpdateItemResponseMessageType 

@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCreateManagedFolderRequestType.h"
+#import "../types/EWSEmailAddressType.h"
+#import "../types/EWSNonEmptyArrayOfFolderNamesType.h"
 
 
 @implementation EWSCreateManagedFolderRequestType 

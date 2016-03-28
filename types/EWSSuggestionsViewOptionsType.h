@@ -2,12 +2,7 @@
 
 
 
-
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSDuration.h"
-#import "../types/EWSSuggestionQuality.h"
+@class EWSDuration;
 
 
 
@@ -20,14 +15,14 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber*    goodThreshold                   /* xs:int */;
-@property (retain) NSNumber*    maximumResultsByDay             /* xs:int */;
-@property (retain) NSNumber*    maximumNonWorkHourResultsByDay  /* xs:int */;
-@property (retain) NSNumber*    meetingDurationInMinutes        /* xs:int */;
-@property (retain) NSString*    minimumSuggestionQuality        /* EWSSuggestionQuality */;
-@property (retain) EWSDuration* detailedSuggestionsWindow;
-@property (retain) NSString*    currentMeetingTime              /* xs:dateTime */;
-@property (retain) NSString*    globalObjectId                  /* xs:string */;
+@property (strong) NSNumber*    goodThreshold                   /* xs:int */;
+@property (strong) NSNumber*    maximumResultsByDay             /* xs:int */;
+@property (strong) NSNumber*    maximumNonWorkHourResultsByDay  /* xs:int */;
+@property (strong) NSNumber*    meetingDurationInMinutes        /* xs:int */;
+@property (strong) NSString*    minimumSuggestionQuality        /* EWSSuggestionQuality */;
+@property (strong) EWSDuration* detailedSuggestionsWindow;
+@property (strong) NSString*    currentMeetingTime              /* xs:dateTime */;
+@property (strong) NSString*    globalObjectId                  /* xs:string */;
 
 
 @end

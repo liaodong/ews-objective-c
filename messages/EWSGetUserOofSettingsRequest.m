@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetUserOofSettingsRequest.h"
+#import "../types/EWSEmailAddress.h"
 
 
 @implementation EWSGetUserOofSettingsRequest 

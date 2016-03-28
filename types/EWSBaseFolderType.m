@@ -3,6 +3,12 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBaseFolderType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSEffectiveRightsType.h"
+#import "../types/EWSExtendedPropertyType.h"
+#import "../types/EWSFolderIdType.h"
+#import "../types/EWSManagedFolderInformationType.h"
 
 
 @implementation EWSBaseFolderType 
@@ -86,6 +92,9 @@
 
 - (void) addExtendedProperty:(EWSExtendedPropertyType*) elem
 {
+    if (![self extendedProperty]) {
+        [self setExtendedProperty:[[NSMutableArray<EWSExtendedPropertyType*> alloc] init]];
+    }
     [_extendedProperty addObject:elem];
 }
 

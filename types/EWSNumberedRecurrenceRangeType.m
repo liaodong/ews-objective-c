@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSNumberedRecurrenceRangeType.h"
+#import "../handlers/EWSDateTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
 
 
 @implementation EWSNumberedRecurrenceRangeType 

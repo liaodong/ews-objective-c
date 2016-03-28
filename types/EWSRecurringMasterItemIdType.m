@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSRecurringMasterItemIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDerivedItemIdType.h"
 
 
 @implementation EWSRecurringMasterItemIdType 

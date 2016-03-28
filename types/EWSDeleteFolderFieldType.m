@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDeleteFolderFieldType.h"
+#import "../types/EWSBasePathToElementType.h"
 
 
 @implementation EWSDeleteFolderFieldType 

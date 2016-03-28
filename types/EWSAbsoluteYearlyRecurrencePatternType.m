@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAbsoluteYearlyRecurrencePatternType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSMonthNamesType.h"
 
 
 @implementation EWSAbsoluteYearlyRecurrencePatternType 

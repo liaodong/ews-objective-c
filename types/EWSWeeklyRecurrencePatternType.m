@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSWeeklyRecurrencePatternType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSDaysOfWeekType.h"
 
 
 @implementation EWSWeeklyRecurrencePatternType 

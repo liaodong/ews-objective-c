@@ -2,9 +2,7 @@
 
 
 
-
-#import "../types/EWSDefaultShapeNamesType.h"
-#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
+@class EWSNonEmptyArrayOfPathsToElementType;
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                             baseShape             /* EWSDefaultShapeNamesType */;
-@property (retain) EWSNonEmptyArrayOfPathsToElementType* additionalProperties;
+@property (strong) NSString*                             baseShape             /* EWSDefaultShapeNamesType */;
+@property (strong) EWSNonEmptyArrayOfPathsToElementType* additionalProperties;
 
 
 @end

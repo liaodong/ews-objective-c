@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSWorkingHours.h"
+#import "../types/EWSArrayOfWorkingPeriod.h"
+#import "../types/EWSSerializableTimeZone.h"
 
 
 @implementation EWSWorkingHours 

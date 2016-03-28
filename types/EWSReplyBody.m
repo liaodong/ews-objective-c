@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSReplyBody.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSReplyBody 

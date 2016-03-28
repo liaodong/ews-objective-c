@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSNotificationType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSSubscriptionIdType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSNotificationType 

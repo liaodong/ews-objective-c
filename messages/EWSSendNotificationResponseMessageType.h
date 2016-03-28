@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSNotificationType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSNotificationType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSNotificationType* notification;
+@property (strong) EWSNotificationType* notification;
 
 
 @end

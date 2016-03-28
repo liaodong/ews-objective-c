@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
 #import "EWSRecurrenceRangeBaseType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* numberOfOccurrences  /* xs:int */;
+@property (strong) NSNumber* numberOfOccurrences  /* xs:int */;
 
 
 @end

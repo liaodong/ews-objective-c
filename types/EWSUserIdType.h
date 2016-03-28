@@ -3,9 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSDistinguishedUserType.h"
-
 
 
 /* UserIdType */
@@ -17,10 +14,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* sID                 /* xs:string */;
-@property (retain) NSString* primarySmtpAddress  /* xs:string */;
-@property (retain) NSString* displayName         /* xs:string */;
-@property (retain) NSString* distinguishedUser   /* EWSDistinguishedUserType */;
+@property (strong) NSString* sID                 /* xs:string */;
+@property (strong) NSString* primarySmtpAddress  /* xs:string */;
+@property (strong) NSString* displayName         /* xs:string */;
+@property (strong) NSString* distinguishedUser   /* EWSDistinguishedUserType */;
 
 
 @end

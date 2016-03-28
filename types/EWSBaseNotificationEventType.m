@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBaseNotificationEventType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSBaseNotificationEventType 

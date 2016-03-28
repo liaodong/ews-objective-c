@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSDerivedItemIdType.h"
 #import "EWSBaseItemIdType.h"
+
+
+
 
 
 
@@ -18,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* occurrenceId  /* EWSDerivedItemIdType */;
-@property (retain) NSString* changeKey     /* xs:string */;
+@property (strong) NSString* occurrenceId  /* EWSDerivedItemIdType */;
+@property (strong) NSString* changeKey     /* xs:string */;
 
 
 @end

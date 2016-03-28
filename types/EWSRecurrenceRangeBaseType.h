@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSDateTypeHandler.h"
-
 
 
 /* RecurrenceRangeBaseType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* startDate  /* xs:date */;
+@property (strong) NSString* startDate  /* xs:date */;
 
 
 @end

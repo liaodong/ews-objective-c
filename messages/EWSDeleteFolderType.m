@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDeleteFolderType.h"
+#import "../types/EWSDisposalType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
 
 
 @implementation EWSDeleteFolderType 

@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSArrayOfAttachmentsType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSArrayOfAttachmentsType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSArrayOfAttachmentsType* attachments;
+@property (strong) EWSArrayOfAttachmentsType* attachments;
 
 
 @end

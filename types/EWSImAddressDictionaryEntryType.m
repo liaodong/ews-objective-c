@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSImAddressDictionaryEntryType.h"
+#import "../types/EWSImAddressKeyType.h"
 
 
 @implementation EWSImAddressDictionaryEntryType 

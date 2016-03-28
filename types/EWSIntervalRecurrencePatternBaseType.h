@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
 #import "EWSRecurrencePatternBaseType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* interval  /* xs:int */;
+@property (strong) NSNumber* interval  /* xs:int */;
 
 
 @end

@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSPhysicalAddressDictionaryEntryType.h"
+@class EWSPhysicalAddressDictionaryEntryType;
 
 
 
 /* PhysicalAddressDictionaryType */
-@interface EWSPhysicalAddressDictionaryType : EWSArrayTypeHandler
+@interface EWSPhysicalAddressDictionaryType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSPhysicalAddressDictionaryEntryType*>* entry;
+
+
+- (void) addEntry:(EWSPhysicalAddressDictionaryEntryType*) elem;
 @end
 

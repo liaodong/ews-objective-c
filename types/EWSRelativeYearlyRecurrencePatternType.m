@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSRelativeYearlyRecurrencePatternType.h"
+#import "../types/EWSDayOfWeekIndexType.h"
+#import "../types/EWSDayOfWeekType.h"
+#import "../types/EWSMonthNamesType.h"
 
 
 @implementation EWSRelativeYearlyRecurrencePatternType 

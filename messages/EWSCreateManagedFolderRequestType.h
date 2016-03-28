@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSEmailAddressType.h"
-#import "../types/EWSNonEmptyArrayOfFolderNamesType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSEmailAddressType;
+@class EWSNonEmptyArrayOfFolderNamesType;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSArray<NSString*>*  folderNames  /* EWSNonEmptyArrayOfFolderNamesType */;
-@property (retain) EWSEmailAddressType* mailbox;
+@property (strong) EWSNonEmptyArrayOfFolderNamesType* folderNames;
+@property (strong) EWSEmailAddressType*               mailbox;
 
 
 @end

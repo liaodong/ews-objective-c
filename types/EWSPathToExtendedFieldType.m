@@ -3,6 +3,12 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSPathToExtendedFieldType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDistinguishedPropertySetType.h"
+#import "../types/EWSGuidType.h"
+#import "../types/EWSMapiPropertyTypeType.h"
+#import "../types/EWSPropertyTagType.h"
 
 
 @implementation EWSPathToExtendedFieldType 

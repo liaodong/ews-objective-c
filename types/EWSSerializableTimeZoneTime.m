@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSerializableTimeZoneTime.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSShortTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDayOfWeekType.h"
 
 
 @implementation EWSSerializableTimeZoneTime 

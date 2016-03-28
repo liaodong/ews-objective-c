@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSRootItemIdType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSRootItemIdType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSRootItemIdType* rootItemId;
+@property (strong) EWSRootItemIdType* rootItemId;
 
 
 @end

@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSNonEmptyArrayOfFolderChangesType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSNonEmptyArrayOfFolderChangesType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSArray<EWSFolderChangeType*>* folderChanges  /* EWSNonEmptyArrayOfFolderChangesType */;
+@property (strong) EWSNonEmptyArrayOfFolderChangesType* folderChanges;
 
 
 @end

@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFindFolderType.h"
+#import "../types/EWSFolderQueryTraversalType.h"
+#import "../types/EWSFolderResponseShapeType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSRestrictionType.h"
 
 
 @implementation EWSFindFolderType 

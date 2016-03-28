@@ -1,20 +1,19 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSCalendarItemType.h"
-#import "../types/EWSContactItemType.h"
-#import "../types/EWSDistributionListType.h"
-#import "../types/EWSItemType.h"
-#import "../types/EWSMeetingCancellationMessageType.h"
-#import "../types/EWSMeetingMessageType.h"
-#import "../types/EWSMeetingRequestMessageType.h"
-#import "../types/EWSMeetingResponseMessageType.h"
-#import "../types/EWSMessageType.h"
-#import "../types/EWSPostItemType.h"
-#import "../types/EWSTaskType.h"
 #import "EWSItemChangeDescriptionType.h"
+
+
+
+@class EWSCalendarItemType;
+@class EWSContactItemType;
+@class EWSDistributionListType;
+@class EWSItemType;
+@class EWSMeetingCancellationMessageType;
+@class EWSMeetingMessageType;
+@class EWSMeetingRequestMessageType;
+@class EWSMeetingResponseMessageType;
+@class EWSMessageType;
+@class EWSPostItemType;
+@class EWSTaskType;
 
 
 
@@ -27,17 +26,17 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSItemType*                       item;
-@property (retain) EWSMessageType*                    message;
-@property (retain) EWSCalendarItemType*               calendarItem;
-@property (retain) EWSContactItemType*                contact;
-@property (retain) EWSDistributionListType*           distributionList;
-@property (retain) EWSMeetingMessageType*             meetingMessage;
-@property (retain) EWSMeetingRequestMessageType*      meetingRequest;
-@property (retain) EWSMeetingResponseMessageType*     meetingResponse;
-@property (retain) EWSMeetingCancellationMessageType* meetingCancellation;
-@property (retain) EWSTaskType*                       task;
-@property (retain) EWSPostItemType*                   postItem;
+@property (strong) EWSItemType*                       item;
+@property (strong) EWSMessageType*                    message;
+@property (strong) EWSCalendarItemType*               calendarItem;
+@property (strong) EWSContactItemType*                contact;
+@property (strong) EWSDistributionListType*           distributionList;
+@property (strong) EWSMeetingMessageType*             meetingMessage;
+@property (strong) EWSMeetingRequestMessageType*      meetingRequest;
+@property (strong) EWSMeetingResponseMessageType*     meetingResponse;
+@property (strong) EWSMeetingCancellationMessageType* meetingCancellation;
+@property (strong) EWSTaskType*                       task;
+@property (strong) EWSPostItemType*                   postItem;
 
 
 @end

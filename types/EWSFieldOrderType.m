@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFieldOrderType.h"
+#import "../types/EWSBasePathToElementType.h"
+#import "../types/EWSSortDirectionType.h"
 
 
 @implementation EWSFieldOrderType 

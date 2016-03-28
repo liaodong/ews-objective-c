@@ -1,25 +1,16 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSCalendarItemTypeType.h"
-#import "../types/EWSLegacyFreeBusyType.h"
-#import "../types/EWSMeetingRequestTypeType.h"
-#import "../types/EWSNonEmptyArrayOfAllItemsType.h"
-#import "../types/EWSNonEmptyArrayOfAttendeesType.h"
-#import "../types/EWSNonEmptyArrayOfDeletedOccurrencesType.h"
-#import "../types/EWSNonEmptyArrayOfOccurrenceInfoType.h"
-#import "../types/EWSOccurrenceInfoType.h"
-#import "../types/EWSRecurrenceType.h"
-#import "../types/EWSResponseTypeType.h"
-#import "../types/EWSSingleRecipientType.h"
-#import "../types/EWSTimeZoneType.h"
 #import "EWSMeetingMessageType.h"
+
+
+
+@class EWSNonEmptyArrayOfAllItemsType;
+@class EWSNonEmptyArrayOfAttendeesType;
+@class EWSNonEmptyArrayOfDeletedOccurrencesType;
+@class EWSNonEmptyArrayOfOccurrenceInfoType;
+@class EWSOccurrenceInfoType;
+@class EWSRecurrenceType;
+@class EWSSingleRecipientType;
+@class EWSTimeZoneType;
 
 
 
@@ -32,45 +23,45 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                               meetingRequestType         /* EWSMeetingRequestTypeType */;
-@property (retain) NSString*                               intendedFreeBusyStatus     /* EWSLegacyFreeBusyType */;
-@property (retain) NSString*                               start                      /* xs:dateTime */;
-@property (retain) NSString*                               end                        /* xs:dateTime */;
-@property (retain) NSString*                               originalStart              /* xs:dateTime */;
-@property (retain) NSNumber*                               isAllDayEvent              /* xs:boolean */;
-@property (retain) NSString*                               legacyFreeBusyStatus       /* EWSLegacyFreeBusyType */;
-@property (retain) NSString*                               location                   /* xs:string */;
-@property (retain) NSString*                               when                       /* xs:string */;
-@property (retain) NSNumber*                               isMeeting                  /* xs:boolean */;
-@property (retain) NSNumber*                               isCancelled                /* xs:boolean */;
-@property (retain) NSNumber*                               isRecurring                /* xs:boolean */;
-@property (retain) NSNumber*                               meetingRequestWasSent      /* xs:boolean */;
-@property (retain) NSString*                               calendarItemType           /* EWSCalendarItemTypeType */;
-@property (retain) NSString*                               myResponseType             /* EWSResponseTypeType */;
-@property (retain) EWSSingleRecipientType*                 organizer;
-@property (retain) NSArray<EWSAttendeeType*>*              requiredAttendees          /* EWSNonEmptyArrayOfAttendeesType */;
-@property (retain) NSArray<EWSAttendeeType*>*              optionalAttendees          /* EWSNonEmptyArrayOfAttendeesType */;
-@property (retain) NSArray<EWSAttendeeType*>*              resources                  /* EWSNonEmptyArrayOfAttendeesType */;
-@property (retain) NSNumber*                               conflictingMeetingCount    /* xs:int */;
-@property (retain) NSNumber*                               adjacentMeetingCount       /* xs:int */;
-@property (retain) EWSNonEmptyArrayOfAllItemsType*         conflictingMeetings;
-@property (retain) EWSNonEmptyArrayOfAllItemsType*         adjacentMeetings;
-@property (retain) NSString*                               duration                   /* xs:string */;
-@property (retain) NSString*                               timeZone                   /* xs:string */;
-@property (retain) NSString*                               appointmentReplyTime       /* xs:dateTime */;
-@property (retain) NSNumber*                               appointmentSequenceNumber  /* xs:int */;
-@property (retain) NSNumber*                               appointmentState           /* xs:int */;
-@property (retain) EWSRecurrenceType*                      recurrence;
-@property (retain) EWSOccurrenceInfoType*                  firstOccurrence;
-@property (retain) EWSOccurrenceInfoType*                  lastOccurrence;
-@property (retain) NSArray<EWSOccurrenceInfoType*>*        modifiedOccurrences        /* EWSNonEmptyArrayOfOccurrenceInfoType */;
-@property (retain) NSArray<EWSDeletedOccurrenceInfoType*>* deletedOccurrences         /* EWSNonEmptyArrayOfDeletedOccurrencesType */;
-@property (retain) EWSTimeZoneType*                        meetingTimeZone;
-@property (retain) NSNumber*                               conferenceType             /* xs:int */;
-@property (retain) NSNumber*                               allowNewTimeProposal       /* xs:boolean */;
-@property (retain) NSNumber*                               isOnlineMeeting            /* xs:boolean */;
-@property (retain) NSString*                               meetingWorkspaceUrl        /* xs:string */;
-@property (retain) NSString*                               netShowUrl                 /* xs:string */;
+@property (strong) NSString*                                 meetingRequestType         /* EWSMeetingRequestTypeType */;
+@property (strong) NSString*                                 intendedFreeBusyStatus     /* EWSLegacyFreeBusyType */;
+@property (strong) NSString*                                 start                      /* xs:dateTime */;
+@property (strong) NSString*                                 end                        /* xs:dateTime */;
+@property (strong) NSString*                                 originalStart              /* xs:dateTime */;
+@property (strong) NSNumber*                                 isAllDayEvent              /* xs:boolean */;
+@property (strong) NSString*                                 legacyFreeBusyStatus       /* EWSLegacyFreeBusyType */;
+@property (strong) NSString*                                 location                   /* xs:string */;
+@property (strong) NSString*                                 when                       /* xs:string */;
+@property (strong) NSNumber*                                 isMeeting                  /* xs:boolean */;
+@property (strong) NSNumber*                                 isCancelled                /* xs:boolean */;
+@property (strong) NSNumber*                                 isRecurring                /* xs:boolean */;
+@property (strong) NSNumber*                                 meetingRequestWasSent      /* xs:boolean */;
+@property (strong) NSString*                                 calendarItemType           /* EWSCalendarItemTypeType */;
+@property (strong) NSString*                                 myResponseType             /* EWSResponseTypeType */;
+@property (strong) EWSSingleRecipientType*                   organizer;
+@property (strong) EWSNonEmptyArrayOfAttendeesType*          requiredAttendees;
+@property (strong) EWSNonEmptyArrayOfAttendeesType*          optionalAttendees;
+@property (strong) EWSNonEmptyArrayOfAttendeesType*          resources;
+@property (strong) NSNumber*                                 conflictingMeetingCount    /* xs:int */;
+@property (strong) NSNumber*                                 adjacentMeetingCount       /* xs:int */;
+@property (strong) EWSNonEmptyArrayOfAllItemsType*           conflictingMeetings;
+@property (strong) EWSNonEmptyArrayOfAllItemsType*           adjacentMeetings;
+@property (strong) NSString*                                 duration                   /* xs:string */;
+@property (strong) NSString*                                 timeZone                   /* xs:string */;
+@property (strong) NSString*                                 appointmentReplyTime       /* xs:dateTime */;
+@property (strong) NSNumber*                                 appointmentSequenceNumber  /* xs:int */;
+@property (strong) NSNumber*                                 appointmentState           /* xs:int */;
+@property (strong) EWSRecurrenceType*                        recurrence;
+@property (strong) EWSOccurrenceInfoType*                    firstOccurrence;
+@property (strong) EWSOccurrenceInfoType*                    lastOccurrence;
+@property (strong) EWSNonEmptyArrayOfOccurrenceInfoType*     modifiedOccurrences;
+@property (strong) EWSNonEmptyArrayOfDeletedOccurrencesType* deletedOccurrences;
+@property (strong) EWSTimeZoneType*                          meetingTimeZone;
+@property (strong) NSNumber*                                 conferenceType             /* xs:int */;
+@property (strong) NSNumber*                                 allowNewTimeProposal       /* xs:boolean */;
+@property (strong) NSNumber*                                 isOnlineMeeting            /* xs:boolean */;
+@property (strong) NSString*                                 meetingWorkspaceUrl        /* xs:string */;
+@property (strong) NSString*                                 netShowUrl                 /* xs:string */;
 
 
 @end

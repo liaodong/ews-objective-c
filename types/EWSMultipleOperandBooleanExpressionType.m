@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSMultipleOperandBooleanExpressionType.h"
+#import "../types/EWSSearchExpressionType.h"
 
 
 @implementation EWSMultipleOperandBooleanExpressionType 

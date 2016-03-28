@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCreateAttachmentType.h"
+#import "../types/EWSItemIdType.h"
+#import "../types/EWSNonEmptyArrayOfAttachmentsType.h"
 
 
 @implementation EWSCreateAttachmentType 

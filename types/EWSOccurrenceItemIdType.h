@@ -1,12 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSDerivedItemIdType.h"
 #import "EWSBaseItemIdType.h"
+
+
+
 
 
 
@@ -19,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* recurringMasterId  /* EWSDerivedItemIdType */;
-@property (retain) NSString* changeKey          /* xs:string */;
-@property (retain) NSNumber* instanceIndex      /* xs:int */;
+@property (strong) NSString* recurringMasterId  /* EWSDerivedItemIdType */;
+@property (strong) NSString* changeKey          /* xs:string */;
+@property (strong) NSNumber* instanceIndex      /* xs:int */;
 
 
 @end

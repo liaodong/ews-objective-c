@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSConflictResultsType.h"
 #import "EWSItemInfoResponseMessageType.h"
+
+
+
+@class EWSConflictResultsType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSConflictResultsType* conflictResults;
+@property (strong) EWSConflictResultsType* conflictResults;
 
 
 @end

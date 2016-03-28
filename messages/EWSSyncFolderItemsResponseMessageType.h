@@ -1,12 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSSyncFolderItemsChangesType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSSyncFolderItemsChangesType;
 
 
 
@@ -19,9 +16,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                      syncState                /* xs:string */;
-@property (retain) NSNumber*                      includesLastItemInRange  /* xs:boolean */;
-@property (retain) EWSSyncFolderItemsChangesType* changes;
+@property (strong) NSString*                      syncState                /* xs:string */;
+@property (strong) NSNumber*                      includesLastItemInRange  /* xs:boolean */;
+@property (strong) EWSSyncFolderItemsChangesType* changes;
 
 
 @end

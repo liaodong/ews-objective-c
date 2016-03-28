@@ -3,16 +3,20 @@
 
 
 
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* ArrayOfStringsType */
-@interface EWSArrayOfStringsType : EWSArrayTypeHandler
+@interface EWSArrayOfStringsType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<NSString*>* string /* xs:string */;
+
+
+- (void) addString:(NSString*) elem;
 @end
 

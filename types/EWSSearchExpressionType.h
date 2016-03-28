@@ -5,7 +5,6 @@
 
 
 
-
 /* SearchExpressionType */
 @interface EWSSearchExpressionType : NSObject
 

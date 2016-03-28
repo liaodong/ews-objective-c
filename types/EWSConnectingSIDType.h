@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* ConnectingSIDType */
@@ -16,9 +14,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* principalName       /* xs:string */;
-@property (retain) NSString* sID                 /* xs:string */;
-@property (retain) NSString* primarySmtpAddress  /* xs:string */;
+@property (strong) NSString* principalName       /* xs:string */;
+@property (strong) NSString* sID                 /* xs:string */;
+@property (strong) NSString* primarySmtpAddress  /* xs:string */;
 
 
 @end

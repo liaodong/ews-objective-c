@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDelegateUserResponseMessageType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSDelegateUserType.h"
+#import "../types/EWSResponseClassType.h"
 
 
 @implementation EWSDelegateUserResponseMessageType 

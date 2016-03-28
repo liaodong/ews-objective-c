@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFindFolderResponseMessageType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSFindFolderParentType.h"
+#import "../types/EWSResponseClassType.h"
 
 
 @implementation EWSFindFolderResponseMessageType 

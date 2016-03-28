@@ -2,7 +2,8 @@
 
 
 
-
+@class EWSBasePathToElementType;
+@class EWSConstantValueType;
 
 
 
@@ -15,6 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSBasePathToElementType* path;
+@property (strong) EWSConstantValueType*     constant;
 
 
 @end

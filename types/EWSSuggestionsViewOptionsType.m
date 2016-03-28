@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSuggestionsViewOptionsType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDuration.h"
+#import "../types/EWSSuggestionQuality.h"
 
 
 @implementation EWSSuggestionsViewOptionsType 

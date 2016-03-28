@@ -1,13 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSAffectedTaskOccurrencesType.h"
-#import "../types/EWSCalendarItemCreateOrDeleteOperationType.h"
-#import "../types/EWSDisposalType.h"
-#import "../types/EWSNonEmptyArrayOfBaseItemIdsType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSNonEmptyArrayOfBaseItemIdsType;
 
 
 
@@ -20,10 +16,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                          deleteType                /* EWSDisposalType */;
-@property (retain) NSString*                          sendMeetingCancellations  /* EWSCalendarItemCreateOrDeleteOperationType */;
-@property (retain) NSString*                          affectedTaskOccurrences   /* EWSAffectedTaskOccurrencesType */;
-@property (retain) EWSNonEmptyArrayOfBaseItemIdsType* itemIds;
+@property (strong) NSString*                          deleteType                /* EWSDisposalType */;
+@property (strong) NSString*                          sendMeetingCancellations  /* EWSCalendarItemCreateOrDeleteOperationType */;
+@property (strong) NSString*                          affectedTaskOccurrences   /* EWSAffectedTaskOccurrencesType */;
+@property (strong) EWSNonEmptyArrayOfBaseItemIdsType* itemIds;
 
 
 @end

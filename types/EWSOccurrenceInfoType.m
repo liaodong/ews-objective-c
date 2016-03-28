@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSOccurrenceInfoType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../types/EWSItemIdType.h"
 
 
 @implementation EWSOccurrenceInfoType 

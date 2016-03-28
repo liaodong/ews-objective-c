@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSCalendarPermissionSetType.h"
 #import "EWSBaseFolderType.h"
+
+
+
+@class EWSCalendarPermissionSetType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSCalendarPermissionSetType* permissionSet;
+@property (strong) EWSCalendarPermissionSetType* permissionSet;
 
 
 @end

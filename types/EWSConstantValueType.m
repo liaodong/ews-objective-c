@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSConstantValueType.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSConstantValueType 

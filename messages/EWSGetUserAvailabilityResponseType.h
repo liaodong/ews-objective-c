@@ -2,9 +2,8 @@
 
 
 
-
-#import "../messages/EWSArrayOfFreeBusyResponse.h"
-#import "../messages/EWSSuggestionsResponseType.h"
+@class EWSArrayOfFreeBusyResponse;
+@class EWSSuggestionsResponseType;
 
 
 
@@ -17,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSArray<EWSFreeBusyResponseType*>* freeBusyResponseArray  /* EWSArrayOfFreeBusyResponse */;
-@property (retain) EWSSuggestionsResponseType*        suggestionsResponse;
+@property (strong) EWSArrayOfFreeBusyResponse* freeBusyResponseArray;
+@property (strong) EWSSuggestionsResponseType* suggestionsResponse;
 
 
 @end

@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSUserIdType.h"
+@class EWSUserIdType;
 
 
 
 /* ArrayOfUserIdType */
-@interface EWSArrayOfUserIdType : EWSArrayTypeHandler
+@interface EWSArrayOfUserIdType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSUserIdType*>* userId;
+
+
+- (void) addUserId:(EWSUserIdType*) elem;
 @end
 

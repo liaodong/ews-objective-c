@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSPathToIndexedFieldType.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSDictionaryURIType.h"
 
 
 @implementation EWSPathToIndexedFieldType 

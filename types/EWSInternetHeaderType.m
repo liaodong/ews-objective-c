@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSInternetHeaderType.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSInternetHeaderType 

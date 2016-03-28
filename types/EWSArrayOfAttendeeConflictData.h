@@ -2,7 +2,10 @@
 
 
 
-
+@class EWSGroupAttendeeConflictData;
+@class EWSIndividualAttendeeConflictData;
+@class EWSTooBigGroupAttendeeConflictData;
+@class EWSUnknownAttendeeConflictData;
 
 
 
@@ -15,6 +18,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSUnknownAttendeeConflictData*     unknownAttendeeConflictData;
+@property (strong) EWSIndividualAttendeeConflictData*  individualAttendeeConflictData;
+@property (strong) EWSTooBigGroupAttendeeConflictData* tooBigGroupAttendeeConflictData;
+@property (strong) EWSGroupAttendeeConflictData*       groupAttendeeConflictData;
 
 
 @end

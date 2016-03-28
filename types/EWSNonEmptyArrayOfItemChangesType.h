@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSItemChangeType.h"
+@class EWSItemChangeType;
 
 
 
 /* NonEmptyArrayOfItemChangesType */
-@interface EWSNonEmptyArrayOfItemChangesType : EWSArrayTypeHandler
+@interface EWSNonEmptyArrayOfItemChangesType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSItemChangeType*>* itemChange;
+
+
+- (void) addItemChange:(EWSItemChangeType*) elem;
 @end
 

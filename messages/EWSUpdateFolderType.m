@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSUpdateFolderType.h"
+#import "../types/EWSNonEmptyArrayOfFolderChangesType.h"
 
 
 @implementation EWSUpdateFolderType 

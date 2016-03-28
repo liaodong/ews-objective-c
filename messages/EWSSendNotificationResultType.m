@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSendNotificationResultType.h"
+#import "../types/EWSSubscriptionStatusType.h"
 
 
 @implementation EWSSendNotificationResultType 

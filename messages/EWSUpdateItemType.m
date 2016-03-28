@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSUpdateItemType.h"
+#import "../types/EWSCalendarItemUpdateOperationType.h"
+#import "../types/EWSConflictResolutionType.h"
+#import "../types/EWSMessageDispositionType.h"
+#import "../types/EWSNonEmptyArrayOfItemChangesType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSUpdateItemType 

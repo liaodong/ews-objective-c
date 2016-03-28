@@ -2,9 +2,8 @@
 
 
 
-
-#import "../messages/EWSResponseMessageType.h"
-#import "../types/EWSFreeBusyView.h"
+@class EWSFreeBusyView;
+@class EWSResponseMessageType;
 
 
 
@@ -17,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSResponseMessageType* responseMessage;
-@property (retain) EWSFreeBusyView*        freeBusyView;
+@property (strong) EWSResponseMessageType* responseMessage;
+@property (strong) EWSFreeBusyView*        freeBusyView;
 
 
 @end

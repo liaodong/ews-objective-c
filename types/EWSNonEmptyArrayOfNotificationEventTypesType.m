@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSNonEmptyArrayOfNotificationEventTypesType.h"
+#import "../types/EWSNotificationEventTypeType.h"
 
 
 @implementation EWSNonEmptyArrayOfNotificationEventTypesType 
@@ -10,6 +11,12 @@
 + (void) initialize
 {
     EWSObjectTypeHandler* handler = [[EWSObjectTypeHandler alloc] initWithClass:[EWSNonEmptyArrayOfNotificationEventTypesType class]];
+
+    [handler property      : @"eventType"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"EventType"
+             withHandler   : [EWSNotificationEventTypeType class]];
 
     [handler register];
 }
@@ -26,7 +33,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"NonEmptyArrayOfNotificationEventTypesType:"];
+    return [NSString stringWithFormat:@"NonEmptyArrayOfNotificationEventTypesType: EventType=%@", _eventType];
 }
 
 @end

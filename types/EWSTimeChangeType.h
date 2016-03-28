@@ -2,12 +2,7 @@
 
 
 
-
-#import "../handlers/EWSDateTypeHandler.h"
-#import "../handlers/EWSDurationTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../handlers/EWSTimeTypeHandler.h"
-#import "../types/EWSRelativeYearlyRecurrencePatternType.h"
+@class EWSRelativeYearlyRecurrencePatternType;
 
 
 
@@ -20,11 +15,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                               timeZoneName              /* xs:string */;
-@property (retain) NSString*                               offset                    /* xs:duration */;
-@property (retain) EWSRelativeYearlyRecurrencePatternType* relativeYearlyRecurrence;
-@property (retain) NSString*                               absoluteDate              /* xs:date */;
-@property (retain) NSString*                               time                      /* xs:time */;
+@property (strong) NSString*                               timeZoneName              /* xs:string */;
+@property (strong) NSString*                               offset                    /* xs:duration */;
+@property (strong) EWSRelativeYearlyRecurrencePatternType* relativeYearlyRecurrence;
+@property (strong) NSString*                               absoluteDate              /* xs:date */;
+@property (strong) NSString*                               time                      /* xs:time */;
 
 
 @end

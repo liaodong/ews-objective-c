@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSUserOofSettings.h"
+#import "../types/EWSDuration.h"
+#import "../types/EWSExternalAudience.h"
+#import "../types/EWSOofState.h"
+#import "../types/EWSReplyBody.h"
 
 
 @implementation EWSUserOofSettings 

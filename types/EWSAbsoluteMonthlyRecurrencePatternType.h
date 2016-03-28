@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSIntegerTypeHandler.h"
 #import "EWSIntervalRecurrencePatternBaseType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* dayOfMonth  /* xs:int */;
+@property (strong) NSNumber* dayOfMonth  /* xs:int */;
 
 
 @end

@@ -1,21 +1,14 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSAnyUriTypeHandler.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSArrayOfStringsType.h"
-#import "../types/EWSCompleteNameType.h"
-#import "../types/EWSContactSourceType.h"
-#import "../types/EWSEmailAddressDictionaryType.h"
-#import "../types/EWSFileAsMappingType.h"
-#import "../types/EWSImAddressDictionaryType.h"
-#import "../types/EWSPhoneNumberDictionaryType.h"
-#import "../types/EWSPhysicalAddressDictionaryType.h"
-#import "../types/EWSPhysicalAddressIndexType.h"
 #import "EWSItemType.h"
+
+
+
+@class EWSArrayOfStringsType;
+@class EWSCompleteNameType;
+@class EWSEmailAddressDictionaryType;
+@class EWSImAddressDictionaryType;
+@class EWSPhoneNumberDictionaryType;
+@class EWSPhysicalAddressDictionaryType;
 
 
 
@@ -28,36 +21,36 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                                        fileAs              /* xs:string */;
-@property (retain) NSString*                                        fileAsMapping       /* EWSFileAsMappingType */;
-@property (retain) NSString*                                        displayName         /* xs:string */;
-@property (retain) NSString*                                        givenName           /* xs:string */;
-@property (retain) NSString*                                        initials            /* xs:string */;
-@property (retain) NSString*                                        middleName          /* xs:string */;
-@property (retain) NSString*                                        nickname            /* xs:string */;
-@property (retain) EWSCompleteNameType*                             completeName;
-@property (retain) NSString*                                        companyName         /* xs:string */;
-@property (retain) NSArray<EWSEmailAddressDictionaryEntryType*>*    emailAddresses      /* EWSEmailAddressDictionaryType */;
-@property (retain) NSArray<EWSPhysicalAddressDictionaryEntryType*>* physicalAddresses   /* EWSPhysicalAddressDictionaryType */;
-@property (retain) NSArray<EWSPhoneNumberDictionaryEntryType*>*     phoneNumbers        /* EWSPhoneNumberDictionaryType */;
-@property (retain) NSString*                                        assistantName       /* xs:string */;
-@property (retain) NSString*                                        birthday            /* xs:dateTime */;
-@property (retain) NSString*                                        businessHomePage    /* xs:anyURI */;
-@property (retain) NSArray<NSString*>*                              children            /* EWSArrayOfStringsType */;
-@property (retain) NSArray<NSString*>*                              companies           /* EWSArrayOfStringsType */;
-@property (retain) NSString*                                        contactSource       /* EWSContactSourceType */;
-@property (retain) NSString*                                        department          /* xs:string */;
-@property (retain) NSString*                                        generation          /* xs:string */;
-@property (retain) NSArray<EWSImAddressDictionaryEntryType*>*       imAddresses         /* EWSImAddressDictionaryType */;
-@property (retain) NSString*                                        jobTitle            /* xs:string */;
-@property (retain) NSString*                                        manager             /* xs:string */;
-@property (retain) NSString*                                        mileage             /* xs:string */;
-@property (retain) NSString*                                        officeLocation      /* xs:string */;
-@property (retain) NSString*                                        postalAddressIndex  /* EWSPhysicalAddressIndexType */;
-@property (retain) NSString*                                        profession          /* xs:string */;
-@property (retain) NSString*                                        spouseName          /* xs:string */;
-@property (retain) NSString*                                        surname             /* xs:string */;
-@property (retain) NSString*                                        weddingAnniversary  /* xs:dateTime */;
+@property (strong) NSString*                         fileAs              /* xs:string */;
+@property (strong) NSString*                         fileAsMapping       /* EWSFileAsMappingType */;
+@property (strong) NSString*                         displayName         /* xs:string */;
+@property (strong) NSString*                         givenName           /* xs:string */;
+@property (strong) NSString*                         initials            /* xs:string */;
+@property (strong) NSString*                         middleName          /* xs:string */;
+@property (strong) NSString*                         nickname            /* xs:string */;
+@property (strong) EWSCompleteNameType*              completeName;
+@property (strong) NSString*                         companyName         /* xs:string */;
+@property (strong) EWSEmailAddressDictionaryType*    emailAddresses;
+@property (strong) EWSPhysicalAddressDictionaryType* physicalAddresses;
+@property (strong) EWSPhoneNumberDictionaryType*     phoneNumbers;
+@property (strong) NSString*                         assistantName       /* xs:string */;
+@property (strong) NSString*                         birthday            /* xs:dateTime */;
+@property (strong) NSString*                         businessHomePage    /* xs:anyURI */;
+@property (strong) EWSArrayOfStringsType*            children;
+@property (strong) EWSArrayOfStringsType*            companies;
+@property (strong) NSString*                         contactSource       /* EWSContactSourceType */;
+@property (strong) NSString*                         department          /* xs:string */;
+@property (strong) NSString*                         generation          /* xs:string */;
+@property (strong) EWSImAddressDictionaryType*       imAddresses;
+@property (strong) NSString*                         jobTitle            /* xs:string */;
+@property (strong) NSString*                         manager             /* xs:string */;
+@property (strong) NSString*                         mileage             /* xs:string */;
+@property (strong) NSString*                         officeLocation      /* xs:string */;
+@property (strong) NSString*                         postalAddressIndex  /* EWSPhysicalAddressIndexType */;
+@property (strong) NSString*                         profession          /* xs:string */;
+@property (strong) NSString*                         spouseName          /* xs:string */;
+@property (strong) NSString*                         surname             /* xs:string */;
+@property (strong) NSString*                         weddingAnniversary  /* xs:dateTime */;
 
 
 @end

@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCalendarPermissionSetType.h"
+#import "../types/EWSArrayOfCalendarPermissionsType.h"
+#import "../types/EWSArrayOfUnknownEntriesType.h"
 
 
 @implementation EWSCalendarPermissionSetType 

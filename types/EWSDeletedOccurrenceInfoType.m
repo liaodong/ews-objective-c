@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDeletedOccurrenceInfoType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
 
 
 @implementation EWSDeletedOccurrenceInfoType 

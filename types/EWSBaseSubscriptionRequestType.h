@@ -2,10 +2,8 @@
 
 
 
-
-#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
-#import "../types/EWSNonEmptyArrayOfNotificationEventTypesType.h"
-#import "../types/EWSWatermarkType.h"
+@class EWSNonEmptyArrayOfBaseFolderIdsType;
+@class EWSNonEmptyArrayOfNotificationEventTypesType;
 
 
 
@@ -18,9 +16,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSNonEmptyArrayOfBaseFolderIdsType*          folderIds;
-@property (retain) EWSNonEmptyArrayOfNotificationEventTypesType* eventTypes;
-@property (retain) NSString*                                     watermark   /* EWSWatermarkType */;
+@property (strong) EWSNonEmptyArrayOfBaseFolderIdsType*          folderIds;
+@property (strong) EWSNonEmptyArrayOfNotificationEventTypesType* eventTypes;
+@property (strong) NSString*                                     watermark   /* EWSWatermarkType */;
 
 
 @end

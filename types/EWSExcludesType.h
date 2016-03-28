@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSBasePathToElementType.h"
-#import "../types/EWSExcludesValueType.h"
 #import "EWSSearchExpressionType.h"
+
+
+
+@class EWSBasePathToElementType;
+@class EWSExcludesValueType;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSBasePathToElementType* path;
-@property (retain) EWSExcludesValueType*     bitmask;
+@property (strong) EWSBasePathToElementType* path;
+@property (strong) EWSExcludesValueType*     bitmask;
 
 
 @end

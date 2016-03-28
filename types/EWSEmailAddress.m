@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSEmailAddress.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSEmailAddress 

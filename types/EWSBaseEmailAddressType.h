@@ -5,7 +5,6 @@
 
 
 
-
 /* BaseEmailAddressType */
 @interface EWSBaseEmailAddressType : NSObject
 

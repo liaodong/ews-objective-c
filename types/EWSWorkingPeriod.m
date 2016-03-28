@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSWorkingPeriod.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSDaysOfWeekType.h"
 
 
 @implementation EWSWorkingPeriod 

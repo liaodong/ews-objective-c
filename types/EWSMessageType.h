@@ -1,14 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSBase64BinaryTypeHandler.h"
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSArrayOfRecipientsType.h"
-#import "../types/EWSSingleRecipientType.h"
 #import "EWSItemType.h"
+
+
+
+@class EWSArrayOfRecipientsType;
+@class EWSSingleRecipientType;
 
 
 
@@ -21,22 +17,22 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSSingleRecipientType*   sender;
-@property (retain) EWSArrayOfRecipientsType* toRecipients;
-@property (retain) EWSArrayOfRecipientsType* ccRecipients;
-@property (retain) EWSArrayOfRecipientsType* bccRecipients;
-@property (retain) NSNumber*                 isReadReceiptRequested      /* xs:boolean */;
-@property (retain) NSNumber*                 isDeliveryReceiptRequested  /* xs:boolean */;
-@property (retain) NSData*                   conversationIndex           /* xs:base64Binary */;
-@property (retain) NSString*                 conversationTopic           /* xs:string */;
-@property (retain) EWSSingleRecipientType*   from;
-@property (retain) NSString*                 internetMessageId           /* xs:string */;
-@property (retain) NSNumber*                 isRead                      /* xs:boolean */;
-@property (retain) NSNumber*                 isResponseRequested         /* xs:boolean */;
-@property (retain) NSString*                 references                  /* xs:string */;
-@property (retain) EWSArrayOfRecipientsType* replyTo;
-@property (retain) EWSSingleRecipientType*   receivedBy;
-@property (retain) EWSSingleRecipientType*   receivedRepresenting;
+@property (strong) EWSSingleRecipientType*   sender;
+@property (strong) EWSArrayOfRecipientsType* toRecipients;
+@property (strong) EWSArrayOfRecipientsType* ccRecipients;
+@property (strong) EWSArrayOfRecipientsType* bccRecipients;
+@property (strong) NSNumber*                 isReadReceiptRequested      /* xs:boolean */;
+@property (strong) NSNumber*                 isDeliveryReceiptRequested  /* xs:boolean */;
+@property (strong) NSData*                   conversationIndex           /* xs:base64Binary */;
+@property (strong) NSString*                 conversationTopic           /* xs:string */;
+@property (strong) EWSSingleRecipientType*   from;
+@property (strong) NSString*                 internetMessageId           /* xs:string */;
+@property (strong) NSNumber*                 isRead                      /* xs:boolean */;
+@property (strong) NSNumber*                 isResponseRequested         /* xs:boolean */;
+@property (strong) NSString*                 references                  /* xs:string */;
+@property (strong) EWSArrayOfRecipientsType* replyTo;
+@property (strong) EWSSingleRecipientType*   receivedBy;
+@property (strong) EWSSingleRecipientType*   receivedRepresenting;
 
 
 @end

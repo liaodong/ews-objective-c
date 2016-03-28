@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSContactSourceType.h"
 #import "EWSItemType.h"
+
+
+
 
 
 
@@ -18,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* displayName    /* xs:string */;
-@property (retain) NSString* fileAs         /* xs:string */;
-@property (retain) NSString* contactSource  /* EWSContactSourceType */;
+@property (strong) NSString* displayName    /* xs:string */;
+@property (strong) NSString* fileAs         /* xs:string */;
+@property (strong) NSString* contactSource  /* EWSContactSourceType */;
 
 
 @end

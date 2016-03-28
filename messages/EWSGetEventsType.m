@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetEventsType.h"
+#import "../types/EWSSubscriptionIdType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSGetEventsType 

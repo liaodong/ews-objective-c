@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSAttendeeType.h"
+@class EWSAttendeeType;
 
 
 
 /* NonEmptyArrayOfAttendeesType */
-@interface EWSNonEmptyArrayOfAttendeesType : EWSArrayTypeHandler
+@interface EWSNonEmptyArrayOfAttendeesType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSAttendeeType*>* attendee;
+
+
+- (void) addAttendee:(EWSAttendeeType*) elem;
 @end
 

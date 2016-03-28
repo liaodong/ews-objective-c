@@ -5,7 +5,6 @@
 
 
 
-
 /* ArrayOfUnknownEntriesType */
 @interface EWSArrayOfUnknownEntriesType : NSObject
 
@@ -15,6 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) NSString* unknownEntry  /* xs:string */;
 
 
 @end

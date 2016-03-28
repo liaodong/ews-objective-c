@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBasePagingType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
 
 
 @implementation EWSBasePagingType 

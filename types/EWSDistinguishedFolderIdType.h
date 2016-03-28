@@ -1,12 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSDistinguishedFolderIdNameType.h"
-#import "../types/EWSEmailAddressType.h"
 #import "EWSBaseFolderIdType.h"
+
+
+
+@class EWSEmailAddressType;
 
 
 
@@ -19,9 +16,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*            id         /* EWSDistinguishedFolderIdNameType */;
-@property (retain) NSString*            changeKey  /* xs:string */;
-@property (retain) EWSEmailAddressType* mailbox;
+@property (strong) NSString*            id         /* EWSDistinguishedFolderIdNameType */;
+@property (strong) NSString*            changeKey  /* xs:string */;
+@property (strong) EWSEmailAddressType* mailbox;
 
 
 @end

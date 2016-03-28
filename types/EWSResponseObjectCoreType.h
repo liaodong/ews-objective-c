@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSItemIdType.h"
 #import "EWSMessageType.h"
+
+
+
+@class EWSItemIdType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSItemIdType* referenceItemId;
+@property (strong) EWSItemIdType* referenceItemId;
 
 
 @end

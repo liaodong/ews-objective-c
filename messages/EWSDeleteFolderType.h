@@ -1,11 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSDisposalType.h"
-#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSNonEmptyArrayOfBaseFolderIdsType;
 
 
 
@@ -18,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                            deleteType  /* EWSDisposalType */;
-@property (retain) EWSNonEmptyArrayOfBaseFolderIdsType* folderIds;
+@property (strong) NSString*                            deleteType  /* EWSDisposalType */;
+@property (strong) EWSNonEmptyArrayOfBaseFolderIdsType* folderIds;
 
 
 @end

@@ -2,10 +2,7 @@
 
 
 
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../types/EWSEmailAddress.h"
-#import "../types/EWSMeetingAttendeeType.h"
+@class EWSEmailAddress;
 
 
 
@@ -18,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSEmailAddress* email;
-@property (retain) NSString*        attendeeType      /* EWSMeetingAttendeeType */;
-@property (retain) NSNumber*        excludeConflicts  /* xs:boolean */;
+@property (strong) EWSEmailAddress* email;
+@property (strong) NSString*        attendeeType      /* EWSMeetingAttendeeType */;
+@property (strong) NSNumber*        excludeConflicts  /* xs:boolean */;
 
 
 @end

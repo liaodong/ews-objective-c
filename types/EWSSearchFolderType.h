@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSSearchParametersType.h"
 #import "EWSFolderType.h"
+
+
+
+@class EWSSearchParametersType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSSearchParametersType* searchParameters;
+@property (strong) EWSSearchParametersType* searchParameters;
 
 
 @end

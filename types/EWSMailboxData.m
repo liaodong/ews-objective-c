@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSMailboxData.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSEmailAddress.h"
+#import "../types/EWSMeetingAttendeeType.h"
 
 
 @implementation EWSMailboxData 

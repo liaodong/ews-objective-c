@@ -3,9 +3,6 @@
 
 
 
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* CalendarEventDetails */
@@ -17,14 +14,14 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* iD             /* xs:string */;
-@property (retain) NSString* subject        /* xs:string */;
-@property (retain) NSString* location       /* xs:string */;
-@property (retain) NSNumber* isMeeting      /* xs:boolean */;
-@property (retain) NSNumber* isRecurring    /* xs:boolean */;
-@property (retain) NSNumber* isException    /* xs:boolean */;
-@property (retain) NSNumber* isReminderSet  /* xs:boolean */;
-@property (retain) NSNumber* isPrivate      /* xs:boolean */;
+@property (strong) NSString* iD             /* xs:string */;
+@property (strong) NSString* subject        /* xs:string */;
+@property (strong) NSString* location       /* xs:string */;
+@property (strong) NSNumber* isMeeting      /* xs:boolean */;
+@property (strong) NSNumber* isRecurring    /* xs:boolean */;
+@property (strong) NSNumber* isException    /* xs:boolean */;
+@property (strong) NSNumber* isReminderSet  /* xs:boolean */;
+@property (strong) NSNumber* isPrivate      /* xs:boolean */;
 
 
 @end

@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSPathToUnindexedFieldType.h"
+#import "../types/EWSUnindexedFieldURIType.h"
 
 
 @implementation EWSPathToUnindexedFieldType 

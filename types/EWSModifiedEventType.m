@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSModifiedEventType.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSFolderIdType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSModifiedEventType 

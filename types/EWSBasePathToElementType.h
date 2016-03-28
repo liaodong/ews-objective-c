@@ -5,7 +5,6 @@
 
 
 
-
 /* BasePathToElementType */
 @interface EWSBasePathToElementType : NSObject
 

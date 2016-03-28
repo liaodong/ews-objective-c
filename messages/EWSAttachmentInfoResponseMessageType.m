@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAttachmentInfoResponseMessageType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSArrayOfAttachmentsType.h"
+#import "../types/EWSResponseClassType.h"
 
 
 @implementation EWSAttachmentInfoResponseMessageType 

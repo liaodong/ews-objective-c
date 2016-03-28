@@ -2,7 +2,9 @@
 
 
 
-
+@class EWSAppendToItemFieldType;
+@class EWSDeleteItemFieldType;
+@class EWSSetItemFieldType;
 
 
 
@@ -15,6 +17,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSAppendToItemFieldType* appendToItemField;
+@property (strong) EWSSetItemFieldType*      setItemField;
+@property (strong) EWSDeleteItemFieldType*   deleteItemField;
 
 
 @end

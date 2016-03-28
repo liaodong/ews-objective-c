@@ -2,10 +2,8 @@
 
 
 
-
-#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
-#import "../types/EWSRestrictionType.h"
-#import "../types/EWSSearchFolderTraversalType.h"
+@class EWSNonEmptyArrayOfBaseFolderIdsType;
+@class EWSRestrictionType;
 
 
 
@@ -18,9 +16,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                            traversal      /* EWSSearchFolderTraversalType */;
-@property (retain) EWSRestrictionType*                  restriction;
-@property (retain) EWSNonEmptyArrayOfBaseFolderIdsType* baseFolderIds;
+@property (strong) NSString*                            traversal      /* EWSSearchFolderTraversalType */;
+@property (strong) EWSRestrictionType*                  restriction;
+@property (strong) EWSNonEmptyArrayOfBaseFolderIdsType* baseFolderIds;
 
 
 @end

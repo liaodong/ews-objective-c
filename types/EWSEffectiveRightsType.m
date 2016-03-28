@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSEffectiveRightsType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
 
 
 @implementation EWSEffectiveRightsType 

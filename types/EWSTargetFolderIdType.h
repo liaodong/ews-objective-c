@@ -2,7 +2,8 @@
 
 
 
-
+@class EWSDistinguishedFolderIdType;
+@class EWSFolderIdType;
 
 
 
@@ -15,6 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSFolderIdType*              folderId;
+@property (strong) EWSDistinguishedFolderIdType* distinguishedFolderId;
 
 
 @end

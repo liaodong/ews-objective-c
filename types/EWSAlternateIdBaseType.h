@@ -3,8 +3,6 @@
 
 
 
-#import "../types/EWSIdFormatType.h"
-
 
 
 /* AlternateIdBaseType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* format  /* EWSIdFormatType */;
+@property (strong) NSString* format  /* EWSIdFormatType */;
 
 
 @end

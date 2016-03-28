@@ -3,10 +3,6 @@
 
 
 
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../types/EWSSubscriptionIdType.h"
-#import "../types/EWSWatermarkType.h"
-
 
 
 /* NotificationType */
@@ -18,9 +14,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* subscriptionId     /* EWSSubscriptionIdType */;
-@property (retain) NSString* previousWatermark  /* EWSWatermarkType */;
-@property (retain) NSNumber* moreEvents         /* xs:boolean */;
+@property (strong) NSString* subscriptionId     /* EWSSubscriptionIdType */;
+@property (strong) NSString* previousWatermark  /* EWSWatermarkType */;
+@property (strong) NSNumber* moreEvents         /* xs:boolean */;
 
 
 @end

@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSSuggestion.h"
+@class EWSSuggestion;
 
 
 
 /* ArrayOfSuggestion */
-@interface EWSArrayOfSuggestion : EWSArrayTypeHandler
+@interface EWSArrayOfSuggestion : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSSuggestion*>* suggestion;
+
+
+- (void) addSuggestion:(EWSSuggestion*) elem;
 @end
 

@@ -2,10 +2,7 @@
 
 
 
-
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../types/EWSDuration.h"
-#import "../types/EWSFreeBusyViewType.h"
+@class EWSDuration;
 
 
 
@@ -18,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSDuration*               timeWindow;
-@property (retain) NSNumber*                  mergedFreeBusyIntervalInMinutes  /* xs:int */;
-@property (retain) NSMutableArray<NSString*>* requestedView                    /* EWSFreeBusyViewType */;
+@property (strong) EWSDuration*               timeWindow;
+@property (strong) NSNumber*                  mergedFreeBusyIntervalInMinutes  /* xs:int */;
+@property (strong) NSMutableArray<NSString*>* requestedView                    /* EWSFreeBusyViewType */;
 
 
 @end

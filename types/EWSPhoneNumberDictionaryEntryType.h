@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSPhoneNumberKeyType.h"
 #import "EWSStringType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* key    /* EWSPhoneNumberKeyType */;
+@property (strong) NSString* key    /* EWSPhoneNumberKeyType */;
 
 
 @end

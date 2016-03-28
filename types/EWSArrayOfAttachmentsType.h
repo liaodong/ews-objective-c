@@ -2,7 +2,8 @@
 
 
 
-
+@class EWSFileAttachmentType;
+@class EWSItemAttachmentType;
 
 
 
@@ -15,6 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSItemAttachmentType* itemAttachment;
+@property (strong) EWSFileAttachmentType* fileAttachment;
 
 
 @end

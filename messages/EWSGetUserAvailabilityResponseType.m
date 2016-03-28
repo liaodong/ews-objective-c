@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSGetUserAvailabilityResponseType.h"
+#import "../messages/EWSArrayOfFreeBusyResponse.h"
+#import "../messages/EWSSuggestionsResponseType.h"
 
 
 @implementation EWSGetUserAvailabilityResponseType 

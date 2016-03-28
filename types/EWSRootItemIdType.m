@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSRootItemIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSRootItemIdType 

@@ -1,13 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSItemIdType.h"
-#import "../types/EWSMailboxTypeType.h"
-#import "../types/EWSNonEmptyStringType.h"
 #import "EWSBaseEmailAddressType.h"
+
+
+
+@class EWSItemIdType;
 
 
 
@@ -20,11 +16,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*      name          /* xs:string */;
-@property (retain) NSString*      emailAddress  /* EWSNonEmptyStringType */;
-@property (retain) NSString*      routingType   /* EWSNonEmptyStringType */;
-@property (retain) NSString*      mailboxType   /* EWSMailboxTypeType */;
-@property (retain) EWSItemIdType* itemId;
+@property (strong) NSString*      name          /* xs:string */;
+@property (strong) NSString*      emailAddress  /* EWSNonEmptyStringType */;
+@property (strong) NSString*      routingType   /* EWSNonEmptyStringType */;
+@property (strong) NSString*      mailboxType   /* EWSMailboxTypeType */;
+@property (strong) EWSItemIdType* itemId;
 
 
 @end

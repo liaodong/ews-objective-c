@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSResolveNamesType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSNonEmptyStringType.h"
+#import "../types/EWSResolveNamesSearchScopeType.h"
 
 
 @implementation EWSResolveNamesType 

@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSDelegateUserType.h"
 #import "EWSResponseMessageType.h"
+
+
+
+@class EWSDelegateUserType;
 
 
 
@@ -17,7 +16,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSDelegateUserType* delegateUser;
+@property (strong) EWSDelegateUserType* delegateUser;
 
 
 @end

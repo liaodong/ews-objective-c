@@ -3,10 +3,6 @@
 
 
 
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* ManagedFolderInformationType */
@@ -18,16 +14,16 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* canDelete             /* xs:boolean */;
-@property (retain) NSNumber* canRenameOrMove       /* xs:boolean */;
-@property (retain) NSNumber* mustDisplayComment    /* xs:boolean */;
-@property (retain) NSNumber* hasQuota              /* xs:boolean */;
-@property (retain) NSNumber* isManagedFoldersRoot  /* xs:boolean */;
-@property (retain) NSString* managedFolderId       /* xs:string */;
-@property (retain) NSString* comment               /* xs:string */;
-@property (retain) NSNumber* storageQuota          /* xs:int */;
-@property (retain) NSNumber* folderSize            /* xs:int */;
-@property (retain) NSString* homePage              /* xs:string */;
+@property (strong) NSNumber* canDelete             /* xs:boolean */;
+@property (strong) NSNumber* canRenameOrMove       /* xs:boolean */;
+@property (strong) NSNumber* mustDisplayComment    /* xs:boolean */;
+@property (strong) NSNumber* hasQuota              /* xs:boolean */;
+@property (strong) NSNumber* isManagedFoldersRoot  /* xs:boolean */;
+@property (strong) NSString* managedFolderId       /* xs:string */;
+@property (strong) NSString* comment               /* xs:string */;
+@property (strong) NSNumber* storageQuota          /* xs:int */;
+@property (strong) NSNumber* folderSize            /* xs:int */;
+@property (strong) NSString* homePage              /* xs:string */;
 
 
 @end

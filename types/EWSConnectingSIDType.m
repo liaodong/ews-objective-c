@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSConnectingSIDType.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSConnectingSIDType 

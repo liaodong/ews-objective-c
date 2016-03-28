@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFindFolderParentType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../types/EWSArrayOfFoldersType.h"
 
 
 @implementation EWSFindFolderParentType 

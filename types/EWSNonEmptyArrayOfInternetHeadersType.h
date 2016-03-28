@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSInternetHeaderType.h"
+@class EWSInternetHeaderType;
 
 
 
 /* NonEmptyArrayOfInternetHeadersType */
-@interface EWSNonEmptyArrayOfInternetHeadersType : EWSArrayTypeHandler
+@interface EWSNonEmptyArrayOfInternetHeadersType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSInternetHeaderType*>* internetMessageHeader;
+
+
+- (void) addInternetMessageHeader:(EWSInternetHeaderType*) elem;
 @end
 

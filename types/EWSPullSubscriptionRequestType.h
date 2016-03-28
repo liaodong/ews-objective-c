@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSSubscriptionTimeoutType.h"
 #import "EWSBaseSubscriptionRequestType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* timeout  /* EWSSubscriptionTimeoutType */;
+@property (strong) NSNumber* timeout  /* EWSSubscriptionTimeoutType */;
 
 
 @end

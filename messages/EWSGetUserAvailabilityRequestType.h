@@ -1,13 +1,12 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSArrayOfMailboxData.h"
-#import "../types/EWSFreeBusyViewOptionsType.h"
-#import "../types/EWSSerializableTimeZone.h"
-#import "../types/EWSSuggestionsViewOptionsType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSArrayOfMailboxData;
+@class EWSFreeBusyViewOptionsType;
+@class EWSSerializableTimeZone;
+@class EWSSuggestionsViewOptionsType;
 
 
 
@@ -20,10 +19,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSSerializableTimeZone*       timeZone;
-@property (retain) NSArray<EWSMailboxData*>*      mailboxDataArray        /* EWSArrayOfMailboxData */;
-@property (retain) EWSFreeBusyViewOptionsType*    freeBusyViewOptions;
-@property (retain) EWSSuggestionsViewOptionsType* suggestionsViewOptions;
+@property (strong) EWSSerializableTimeZone*       timeZone;
+@property (strong) EWSArrayOfMailboxData*         mailboxDataArray;
+@property (strong) EWSFreeBusyViewOptionsType*    freeBusyViewOptions;
+@property (strong) EWSSuggestionsViewOptionsType* suggestionsViewOptions;
 
 
 @end

@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSEmailAddress.h"
-#import "../types/EWSUserOofSettings.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSEmailAddress;
+@class EWSUserOofSettings;
 
 
 
@@ -18,8 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSEmailAddress*    mailbox;
-@property (retain) EWSUserOofSettings* userOofSettings;
+@property (strong) EWSEmailAddress*    mailbox;
+@property (strong) EWSUserOofSettings* userOofSettings;
 
 
 @end

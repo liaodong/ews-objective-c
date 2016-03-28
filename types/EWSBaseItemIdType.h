@@ -5,7 +5,6 @@
 
 
 
-
 /* BaseItemIdType */
 @interface EWSBaseItemIdType : NSObject
 

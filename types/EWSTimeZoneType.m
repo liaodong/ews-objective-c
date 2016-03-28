@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSTimeZoneType.h"
+#import "../handlers/EWSDurationTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSTimeZoneType 

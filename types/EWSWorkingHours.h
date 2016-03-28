@@ -2,9 +2,8 @@
 
 
 
-
-#import "../types/EWSArrayOfWorkingPeriod.h"
-#import "../types/EWSSerializableTimeZone.h"
+@class EWSArrayOfWorkingPeriod;
+@class EWSSerializableTimeZone;
 
 
 
@@ -17,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSSerializableTimeZone*    timeZone;
-@property (retain) NSArray<EWSWorkingPeriod*>* workingPeriodArray  /* EWSArrayOfWorkingPeriod */;
+@property (strong) EWSSerializableTimeZone* timeZone;
+@property (strong) EWSArrayOfWorkingPeriod* workingPeriodArray;
 
 
 @end

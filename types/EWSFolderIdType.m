@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFolderIdType.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSFolderIdType 

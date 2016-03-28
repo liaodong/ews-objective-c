@@ -1,14 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSBase64BinaryTypeHandler.h"
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSSingleRecipientType.h"
 #import "EWSItemType.h"
+
+
+
+@class EWSSingleRecipientType;
 
 
 
@@ -21,14 +16,14 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSData*                 conversationIndex  /* xs:base64Binary */;
-@property (retain) NSString*               conversationTopic  /* xs:string */;
-@property (retain) EWSSingleRecipientType* from;
-@property (retain) NSString*               internetMessageId  /* xs:string */;
-@property (retain) NSNumber*               isRead             /* xs:boolean */;
-@property (retain) NSString*               postedTime         /* xs:dateTime */;
-@property (retain) NSString*               references         /* xs:string */;
-@property (retain) EWSSingleRecipientType* sender;
+@property (strong) NSData*                 conversationIndex  /* xs:base64Binary */;
+@property (strong) NSString*               conversationTopic  /* xs:string */;
+@property (strong) EWSSingleRecipientType* from;
+@property (strong) NSString*               internetMessageId  /* xs:string */;
+@property (strong) NSNumber*               isRead             /* xs:boolean */;
+@property (strong) NSString*               postedTime         /* xs:dateTime */;
+@property (strong) NSString*               references         /* xs:string */;
+@property (strong) EWSSingleRecipientType* sender;
 
 
 @end

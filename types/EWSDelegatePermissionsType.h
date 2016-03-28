@@ -3,8 +3,6 @@
 
 
 
-#import "../types/EWSDelegateFolderPermissionLevelType.h"
-
 
 
 /* DelegatePermissionsType */
@@ -16,12 +14,12 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* calendarFolderPermissionLevel  /* EWSDelegateFolderPermissionLevelType */;
-@property (retain) NSString* tasksFolderPermissionLevel     /* EWSDelegateFolderPermissionLevelType */;
-@property (retain) NSString* inboxFolderPermissionLevel     /* EWSDelegateFolderPermissionLevelType */;
-@property (retain) NSString* contactsFolderPermissionLevel  /* EWSDelegateFolderPermissionLevelType */;
-@property (retain) NSString* notesFolderPermissionLevel     /* EWSDelegateFolderPermissionLevelType */;
-@property (retain) NSString* journalFolderPermissionLevel   /* EWSDelegateFolderPermissionLevelType */;
+@property (strong) NSString* calendarFolderPermissionLevel  /* EWSDelegateFolderPermissionLevelType */;
+@property (strong) NSString* tasksFolderPermissionLevel     /* EWSDelegateFolderPermissionLevelType */;
+@property (strong) NSString* inboxFolderPermissionLevel     /* EWSDelegateFolderPermissionLevelType */;
+@property (strong) NSString* contactsFolderPermissionLevel  /* EWSDelegateFolderPermissionLevelType */;
+@property (strong) NSString* notesFolderPermissionLevel     /* EWSDelegateFolderPermissionLevelType */;
+@property (strong) NSString* journalFolderPermissionLevel   /* EWSDelegateFolderPermissionLevelType */;
 
 
 @end

@@ -3,6 +3,12 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSExpandDLResponseMessageType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSArrayOfDLExpansionType.h"
+#import "../types/EWSResponseClassType.h"
 
 
 @implementation EWSExpandDLResponseMessageType 

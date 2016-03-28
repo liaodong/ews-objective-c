@@ -2,10 +2,7 @@
 
 
 
-
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../types/EWSArrayOfSuggestion.h"
-#import "../types/EWSSuggestionQuality.h"
+@class EWSArrayOfSuggestion;
 
 
 
@@ -18,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                date             /* xs:dateTime */;
-@property (retain) NSString*                dayQuality       /* EWSSuggestionQuality */;
-@property (retain) NSArray<EWSSuggestion*>* suggestionArray  /* EWSArrayOfSuggestion */;
+@property (strong) NSString*             date             /* xs:dateTime */;
+@property (strong) NSString*             dayQuality       /* EWSSuggestionQuality */;
+@property (strong) EWSArrayOfSuggestion* suggestionArray;
 
 
 @end

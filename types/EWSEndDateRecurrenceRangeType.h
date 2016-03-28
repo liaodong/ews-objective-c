@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSDateTypeHandler.h"
 #import "EWSRecurrenceRangeBaseType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* endDate  /* xs:date */;
+@property (strong) NSString* endDate  /* xs:date */;
 
 
 @end

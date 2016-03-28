@@ -3,6 +3,10 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCreateItemType.h"
+#import "../types/EWSCalendarItemCreateOrDeleteOperationType.h"
+#import "../types/EWSMessageDispositionType.h"
+#import "../types/EWSNonEmptyArrayOfAllItemsType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSCreateItemType 

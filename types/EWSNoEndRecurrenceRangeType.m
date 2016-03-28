@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSNoEndRecurrenceRangeType.h"
+#import "../handlers/EWSDateTypeHandler.h"
 
 
 @implementation EWSNoEndRecurrenceRangeType 

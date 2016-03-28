@@ -3,6 +3,14 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSearchFolderType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../types/EWSEffectiveRightsType.h"
+#import "../types/EWSExtendedPropertyType.h"
+#import "../types/EWSFolderIdType.h"
+#import "../types/EWSManagedFolderInformationType.h"
+#import "../types/EWSPermissionSetType.h"
+#import "../types/EWSSearchParametersType.h"
 
 
 @implementation EWSSearchFolderType 

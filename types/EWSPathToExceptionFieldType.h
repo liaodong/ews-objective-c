@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSExceptionPropertyURIType.h"
 #import "EWSBasePathToElementType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* fieldURI  /* EWSExceptionPropertyURIType */;
+@property (strong) NSString* fieldURI  /* EWSExceptionPropertyURIType */;
 
 
 @end

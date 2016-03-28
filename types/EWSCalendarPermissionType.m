@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCalendarPermissionType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSCalendarPermissionLevelType.h"
+#import "../types/EWSCalendarPermissionReadAccessType.h"
+#import "../types/EWSPermissionActionType.h"
+#import "../types/EWSUserIdType.h"
 
 
 @implementation EWSCalendarPermissionType 

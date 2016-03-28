@@ -3,11 +3,6 @@
 
 
 
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../messages/EWSResponseCodeType.h"
-#import "../types/EWSResponseClassType.h"
-
 
 
 /* ResponseMessageType */
@@ -19,11 +14,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* responseClass       /* EWSResponseClassType */;
-@property (retain) NSString* messageText         /* xs:string */;
-@property (retain) NSString* responseCode        /* EWSResponseCodeType */;
-@property (retain) NSNumber* descriptiveLinkKey  /* xs:int */;
-@property (retain) NSString* messageXml          /* xs:string */;
+@property (strong) NSString* responseClass       /* EWSResponseClassType */;
+@property (strong) NSString* messageText         /* xs:string */;
+@property (strong) NSString* responseCode        /* EWSResponseCodeType */;
+@property (strong) NSNumber* descriptiveLinkKey  /* xs:int */;
+@property (strong) NSString* messageXml          /* xs:string */;
 
 
 @end

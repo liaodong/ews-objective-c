@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSStandardGroupByType.h"
 #import "EWSBaseGroupByType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* standardGroupBy  /* EWSStandardGroupByType */;
+@property (strong) NSString* standardGroupBy  /* EWSStandardGroupByType */;
 
 
 @end

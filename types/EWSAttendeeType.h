@@ -2,10 +2,7 @@
 
 
 
-
-#import "../handlers/EWSDateTimeTypeHandler.h"
-#import "../types/EWSEmailAddressType.h"
-#import "../types/EWSResponseTypeType.h"
+@class EWSEmailAddressType;
 
 
 
@@ -18,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSEmailAddressType* mailbox;
-@property (retain) NSString*            responseType      /* EWSResponseTypeType */;
-@property (retain) NSString*            lastResponseTime  /* xs:dateTime */;
+@property (strong) EWSEmailAddressType* mailbox;
+@property (strong) NSString*            responseType      /* EWSResponseTypeType */;
+@property (strong) NSString*            lastResponseTime  /* xs:dateTime */;
 
 
 @end

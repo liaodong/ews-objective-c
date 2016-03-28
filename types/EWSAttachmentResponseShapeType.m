@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSAttachmentResponseShapeType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSBodyTypeResponseType.h"
+#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
 
 
 @implementation EWSAttachmentResponseShapeType 

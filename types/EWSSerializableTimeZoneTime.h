@@ -3,11 +3,6 @@
 
 
 
-#import "../handlers/EWSIntegerTypeHandler.h"
-#import "../handlers/EWSShortTypeHandler.h"
-#import "../handlers/EWSStringTypeHandler.h"
-#import "../types/EWSDayOfWeekType.h"
-
 
 
 /* SerializableTimeZoneTime */
@@ -19,12 +14,12 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber* bias       /* xs:int */;
-@property (retain) NSString* time       /* xs:string */;
-@property (retain) NSNumber* dayOrder   /* xs:short */;
-@property (retain) NSNumber* month      /* xs:short */;
-@property (retain) NSString* dayOfWeek  /* EWSDayOfWeekType */;
-@property (retain) NSString* year       /* xs:string */;
+@property (strong) NSNumber* bias       /* xs:int */;
+@property (strong) NSString* time       /* xs:string */;
+@property (strong) NSNumber* dayOrder   /* xs:short */;
+@property (strong) NSNumber* month      /* xs:short */;
+@property (strong) NSString* dayOfWeek  /* EWSDayOfWeekType */;
+@property (strong) NSString* year       /* xs:string */;
 
 
 @end

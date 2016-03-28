@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSMimeContentType.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSMimeContentType 

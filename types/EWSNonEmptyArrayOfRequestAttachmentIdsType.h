@@ -2,7 +2,7 @@
 
 
 
-
+@class EWSRequestAttachmentIdType;
 
 
 
@@ -15,6 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSRequestAttachmentIdType* attachmentId;
 
 
 @end

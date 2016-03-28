@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBaseGroupByType.h"
+#import "../types/EWSSortDirectionType.h"
 
 
 @implementation EWSBaseGroupByType 

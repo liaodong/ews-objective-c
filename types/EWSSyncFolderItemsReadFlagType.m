@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSyncFolderItemsReadFlagType.h"
+#import "../handlers/EWSBooleanTypeHandler.h"
+#import "../types/EWSItemIdType.h"
 
 
 @implementation EWSSyncFolderItemsReadFlagType 

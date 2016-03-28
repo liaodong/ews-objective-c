@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSExistsType.h"
+#import "../types/EWSBasePathToElementType.h"
 
 
 @implementation EWSExistsType 

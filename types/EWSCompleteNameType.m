@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCompleteNameType.h"
+#import "../handlers/EWSStringTypeHandler.h"
 
 
 @implementation EWSCompleteNameType 

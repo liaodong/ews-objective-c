@@ -5,7 +5,6 @@
 
 
 
-
 /* BaseFolderIdType */
 @interface EWSBaseFolderIdType : NSObject
 

@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFindItemType.h"
+#import "../types/EWSItemQueryTraversalType.h"
+#import "../types/EWSItemResponseShapeType.h"
+#import "../types/EWSNonEmptyArrayOfBaseFolderIdsType.h"
+#import "../types/EWSNonEmptyArrayOfFieldOrdersType.h"
+#import "../types/EWSRestrictionType.h"
 
 
 @implementation EWSFindItemType 

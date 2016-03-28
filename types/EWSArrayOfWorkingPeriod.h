@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSWorkingPeriod.h"
+@class EWSWorkingPeriod;
 
 
 
 /* ArrayOfWorkingPeriod */
-@interface EWSArrayOfWorkingPeriod : EWSArrayTypeHandler
+@interface EWSArrayOfWorkingPeriod : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSWorkingPeriod*>* workingPeriod;
+
+
+- (void) addWorkingPeriod:(EWSWorkingPeriod*) elem;
 @end
 

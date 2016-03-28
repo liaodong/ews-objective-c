@@ -2,9 +2,8 @@
 
 
 
-
-#import "../types/EWSArrayOfPermissionsType.h"
-#import "../types/EWSArrayOfUnknownEntriesType.h"
+@class EWSArrayOfPermissionsType;
+@class EWSArrayOfUnknownEntriesType;
 
 
 
@@ -17,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSArrayOfPermissionsType*    permissions;
-@property (retain) EWSArrayOfUnknownEntriesType* unknownEntries;
+@property (strong) EWSArrayOfPermissionsType*    permissions;
+@property (strong) EWSArrayOfUnknownEntriesType* unknownEntries;
 
 
 @end

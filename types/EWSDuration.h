@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSDateTimeTypeHandler.h"
-
 
 
 /* Duration */
@@ -16,8 +14,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* startTime  /* xs:dateTime */;
-@property (retain) NSString* endTime    /* xs:dateTime */;
+@property (strong) NSString* startTime  /* xs:dateTime */;
+@property (strong) NSString* endTime    /* xs:dateTime */;
 
 
 @end

@@ -3,6 +3,9 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSuggestionDayResult.h"
+#import "../handlers/EWSDateTimeTypeHandler.h"
+#import "../types/EWSArrayOfSuggestion.h"
+#import "../types/EWSSuggestionQuality.h"
 
 
 @implementation EWSSuggestionDayResult 

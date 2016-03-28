@@ -3,8 +3,6 @@
 
 
 
-#import "../handlers/EWSStringTypeHandler.h"
-
 
 
 /* EmailAddress */
@@ -16,9 +14,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* name         /* xs:string */;
-@property (retain) NSString* address      /* xs:string */;
-@property (retain) NSString* routingType  /* xs:string */;
+@property (strong) NSString* name         /* xs:string */;
+@property (strong) NSString* address      /* xs:string */;
+@property (strong) NSString* routingType  /* xs:string */;
 
 
 @end

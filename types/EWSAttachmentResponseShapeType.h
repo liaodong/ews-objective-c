@@ -2,10 +2,7 @@
 
 
 
-
-#import "../handlers/EWSBooleanTypeHandler.h"
-#import "../types/EWSBodyTypeResponseType.h"
-#import "../types/EWSNonEmptyArrayOfPathsToElementType.h"
+@class EWSNonEmptyArrayOfPathsToElementType;
 
 
 
@@ -18,9 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSNumber*                             includeMimeContent    /* xs:boolean */;
-@property (retain) NSString*                             bodyType              /* EWSBodyTypeResponseType */;
-@property (retain) EWSNonEmptyArrayOfPathsToElementType* additionalProperties;
+@property (strong) NSNumber*                             includeMimeContent    /* xs:boolean */;
+@property (strong) NSString*                             bodyType              /* EWSBodyTypeResponseType */;
+@property (strong) EWSNonEmptyArrayOfPathsToElementType* additionalProperties;
 
 
 @end

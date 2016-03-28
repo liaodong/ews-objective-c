@@ -2,7 +2,9 @@
 
 
 
-
+@class EWSItemIdType;
+@class EWSOccurrenceItemIdType;
+@class EWSRecurringMasterItemIdType;
 
 
 
@@ -15,6 +17,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) EWSItemIdType*                itemId;
+@property (strong) EWSOccurrenceItemIdType*      occurrenceItemId;
+@property (strong) EWSRecurringMasterItemIdType* recurringMasterItemId;
 
 
 @end

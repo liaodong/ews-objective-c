@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSFractionalPageViewType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
 
 
 @implementation EWSFractionalPageViewType 

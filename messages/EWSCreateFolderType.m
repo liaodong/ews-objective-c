@@ -3,6 +3,8 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSCreateFolderType.h"
+#import "../types/EWSNonEmptyArrayOfFoldersType.h"
+#import "../types/EWSTargetFolderIdType.h"
 
 
 @implementation EWSCreateFolderType 

@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
 #import "EWSBasePagingType.h"
+
+
+
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* initialName  /* xs:string */;
-@property (retain) NSString* finalName    /* xs:string */;
+@property (strong) NSString* initialName  /* xs:string */;
+@property (strong) NSString* finalName    /* xs:string */;
 
 
 @end

@@ -5,7 +5,6 @@
 
 
 
-
 /* BaseRequestType */
 @interface EWSBaseRequestType : NSObject
 

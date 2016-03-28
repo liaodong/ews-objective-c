@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSDeliverMeetingRequestsType.h"
 #import "EWSBaseDelegateResponseMessageType.h"
+
+
+
 
 
 
@@ -17,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* deliverMeetingRequests  /* EWSDeliverMeetingRequestsType */;
+@property (strong) NSString* deliverMeetingRequests  /* EWSDeliverMeetingRequestsType */;
 
 
 @end

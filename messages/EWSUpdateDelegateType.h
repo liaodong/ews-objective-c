@@ -1,11 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSArrayOfDelegateUserType.h"
-#import "../types/EWSDeliverMeetingRequestsType.h"
 #import "EWSBaseDelegateType.h"
+
+
+
+@class EWSArrayOfDelegateUserType;
 
 
 
@@ -18,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSArray<EWSDelegateUserType*>* delegateUsers           /* EWSArrayOfDelegateUserType */;
-@property (retain) NSString*                      deliverMeetingRequests  /* EWSDeliverMeetingRequestsType */;
+@property (strong) EWSArrayOfDelegateUserType* delegateUsers;
+@property (strong) NSString*                   deliverMeetingRequests  /* EWSDeliverMeetingRequestsType */;
 
 
 @end

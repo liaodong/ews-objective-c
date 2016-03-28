@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSPathToExceptionFieldType.h"
+#import "../types/EWSExceptionPropertyURIType.h"
 
 
 @implementation EWSPathToExceptionFieldType 

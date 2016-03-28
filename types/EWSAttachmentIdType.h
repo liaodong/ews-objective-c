@@ -1,10 +1,8 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../handlers/EWSStringTypeHandler.h"
 #import "EWSRequestAttachmentIdType.h"
+
+
+
 
 
 
@@ -17,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* rootItemId         /* xs:string */;
-@property (retain) NSString* rootItemChangeKey  /* xs:string */;
+@property (strong) NSString* rootItemId         /* xs:string */;
+@property (strong) NSString* rootItemChangeKey  /* xs:string */;
 
 
 @end

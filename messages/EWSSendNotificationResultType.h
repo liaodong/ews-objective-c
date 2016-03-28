@@ -3,8 +3,6 @@
 
 
 
-#import "../types/EWSSubscriptionStatusType.h"
-
 
 
 /* SendNotificationResultType */
@@ -16,7 +14,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString* subscriptionStatus  /* EWSSubscriptionStatusType */;
+@property (strong) NSString* subscriptionStatus  /* EWSSubscriptionStatusType */;
 
 
 @end

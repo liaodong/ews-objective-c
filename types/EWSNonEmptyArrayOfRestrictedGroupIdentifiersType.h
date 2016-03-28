@@ -2,17 +2,22 @@
 
 
 
-
-#import "../handlers/EWSArrayTypeHandler.h"
-#import "../types/EWSSidAndAttributesType.h"
+@class EWSSidAndAttributesType;
 
 
 
 /* NonEmptyArrayOfRestrictedGroupIdentifiersType */
-@interface EWSNonEmptyArrayOfRestrictedGroupIdentifiersType : EWSArrayTypeHandler
+@interface EWSNonEmptyArrayOfRestrictedGroupIdentifiersType : NSObject
 
 + (void) initialize;
 
 - (id) init;
+- (Class) handlerClass;
+- (NSString*) description;
+
+@property (strong) NSMutableArray<EWSSidAndAttributesType*>* restrictedGroupIdentifier;
+
+
+- (void) addRestrictedGroupIdentifier:(EWSSidAndAttributesType*) elem;
 @end
 

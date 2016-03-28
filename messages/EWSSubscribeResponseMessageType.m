@@ -3,6 +3,12 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSSubscribeResponseMessageType.h"
+#import "../handlers/EWSIntegerTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../messages/EWSResponseCodeType.h"
+#import "../types/EWSResponseClassType.h"
+#import "../types/EWSSubscriptionIdType.h"
+#import "../types/EWSWatermarkType.h"
 
 
 @implementation EWSSubscribeResponseMessageType 

@@ -2,8 +2,7 @@
 
 
 
-
-#import "../types/EWSPathToExtendedFieldType.h"
+@class EWSPathToExtendedFieldType;
 
 
 
@@ -16,7 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) EWSPathToExtendedFieldType* extendedFieldURI;
+@property (strong) EWSPathToExtendedFieldType* extendedFieldURI;
 
 
 @end

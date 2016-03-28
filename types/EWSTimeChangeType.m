@@ -3,6 +3,11 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSTimeChangeType.h"
+#import "../handlers/EWSDateTypeHandler.h"
+#import "../handlers/EWSDurationTypeHandler.h"
+#import "../handlers/EWSStringTypeHandler.h"
+#import "../handlers/EWSTimeTypeHandler.h"
+#import "../types/EWSRelativeYearlyRecurrencePatternType.h"
 
 
 @implementation EWSTimeChangeType 

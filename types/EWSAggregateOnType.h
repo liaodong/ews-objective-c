@@ -2,7 +2,9 @@
 
 
 
-
+@class EWSPathToExtendedFieldType;
+@class EWSPathToIndexedFieldType;
+@class EWSPathToUnindexedFieldType;
 
 
 
@@ -15,6 +17,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) NSString*                    aggregate         /* EWSAggregateType */;
+@property (strong) EWSPathToUnindexedFieldType* fieldURI;
+@property (strong) EWSPathToIndexedFieldType*   indexedFieldURI;
+@property (strong) EWSPathToExtendedFieldType*  extendedFieldURI;
 
 
 @end

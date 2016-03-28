@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSBodyType.h"
+#import "../types/EWSBodyTypeType.h"
 
 
 @implementation EWSBodyType 

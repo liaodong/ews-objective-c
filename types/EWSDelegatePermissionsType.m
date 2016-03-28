@@ -3,6 +3,7 @@
 #import "../handlers/EWSObjectTypeHandler.h"
 
 #import "EWSDelegatePermissionsType.h"
+#import "../types/EWSDelegateFolderPermissionLevelType.h"
 
 
 @implementation EWSDelegatePermissionsType 

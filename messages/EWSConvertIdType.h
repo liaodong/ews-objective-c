@@ -1,11 +1,9 @@
 #import <Foundation/Foundation.h>
-
-
-
-
-#import "../types/EWSIdFormatType.h"
-#import "../types/EWSNonEmptyArrayOfAlternateIdsType.h"
 #import "EWSBaseRequestType.h"
+
+
+
+@class EWSNonEmptyArrayOfAlternateIdsType;
 
 
 
@@ -18,8 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (retain) NSString*                           destinationFormat  /* EWSIdFormatType */;
-@property (retain) EWSNonEmptyArrayOfAlternateIdsType* sourceIds;
+@property (strong) NSString*                           destinationFormat  /* EWSIdFormatType */;
+@property (strong) EWSNonEmptyArrayOfAlternateIdsType* sourceIds;
 
 
 @end
