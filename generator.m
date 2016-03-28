@@ -25,7 +25,7 @@ static NSMutableArray* array;
 
 - (NSString*) headerFile
 {
-    NSString * r = [self ns] == 't' ? @"../types/EWS" : @"../messages/EWS";
+    NSString * r = [self ns] == 't' ? @"../types/MPSEWS" : @"../messages/MPSEWS";
     return [[r stringByAppendingString:[self name]] stringByAppendingString:@".h"];
 }
 
@@ -160,7 +160,7 @@ static NSMutableArray* array;
     return result;
 }
 
-static const char* prefix = "EWS";
+static const char* prefix = "MPSEWS";
 
 - (void) patternString:(Element*) elem
 {
@@ -781,10 +781,10 @@ static const char* prefix = "EWS";
 - (NSString*) trimTypeName:(NSString*)s
 {
     if ([s hasPrefix:@"t:"]) {
-        return [s stringByReplacingOccurrencesOfString:@"t:" withString:@"EWS"];
+        return [s stringByReplacingOccurrencesOfString:@"t:" withString:@"MPSEWS"];
     }
     if ([s hasPrefix:@"m:"]) {
-        return [s stringByReplacingOccurrencesOfString:@"m:" withString:@"EWS"];
+        return [s stringByReplacingOccurrencesOfString:@"m:" withString:@"MPSEWS"];
     }
     return s;
 }
@@ -855,7 +855,7 @@ static const char* prefix = "EWS";
     fprintf (file, "@interface %s%s : %s\n\n", prefix, name, [base UTF8String]);
 
 
-    [elem setResultType:[@"EWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
+    [elem setResultType:[@"MPSEWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
    
     fprintf (file, "+ (void) initialize;\n\n");
 
@@ -1187,21 +1187,21 @@ static const char* prefix = "EWS";
 {
     if ([nm hasPrefix:@"xs:"] || [nm hasPrefix:@"xml:"])
     {
-        if ([nm isEqual:@"xs:string"])        return @"../handlers/EWSStringTypeHandler.h";
-        if ([nm isEqual:@"xs:int"])           return @"../handlers/EWSIntegerTypeHandler.h";
-        if ([nm isEqual:@"xs:boolean"])       return @"../handlers/EWSBooleanTypeHandler.h";
-        if ([nm isEqual:@"xs:dateTime"])      return @"../handlers/EWSDateTimeTypeHandler.h";
-        if ([nm isEqual:@"xs:date"])          return @"../handlers/EWSDateTypeHandler.h";
-        if ([nm isEqual:@"xs:anyURI"])        return @"../handlers/EWSAnyUriTypeHandler.h";
-        if ([nm isEqual:@"xs:base64Binary"])  return @"../handlers/EWSBase64BinaryTypeHandler.h";
-        if ([nm isEqual:@"xs:double"])        return @"../handlers/EWSDoubleTypeHandler.h";
-        if ([nm isEqual:@"xs:duration"])      return @"../handlers/EWSDurationTypeHandler.h";
-        if ([nm isEqual:@"xs:language"])      return @"../handlers/EWSLanguageTypeHandler.h";
-        if ([nm isEqual:@"xml:lang"])         return @"../handlers/EWSXmlLanguageTypeHandler.h";
-        if ([nm isEqual:@"xs:short"])         return @"../handlers/EWSShortTypeHandler.h";
-        if ([nm isEqual:@"xs:time"])          return @"../handlers/EWSTimeTypeHandler.h";
-        if ([nm isEqual:@"xs:unsignedInt"])   return @"../handlers/EWSUnsignedIntTypeHandler.h";
-        if ([nm isEqual:@"xs:unsignedShort"]) return @"../handlers/EWSUnsignedShortTypeHandler.h";
+        if ([nm isEqual:@"xs:string"])        return @"../handlers/MPSEWSStringTypeHandler.h";
+        if ([nm isEqual:@"xs:int"])           return @"../handlers/MPSEWSIntegerTypeHandler.h";
+        if ([nm isEqual:@"xs:boolean"])       return @"../handlers/MPSEWSBooleanTypeHandler.h";
+        if ([nm isEqual:@"xs:dateTime"])      return @"../handlers/MPSEWSDateTimeTypeHandler.h";
+        if ([nm isEqual:@"xs:date"])          return @"../handlers/MPSEWSDateTypeHandler.h";
+        if ([nm isEqual:@"xs:anyURI"])        return @"../handlers/MPSEWSAnyUriTypeHandler.h";
+        if ([nm isEqual:@"xs:base64Binary"])  return @"../handlers/MPSEWSBase64BinaryTypeHandler.h";
+        if ([nm isEqual:@"xs:double"])        return @"../handlers/MPSEWSDoubleTypeHandler.h";
+        if ([nm isEqual:@"xs:duration"])      return @"../handlers/MPSEWSDurationTypeHandler.h";
+        if ([nm isEqual:@"xs:language"])      return @"../handlers/MPSEWSLanguageTypeHandler.h";
+        if ([nm isEqual:@"xml:lang"])         return @"../handlers/MPSEWSXmlLanguageTypeHandler.h";
+        if ([nm isEqual:@"xs:short"])         return @"../handlers/MPSEWSShortTypeHandler.h";
+        if ([nm isEqual:@"xs:time"])          return @"../handlers/MPSEWSTimeTypeHandler.h";
+        if ([nm isEqual:@"xs:unsignedInt"])   return @"../handlers/MPSEWSUnsignedIntTypeHandler.h";
+        if ([nm isEqual:@"xs:unsignedShort"]) return @"../handlers/MPSEWSUnsignedShortTypeHandler.h";
 
         NSLog(@"Unknown type %@", nm);
         NSAssert(NO, @"Unknown type");
@@ -1295,7 +1295,7 @@ static const char* prefix = "EWS";
 
             if (type)
             {
-                NSString* cls = [NSString stringWithFormat:@"EWS%@", [type name]];
+                NSString* cls = [NSString stringWithFormat:@"MPSEWS%@", [type name]];
 
                 if ([type ns] == 't')
                     fprintf (stdout, "#import \"../types/%s.h\"\n", [cls UTF8String]);
@@ -1314,9 +1314,9 @@ static const char* prefix = "EWS";
             if (type)
             {
                 NSString* tag = [NSString stringWithFormat:@"%c:%@", [elem ns], [elem name]];
-                NSString* cls = [NSString stringWithFormat:@"EWS%@", [type name]];
+                NSString* cls = [NSString stringWithFormat:@"MPSEWS%@", [type name]];
 
-                fprintf (stdout, "    [EWSDocumentHandler handleTag:@\"%s\" withHandlerClass:[%s class]];\n", [tag UTF8String], [cls UTF8String]);
+                fprintf (stdout, "    [MPSEWSDocumentHandler handleTag:@\"%s\" withHandlerClass:[%s class]];\n", [tag UTF8String], [cls UTF8String]);
             }
             else NSLog(@"Undefined element %@", elem);
         }
@@ -1404,11 +1404,11 @@ static const char* prefix = "EWS";
 
             if ([[extension base] isEqual:@"xs:string"])
             {
-                return @"EWSStringType";
+                return @"MPSEWSStringType";
             }
             if ([[extension base] isEqual:@"xs:base64Binary"])
             {
-                return @"EWSBase64BinaryType";
+                return @"MPSEWSBase64BinaryType";
             }
             NSAssert (NO, @"base extension can be string or base64Binary");
         }
@@ -1436,11 +1436,11 @@ static const char* prefix = "EWS";
 
             if ([[extension base] isEqual:@"xs:string"])
             {
-                return @"EWSStringTypeHandler";
+                return @"MPSEWSStringTypeHandler";
             }
             if ([[extension base] isEqual:@"xs:base64Binary"])
             {
-                return @"EWSBase64BinaryTypeHandler";
+                return @"MPSEWSBase64BinaryTypeHandler";
             }
             NSAssert (NO, @"base extension can be string or base64Binary");
         }
@@ -1704,7 +1704,7 @@ static const char* prefix = "EWS";
     NSArray* s_elements   = base ? [self elements:base   getSuper:TRUE] : [[NSArray alloc] init];
 
 
-    [elem setResultType:[@"EWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
+    [elem setResultType:[@"MPSEWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
 
     if ([self allResolved:attributes] &&
         [self allResolved:elements]   &&

@@ -1,0 +1,22 @@
+#import <Foundation/Foundation.h>
+
+@protocol MPSEWSHandlerProtocol <NSObject>
+
+/** Object construction from XML document */
+- (id) constructWithAttributes: (NSDictionary *)attributes;
+
+/** Handling of characters in the XML document. */
+- (id) updateObject:(id)obj withCharacters:(NSString*)s;
+
+/** Handling of subelements */
+- (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char) ns  withValue:(id)v;
+
+/** The handler for a sub tag. */
+- (id<MPSEWSHandlerProtocol>) handlerForElement:(NSString*) elementName namespace:(char) ns;
+
+
+/** XML String generation from Object representation, indent should be nil for compact representation */
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
+
+@end
+

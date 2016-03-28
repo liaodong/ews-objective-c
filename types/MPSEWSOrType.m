@@ -1,0 +1,40 @@
+#import <Foundation/Foundation.h>
+
+#import "../handlers/MPSEWSObjectTypeHandler.h"
+
+#import "MPSEWSOrType.h"
+#import "../types/MPSEWSSearchExpressionType.h"
+
+
+@implementation MPSEWSOrType 
+
++ (void) initialize
+{
+    MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSOrType class]];
+
+    [handler property      : @"searchExpression"
+             isRequired    : TRUE
+             withNamespace : 't'
+             withXmlTag    : @"SearchExpression"
+             withHandler   : [MPSEWSSearchExpressionType class]];
+
+    [handler register];
+}
+
+- (id) init
+{
+    return [super init];
+}
+
+- (Class) handlerClass
+{
+    return [MPSEWSOrType class];
+}
+
+- (NSString*) description
+{
+    return [NSString stringWithFormat:@"OrType: super=%@", [super description]];
+}
+
+@end
+
