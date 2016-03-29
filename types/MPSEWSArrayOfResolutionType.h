@@ -23,5 +23,6 @@
 @property (strong) NSMutableArray<MPSEWSResolutionType*>* resolution;
 
 
+- (void) addResolution:(MPSEWSResolutionType*) elem;
 @end
 

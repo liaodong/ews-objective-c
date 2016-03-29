@@ -64,5 +64,13 @@
     return [NSString stringWithFormat:@"ArrayOfResolutionType: IndexedPagingOffset=%@ NumeratorOffset=%@ AbsoluteDenominator=%@ IncludesLastItemInRange=%@ TotalItemsInView=%@ Resolution=%@", _indexedPagingOffset, _numeratorOffset, _absoluteDenominator, _includesLastItemInRange, _totalItemsInView, _resolution];
 }
 
+- (void) addResolution:(MPSEWSResolutionType*) elem
+{
+    if (![self resolution]) {
+        [self setResolution:[[NSMutableArray<MPSEWSResolutionType*> alloc] init]];
+    }
+    [_resolution addObject:elem];
+}
+
 @end
 

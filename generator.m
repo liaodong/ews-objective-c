@@ -41,10 +41,12 @@
 @interface ExclusiveOrPredicate : ListPredicate
 {}
 -(id) init;
+-(void) canHaveAllNull;
 @end
 @implementation ExclusiveOrPredicate
 {}
 -(id) init { return self = [super init]; }
+-(void) canHaveAllNull {}
 @end
 @interface AndPredicate : ListPredicate
 {}
@@ -80,6 +82,20 @@
 - (id) initWithElement:(Element*) e;
 @end
 @implementation NotEmptyPredicate
+- (id) initWithElement:(Element*) e { return self = [super initWithElement:e]; }
+@end
+@interface IsValidPredicate : ElementPredicate
+{}
+- (id) initWithElement:(Element*) e;
+@end
+@implementation IsValidPredicate
+- (id) initWithElement:(Element*) e { return self = [super initWithElement:e]; }
+@end
+@interface IsValidArrayPredicate : ElementPredicate
+{}
+- (id) initWithElement:(Element*) e;
+@end
+@implementation IsValidArrayPredicate
 - (id) initWithElement:(Element*) e { return self = [super initWithElement:e]; }
 @end
 
@@ -922,6 +938,8 @@ static const char* prefix = "MPSEWS";
            simpleContentHandlerClass:(NSString*) contentHandlerClass
 {
     NSLog(@"Generating struct for %@", [elem name]);
+    [self validation:elem];
+
     const char* name = [[elem name] UTF8String];
     const char* dir  = [elem ns] == 't' ? "types" : "messages";
 
@@ -1255,6 +1273,14 @@ static const char* prefix = "MPSEWS";
     }
 }
 
+- (void) preprocess
+{
+    for (Element* elem in [current children])
+    {
+        [self preprocessElement:elem];
+    }
+}
+
 - (NSString*) objectType:(NSString*)nm
 {
     if ([nm hasPrefix:@"xs:"] || [nm hasPrefix:@"xml:"])
@@ -1378,6 +1404,7 @@ static const char* prefix = "MPSEWS";
 - (void) generate
 {
     [self generateForSimpleType];
+    [self preprocess];
 
     while (TRUE)
     {
@@ -1444,6 +1471,28 @@ static const char* prefix = "MPSEWS";
     return nil;
 }
 
+- (ExclusiveOrPredicate*) validationFromGroup:(NSString*)name
+{
+    ExclusiveOrPredicate* xor = [[ExclusiveOrPredicate alloc] init];
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"group"])
+        {
+            if ([name isEqual:[elem qname]])
+            {
+                for (Element* e in  [[[[[elem children] objectAtIndex:0] children] objectAtIndex:0] children])
+                {
+                    [xor addObject:[[NotNullPredicate alloc] initWithElement:e]];
+                }
+                return xor;
+            }
+        }
+    }
+    NSAssert(NO, @"group not found");
+    return xor;
+}
+
+
 - (NSMutableArray*) elementsFromGroup:(NSString*)name
 {
     for (Element* elem in [current children])
@@ -1463,6 +1512,7 @@ static const char* prefix = "MPSEWS";
             }
         }
     }
+    NSLog (@"Group name is %@", name);
     NSAssert(NO, @"group not found");
     return nil;
 }
@@ -1643,22 +1693,12 @@ static const char* prefix = "MPSEWS";
             }
 
             NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
-
             NSAssert ([extension base], @"extension should have base spec");
 
             if (r) {
                 [result addObjectsFromArray:[self attributes:[self complexTypeElement:[extension base]] getSuper:r]];
             }
-
-            for (Element * a in [extension children]) {
-                if ([[a tagName] isEqual:@"attribute"] && [a name]) {
-                    [result addObject:a];
-                }
-                else if ([[a tagName] isEqual:@"attributeGroup"])
-                {
-                    [result addObjectsFromArray:[self attributesFromGroup:[a ref]]];
-                }
-            }
+            [result addObjectsFromArray:[self attributes:extension getSuper:r]];
             return result;
         }
         else return nil;
@@ -1679,30 +1719,151 @@ static const char* prefix = "MPSEWS";
     return nil;
 }
 
+- (void) preprocessElement:(Element*) e
+{
+    if ([[e children] count] == 0 || [[e tagName] isEqual:@"simpleType"] || [[e tagName] isEqual:@"element"])
+    {
+        return;
+    }
+    else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute"])
+    {
+        for (Element * a in [e children])
+        {
+            if ([[a tagName] isEqual:@"choice"])
+            {
+                NSAssert ([self forElement:a areChildren:@"element"], @"can have onlt elements");
+
+                BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"]));
+                BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
+
+                if (isArray)
+                {
+                    for (Element *x in [a children])  {
+                        [x setMaxOccurs:@"unbounded"];
+                    }
+                }
+                if (isEmpty) {
+                    for (Element *x in [a children])  {
+                        [x setMinOccurs:@"0"];
+                    }
+                }
+            }
+            else if ([[a tagName] isEqual:@"sequence"])
+            {
+                for (Element * x in [a children])
+                {
+                    if ([[ x tagName] isEqual:@"element"])
+                    {
+                        BOOL isArray = ([x maxOccurs] && ([[x maxOccurs] isEqual:@"unbounded"] || [[x maxOccurs] isEqual:@"100"]));
+                        if (isArray) {
+                            [x setMaxOccurs:@"unbounded"];
+                        }
+                    }
+                    else if ([[x tagName] isEqual:@"choice"])
+                    {
+                        NSAssert ([self forElement:x areChildren:@"element"], @"can have onlt elements");
+
+                        BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"]));
+                        BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
+                        if (isArray)
+                        {
+                            for (Element *y in [x children])  {
+                                [y setMaxOccurs:@"unbounded"];
+                            }
+                        }
+                        if (isEmpty) {
+                            for (Element *y in [x children])  {
+                                [y setMinOccurs:@"0"];
+                            }
+                        }
+                    }
+                    else if ([[x tagName] isEqual:@"sequence"])
+                    {
+                        NSAssert ([self forElement:x areChildren:@"element"], @"can have onlt elements");
+                        BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
+
+                        if (isEmpty) {
+                            for (Element *y in [x children])  {
+                                [y setMinOccurs:@"0"];
+                            }
+                        }
+                    }
+                    else if ([[x tagName] isEqual:@"group"])
+                    {
+                    }
+                    else {
+                        NSLog(@"%@", [x tagName]);
+                        NSAssert (false, @"unknow type expecting element/choice/group");
+                    }
+                }
+            }
+        }
+    }
+    else if ([self forElement:e areChildren:@"complexContent"])
+    {
+        Element* complexContent = [[e children] objectAtIndex:0];
+        NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
+        NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
+
+        Element* extension = [[complexContent children] objectAtIndex:0];
+
+        if ([[extension tagName] isEqual:@"restriction"])
+        {
+            return;
+        }
+        NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+        NSAssert ([extension base], @"extension should have base spec");
+
+        if ([[extension children] count] == 0) {
+            return;
+        }
+        NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
+        [self preprocessElement:extension];
+        return;
+    }
+    else if ([self forElement:e areChildren:@"simpleContent"])
+    {
+    }
+    else
+    {
+        NSLog (@"Fix me %@", e);
+        NSAssert (false, @"what?");
+    }
+}
+
 - (AndPredicate*) validation:(Element*)e
 {
     AndPredicate* result = [[AndPredicate alloc] init];
-
-    //Element* e = [self complexTypeElement:elem];
-    if (e)
-    {
         if ([[e children] count] == 0)
         {
             return result;
         }
-        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice"])
+        else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute"])
         {
+            for (Element* x in [self elements:e getSuper:FALSE])
+            {
+                BOOL isArray = ([x maxOccurs] && ([[x maxOccurs] isEqual:@"unbounded"] || [[x maxOccurs] isEqual:@"100"]));
+                if (isArray)
+                    [result addObject:[[IsValidArrayPredicate alloc] initWithElement:x]];
+                else
+                    [result addObject:[[IsValidPredicate alloc] initWithElement:x]];
+            }
+            for (Element* x in [self attributes:e getSuper:FALSE])
+            {
+                [result addObject:[[IsValidPredicate alloc] initWithElement:x]];
+            }
             for (Element * a in [e children])
             {
-                if ([[a tagName] isEqual:@"choice"]) {
-                    BOOL isArray = ([a maxOccurs] && [[a maxOccurs] isEqual:@"unbounded"]);
+                if ([[a tagName] isEqual:@"choice"])
+                {
+                    BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"]));
+                    BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
 
                     int elements = [[a children] count];
 
-                    if (![a minOccurs] || ![[a minOccurs] isEqual:@"0"])
+                    if (elements == 1)
                     {
-                        if (elements == 1)
-                        {
+                        if (!isEmpty) {
                             for (Element *x in [a children]) {
                                 if (isArray)
                                     [result addObject:[[NotEmptyPredicate alloc] initWithElement:x]];
@@ -1710,8 +1871,10 @@ static const char* prefix = "MPSEWS";
                                     [result addObject:[[NotNullPredicate alloc] initWithElement:x]];
                             }
                         }
-                        else 
-                        {
+                    }
+                    else if (elements > 1)
+                    {
+                        if (isArray && !isEmpty) {
                             OrPredicate* or = [[OrPredicate alloc] init];
                             for (Element *x in [a children]) {
                                 if (isArray)
@@ -1721,44 +1884,104 @@ static const char* prefix = "MPSEWS";
                             }
                             [result addObject:or];
                         }
-                    }
-
-                    if (elements > 1) 
-                    {
-                        if (![a maxOccurs] || [[a maxOccurs] isEqual:@"1"])
-                        {
+                        else {
                             ExclusiveOrPredicate* xor = [[ExclusiveOrPredicate alloc] init];
                             for (Element * x in [a children])
                             {
                                 [xor addObject:[[NotNullPredicate alloc] initWithElement:x]];
                             }
+                            if (isEmpty) {
+                                [xor canHaveAllNull];
+                            }
                         }
                     }
                 }
-                /*
-                if ([[a tagName] isEqual:@"sequence"]) {
+                else if ([[a tagName] isEqual:@"sequence"])
+                {
                     for (Element * x in [a children])
                     {
-                        if ([[x tagName] isEqual:@"element"])
+                        if ([[ x tagName] isEqual:@"element"])
                         {
-                            [result addObject:[self resolved:x]];
+                            BOOL isArray = ([x maxOccurs] && ([[x maxOccurs] isEqual:@"unbounded"] || [[x maxOccurs] isEqual:@"100"]));
+                            if (isArray)
+                                [result addObject:[[IsValidArrayPredicate alloc] initWithElement:x]];
+                            else
+                                [result addObject:[[IsValidPredicate alloc] initWithElement:x]];
+                        }
+                        else if ([[x tagName] isEqual:@"choice"])
+                        {
+                            NSAssert ([self forElement:x areChildren:@"element"], @"can have onlt elements");
+
+                            // FIX ME
+                        }
+                        else if ([[x tagName] isEqual:@"sequence"])
+                        {
+                            NSAssert ([self forElement:x areChildren:@"element"], @"can have onlt elements");
+
+                            // FIX ME
                         }
                         else if ([[x tagName] isEqual:@"group"])
                         {
-                            [result addObjectsFromArray:[self elementsFromGroup:[x ref]]];
+                            for (Element * c in [self elementsFromGroup:[x ref]])
+                            {
+                                BOOL isArray = ([c maxOccurs] && ([[c maxOccurs] isEqual:@"unbounded"] || [[c maxOccurs] isEqual:@"100"]));
+                                if (isArray)
+                                    [result addObject:[[IsValidArrayPredicate alloc] initWithElement:c]];
+                                else
+                                    [result addObject:[[IsValidPredicate alloc] initWithElement:c]];
+                            }
+                        }
+                        else {
+                            NSLog(@"%@", [x tagName]);
+                            NSAssert (false, @"unknow type expecting element/choice/group");
+                        }
+                    }
+                    for (Element * x in [a children])
+                    {
+                        if ([[ x tagName] isEqual:@"element"])
+                        {
+                            BOOL isArray = ([x maxOccurs] && ([[x maxOccurs] isEqual:@"unbounded"] || [[x maxOccurs] isEqual:@"100"]));
+                            BOOL isEmpty = [x minOccurs]  && [[x minOccurs] isEqual:@"0"];
+
+                            if (!isEmpty)
+                            {
+                                if (isArray)
+                                    [result addObject:[[NotEmptyPredicate alloc] initWithElement:x]];
+                                else
+                                    [result addObject:[[NotNullPredicate alloc] initWithElement:x]];
+                            }
+                        }
+                        else if ([[x tagName] isEqual:@"sequence"])
+                        {
+                            // FIX ME
+                        }
+                        else if ([[x tagName] isEqual:@"choice"])
+                        {
+                            // FIX ME
+                        }
+                        else if ([[x tagName] isEqual:@"group"])
+                        {
+                            if ([x minOccurs] && [[x minOccurs] isEqual:@"0"])
+                            {
+                                ExclusiveOrPredicate* or = [self validationFromGroup:[x ref]];
+                                [or canHaveAllNull];
+                                [result addObject:or];
+                            }
+                            else
+                            {
+                                [result addObject:[self validationFromGroup:[x ref]]];
+                            }
                         }
                         else 
                         {
-                            NSLog(@"%$", [x tagName]);
-                            NSAssert (false, "We have someting other than element and group");
+                            NSLog(@"%@", [x tagName]);
+                            NSAssert (false, @"We have someting other than element and group");
                         }
                     }
                 }
-                */
             }
             return result;
         }
-        /*
         else if ([self forElement:e areChildren:@"complexContent"])
         {
             Element* complexContent = [[e children] objectAtIndex:0];
@@ -1769,53 +1992,26 @@ static const char* prefix = "MPSEWS";
 
             if ([[extension tagName] isEqual:@"restriction"])
             {
-                if (r) {
-                    [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
-                }
                 return result;
             }
             NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
-
             NSAssert ([extension base], @"extension should have base spec");
 
-            if (r) {
-                [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
-            }
             if ([[extension children] count] == 0) {
                 return result;
             }
             NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
-
-            for (Element * a in [extension children]) {
-                if ([[a tagName] isEqual:@"choice"]) {
-                    for (Element * x in [a children])
-                    {
-                        NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
-                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", [e name], ++grp]];
-                        [result addObject:[self resolved:x]];
-                    }
-                }
-                if ([[a tagName] isEqual:@"sequence"]) {
-                    for (Element * x in [a children])
-                    {
-                        if ([[x tagName] isEqual:@"element"])
-                        {
-                            [result addObject:[self resolved:x]];
-                        }
-                        else if ([[x tagName] isEqual:@"group"])
-                        {
-                            [result addObjectsFromArray:[self elementsFromGroup:[x name]]];
-                        }
-                    }
-                }
-            }
+            return [self validation:extension];
+        }
+        else if ([self forElement:e areChildren:@"simpleContent"])
+        {
             return result;
         }
         else  {
-          return nil;
+            NSLog (@"Fix me %@", e);
+            NSAssert (false, @"what?");
+            return nil;
         }
-        */
-    }
     return result;
 }
 
@@ -1824,8 +2020,6 @@ static const char* prefix = "MPSEWS";
     int grp = 0;
 
     NSMutableArray* result = [[NSMutableArray alloc] init];
-
-    //Element* e = [self complexTypeElement:elem];
     if (e)
     {
         if ([[e children] count] == 0)
@@ -1893,30 +2087,8 @@ static const char* prefix = "MPSEWS";
                 return result;
             }
             NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
+            [result addObjectsFromArray:[self elements:extension getSuper:r]];
 
-            for (Element * a in [extension children]) {
-                if ([[a tagName] isEqual:@"choice"]) {
-                    for (Element * x in [a children])
-                    {
-                        NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
-                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", [e name], ++grp]];
-                        [result addObject:[self resolved:x]];
-                    }
-                }
-                if ([[a tagName] isEqual:@"sequence"]) {
-                    for (Element * x in [a children])
-                    {
-                        if ([[x tagName] isEqual:@"element"])
-                        {
-                            [result addObject:[self resolved:x]];
-                        }
-                        else if ([[x tagName] isEqual:@"group"])
-                        {
-                            [result addObjectsFromArray:[self elementsFromGroup:[x name]]];
-                        }
-                    }
-                }
-            }
             return result;
         }
         else  {
