@@ -5,6 +5,7 @@
 #import "MPSEWSMovedCopiedEventType.h"
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../types/MPSEWSFolderIdType.h"
+#import "../types/MPSEWSItemIdType.h"
 #import "../types/MPSEWSWatermarkType.h"
 
 
@@ -24,10 +25,30 @@
              withXmlTag    : @"TimeStamp"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
+    [handler property      : @"folderId"
+             withNamespace : 't'
+             withXmlTag    : @"FolderId"
+             withHandler   : [MPSEWSFolderIdType class]];
+
+    [handler property      : @"itemId"
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [MPSEWSItemIdType class]];
+
     [handler property      : @"parentFolderId"
              withNamespace : 't'
              withXmlTag    : @"ParentFolderId"
              withHandler   : [MPSEWSFolderIdType class]];
+
+    [handler property      : @"oldFolderId"
+             withNamespace : 't'
+             withXmlTag    : @"OldFolderId"
+             withHandler   : [MPSEWSFolderIdType class]];
+
+    [handler property      : @"oldItemId"
+             withNamespace : 't'
+             withXmlTag    : @"OldItemId"
+             withHandler   : [MPSEWSItemIdType class]];
 
     [handler property      : @"oldParentFolderId"
              withNamespace : 't'
@@ -49,7 +70,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"MovedCopiedEventType: OldParentFolderId=%@ super=%@", _oldParentFolderId, [super description]];
+    return [NSString stringWithFormat:@"MovedCopiedEventType: OldFolderId=%@ OldItemId=%@ OldParentFolderId=%@ super=%@", _oldFolderId, _oldItemId, _oldParentFolderId, [super description]];
 }
 
 @end

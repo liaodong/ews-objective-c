@@ -3,6 +3,8 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSExtendedPropertyType.h"
+#import "../handlers/MPSEWSStringTypeHandler.h"
+#import "../types/MPSEWSNonEmptyArrayOfPropertyValuesType.h"
 #import "../types/MPSEWSPathToExtendedFieldType.h"
 
 
@@ -16,6 +18,16 @@
              withNamespace : 't'
              withXmlTag    : @"ExtendedFieldURI"
              withHandler   : [MPSEWSPathToExtendedFieldType class]];
+
+    [handler property      : @"value"
+             withNamespace : 't'
+             withXmlTag    : @"Value"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"values"
+             withNamespace : 't'
+             withXmlTag    : @"Values"
+             withHandler   : [MPSEWSNonEmptyArrayOfPropertyValuesType class]];
 
     [handler register];
 }
@@ -32,7 +44,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ExtendedPropertyType: ExtendedFieldURI=%@", _extendedFieldURI];
+    return [NSString stringWithFormat:@"ExtendedPropertyType: ExtendedFieldURI=%@ Value=%@ Values=%@", _extendedFieldURI, _value, _values];
 }
 
 @end

@@ -4,6 +4,11 @@
 
 #import "MPSEWSAppendToFolderFieldType.h"
 #import "../types/MPSEWSBasePathToElementType.h"
+#import "../types/MPSEWSCalendarFolderType.h"
+#import "../types/MPSEWSContactsFolderType.h"
+#import "../types/MPSEWSFolderType.h"
+#import "../types/MPSEWSSearchFolderType.h"
+#import "../types/MPSEWSTasksFolderType.h"
 
 
 @implementation MPSEWSAppendToFolderFieldType 
@@ -16,6 +21,31 @@
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];
+
+    [handler property      : @"folder"
+             withNamespace : 't'
+             withXmlTag    : @"Folder"
+             withHandler   : [MPSEWSFolderType class]];
+
+    [handler property      : @"calendarFolder"
+             withNamespace : 't'
+             withXmlTag    : @"CalendarFolder"
+             withHandler   : [MPSEWSCalendarFolderType class]];
+
+    [handler property      : @"contactsFolder"
+             withNamespace : 't'
+             withXmlTag    : @"ContactsFolder"
+             withHandler   : [MPSEWSContactsFolderType class]];
+
+    [handler property      : @"searchFolder"
+             withNamespace : 't'
+             withXmlTag    : @"SearchFolder"
+             withHandler   : [MPSEWSSearchFolderType class]];
+
+    [handler property      : @"tasksFolder"
+             withNamespace : 't'
+             withXmlTag    : @"TasksFolder"
+             withHandler   : [MPSEWSTasksFolderType class]];
 
     [handler register];
 }
@@ -32,7 +62,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"AppendToFolderFieldType: super=%@", [super description]];
+    return [NSString stringWithFormat:@"AppendToFolderFieldType: Folder=%@ CalendarFolder=%@ ContactsFolder=%@ SearchFolder=%@ TasksFolder=%@ super=%@", _folder, _calendarFolder, _contactsFolder, _searchFolder, _tasksFolder, [super description]];
 }
 
 @end

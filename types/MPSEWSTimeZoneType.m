@@ -5,6 +5,7 @@
 #import "MPSEWSTimeZoneType.h"
 #import "../handlers/MPSEWSDurationTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
+#import "../types/MPSEWSTimeChangeType.h"
 
 
 @implementation MPSEWSTimeZoneType 
@@ -22,6 +23,16 @@
              withXmlTag    : @"BaseOffset"
              withHandler   : [MPSEWSDurationTypeHandler class]];
 
+    [handler property      : @"standard"
+             withNamespace : 't'
+             withXmlTag    : @"Standard"
+             withHandler   : [MPSEWSTimeChangeType class]];
+
+    [handler property      : @"daylight"
+             withNamespace : 't'
+             withXmlTag    : @"Daylight"
+             withHandler   : [MPSEWSTimeChangeType class]];
+
     [handler register];
 }
 
@@ -37,7 +48,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"TimeZoneType: TimeZoneName=%@ BaseOffset=%@", _timeZoneName, _baseOffset];
+    return [NSString stringWithFormat:@"TimeZoneType: TimeZoneName=%@ BaseOffset=%@ Standard=%@ Daylight=%@", _timeZoneName, _baseOffset, _standard, _daylight];
 }
 
 @end

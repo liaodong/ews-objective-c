@@ -3,6 +3,12 @@
 
 
 
+@class MPSEWSCalendarViewType;
+@class MPSEWSContactsViewType;
+@class MPSEWSDistinguishedGroupByType;
+@class MPSEWSFractionalPageViewType;
+@class MPSEWSGroupByType;
+@class MPSEWSIndexedPageViewType;
 @class MPSEWSItemResponseShapeType;
 @class MPSEWSNonEmptyArrayOfBaseFolderIdsType;
 @class MPSEWSNonEmptyArrayOfFieldOrdersType;
@@ -19,8 +25,14 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString*                               traversal        /* MPSEWSItemQueryTraversalType */;
+@property (strong) NSString*                               traversal               /* MPSEWSItemQueryTraversalType */;
 @property (strong) MPSEWSItemResponseShapeType*            itemShape;
+@property (strong) MPSEWSIndexedPageViewType*              indexedPageItemView;
+@property (strong) MPSEWSFractionalPageViewType*           fractionalPageItemView;
+@property (strong) MPSEWSCalendarViewType*                 calendarView;
+@property (strong) MPSEWSContactsViewType*                 contactsView;
+@property (strong) MPSEWSGroupByType*                      groupBy;
+@property (strong) MPSEWSDistinguishedGroupByType*         distinguishedGroupBy;
 @property (strong) MPSEWSRestrictionType*                  restriction;
 @property (strong) MPSEWSNonEmptyArrayOfFieldOrdersType*   sortOrder;
 @property (strong) MPSEWSNonEmptyArrayOfBaseFolderIdsType* parentFolderIds;

@@ -6,6 +6,7 @@
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../types/MPSEWSFolderIdType.h"
+#import "../types/MPSEWSItemIdType.h"
 #import "../types/MPSEWSWatermarkType.h"
 
 
@@ -24,6 +25,16 @@
              withNamespace : 't'
              withXmlTag    : @"TimeStamp"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
+
+    [handler property      : @"folderId"
+             withNamespace : 't'
+             withXmlTag    : @"FolderId"
+             withHandler   : [MPSEWSFolderIdType class]];
+
+    [handler property      : @"itemId"
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [MPSEWSItemIdType class]];
 
     [handler property      : @"parentFolderId"
              withNamespace : 't'

@@ -2,6 +2,8 @@
 
 
 
+@class MPSEWSSyncFolderHierarchyCreateOrUpdateType;
+@class MPSEWSSyncFolderHierarchyDeleteType;
 
 
 
@@ -14,7 +16,13 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) NSMutableArray<MPSEWSSyncFolderHierarchyCreateOrUpdateType*>* create;
+@property (strong) NSMutableArray<MPSEWSSyncFolderHierarchyCreateOrUpdateType*>* update;
+@property (strong) NSMutableArray<MPSEWSSyncFolderHierarchyDeleteType*>*         delete;
 
 
+- (void) addCreate:(MPSEWSSyncFolderHierarchyCreateOrUpdateType*) elem;
+- (void) addUpdate:(MPSEWSSyncFolderHierarchyCreateOrUpdateType*) elem;
+- (void) addDelete:(MPSEWSSyncFolderHierarchyDeleteType*) elem;
 @end
 

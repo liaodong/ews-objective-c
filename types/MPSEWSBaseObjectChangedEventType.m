@@ -5,6 +5,7 @@
 #import "MPSEWSBaseObjectChangedEventType.h"
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../types/MPSEWSFolderIdType.h"
+#import "../types/MPSEWSItemIdType.h"
 #import "../types/MPSEWSWatermarkType.h"
 
 
@@ -23,6 +24,16 @@
              withNamespace : 't'
              withXmlTag    : @"TimeStamp"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
+
+    [handler property      : @"folderId"
+             withNamespace : 't'
+             withXmlTag    : @"FolderId"
+             withHandler   : [MPSEWSFolderIdType class]];
+
+    [handler property      : @"itemId"
+             withNamespace : 't'
+             withXmlTag    : @"ItemId"
+             withHandler   : [MPSEWSItemIdType class]];
 
     [handler property      : @"parentFolderId"
              withNamespace : 't'
@@ -44,7 +55,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"BaseObjectChangedEventType: TimeStamp=%@ ParentFolderId=%@ super=%@", _timeStamp, _parentFolderId, [super description]];
+    return [NSString stringWithFormat:@"BaseObjectChangedEventType: TimeStamp=%@ FolderId=%@ ItemId=%@ ParentFolderId=%@ super=%@", _timeStamp, _folderId, _itemId, _parentFolderId, [super description]];
 }
 
 @end

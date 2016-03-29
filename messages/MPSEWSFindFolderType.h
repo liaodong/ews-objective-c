@@ -4,6 +4,8 @@
 
 
 @class MPSEWSFolderResponseShapeType;
+@class MPSEWSFractionalPageViewType;
+@class MPSEWSIndexedPageViewType;
 @class MPSEWSNonEmptyArrayOfBaseFolderIdsType;
 @class MPSEWSRestrictionType;
 
@@ -18,8 +20,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString*                               traversal        /* MPSEWSFolderQueryTraversalType */;
+@property (strong) NSString*                               traversal                 /* MPSEWSFolderQueryTraversalType */;
 @property (strong) MPSEWSFolderResponseShapeType*          folderShape;
+@property (strong) MPSEWSIndexedPageViewType*              indexedPageFolderView;
+@property (strong) MPSEWSFractionalPageViewType*           fractionalPageFolderView;
 @property (strong) MPSEWSRestrictionType*                  restriction;
 @property (strong) MPSEWSNonEmptyArrayOfBaseFolderIdsType* parentFolderIds;
 

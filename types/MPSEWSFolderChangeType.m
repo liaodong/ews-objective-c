@@ -3,6 +3,8 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSFolderChangeType.h"
+#import "../types/MPSEWSDistinguishedFolderIdType.h"
+#import "../types/MPSEWSFolderIdType.h"
 #import "../types/MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType.h"
 
 
@@ -11,6 +13,16 @@
 + (void) initialize
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFolderChangeType class]];
+
+    [handler property      : @"folderId"
+             withNamespace : 't'
+             withXmlTag    : @"FolderId"
+             withHandler   : [MPSEWSFolderIdType class]];
+
+    [handler property      : @"distinguishedFolderId"
+             withNamespace : 't'
+             withXmlTag    : @"DistinguishedFolderId"
+             withHandler   : [MPSEWSDistinguishedFolderIdType class]];
 
     [handler property      : @"updates"
              withNamespace : 't'
@@ -32,7 +44,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"FolderChangeType: Updates=%@", _updates];
+    return [NSString stringWithFormat:@"FolderChangeType: FolderId=%@ DistinguishedFolderId=%@ Updates=%@", _folderId, _distinguishedFolderId, _updates];
 }
 
 @end

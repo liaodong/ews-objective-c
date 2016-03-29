@@ -4,6 +4,7 @@
 
 
 @class MPSEWSFolderIdType;
+@class MPSEWSItemIdType;
 
 
 
@@ -17,6 +18,8 @@
 - (NSString*) description;
 
 @property (strong) NSString*           timeStamp       /* xs:dateTime */;
+@property (strong) MPSEWSFolderIdType* folderId;
+@property (strong) MPSEWSItemIdType*   itemId;
 @property (strong) MPSEWSFolderIdType* parentFolderId;
 
 

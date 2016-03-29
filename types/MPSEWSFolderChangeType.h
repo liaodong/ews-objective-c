@@ -2,6 +2,8 @@
 
 
 
+@class MPSEWSDistinguishedFolderIdType;
+@class MPSEWSFolderIdType;
 @class MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType;
 
 
@@ -15,6 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) MPSEWSFolderIdType*                                folderId;
+@property (strong) MPSEWSDistinguishedFolderIdType*                   distinguishedFolderId;
 @property (strong) MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType* updates;
 
 

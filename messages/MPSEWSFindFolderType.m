@@ -5,6 +5,8 @@
 #import "MPSEWSFindFolderType.h"
 #import "../types/MPSEWSFolderQueryTraversalType.h"
 #import "../types/MPSEWSFolderResponseShapeType.h"
+#import "../types/MPSEWSFractionalPageViewType.h"
+#import "../types/MPSEWSIndexedPageViewType.h"
 #import "../types/MPSEWSNonEmptyArrayOfBaseFolderIdsType.h"
 #import "../types/MPSEWSRestrictionType.h"
 
@@ -23,6 +25,16 @@
              withNamespace : 'm'
              withXmlTag    : @"FolderShape"
              withHandler   : [MPSEWSFolderResponseShapeType class]];
+
+    [handler property      : @"indexedPageFolderView"
+             withNamespace : 'm'
+             withXmlTag    : @"IndexedPageFolderView"
+             withHandler   : [MPSEWSIndexedPageViewType class]];
+
+    [handler property      : @"fractionalPageFolderView"
+             withNamespace : 'm'
+             withXmlTag    : @"FractionalPageFolderView"
+             withHandler   : [MPSEWSFractionalPageViewType class]];
 
     [handler property      : @"restriction"
              withNamespace : 'm'
@@ -49,7 +61,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"FindFolderType: Traversal=%@ FolderShape=%@ Restriction=%@ ParentFolderIds=%@ super=%@", _traversal, _folderShape, _restriction, _parentFolderIds, [super description]];
+    return [NSString stringWithFormat:@"FindFolderType: Traversal=%@ FolderShape=%@ IndexedPageFolderView=%@ FractionalPageFolderView=%@ Restriction=%@ ParentFolderIds=%@ super=%@", _traversal, _folderShape, _indexedPageFolderView, _fractionalPageFolderView, _restriction, _parentFolderIds, [super description]];
 }
 
 @end

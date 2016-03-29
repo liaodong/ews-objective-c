@@ -1486,6 +1486,23 @@ static const char* prefix = "MPSEWS";
     return xor;
 }
 
+- (Element*) referencedElement:(NSString*) name
+{
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"element"])
+        {
+            if ([name isEqual:[elem qname]])
+            {
+                return elem;
+            }
+        }
+    }
+    NSLog (@"Element name is %@", name);
+    NSAssert(NO, @"element not found");
+    return nil;
+}
+
 
 - (NSMutableArray*) elementsFromGroup:(NSString*)name
 {
@@ -1757,8 +1774,8 @@ static const char* prefix = "MPSEWS";
                     {
                         NSAssert ([self forElement:x areChildren:@"element"], @"can have onlt elements");
 
-                        BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"]));
-                        BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
+                        BOOL isArray = ([x maxOccurs] && ([[x maxOccurs] isEqual:@"unbounded"] || [[x maxOccurs] isEqual:@"100"]));
+                        BOOL isEmpty = (![x minOccurs] && [[x minOccurs] isEqual:@"0"]);
                         if (isArray)
                         {
                             for (Element *y in [x children])  {
@@ -1774,7 +1791,7 @@ static const char* prefix = "MPSEWS";
                     else if ([[x tagName] isEqual:@"sequence"])
                     {
                         NSAssert ([self forElement:x areChildren:@"element"], @"can have onlt elements");
-                        BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
+                        BOOL isEmpty = (![x minOccurs] && [[x minOccurs] isEqual:@"0"]);
 
                         if (isEmpty) {
                             for (Element *y in [x children])  {
@@ -2009,87 +2026,123 @@ static const char* prefix = "MPSEWS";
     return result;
 }
 
+- (NSMutableArray*) elementsFromChoice:(Element*)e
+{
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    NSAssert ([self forElement:e areChildren:@"element"], @"choice can have only elements");
+    for (Element * a in [e children]) {
+        [result addObject:a];
+    }
+    return result;
+}
+
+- (NSMutableArray*) elementsFromSequence:(Element*) s
+{
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    if ([[s children] count] == 0) return result;
+
+    NSAssert ([self forElement:s areChildren:@"element,choice,sequence,group"], @"sequence can have only elements/choice/sequence/group");
+
+    for (Element* x in [s children])
+    {
+        if ([[ x tagName] isEqual:@"element"])
+        {
+            if ([x ref])
+            {
+                [result addObject:[self referencedElement:[x ref]]];
+            }
+            else
+            {
+                [result addObject:x];
+            }
+        }
+        else if ([[x tagName] isEqual:@"choice"])
+        {
+            [result addObjectsFromArray:[self elementsFromChoice:x]];
+        }
+        else if ([[x tagName] isEqual:@"sequence"])
+        {
+            [result addObjectsFromArray:[self elementsFromSequence:x]];
+        }
+        else if ([[x tagName] isEqual:@"group"])
+        {
+            [result addObjectsFromArray:[self elementsFromGroup:[x ref]]];
+        }
+        else {
+            NSLog(@"%@", [x tagName]);
+        }
+    }
+    return result;
+}
+
 - (NSMutableArray*) elements:(Element*)e getSuper:(BOOL)r
 {
-    int grp = 0;
 
     NSMutableArray* result = [[NSMutableArray alloc] init];
-    if (e)
+    if ([[e children] count] == 0 || [[e tagName] isEqual:@"simpleType"] || [[e tagName] isEqual:@"element"])
     {
-        if ([[e children] count] == 0)
-        {
             return result;
-        }
-        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice"])
+    }
+    else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute"])
+    {
+        for (Element * a in [e children])
         {
-            for (Element * a in [e children])
+            if ([[a tagName] isEqual:@"choice"])
             {
-                if ([[a tagName] isEqual:@"choice"]) {
-                    if ([a maxOccurs] && [[a maxOccurs] isEqual:@"unbounded"])
-                    {
-                        for (Element * x in [a children])
-                        {
-                            [x setMaxOccurs:@"unbounded"];
-                        }
-                    }
-                    for (Element * x in [a children])
-                    {
-                        NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
-                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", [e name], ++grp]];
-                        [result addObject:[self resolved:x]];
-                    }
-                }
-                if ([[a tagName] isEqual:@"sequence"]) {
-                    for (Element * x in [a children])
-                    {
-                        if ([[x tagName] isEqual:@"element"])
-                        {
-                            [result addObject:[self resolved:x]];
-                        }
-                        else if ([[x tagName] isEqual:@"group"])
-                        {
-                            [result addObjectsFromArray:[self elementsFromGroup:[x ref]]];
-                        }
-                    }
-                }
+                [result addObjectsFromArray:[self elementsFromChoice:a]];
             }
-            return result;
+            else if ([[a tagName] isEqual:@"sequence"])
+            {
+                [result addObjectsFromArray:[self elementsFromSequence:a]];
+            }
+            else if ([[a tagName] isEqual:@"group"])
+            {
+                [result addObjectsFromArray:[self elementsFromGroup:[a ref]]];
+            }
+            else if ([[a tagName] isEqual:@"attribute"]) {}
+            else if ([[a tagName] isEqual:@"attributeGroup"]) {}
+            else if ([[a tagName] isEqual:@"anyAttribute"]) {}
+            else {
+                NSLog(@"%@", [a tagName]);
+                NSAssert (false, @"unknow type expecting element/choice/group");
+            }
         }
-        else if ([self forElement:e areChildren:@"complexContent"])
+    }
+    else if ([self forElement:e areChildren:@"complexContent"])
+    {
+        Element* complexContent = [[e children] objectAtIndex:0];
+        NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
+        NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
+
+        Element* extension = [[complexContent children] objectAtIndex:0];
+
+        if ([[extension tagName] isEqual:@"restriction"])
         {
-            Element* complexContent = [[e children] objectAtIndex:0];
-            NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
-            NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
-
-            Element* extension = [[complexContent children] objectAtIndex:0];
-
-            if ([[extension tagName] isEqual:@"restriction"])
-            {
-                if (r) {
-                    [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
-                }
-                return result;
-            }
-            NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
-
-            NSAssert ([extension base], @"extension should have base spec");
-
             if (r) {
                 [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
             }
-            if ([[extension children] count] == 0) {
-                return result;
-            }
-            NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
-            [result addObjectsFromArray:[self elements:extension getSuper:r]];
-
             return result;
         }
-        else  {
-          return nil;
+
+        NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+        NSAssert ([extension base], @"extension should have base spec");
+
+        if (r) {
+            [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
         }
+        if ([[extension children] count] == 0) {
+            return result;
+        }
+        NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
+        [result addObjectsFromArray:[self elements:extension getSuper:r]];
+
+        return result;
     }
-    return nil;
+    else 
+    {
+        
+    }
+    return result;
 }
 
 - (BOOL) allResolved:(NSArray*) elements

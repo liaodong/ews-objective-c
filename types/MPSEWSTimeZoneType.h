@@ -2,6 +2,7 @@
 
 
 
+@class MPSEWSTimeChangeType;
 
 
 
@@ -14,8 +15,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString* timeZoneName  /* xs:string */;
-@property (strong) NSString* baseOffset    /* xs:duration */;
+@property (strong) NSString*             timeZoneName  /* xs:string */;
+@property (strong) NSString*             baseOffset    /* xs:duration */;
+@property (strong) MPSEWSTimeChangeType* standard;
+@property (strong) MPSEWSTimeChangeType* daylight;
 
 
 @end

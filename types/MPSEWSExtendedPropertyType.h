@@ -2,6 +2,7 @@
 
 
 
+@class MPSEWSNonEmptyArrayOfPropertyValuesType;
 @class MPSEWSPathToExtendedFieldType;
 
 
@@ -15,7 +16,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSPathToExtendedFieldType* extendedFieldURI;
+@property (strong) MPSEWSPathToExtendedFieldType*           extendedFieldURI;
+@property (strong) NSString*                                value             /* xs:string */;
+@property (strong) MPSEWSNonEmptyArrayOfPropertyValuesType* values;
 
 
 @end

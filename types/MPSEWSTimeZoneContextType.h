@@ -2,6 +2,7 @@
 
 
 
+@class MPSEWSTimeZoneDefinitionType;
 
 
 
@@ -14,6 +15,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) MPSEWSTimeZoneDefinitionType* timeZoneDefinition;
 
 
 @end

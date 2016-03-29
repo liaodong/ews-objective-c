@@ -4,6 +4,9 @@
 
 
 @class MPSEWSAggregateOnType;
+@class MPSEWSPathToExtendedFieldType;
+@class MPSEWSPathToIndexedFieldType;
+@class MPSEWSPathToUnindexedFieldType;
 
 
 
@@ -16,7 +19,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSAggregateOnType* aggregateOn;
+@property (strong) MPSEWSPathToUnindexedFieldType* fieldURI;
+@property (strong) MPSEWSPathToIndexedFieldType*   indexedFieldURI;
+@property (strong) MPSEWSPathToExtendedFieldType*  extendedFieldURI;
+@property (strong) MPSEWSAggregateOnType*          aggregateOn;
 
 
 @end

@@ -4,6 +4,7 @@
 
 
 @class MPSEWSFolderIdType;
+@class MPSEWSItemIdType;
 
 
 
@@ -16,6 +17,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) MPSEWSFolderIdType* oldFolderId;
+@property (strong) MPSEWSItemIdType*   oldItemId;
 @property (strong) MPSEWSFolderIdType* oldParentFolderId;
 
 

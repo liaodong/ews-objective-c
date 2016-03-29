@@ -2,7 +2,10 @@
 
 
 
+@class MPSEWSItemIdType;
 @class MPSEWSNonEmptyArrayOfItemChangeDescriptionsType;
+@class MPSEWSOccurrenceItemIdType;
+@class MPSEWSRecurringMasterItemIdType;
 
 
 
@@ -15,6 +18,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) MPSEWSItemIdType*                                itemId;
+@property (strong) MPSEWSOccurrenceItemIdType*                      occurrenceItemId;
+@property (strong) MPSEWSRecurringMasterItemIdType*                 recurringMasterItemId;
 @property (strong) MPSEWSNonEmptyArrayOfItemChangeDescriptionsType* updates;
 
 
