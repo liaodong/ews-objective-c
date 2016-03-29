@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBaseNotificationEventType class]];
 
     [handler property      : @"watermark"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Watermark"
              withHandler   : [MPSEWSWatermarkType class]];

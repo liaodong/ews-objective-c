@@ -18,42 +18,35 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSubscribeResponseMessageType class]];
 
     [handler property    : @"responseClass"
-             isRequired  : TRUE
              withAttrTag : @"ResponseClass"
              withHandler : [MPSEWSResponseClassType class]];
 
     [handler property      : @"messageText"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"MessageText"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"responseCode"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"ResponseCode"
              withHandler   : [MPSEWSResponseCodeType class]];
 
     [handler property      : @"descriptiveLinkKey"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"DescriptiveLinkKey"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"messageXml"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"MessageXml"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"subscriptionId"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SubscriptionId"
              withHandler   : [MPSEWSSubscriptionIdType class]];
 
     [handler property      : @"watermark"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"Watermark"
              withHandler   : [MPSEWSWatermarkType class]];

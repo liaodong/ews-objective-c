@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfCalendarPermissionsType class]];
 
     [handler listProperty  : @"calendarPermission"
-             isNonEmpty    : TRUE
              useSelector   : @"addCalendarPermission"
              withNamespace : 't'
              withXmlTag    : @"CalendarPermission"

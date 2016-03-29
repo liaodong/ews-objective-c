@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSendNotificationResultType class]];
 
     [handler property      : @"subscriptionStatus"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"SubscriptionStatus"
              withHandler   : [MPSEWSSubscriptionStatusType class]];

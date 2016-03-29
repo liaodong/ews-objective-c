@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGroupByType class]];
 
     [handler property    : @"order"
-             isRequired  : TRUE
              withAttrTag : @"Order"
              withHandler : [MPSEWSSortDirectionType class]];
 
     [handler property      : @"aggregateOn"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"AggregateOn"
              withHandler   : [MPSEWSAggregateOnType class]];

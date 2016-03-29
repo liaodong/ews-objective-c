@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSTimeZoneType class]];
 
     [handler property    : @"timeZoneName"
-             isRequired  : FALSE
              withAttrTag : @"TimeZoneName"
              withHandler : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"baseOffset"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"BaseOffset"
              withHandler   : [MPSEWSDurationTypeHandler class]];

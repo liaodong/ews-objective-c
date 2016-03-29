@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSyncFolderHierarchyResponseType class]];
 
     [handler property      : @"responseMessages"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ResponseMessages"
              withHandler   : [MPSEWSArrayOfResponseMessagesType class]];

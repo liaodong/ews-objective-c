@@ -15,21 +15,18 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfItemChangeDescriptionsType class]];
 
     [handler listProperty  : @"appendToItemField"
-             isNonEmpty    : TRUE
              useSelector   : @"addAppendToItemField"
              withNamespace : 't'
              withXmlTag    : @"AppendToItemField"
              withHandler   : [MPSEWSAppendToItemFieldType class]];
 
     [handler listProperty  : @"setItemField"
-             isNonEmpty    : TRUE
              useSelector   : @"addSetItemField"
              withNamespace : 't'
              withXmlTag    : @"SetItemField"
              withHandler   : [MPSEWSSetItemFieldType class]];
 
     [handler listProperty  : @"deleteItemField"
-             isNonEmpty    : TRUE
              useSelector   : @"addDeleteItemField"
              withNamespace : 't'
              withXmlTag    : @"DeleteItemField"

@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSDeleteFolderType class]];
 
     [handler property    : @"deleteType"
-             isRequired  : TRUE
              withAttrTag : @"DeleteType"
              withHandler : [MPSEWSDisposalType class]];
 
     [handler property      : @"folderIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"FolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];

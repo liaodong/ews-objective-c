@@ -13,13 +13,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSDuration class]];
 
     [handler property      : @"startTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"StartTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"endTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"EndTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];

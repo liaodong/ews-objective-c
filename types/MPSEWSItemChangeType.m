@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSItemChangeType class]];
 
     [handler property      : @"updates"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Updates"
              withHandler   : [MPSEWSNonEmptyArrayOfItemChangeDescriptionsType class]];

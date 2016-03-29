@@ -28,196 +28,168 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfResponseMessagesType class]];
 
     [handler listProperty  : @"createItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addCreateItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"CreateItemResponseMessage"
              withHandler   : [MPSEWSItemInfoResponseMessageType class]];
 
     [handler listProperty  : @"deleteItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addDeleteItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"DeleteItemResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler listProperty  : @"getItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addGetItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"GetItemResponseMessage"
              withHandler   : [MPSEWSItemInfoResponseMessageType class]];
 
     [handler listProperty  : @"updateItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addUpdateItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"UpdateItemResponseMessage"
              withHandler   : [MPSEWSUpdateItemResponseMessageType class]];
 
     [handler listProperty  : @"sendItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addSendItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"SendItemResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler listProperty  : @"deleteFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addDeleteFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"DeleteFolderResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler listProperty  : @"createFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addCreateFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"CreateFolderResponseMessage"
              withHandler   : [MPSEWSFolderInfoResponseMessageType class]];
 
     [handler listProperty  : @"getFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addGetFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"GetFolderResponseMessage"
              withHandler   : [MPSEWSFolderInfoResponseMessageType class]];
 
     [handler listProperty  : @"findFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addFindFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"FindFolderResponseMessage"
              withHandler   : [MPSEWSFindFolderResponseMessageType class]];
 
     [handler listProperty  : @"updateFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addUpdateFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"UpdateFolderResponseMessage"
              withHandler   : [MPSEWSFolderInfoResponseMessageType class]];
 
     [handler listProperty  : @"moveFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addMoveFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"MoveFolderResponseMessage"
              withHandler   : [MPSEWSFolderInfoResponseMessageType class]];
 
     [handler listProperty  : @"pCopyFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addCopyFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"CopyFolderResponseMessage"
              withHandler   : [MPSEWSFolderInfoResponseMessageType class]];
 
     [handler listProperty  : @"createAttachmentResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addCreateAttachmentResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"CreateAttachmentResponseMessage"
              withHandler   : [MPSEWSAttachmentInfoResponseMessageType class]];
 
     [handler listProperty  : @"deleteAttachmentResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addDeleteAttachmentResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"DeleteAttachmentResponseMessage"
              withHandler   : [MPSEWSDeleteAttachmentResponseMessageType class]];
 
     [handler listProperty  : @"getAttachmentResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addGetAttachmentResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"GetAttachmentResponseMessage"
              withHandler   : [MPSEWSAttachmentInfoResponseMessageType class]];
 
     [handler listProperty  : @"findItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addFindItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"FindItemResponseMessage"
              withHandler   : [MPSEWSFindItemResponseMessageType class]];
 
     [handler listProperty  : @"moveItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addMoveItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"MoveItemResponseMessage"
              withHandler   : [MPSEWSItemInfoResponseMessageType class]];
 
     [handler listProperty  : @"pCopyItemResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addCopyItemResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"CopyItemResponseMessage"
              withHandler   : [MPSEWSItemInfoResponseMessageType class]];
 
     [handler listProperty  : @"resolveNamesResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addResolveNamesResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"ResolveNamesResponseMessage"
              withHandler   : [MPSEWSResolveNamesResponseMessageType class]];
 
     [handler listProperty  : @"expandDLResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addExpandDLResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"ExpandDLResponseMessage"
              withHandler   : [MPSEWSExpandDLResponseMessageType class]];
 
     [handler listProperty  : @"getEventsResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addGetEventsResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"GetEventsResponseMessage"
              withHandler   : [MPSEWSGetEventsResponseMessageType class]];
 
     [handler listProperty  : @"subscribeResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addSubscribeResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"SubscribeResponseMessage"
              withHandler   : [MPSEWSSubscribeResponseMessageType class]];
 
     [handler listProperty  : @"unsubscribeResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addUnsubscribeResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"UnsubscribeResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler listProperty  : @"sendNotificationResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addSendNotificationResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"SendNotificationResponseMessage"
              withHandler   : [MPSEWSSendNotificationResponseMessageType class]];
 
     [handler listProperty  : @"syncFolderHierarchyResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addSyncFolderHierarchyResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"SyncFolderHierarchyResponseMessage"
              withHandler   : [MPSEWSSyncFolderHierarchyResponseMessageType class]];
 
     [handler listProperty  : @"syncFolderItemsResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addSyncFolderItemsResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"SyncFolderItemsResponseMessage"
              withHandler   : [MPSEWSSyncFolderItemsResponseMessageType class]];
 
     [handler listProperty  : @"createManagedFolderResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addCreateManagedFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"CreateManagedFolderResponseMessage"
              withHandler   : [MPSEWSFolderInfoResponseMessageType class]];
 
     [handler listProperty  : @"convertIdResponseMessage"
-             isNonEmpty    : TRUE
              useSelector   : @"addConvertIdResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"ConvertIdResponseMessage"

@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSubscribeType class]];
 
     [handler property      : @"pullSubscriptionRequest"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"PullSubscriptionRequest"
              withHandler   : [MPSEWSPullSubscriptionRequestType class]];
 
     [handler property      : @"pushSubscriptionRequest"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"PushSubscriptionRequest"
              withHandler   : [MPSEWSPushSubscriptionRequestType class]];

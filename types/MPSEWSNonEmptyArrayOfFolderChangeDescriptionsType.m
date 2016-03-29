@@ -15,21 +15,18 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType class]];
 
     [handler listProperty  : @"appendToFolderField"
-             isNonEmpty    : TRUE
              useSelector   : @"addAppendToFolderField"
              withNamespace : 't'
              withXmlTag    : @"AppendToFolderField"
              withHandler   : [MPSEWSAppendToFolderFieldType class]];
 
     [handler listProperty  : @"setFolderField"
-             isNonEmpty    : TRUE
              useSelector   : @"addSetFolderField"
              withNamespace : 't'
              withXmlTag    : @"SetFolderField"
              withHandler   : [MPSEWSSetFolderFieldType class]];
 
     [handler listProperty  : @"deleteFolderField"
-             isNonEmpty    : TRUE
              useSelector   : @"addDeleteFolderField"
              withNamespace : 't'
              withXmlTag    : @"DeleteFolderField"

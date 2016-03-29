@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBaseGroupByType class]];
 
     [handler property    : @"order"
-             isRequired  : TRUE
              withAttrTag : @"Order"
              withHandler : [MPSEWSSortDirectionType class]];
 

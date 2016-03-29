@@ -22,70 +22,60 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfResponseObjectsType class]];
 
     [handler listProperty  : @"acceptItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addAcceptItem"
              withNamespace : 't'
              withXmlTag    : @"AcceptItem"
              withHandler   : [MPSEWSAcceptItemType class]];
 
     [handler listProperty  : @"tentativelyAcceptItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addTentativelyAcceptItem"
              withNamespace : 't'
              withXmlTag    : @"TentativelyAcceptItem"
              withHandler   : [MPSEWSTentativelyAcceptItemType class]];
 
     [handler listProperty  : @"declineItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addDeclineItem"
              withNamespace : 't'
              withXmlTag    : @"DeclineItem"
              withHandler   : [MPSEWSDeclineItemType class]];
 
     [handler listProperty  : @"replyToItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addReplyToItem"
              withNamespace : 't'
              withXmlTag    : @"ReplyToItem"
              withHandler   : [MPSEWSReplyToItemType class]];
 
     [handler listProperty  : @"forwardItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addForwardItem"
              withNamespace : 't'
              withXmlTag    : @"ForwardItem"
              withHandler   : [MPSEWSForwardItemType class]];
 
     [handler listProperty  : @"replyAllToItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addReplyAllToItem"
              withNamespace : 't'
              withXmlTag    : @"ReplyAllToItem"
              withHandler   : [MPSEWSReplyAllToItemType class]];
 
     [handler listProperty  : @"cancelCalendarItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addCancelCalendarItem"
              withNamespace : 't'
              withXmlTag    : @"CancelCalendarItem"
              withHandler   : [MPSEWSCancelCalendarItemType class]];
 
     [handler listProperty  : @"removeItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addRemoveItem"
              withNamespace : 't'
              withXmlTag    : @"RemoveItem"
              withHandler   : [MPSEWSRemoveItemType class]];
 
     [handler listProperty  : @"suppressReadReceipt"
-             isNonEmpty    : TRUE
              useSelector   : @"addSuppressReadReceipt"
              withNamespace : 't'
              withXmlTag    : @"SuppressReadReceipt"
              withHandler   : [MPSEWSSuppressReadReceiptType class]];
 
     [handler listProperty  : @"postReplyItem"
-             isNonEmpty    : TRUE
              useSelector   : @"addPostReplyItem"
              withNamespace : 't'
              withXmlTag    : @"PostReplyItem"

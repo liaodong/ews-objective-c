@@ -24,73 +24,61 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAppendToItemFieldType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];
 
     [handler property      : @"item"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Item"
              withHandler   : [MPSEWSItemType class]];
 
     [handler property      : @"message"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Message"
              withHandler   : [MPSEWSMessageType class]];
 
     [handler property      : @"calendarItem"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"CalendarItem"
              withHandler   : [MPSEWSCalendarItemType class]];
 
     [handler property      : @"contact"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Contact"
              withHandler   : [MPSEWSContactItemType class]];
 
     [handler property      : @"distributionList"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DistributionList"
              withHandler   : [MPSEWSDistributionListType class]];
 
     [handler property      : @"meetingMessage"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"MeetingMessage"
              withHandler   : [MPSEWSMeetingMessageType class]];
 
     [handler property      : @"meetingRequest"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"MeetingRequest"
              withHandler   : [MPSEWSMeetingRequestMessageType class]];
 
     [handler property      : @"meetingResponse"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"MeetingResponse"
              withHandler   : [MPSEWSMeetingResponseMessageType class]];
 
     [handler property      : @"meetingCancellation"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"MeetingCancellation"
              withHandler   : [MPSEWSMeetingCancellationMessageType class]];
 
     [handler property      : @"task"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Task"
              withHandler   : [MPSEWSTaskType class]];
 
     [handler property      : @"postItem"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"PostItem"
              withHandler   : [MPSEWSPostItemType class]];

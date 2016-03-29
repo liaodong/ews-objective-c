@@ -16,28 +16,24 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfAttendeeConflictData class]];
 
     [handler listProperty  : @"unknownAttendeeConflictData"
-             isNonEmpty    : TRUE
              useSelector   : @"addUnknownAttendeeConflictData"
              withNamespace : 't'
              withXmlTag    : @"UnknownAttendeeConflictData"
              withHandler   : [MPSEWSUnknownAttendeeConflictData class]];
 
     [handler listProperty  : @"individualAttendeeConflictData"
-             isNonEmpty    : TRUE
              useSelector   : @"addIndividualAttendeeConflictData"
              withNamespace : 't'
              withXmlTag    : @"IndividualAttendeeConflictData"
              withHandler   : [MPSEWSIndividualAttendeeConflictData class]];
 
     [handler listProperty  : @"tooBigGroupAttendeeConflictData"
-             isNonEmpty    : TRUE
              useSelector   : @"addTooBigGroupAttendeeConflictData"
              withNamespace : 't'
              withXmlTag    : @"TooBigGroupAttendeeConflictData"
              withHandler   : [MPSEWSTooBigGroupAttendeeConflictData class]];
 
     [handler listProperty  : @"groupAttendeeConflictData"
-             isNonEmpty    : TRUE
              useSelector   : @"addGroupAttendeeConflictData"
              withNamespace : 't'
              withXmlTag    : @"GroupAttendeeConflictData"

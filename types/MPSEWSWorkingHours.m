@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSWorkingHours class]];
 
     [handler property      : @"timeZone"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"TimeZone"
              withHandler   : [MPSEWSSerializableTimeZone class]];
 
     [handler property      : @"workingPeriodArray"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"WorkingPeriodArray"
              withHandler   : [MPSEWSArrayOfWorkingPeriod class]];

@@ -15,25 +15,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSerializedSecurityContextType class]];
 
     [handler property      : @"userSid"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"UserSid"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"groupSids"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"GroupSids"
              withHandler   : [MPSEWSNonEmptyArrayOfGroupIdentifiersType class]];
 
     [handler property      : @"restrictedGroupSids"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"RestrictedGroupSids"
              withHandler   : [MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType class]];
 
     [handler property      : @"primarySmtpAddress"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"PrimarySmtpAddress"
              withHandler   : [MPSEWSStringTypeHandler class]];

@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSidAndAttributesType class]];
 
     [handler property    : @"attributes"
-             isRequired  : TRUE
              withAttrTag : @"Attributes"
              withHandler : [MPSEWSUnsignedIntTypeHandler class]];
 
     [handler property      : @"securityIdentifier"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"SecurityIdentifier"
              withHandler   : [MPSEWSStringTypeHandler class]];

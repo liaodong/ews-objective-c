@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfRequestAttachmentIdsType class]];
 
     [handler listProperty  : @"attachmentId"
-             isNonEmpty    : TRUE
              useSelector   : @"addAttachmentId"
              withNamespace : 't'
              withXmlTag    : @"AttachmentId"

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfWorkingPeriod class]];
 
     [handler listProperty  : @"workingPeriod"
-             isNonEmpty    : FALSE
              useSelector   : @"addWorkingPeriod"
              withNamespace : 't'
              withXmlTag    : @"WorkingPeriod"

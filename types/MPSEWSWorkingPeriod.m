@@ -14,19 +14,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSWorkingPeriod class]];
 
     [handler property      : @"dayOfWeek"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DayOfWeek"
              withHandler   : [MPSEWSDaysOfWeekType class]];
 
     [handler property      : @"startTimeInMinutes"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"StartTimeInMinutes"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"endTimeInMinutes"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"EndTimeInMinutes"
              withHandler   : [MPSEWSIntegerTypeHandler class]];

@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGetFolderType class]];
 
     [handler property      : @"folderShape"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"FolderShape"
              withHandler   : [MPSEWSFolderResponseShapeType class]];
 
     [handler property      : @"folderIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"FolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSConflictResultsType class]];
 
     [handler property      : @"count"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Count"
              withHandler   : [MPSEWSIntegerTypeHandler class]];

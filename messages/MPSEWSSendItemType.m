@@ -15,18 +15,15 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSendItemType class]];
 
     [handler property    : @"saveItemToFolder"
-             isRequired  : TRUE
              withAttrTag : @"SaveItemToFolder"
              withHandler : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"itemIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ItemIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseItemIdsType class]];
 
     [handler property      : @"savedItemFolderId"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SavedItemFolderId"
              withHandler   : [MPSEWSTargetFolderIdType class]];

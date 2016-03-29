@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGetItemType class]];
 
     [handler property      : @"itemShape"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ItemShape"
              withHandler   : [MPSEWSItemResponseShapeType class]];
 
     [handler property      : @"itemIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ItemIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseItemIdsType class]];

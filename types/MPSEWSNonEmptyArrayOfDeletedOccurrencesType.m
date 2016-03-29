@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfDeletedOccurrencesType class]];
 
     [handler listProperty  : @"deletedOccurrence"
-             isNonEmpty    : TRUE
              useSelector   : @"addDeletedOccurrence"
              withNamespace : 't'
              withXmlTag    : @"DeletedOccurrence"

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSExchangeImpersonationType class]];
 
     [handler property      : @"connectingSID"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"ConnectingSID"
              withHandler   : [MPSEWSConnectingSIDType class]];

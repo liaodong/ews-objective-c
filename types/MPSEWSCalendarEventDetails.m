@@ -14,49 +14,41 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSCalendarEventDetails class]];
 
     [handler property      : @"iD"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ID"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"subject"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Subject"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"location"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Location"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"isMeeting"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IsMeeting"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"isRecurring"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IsRecurring"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"isException"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IsException"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"isReminderSet"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IsReminderSet"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"isPrivate"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IsPrivate"
              withHandler   : [MPSEWSBooleanTypeHandler class]];

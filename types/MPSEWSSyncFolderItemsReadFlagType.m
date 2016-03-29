@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSyncFolderItemsReadFlagType class]];
 
     [handler property      : @"itemId"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"ItemId"
              withHandler   : [MPSEWSItemIdType class]];
 
     [handler property      : @"isRead"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IsRead"
              withHandler   : [MPSEWSBooleanTypeHandler class]];

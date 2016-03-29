@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAppendToFolderFieldType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];

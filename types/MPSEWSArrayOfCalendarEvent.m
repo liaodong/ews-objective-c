@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfCalendarEvent class]];
 
     [handler listProperty  : @"calendarEvent"
-             isNonEmpty    : FALSE
              useSelector   : @"addCalendarEvent"
              withNamespace : 't'
              withXmlTag    : @"CalendarEvent"

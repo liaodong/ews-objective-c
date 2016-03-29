@@ -15,25 +15,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSDelegateUserType class]];
 
     [handler property      : @"userId"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"UserId"
              withHandler   : [MPSEWSUserIdType class]];
 
     [handler property      : @"delegatePermissions"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"DelegatePermissions"
              withHandler   : [MPSEWSDelegatePermissionsType class]];
 
     [handler property      : @"receiveCopiesOfMeetingMessages"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ReceiveCopiesOfMeetingMessages"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"viewPrivateItems"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ViewPrivateItems"
              withHandler   : [MPSEWSBooleanTypeHandler class]];

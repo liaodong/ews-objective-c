@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSuggestionsResponseType class]];
 
     [handler property      : @"responseMessage"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"ResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler property      : @"suggestionDayResultArray"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SuggestionDayResultArray"
              withHandler   : [MPSEWSArrayOfSuggestionDayResult class]];

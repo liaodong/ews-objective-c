@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSTimeZoneDefinitionType class]];
 
     [handler property    : @"id"
-             isRequired  : FALSE
              withAttrTag : @"Id"
              withHandler : [MPSEWSStringTypeHandler class]];
 

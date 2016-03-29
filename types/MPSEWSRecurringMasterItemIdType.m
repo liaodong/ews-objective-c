@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSRecurringMasterItemIdType class]];
 
     [handler property    : @"occurrenceId"
-             isRequired  : TRUE
              withAttrTag : @"OccurrenceId"
              withHandler : [MPSEWSDerivedItemIdType class]];
 
     [handler property    : @"changeKey"
-             isRequired  : FALSE
              withAttrTag : @"ChangeKey"
              withHandler : [MPSEWSStringTypeHandler class]];
 

@@ -14,14 +14,12 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];
 
     [handler listProperty  : @"folderId"
-             isNonEmpty    : TRUE
              useSelector   : @"addFolderId"
              withNamespace : 't'
              withXmlTag    : @"FolderId"
              withHandler   : [MPSEWSFolderIdType class]];
 
     [handler listProperty  : @"distinguishedFolderId"
-             isNonEmpty    : TRUE
              useSelector   : @"addDistinguishedFolderId"
              withNamespace : 't'
              withXmlTag    : @"DistinguishedFolderId"

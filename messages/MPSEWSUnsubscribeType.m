@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSUnsubscribeType class]];
 
     [handler property      : @"subscriptionId"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"SubscriptionId"
              withHandler   : [MPSEWSSubscriptionIdType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfSuggestionDayResult class]];
 
     [handler listProperty  : @"suggestionDayResult"
-             isNonEmpty    : FALSE
              useSelector   : @"addSuggestionDayResult"
              withNamespace : 't'
              withXmlTag    : @"SuggestionDayResult"

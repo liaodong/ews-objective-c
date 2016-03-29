@@ -17,30 +17,25 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFindItemType class]];
 
     [handler property    : @"traversal"
-             isRequired  : TRUE
              withAttrTag : @"Traversal"
              withHandler : [MPSEWSItemQueryTraversalType class]];
 
     [handler property      : @"itemShape"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ItemShape"
              withHandler   : [MPSEWSItemResponseShapeType class]];
 
     [handler property      : @"restriction"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"Restriction"
              withHandler   : [MPSEWSRestrictionType class]];
 
     [handler property      : @"sortOrder"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SortOrder"
              withHandler   : [MPSEWSNonEmptyArrayOfFieldOrdersType class]];
 
     [handler property      : @"parentFolderIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ParentFolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSEmailAddressDictionaryType class]];
 
     [handler listProperty  : @"entry"
-             isNonEmpty    : TRUE
              useSelector   : @"addEntry"
              withNamespace : 't'
              withXmlTag    : @"Entry"

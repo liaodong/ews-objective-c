@@ -16,31 +16,26 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSUserOofSettings class]];
 
     [handler property      : @"oofState"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"OofState"
              withHandler   : [MPSEWSOofState class]];
 
     [handler property      : @"externalAudience"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"ExternalAudience"
              withHandler   : [MPSEWSExternalAudience class]];
 
     [handler property      : @"duration"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Duration"
              withHandler   : [MPSEWSDuration class]];
 
     [handler property      : @"internalReply"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"InternalReply"
              withHandler   : [MPSEWSReplyBody class]];
 
     [handler property      : @"externalReply"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ExternalReply"
              withHandler   : [MPSEWSReplyBody class]];

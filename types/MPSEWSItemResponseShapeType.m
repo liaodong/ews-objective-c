@@ -16,25 +16,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSItemResponseShapeType class]];
 
     [handler property      : @"baseShape"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"BaseShape"
              withHandler   : [MPSEWSDefaultShapeNamesType class]];
 
     [handler property      : @"includeMimeContent"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"IncludeMimeContent"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"bodyType"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"BodyType"
              withHandler   : [MPSEWSBodyTypeResponseType class]];
 
     [handler property      : @"additionalProperties"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"AdditionalProperties"
              withHandler   : [MPSEWSNonEmptyArrayOfPathsToElementType class]];

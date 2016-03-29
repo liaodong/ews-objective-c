@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPathToExceptionFieldType class]];
 
     [handler property    : @"fieldURI"
-             isRequired  : TRUE
              withAttrTag : @"FieldURI"
              withHandler : [MPSEWSExceptionPropertyURIType class]];
 

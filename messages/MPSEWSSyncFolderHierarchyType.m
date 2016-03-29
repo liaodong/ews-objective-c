@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSyncFolderHierarchyType class]];
 
     [handler property      : @"folderShape"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"FolderShape"
              withHandler   : [MPSEWSFolderResponseShapeType class]];
 
     [handler property      : @"syncFolderId"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SyncFolderId"
              withHandler   : [MPSEWSTargetFolderIdType class]];
 
     [handler property      : @"syncState"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SyncState"
              withHandler   : [MPSEWSStringTypeHandler class]];

@@ -15,37 +15,31 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFileAttachmentType class]];
 
     [handler property      : @"attachmentId"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"AttachmentId"
              withHandler   : [MPSEWSAttachmentIdType class]];
 
     [handler property      : @"name"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Name"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"contentType"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ContentType"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"contentId"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ContentId"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"contentLocation"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ContentLocation"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"content"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Content"
              withHandler   : [MPSEWSBase64BinaryTypeHandler class]];

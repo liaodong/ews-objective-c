@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfStringsType class]];
 
     [handler listProperty  : @"string"
-             isNonEmpty    : FALSE
              useSelector   : @"addString"
              withNamespace : 't'
              withXmlTag    : @"String"

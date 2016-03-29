@@ -13,13 +13,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAbsoluteMonthlyRecurrencePatternType class]];
 
     [handler property      : @"interval"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Interval"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"dayOfMonth"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DayOfMonth"
              withHandler   : [MPSEWSIntegerTypeHandler class]];

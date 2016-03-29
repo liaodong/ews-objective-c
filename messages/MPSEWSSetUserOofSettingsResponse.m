@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSetUserOofSettingsResponse class]];
 
     [handler property      : @"responseMessage"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"ResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];

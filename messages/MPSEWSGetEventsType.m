@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGetEventsType class]];
 
     [handler property      : @"subscriptionId"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"SubscriptionId"
              withHandler   : [MPSEWSSubscriptionIdType class]];
 
     [handler property      : @"watermark"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"Watermark"
              withHandler   : [MPSEWSWatermarkType class]];

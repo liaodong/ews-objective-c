@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType class]];
 
     [handler listProperty  : @"restrictedGroupIdentifier"
-             isNonEmpty    : TRUE
              useSelector   : @"addRestrictedGroupIdentifier"
              withNamespace : 't'
              withXmlTag    : @"RestrictedGroupIdentifier"

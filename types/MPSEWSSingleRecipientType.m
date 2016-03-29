@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSingleRecipientType class]];
 
     [handler property      : @"mailbox"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];

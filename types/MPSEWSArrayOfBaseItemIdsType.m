@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfBaseItemIdsType class]];
 
     [handler listProperty  : @"itemId"
-             isNonEmpty    : TRUE
              useSelector   : @"addItemId"
              withNamespace : 't'
              withXmlTag    : @"ItemId"

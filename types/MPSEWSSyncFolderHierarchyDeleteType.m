@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSyncFolderHierarchyDeleteType class]];
 
     [handler property      : @"folderId"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"FolderId"
              withHandler   : [MPSEWSFolderIdType class]];

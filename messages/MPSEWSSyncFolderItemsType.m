@@ -17,31 +17,26 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSyncFolderItemsType class]];
 
     [handler property      : @"itemShape"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ItemShape"
              withHandler   : [MPSEWSItemResponseShapeType class]];
 
     [handler property      : @"syncFolderId"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"SyncFolderId"
              withHandler   : [MPSEWSTargetFolderIdType class]];
 
     [handler property      : @"syncState"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SyncState"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"ignore"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"Ignore"
              withHandler   : [MPSEWSArrayOfBaseItemIdsType class]];
 
     [handler property      : @"maxChangesReturned"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"MaxChangesReturned"
              withHandler   : [MPSEWSMaxSyncChangesReturnedType class]];

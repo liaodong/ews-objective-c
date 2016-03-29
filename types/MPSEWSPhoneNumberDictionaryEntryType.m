@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPhoneNumberDictionaryEntryType class] andContentHandlerClass:[MPSEWSStringTypeHandler class]];
 
     [handler property    : @"key"
-             isRequired  : TRUE
              withAttrTag : @"Key"
              withHandler : [MPSEWSPhoneNumberKeyType class]];
 

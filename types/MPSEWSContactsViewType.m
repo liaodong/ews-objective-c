@@ -14,17 +14,14 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSContactsViewType class]];
 
     [handler property    : @"maxEntriesReturned"
-             isRequired  : FALSE
              withAttrTag : @"MaxEntriesReturned"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"initialName"
-             isRequired  : FALSE
              withAttrTag : @"InitialName"
              withHandler : [MPSEWSStringTypeHandler class]];
 
     [handler property    : @"finalName"
-             isRequired  : FALSE
              withAttrTag : @"FinalName"
              withHandler : [MPSEWSStringTypeHandler class]];
 

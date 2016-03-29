@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSResolutionType class]];
 
     [handler property      : @"mailbox"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];
 
     [handler property      : @"contact"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Contact"
              withHandler   : [MPSEWSContactItemType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSChangeDescriptionType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];

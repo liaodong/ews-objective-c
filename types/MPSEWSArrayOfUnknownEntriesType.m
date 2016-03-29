@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfUnknownEntriesType class]];
 
     [handler listProperty  : @"unknownEntry"
-             isNonEmpty    : TRUE
              useSelector   : @"addUnknownEntry"
              withNamespace : 't'
              withXmlTag    : @"UnknownEntry"

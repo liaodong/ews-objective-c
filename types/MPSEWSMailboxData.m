@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSMailboxData class]];
 
     [handler property      : @"email"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Email"
              withHandler   : [MPSEWSEmailAddress class]];
 
     [handler property      : @"attendeeType"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"AttendeeType"
              withHandler   : [MPSEWSMeetingAttendeeType class]];
 
     [handler property      : @"excludeConflicts"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ExcludeConflicts"
              withHandler   : [MPSEWSBooleanTypeHandler class]];

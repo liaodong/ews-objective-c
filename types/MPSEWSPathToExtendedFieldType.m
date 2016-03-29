@@ -18,32 +18,26 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPathToExtendedFieldType class]];
 
     [handler property    : @"distinguishedPropertySetId"
-             isRequired  : FALSE
              withAttrTag : @"DistinguishedPropertySetId"
              withHandler : [MPSEWSDistinguishedPropertySetType class]];
 
     [handler property    : @"propertySetId"
-             isRequired  : FALSE
              withAttrTag : @"PropertySetId"
              withHandler : [MPSEWSGuidType class]];
 
     [handler property    : @"propertyTag"
-             isRequired  : FALSE
              withAttrTag : @"PropertyTag"
              withHandler : [MPSEWSPropertyTagType class]];
 
     [handler property    : @"propertyName"
-             isRequired  : FALSE
              withAttrTag : @"PropertyName"
              withHandler : [MPSEWSStringTypeHandler class]];
 
     [handler property    : @"propertyId"
-             isRequired  : FALSE
              withAttrTag : @"PropertyId"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"propertyType"
-             isRequired  : TRUE
              withAttrTag : @"PropertyType"
              withHandler : [MPSEWSMapiPropertyTypeType class]];
 

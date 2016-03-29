@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfOccurrenceInfoType class]];
 
     [handler listProperty  : @"occurrence"
-             isNonEmpty    : TRUE
              useSelector   : @"addOccurrence"
              withNamespace : 't'
              withXmlTag    : @"Occurrence"

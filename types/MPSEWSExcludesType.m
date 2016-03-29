@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSExcludesType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];
 
     [handler property      : @"bitmask"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Bitmask"
              withHandler   : [MPSEWSExcludesValueType class]];

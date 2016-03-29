@@ -17,36 +17,30 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBaseDelegateResponseMessageType class]];
 
     [handler property    : @"responseClass"
-             isRequired  : TRUE
              withAttrTag : @"ResponseClass"
              withHandler : [MPSEWSResponseClassType class]];
 
     [handler property      : @"messageText"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"MessageText"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"responseCode"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"ResponseCode"
              withHandler   : [MPSEWSResponseCodeType class]];
 
     [handler property      : @"descriptiveLinkKey"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"DescriptiveLinkKey"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"messageXml"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"MessageXml"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"responseMessages"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"ResponseMessages"
              withHandler   : [MPSEWSArrayOfDelegateUserResponseMessageType class]];

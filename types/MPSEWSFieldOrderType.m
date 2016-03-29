@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFieldOrderType class]];
 
     [handler property    : @"order"
-             isRequired  : TRUE
              withAttrTag : @"Order"
              withHandler : [MPSEWSSortDirectionType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];

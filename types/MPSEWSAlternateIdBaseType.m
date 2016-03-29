@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAlternateIdBaseType class]];
 
     [handler property    : @"format"
-             isRequired  : TRUE
              withAttrTag : @"Format"
              withHandler : [MPSEWSIdFormatType class]];
 

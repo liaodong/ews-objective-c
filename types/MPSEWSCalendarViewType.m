@@ -14,17 +14,14 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSCalendarViewType class]];
 
     [handler property    : @"maxEntriesReturned"
-             isRequired  : FALSE
              withAttrTag : @"MaxEntriesReturned"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"startDate"
-             isRequired  : TRUE
              withAttrTag : @"StartDate"
              withHandler : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property    : @"endDate"
-             isRequired  : TRUE
              withAttrTag : @"EndDate"
              withHandler : [MPSEWSDateTimeTypeHandler class]];
 

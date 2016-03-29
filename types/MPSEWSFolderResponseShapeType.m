@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFolderResponseShapeType class]];
 
     [handler property      : @"baseShape"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"BaseShape"
              withHandler   : [MPSEWSDefaultShapeNamesType class]];
 
     [handler property      : @"additionalProperties"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"AdditionalProperties"
              withHandler   : [MPSEWSNonEmptyArrayOfPathsToElementType class]];

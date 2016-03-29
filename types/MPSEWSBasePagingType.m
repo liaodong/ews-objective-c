@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBasePagingType class]];
 
     [handler property    : @"maxEntriesReturned"
-             isRequired  : FALSE
              withAttrTag : @"MaxEntriesReturned"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 

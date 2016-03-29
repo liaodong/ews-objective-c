@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfUserIdType class]];
 
     [handler listProperty  : @"userId"
-             isNonEmpty    : TRUE
              useSelector   : @"addUserId"
              withNamespace : 't'
              withXmlTag    : @"UserId"

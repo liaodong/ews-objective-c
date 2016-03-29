@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSUpdateDelegateType class]];
 
     [handler property      : @"mailbox"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];
 
     [handler property      : @"delegateUsers"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"DelegateUsers"
              withHandler   : [MPSEWSArrayOfDelegateUserType class]];
 
     [handler property      : @"deliverMeetingRequests"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"DeliverMeetingRequests"
              withHandler   : [MPSEWSDeliverMeetingRequestsType class]];

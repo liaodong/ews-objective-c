@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPermissionSetType class]];
 
     [handler property      : @"permissions"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Permissions"
              withHandler   : [MPSEWSArrayOfPermissionsType class]];
 
     [handler property      : @"unknownEntries"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"UnknownEntries"
              withHandler   : [MPSEWSArrayOfUnknownEntriesType class]];

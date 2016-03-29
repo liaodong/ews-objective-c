@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFreeBusyViewOptionsType class]];
 
     [handler property      : @"timeWindow"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"TimeWindow"
              withHandler   : [MPSEWSDuration class]];
 
     [handler property      : @"mergedFreeBusyIntervalInMinutes"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"MergedFreeBusyIntervalInMinutes"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"requestedView"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"RequestedView"
              withHandler   : [MPSEWSFreeBusyViewType class]];

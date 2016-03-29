@@ -16,31 +16,26 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSEmailAddressType class]];
 
     [handler property      : @"name"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Name"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"emailAddress"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"EmailAddress"
              withHandler   : [MPSEWSNonEmptyStringType class]];
 
     [handler property      : @"routingType"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"RoutingType"
              withHandler   : [MPSEWSNonEmptyStringType class]];
 
     [handler property      : @"mailboxType"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"MailboxType"
              withHandler   : [MPSEWSMailboxTypeType class]];
 
     [handler property      : @"itemId"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ItemId"
              withHandler   : [MPSEWSItemIdType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfFolderNamesType class]];
 
     [handler listProperty  : @"folderName"
-             isNonEmpty    : TRUE
              useSelector   : @"addFolderName"
              withNamespace : 't'
              withXmlTag    : @"FolderName"

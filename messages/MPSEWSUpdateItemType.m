@@ -17,28 +17,23 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSUpdateItemType class]];
 
     [handler property    : @"conflictResolution"
-             isRequired  : TRUE
              withAttrTag : @"ConflictResolution"
              withHandler : [MPSEWSConflictResolutionType class]];
 
     [handler property    : @"messageDisposition"
-             isRequired  : FALSE
              withAttrTag : @"MessageDisposition"
              withHandler : [MPSEWSMessageDispositionType class]];
 
     [handler property    : @"sendMeetingInvitationsOrCancellations"
-             isRequired  : FALSE
              withAttrTag : @"SendMeetingInvitationsOrCancellations"
              withHandler : [MPSEWSCalendarItemUpdateOperationType class]];
 
     [handler property      : @"savedItemFolderId"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SavedItemFolderId"
              withHandler   : [MPSEWSTargetFolderIdType class]];
 
     [handler property      : @"itemChanges"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ItemChanges"
              withHandler   : [MPSEWSNonEmptyArrayOfItemChangesType class]];

@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGroupedItemsType class]];
 
     [handler property      : @"groupIndex"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"GroupIndex"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"items"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Items"
              withHandler   : [MPSEWSArrayOfRealItemsType class]];

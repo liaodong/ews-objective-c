@@ -16,23 +16,19 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSResolveNamesType class]];
 
     [handler property    : @"returnFullContactData"
-             isRequired  : TRUE
              withAttrTag : @"ReturnFullContactData"
              withHandler : [MPSEWSBooleanTypeHandler class]];
 
     [handler property    : @"searchScope"
-             isRequired  : FALSE
              withAttrTag : @"SearchScope"
              withHandler : [MPSEWSResolveNamesSearchScopeType class]];
 
     [handler property      : @"parentFolderIds"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"ParentFolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];
 
     [handler property      : @"unresolvedEntry"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"UnresolvedEntry"
              withHandler   : [MPSEWSNonEmptyStringType class]];

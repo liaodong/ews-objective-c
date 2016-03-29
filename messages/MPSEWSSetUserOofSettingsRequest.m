@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSetUserOofSettingsRequest class]];
 
     [handler property      : @"mailbox"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddress class]];
 
     [handler property      : @"userOofSettings"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"UserOofSettings"
              withHandler   : [MPSEWSUserOofSettings class]];

@@ -14,17 +14,14 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSIndexedPageViewType class]];
 
     [handler property    : @"maxEntriesReturned"
-             isRequired  : FALSE
              withAttrTag : @"MaxEntriesReturned"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"offset"
-             isRequired  : TRUE
              withAttrTag : @"Offset"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"basePoint"
-             isRequired  : TRUE
              withAttrTag : @"BasePoint"
              withHandler : [MPSEWSIndexBasePointType class]];
 

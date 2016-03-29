@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNotificationType class]];
 
     [handler property      : @"subscriptionId"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"SubscriptionId"
              withHandler   : [MPSEWSSubscriptionIdType class]];
 
     [handler property      : @"previousWatermark"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"PreviousWatermark"
              withHandler   : [MPSEWSWatermarkType class]];
 
     [handler property      : @"moreEvents"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"MoreEvents"
              withHandler   : [MPSEWSBooleanTypeHandler class]];

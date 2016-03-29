@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfItemChangesType class]];
 
     [handler listProperty  : @"itemChange"
-             isNonEmpty    : TRUE
              useSelector   : @"addItemChange"
              withNamespace : 't'
              withXmlTag    : @"ItemChange"

@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAttachmentResponseShapeType class]];
 
     [handler property      : @"includeMimeContent"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"IncludeMimeContent"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"bodyType"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"BodyType"
              withHandler   : [MPSEWSBodyTypeResponseType class]];
 
     [handler property      : @"additionalProperties"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"AdditionalProperties"
              withHandler   : [MPSEWSNonEmptyArrayOfPathsToElementType class]];

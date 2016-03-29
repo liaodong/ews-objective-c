@@ -15,18 +15,15 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSearchParametersType class]];
 
     [handler property    : @"traversal"
-             isRequired  : FALSE
              withAttrTag : @"Traversal"
              withHandler : [MPSEWSSearchFolderTraversalType class]];
 
     [handler property      : @"restriction"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Restriction"
              withHandler   : [MPSEWSRestrictionType class]];
 
     [handler property      : @"baseFolderIds"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"BaseFolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAndType class]];
 
     [handler property      : @"searchExpression"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"SearchExpression"
              withHandler   : [MPSEWSSearchExpressionType class]];

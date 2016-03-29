@@ -13,12 +13,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSRootItemIdType class]];
 
     [handler property    : @"rootItemId"
-             isRequired  : TRUE
              withAttrTag : @"RootItemId"
              withHandler : [MPSEWSStringTypeHandler class]];
 
     [handler property    : @"rootItemChangeKey"
-             isRequired  : TRUE
              withAttrTag : @"RootItemChangeKey"
              withHandler : [MPSEWSStringTypeHandler class]];
 

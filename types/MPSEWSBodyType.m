@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBodyType class] andContentHandlerClass:[MPSEWSStringTypeHandler class]];
 
     [handler property    : @"bodyType"
-             isRequired  : TRUE
              withAttrTag : @"BodyType"
              withHandler : [MPSEWSBodyTypeType class]];
 

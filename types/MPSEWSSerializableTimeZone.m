@@ -14,19 +14,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSerializableTimeZone class]];
 
     [handler property      : @"bias"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Bias"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"standardTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"StandardTime"
              withHandler   : [MPSEWSSerializableTimeZoneTime class]];
 
     [handler property      : @"daylightTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DaylightTime"
              withHandler   : [MPSEWSSerializableTimeZoneTime class]];

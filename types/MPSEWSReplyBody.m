@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSReplyBody class]];
 
     [handler property      : @"message"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Message"
              withHandler   : [MPSEWSStringTypeHandler class]];

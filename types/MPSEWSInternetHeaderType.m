@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSInternetHeaderType class] andContentHandlerClass:[MPSEWSStringTypeHandler class]];
 
     [handler property    : @"headerName"
-             isRequired  : TRUE
              withAttrTag : @"HeaderName"
              withHandler : [MPSEWSStringTypeHandler class]];
 

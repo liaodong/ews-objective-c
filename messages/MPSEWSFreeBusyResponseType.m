@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFreeBusyResponseType class]];
 
     [handler property      : @"responseMessage"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"ResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler property      : @"freeBusyView"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"FreeBusyView"
              withHandler   : [MPSEWSFreeBusyView class]];

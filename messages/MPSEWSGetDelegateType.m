@@ -15,18 +15,15 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGetDelegateType class]];
 
     [handler property    : @"includePermissions"
-             isRequired  : TRUE
              withAttrTag : @"IncludePermissions"
              withHandler : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"mailbox"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];
 
     [handler property      : @"userIds"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"UserIds"
              withHandler   : [MPSEWSArrayOfUserIdType class]];

@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSCreateManagedFolderRequestType class]];
 
     [handler property      : @"folderNames"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"FolderNames"
              withHandler   : [MPSEWSNonEmptyArrayOfFolderNamesType class]];
 
     [handler property      : @"mailbox"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSImAddressDictionaryEntryType class] andContentHandlerClass:[MPSEWSStringTypeHandler class]];
 
     [handler property    : @"key"
-             isRequired  : TRUE
              withAttrTag : @"Key"
              withHandler : [MPSEWSImAddressKeyType class]];
 

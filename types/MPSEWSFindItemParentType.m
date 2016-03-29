@@ -16,38 +16,31 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFindItemParentType class]];
 
     [handler property    : @"indexedPagingOffset"
-             isRequired  : FALSE
              withAttrTag : @"IndexedPagingOffset"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"numeratorOffset"
-             isRequired  : FALSE
              withAttrTag : @"NumeratorOffset"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"absoluteDenominator"
-             isRequired  : FALSE
              withAttrTag : @"AbsoluteDenominator"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"includesLastItemInRange"
-             isRequired  : FALSE
              withAttrTag : @"IncludesLastItemInRange"
              withHandler : [MPSEWSBooleanTypeHandler class]];
 
     [handler property    : @"totalItemsInView"
-             isRequired  : FALSE
              withAttrTag : @"TotalItemsInView"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"items"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Items"
              withHandler   : [MPSEWSArrayOfRealItemsType class]];
 
     [handler property      : @"groups"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Groups"
              withHandler   : [MPSEWSArrayOfGroupedItemsType class]];

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPathToUnindexedFieldType class]];
 
     [handler property    : @"fieldURI"
-             isRequired  : TRUE
              withAttrTag : @"FieldURI"
              withHandler : [MPSEWSUnindexedFieldURIType class]];
 

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSDeletedOccurrenceInfoType class]];
 
     [handler property      : @"start"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Start"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];

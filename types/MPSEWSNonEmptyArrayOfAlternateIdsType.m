@@ -15,21 +15,18 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfAlternateIdsType class]];
 
     [handler listProperty  : @"alternateId"
-             isNonEmpty    : TRUE
              useSelector   : @"addAlternateId"
              withNamespace : 't'
              withXmlTag    : @"AlternateId"
              withHandler   : [MPSEWSAlternateIdType class]];
 
     [handler listProperty  : @"alternatePublicFolderId"
-             isNonEmpty    : TRUE
              useSelector   : @"addAlternatePublicFolderId"
              withNamespace : 't'
              withXmlTag    : @"AlternatePublicFolderId"
              withHandler   : [MPSEWSAlternatePublicFolderIdType class]];
 
     [handler listProperty  : @"alternatePublicFolderItemId"
-             isNonEmpty    : TRUE
              useSelector   : @"addAlternatePublicFolderItemId"
              withNamespace : 't'
              withXmlTag    : @"AlternatePublicFolderItemId"

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfRecipientsType class]];
 
     [handler listProperty  : @"mailbox"
-             isNonEmpty    : TRUE
              useSelector   : @"addMailbox"
              withNamespace : 't'
              withXmlTag    : @"Mailbox"

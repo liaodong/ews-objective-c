@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPathToIndexedFieldType class]];
 
     [handler property    : @"fieldURI"
-             isRequired  : TRUE
              withAttrTag : @"FieldURI"
              withHandler : [MPSEWSDictionaryURIType class]];
 
     [handler property    : @"fieldIndex"
-             isRequired  : TRUE
              withAttrTag : @"FieldIndex"
              withHandler : [MPSEWSStringTypeHandler class]];
 

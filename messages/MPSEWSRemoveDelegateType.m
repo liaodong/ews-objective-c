@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSRemoveDelegateType class]];
 
     [handler property      : @"mailbox"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];
 
     [handler property      : @"userIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"UserIds"
              withHandler   : [MPSEWSArrayOfUserIdType class]];

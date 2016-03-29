@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSRelativeYearlyRecurrencePatternType class]];
 
     [handler property      : @"daysOfWeek"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DaysOfWeek"
              withHandler   : [MPSEWSDayOfWeekType class]];
 
     [handler property      : @"dayOfWeekIndex"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DayOfWeekIndex"
              withHandler   : [MPSEWSDayOfWeekIndexType class]];
 
     [handler property      : @"month"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Month"
              withHandler   : [MPSEWSMonthNamesType class]];

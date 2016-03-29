@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAlternatePublicFolderIdType class]];
 
     [handler property    : @"format"
-             isRequired  : TRUE
              withAttrTag : @"Format"
              withHandler : [MPSEWSIdFormatType class]];
 
     [handler property    : @"folderId"
-             isRequired  : TRUE
              withAttrTag : @"FolderId"
              withHandler : [MPSEWSStringTypeHandler class]];
 

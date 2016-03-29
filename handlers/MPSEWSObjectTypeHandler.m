@@ -145,7 +145,6 @@
 
 
 - (void) property      :(NSString *) property
-         isRequired    :(BOOL) required
          withNamespace :(char) ns
          withXmlTag    :(NSString*) tag
          withHandler   :(Class) cls
@@ -156,7 +155,6 @@
 }
 
 - (void) property    :(NSString *) property
-         isRequired  :(BOOL) required
          withAttrTag :(NSString*) tag
          withHandler :(Class) cls
 {
@@ -164,7 +162,6 @@
 }
 
 - (void) listProperty  :(NSString *) property
-         isNonEmpty    :(BOOL) required
          useSelector   :(NSString*) method
          withNamespace :(char) ns
          withXmlTag    :(NSString*) tag

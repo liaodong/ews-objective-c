@@ -16,37 +16,31 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSerializableTimeZoneTime class]];
 
     [handler property      : @"bias"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Bias"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"time"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Time"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"dayOrder"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DayOrder"
              withHandler   : [MPSEWSShortTypeHandler class]];
 
     [handler property      : @"month"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Month"
              withHandler   : [MPSEWSShortTypeHandler class]];
 
     [handler property      : @"dayOfWeek"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DayOfWeek"
              withHandler   : [MPSEWSDayOfWeekType class]];
 
     [handler property      : @"year"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Year"
              withHandler   : [MPSEWSStringTypeHandler class]];

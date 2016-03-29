@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfFieldOrdersType class]];
 
     [handler listProperty  : @"fieldOrder"
-             isNonEmpty    : TRUE
              useSelector   : @"addFieldOrder"
              withNamespace : 't'
              withXmlTag    : @"FieldOrder"

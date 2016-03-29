@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfInternetHeadersType class]];
 
     [handler listProperty  : @"internetMessageHeader"
-             isNonEmpty    : TRUE
              useSelector   : @"addInternetMessageHeader"
              withNamespace : 't'
              withXmlTag    : @"InternetMessageHeader"

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfDelegateUserType class]];
 
     [handler listProperty  : @"delegateUser"
-             isNonEmpty    : TRUE
              useSelector   : @"addDelegateUser"
              withNamespace : 't'
              withXmlTag    : @"DelegateUser"

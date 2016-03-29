@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSExcludesValueType class]];
 
     [handler property    : @"value"
-             isRequired  : TRUE
              withAttrTag : @"Value"
              withHandler : [MPSEWSExcludesAttributeType class]];
 

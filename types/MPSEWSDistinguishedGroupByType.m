@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSDistinguishedGroupByType class]];
 
     [handler property    : @"order"
-             isRequired  : TRUE
              withAttrTag : @"Order"
              withHandler : [MPSEWSSortDirectionType class]];
 
     [handler property      : @"standardGroupBy"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"StandardGroupBy"
              withHandler   : [MPSEWSStandardGroupByType class]];

@@ -16,24 +16,20 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAggregateOnType class]];
 
     [handler property    : @"aggregate"
-             isRequired  : TRUE
              withAttrTag : @"Aggregate"
              withHandler : [MPSEWSAggregateType class]];
 
     [handler property      : @"fieldURI"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"FieldURI"
              withHandler   : [MPSEWSPathToUnindexedFieldType class]];
 
     [handler property      : @"indexedFieldURI"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IndexedFieldURI"
              withHandler   : [MPSEWSPathToIndexedFieldType class]];
 
     [handler property      : @"extendedFieldURI"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"ExtendedFieldURI"
              withHandler   : [MPSEWSPathToExtendedFieldType class]];

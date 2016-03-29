@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfFreeBusyResponse class]];
 
     [handler listProperty  : @"freeBusyResponse"
-             isNonEmpty    : FALSE
              useSelector   : @"addFreeBusyResponse"
              withNamespace : 'm'
              withXmlTag    : @"FreeBusyResponse"

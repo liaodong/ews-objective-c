@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSWeeklyRecurrencePatternType class]];
 
     [handler property      : @"interval"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Interval"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"daysOfWeek"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DaysOfWeek"
              withHandler   : [MPSEWSDaysOfWeekType class]];

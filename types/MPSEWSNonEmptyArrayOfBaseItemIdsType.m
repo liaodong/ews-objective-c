@@ -15,21 +15,18 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfBaseItemIdsType class]];
 
     [handler listProperty  : @"itemId"
-             isNonEmpty    : TRUE
              useSelector   : @"addItemId"
              withNamespace : 't'
              withXmlTag    : @"ItemId"
              withHandler   : [MPSEWSItemIdType class]];
 
     [handler listProperty  : @"occurrenceItemId"
-             isNonEmpty    : TRUE
              useSelector   : @"addOccurrenceItemId"
              withNamespace : 't'
              withXmlTag    : @"OccurrenceItemId"
              withHandler   : [MPSEWSOccurrenceItemIdType class]];
 
     [handler listProperty  : @"recurringMasterItemId"
-             isNonEmpty    : TRUE
              useSelector   : @"addRecurringMasterItemId"
              withNamespace : 't'
              withXmlTag    : @"RecurringMasterItemId"

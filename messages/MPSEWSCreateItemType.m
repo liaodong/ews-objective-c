@@ -16,23 +16,19 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSCreateItemType class]];
 
     [handler property    : @"messageDisposition"
-             isRequired  : FALSE
              withAttrTag : @"MessageDisposition"
              withHandler : [MPSEWSMessageDispositionType class]];
 
     [handler property    : @"sendMeetingInvitations"
-             isRequired  : FALSE
              withAttrTag : @"SendMeetingInvitations"
              withHandler : [MPSEWSCalendarItemCreateOrDeleteOperationType class]];
 
     [handler property      : @"savedItemFolderId"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SavedItemFolderId"
              withHandler   : [MPSEWSTargetFolderIdType class]];
 
     [handler property      : @"items"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"Items"
              withHandler   : [MPSEWSNonEmptyArrayOfAllItemsType class]];

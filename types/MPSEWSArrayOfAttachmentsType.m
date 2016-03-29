@@ -14,14 +14,12 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfAttachmentsType class]];
 
     [handler listProperty  : @"itemAttachment"
-             isNonEmpty    : TRUE
              useSelector   : @"addItemAttachment"
              withNamespace : 't'
              withXmlTag    : @"ItemAttachment"
              withHandler   : [MPSEWSItemAttachmentType class]];
 
     [handler listProperty  : @"fileAttachment"
-             isNonEmpty    : TRUE
              useSelector   : @"addFileAttachment"
              withNamespace : 't'
              withXmlTag    : @"FileAttachment"

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSRequestAttachmentIdType class]];
 
     [handler property    : @"id"
-             isRequired  : TRUE
              withAttrTag : @"Id"
              withHandler : [MPSEWSStringTypeHandler class]];
 

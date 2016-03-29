@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSDeleteAttachmentType class]];
 
     [handler property      : @"attachmentIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"AttachmentIds"
              withHandler   : [MPSEWSNonEmptyArrayOfRequestAttachmentIdsType class]];

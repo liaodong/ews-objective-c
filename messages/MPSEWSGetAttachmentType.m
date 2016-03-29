@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGetAttachmentType class]];
 
     [handler property      : @"attachmentShape"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"AttachmentShape"
              withHandler   : [MPSEWSAttachmentResponseShapeType class]];
 
     [handler property      : @"attachmentIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"AttachmentIds"
              withHandler   : [MPSEWSNonEmptyArrayOfRequestAttachmentIdsType class]];

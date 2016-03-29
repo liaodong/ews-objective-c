@@ -15,17 +15,14 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSDistinguishedFolderIdType class]];
 
     [handler property    : @"id"
-             isRequired  : TRUE
              withAttrTag : @"Id"
              withHandler : [MPSEWSDistinguishedFolderIdNameType class]];
 
     [handler property    : @"changeKey"
-             isRequired  : FALSE
              withAttrTag : @"ChangeKey"
              withHandler : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"mailbox"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];

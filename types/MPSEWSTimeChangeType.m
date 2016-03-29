@@ -17,30 +17,25 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSTimeChangeType class]];
 
     [handler property    : @"timeZoneName"
-             isRequired  : FALSE
              withAttrTag : @"TimeZoneName"
              withHandler : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"offset"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Offset"
              withHandler   : [MPSEWSDurationTypeHandler class]];
 
     [handler property      : @"relativeYearlyRecurrence"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"RelativeYearlyRecurrence"
              withHandler   : [MPSEWSRelativeYearlyRecurrencePatternType class]];
 
     [handler property      : @"absoluteDate"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"AbsoluteDate"
              withHandler   : [MPSEWSDateTypeHandler class]];
 
     [handler property      : @"time"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Time"
              withHandler   : [MPSEWSTimeTypeHandler class]];

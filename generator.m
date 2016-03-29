@@ -1101,28 +1101,25 @@ static const char* prefix = "MPSEWS";
 
     for (Element* e in s_attributes)
     {
-        bool required = [e use] && [[e use] isEqual:@"required"];
+        //bool required = [e use] && [[e use] isEqual:@"required"];
         fprintf (file, "    [handler property    : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-        fprintf (file, "             isRequired  : %s\n", required ? "TRUE" : "FALSE");
         fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
         fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
     }
 
     for (Element* e in attributes)
     {
-        bool required = [e use] && [[e use] isEqual:@"required"];
+        //bool required = [e use] && [[e use] isEqual:@"required"];
         fprintf (file, "    [handler property    : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-        fprintf (file, "             isRequired  : %s\n", required ? "TRUE" : "FALSE");
         fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
         fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
     }
 
     for  (Element* e in s_elements)
     {
-        bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
+        //bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
             fprintf (file, "    [handler property      : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isRequired    : %s\n", required ? "TRUE" : "FALSE");
             fprintf (file, "             withNamespace : '%c'\n", [e ns]);
             fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
@@ -1130,7 +1127,6 @@ static const char* prefix = "MPSEWS";
         else if ([[e maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"])
         {
             fprintf (file, "    [handler listProperty  : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isNonEmpty    : %s\n", required ? "TRUE" : "FALSE");
             fprintf (file, "             useSelector   : @\"add%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withNamespace : '%c'\n", [e ns]);
             fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
@@ -1145,10 +1141,9 @@ static const char* prefix = "MPSEWS";
 
     for  (Element* e in elements)
     {
-        bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
+        //bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
             fprintf (file, "    [handler property      : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isRequired    : %s\n", required ? "TRUE" : "FALSE");
             fprintf (file, "             withNamespace : '%c'\n", [e ns]);
             fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withHandler   : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
@@ -1156,7 +1151,6 @@ static const char* prefix = "MPSEWS";
         else if ([[e maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"])
         {
             fprintf (file, "    [handler listProperty  : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "             isNonEmpty    : %s\n", required ? "TRUE" : "FALSE");
             fprintf (file, "             useSelector   : @\"add%s\"\n", [[e name] UTF8String]);
             fprintf (file, "             withNamespace : '%c'\n", [e ns]);
             fprintf (file, "             withXmlTag    : @\"%s\"\n", [[e name] UTF8String]);

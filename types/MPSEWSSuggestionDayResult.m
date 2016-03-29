@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSuggestionDayResult class]];
 
     [handler property      : @"date"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Date"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"dayQuality"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DayQuality"
              withHandler   : [MPSEWSSuggestionQuality class]];
 
     [handler property      : @"suggestionArray"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"SuggestionArray"
              withHandler   : [MPSEWSArrayOfSuggestion class]];

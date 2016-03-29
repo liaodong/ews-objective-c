@@ -13,19 +13,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSConnectingSIDType class]];
 
     [handler property      : @"principalName"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"PrincipalName"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"sID"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"SID"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"primarySmtpAddress"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"PrimarySmtpAddress"
              withHandler   : [MPSEWSStringTypeHandler class]];

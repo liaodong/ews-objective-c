@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfAttendeesType class]];
 
     [handler listProperty  : @"attendee"
-             isNonEmpty    : TRUE
              useSelector   : @"addAttendee"
              withNamespace : 't'
              withXmlTag    : @"Attendee"

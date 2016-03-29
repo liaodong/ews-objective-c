@@ -17,35 +17,30 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfFoldersType class]];
 
     [handler listProperty  : @"folder"
-             isNonEmpty    : TRUE
              useSelector   : @"addFolder"
              withNamespace : 't'
              withXmlTag    : @"Folder"
              withHandler   : [MPSEWSFolderType class]];
 
     [handler listProperty  : @"calendarFolder"
-             isNonEmpty    : TRUE
              useSelector   : @"addCalendarFolder"
              withNamespace : 't'
              withXmlTag    : @"CalendarFolder"
              withHandler   : [MPSEWSCalendarFolderType class]];
 
     [handler listProperty  : @"contactsFolder"
-             isNonEmpty    : TRUE
              useSelector   : @"addContactsFolder"
              withNamespace : 't'
              withXmlTag    : @"ContactsFolder"
              withHandler   : [MPSEWSContactsFolderType class]];
 
     [handler listProperty  : @"searchFolder"
-             isNonEmpty    : TRUE
              useSelector   : @"addSearchFolder"
              withNamespace : 't'
              withXmlTag    : @"SearchFolder"
              withHandler   : [MPSEWSSearchFolderType class]];
 
     [handler listProperty  : @"tasksFolder"
-             isNonEmpty    : TRUE
              useSelector   : @"addTasksFolder"
              withNamespace : 't'
              withXmlTag    : @"TasksFolder"

@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSIndividualAttendeeConflictData class]];
 
     [handler property      : @"busyType"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"BusyType"
              withHandler   : [MPSEWSLegacyFreeBusyType class]];

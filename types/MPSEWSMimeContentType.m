@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSMimeContentType class] andContentHandlerClass:[MPSEWSStringTypeHandler class]];
 
     [handler property    : @"characterSet"
-             isRequired  : FALSE
              withAttrTag : @"CharacterSet"
              withHandler : [MPSEWSStringTypeHandler class]];
 

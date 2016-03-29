@@ -16,23 +16,19 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSContainsExpressionType class]];
 
     [handler property    : @"containmentMode"
-             isRequired  : FALSE
              withAttrTag : @"ContainmentMode"
              withHandler : [MPSEWSContainmentModeType class]];
 
     [handler property    : @"containmentComparison"
-             isRequired  : FALSE
              withAttrTag : @"ContainmentComparison"
              withHandler : [MPSEWSContainmentComparisonType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];
 
     [handler property      : @"constant"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Constant"
              withHandler   : [MPSEWSConstantValueType class]];

@@ -18,37 +18,31 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSetFolderFieldType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];
 
     [handler property      : @"folder"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Folder"
              withHandler   : [MPSEWSFolderType class]];
 
     [handler property      : @"calendarFolder"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"CalendarFolder"
              withHandler   : [MPSEWSCalendarFolderType class]];
 
     [handler property      : @"contactsFolder"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"ContactsFolder"
              withHandler   : [MPSEWSContactsFolderType class]];
 
     [handler property      : @"searchFolder"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"SearchFolder"
              withHandler   : [MPSEWSSearchFolderType class]];
 
     [handler property      : @"tasksFolder"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"TasksFolder"
              withHandler   : [MPSEWSTasksFolderType class]];

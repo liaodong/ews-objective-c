@@ -14,25 +14,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSUserIdType class]];
 
     [handler property      : @"sID"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"SID"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"primarySmtpAddress"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"PrimarySmtpAddress"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"displayName"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"DisplayName"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"distinguishedUser"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"DistinguishedUser"
              withHandler   : [MPSEWSDistinguishedUserType class]];

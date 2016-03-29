@@ -14,12 +14,10 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSConvertIdType class]];
 
     [handler property    : @"destinationFormat"
-             isRequired  : TRUE
              withAttrTag : @"DestinationFormat"
              withHandler : [MPSEWSIdFormatType class]];
 
     [handler property      : @"sourceIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"SourceIds"
              withHandler   : [MPSEWSNonEmptyArrayOfAlternateIdsType class]];

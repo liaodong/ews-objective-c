@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfFolderChangesType class]];
 
     [handler listProperty  : @"folderChange"
-             isNonEmpty    : TRUE
              useSelector   : @"addFolderChange"
              withNamespace : 't'
              withXmlTag    : @"FolderChange"

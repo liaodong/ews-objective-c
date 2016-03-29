@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSYearlyRegeneratingPatternType class]];
 
     [handler property      : @"interval"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Interval"
              withHandler   : [MPSEWSIntegerTypeHandler class]];

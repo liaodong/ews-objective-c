@@ -14,25 +14,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSOccurrenceInfoType class]];
 
     [handler property      : @"itemId"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"ItemId"
              withHandler   : [MPSEWSItemIdType class]];
 
     [handler property      : @"start"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Start"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"end"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"End"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"originalStart"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"OriginalStart"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];

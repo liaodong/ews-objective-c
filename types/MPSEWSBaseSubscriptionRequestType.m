@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBaseSubscriptionRequestType class]];
 
     [handler property      : @"folderIds"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"FolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];
 
     [handler property      : @"eventTypes"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"EventTypes"
              withHandler   : [MPSEWSNonEmptyArrayOfNotificationEventTypesType class]];
 
     [handler property      : @"watermark"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Watermark"
              withHandler   : [MPSEWSWatermarkType class]];

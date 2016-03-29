@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAttendeeType class]];
 
     [handler property      : @"mailbox"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];
 
     [handler property      : @"responseType"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"ResponseType"
              withHandler   : [MPSEWSResponseTypeType class]];
 
     [handler property      : @"lastResponseTime"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"LastResponseTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];

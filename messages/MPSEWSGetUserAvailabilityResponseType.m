@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGetUserAvailabilityResponseType class]];
 
     [handler property      : @"freeBusyResponseArray"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"FreeBusyResponseArray"
              withHandler   : [MPSEWSArrayOfFreeBusyResponse class]];
 
     [handler property      : @"suggestionsResponse"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"SuggestionsResponse"
              withHandler   : [MPSEWSSuggestionsResponseType class]];

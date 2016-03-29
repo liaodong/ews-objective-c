@@ -16,25 +16,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSuggestion class]];
 
     [handler property      : @"meetingTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"MeetingTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"isWorkTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"IsWorkTime"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"suggestionQuality"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"SuggestionQuality"
              withHandler   : [MPSEWSSuggestionQuality class]];
 
     [handler property      : @"attendeeConflictDataArray"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"AttendeeConflictDataArray"
              withHandler   : [MPSEWSArrayOfAttendeeConflictData class]];

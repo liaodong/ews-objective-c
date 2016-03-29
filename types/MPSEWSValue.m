@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSValue class] andContentHandlerClass:[MPSEWSStringTypeHandler class]];
 
     [handler property    : @"name"
-             isRequired  : TRUE
              withAttrTag : @"Name"
              withHandler : [MPSEWSStringTypeHandler class]];
 

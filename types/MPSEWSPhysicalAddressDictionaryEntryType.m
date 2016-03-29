@@ -14,36 +14,30 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPhysicalAddressDictionaryEntryType class]];
 
     [handler property    : @"key"
-             isRequired  : TRUE
              withAttrTag : @"Key"
              withHandler : [MPSEWSPhysicalAddressKeyType class]];
 
     [handler property      : @"street"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"Street"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"city"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"City"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"state"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"State"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"countryOrRegion"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"CountryOrRegion"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"postalCode"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"PostalCode"
              withHandler   : [MPSEWSStringTypeHandler class]];

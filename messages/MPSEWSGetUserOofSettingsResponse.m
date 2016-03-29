@@ -15,19 +15,16 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSGetUserOofSettingsResponse class]];
 
     [handler property      : @"responseMessage"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler property      : @"oofSettings"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"OofSettings"
              withHandler   : [MPSEWSUserOofSettings class]];
 
     [handler property      : @"allowExternalOof"
-             isRequired    : FALSE
              withNamespace : 'm'
              withXmlTag    : @"AllowExternalOof"
              withHandler   : [MPSEWSExternalAudience class]];

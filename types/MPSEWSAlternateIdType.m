@@ -15,17 +15,14 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSAlternateIdType class]];
 
     [handler property    : @"format"
-             isRequired  : TRUE
              withAttrTag : @"Format"
              withHandler : [MPSEWSIdFormatType class]];
 
     [handler property    : @"id"
-             isRequired  : TRUE
              withAttrTag : @"Id"
              withHandler : [MPSEWSStringTypeHandler class]];
 
     [handler property    : @"mailbox"
-             isRequired  : TRUE
              withAttrTag : @"Mailbox"
              withHandler : [MPSEWSNonEmptyStringType class]];
 

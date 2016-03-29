@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSExtendedPropertyType class]];
 
     [handler property      : @"extendedFieldURI"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"ExtendedFieldURI"
              withHandler   : [MPSEWSPathToExtendedFieldType class]];

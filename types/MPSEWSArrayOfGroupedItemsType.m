@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfGroupedItemsType class]];
 
     [handler listProperty  : @"groupedItems"
-             isNonEmpty    : FALSE
              useSelector   : @"addGroupedItems"
              withNamespace : 't'
              withXmlTag    : @"GroupedItems"

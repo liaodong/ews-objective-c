@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfDelegateUserResponseMessageType class]];
 
     [handler listProperty  : @"delegateUserResponseMessageType"
-             isNonEmpty    : TRUE
              useSelector   : @"addDelegateUserResponseMessageType"
              withNamespace : 'm'
              withXmlTag    : @"DelegateUserResponseMessageType"

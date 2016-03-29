@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfPropertyValuesType class]];
 
     [handler listProperty  : @"value"
-             isNonEmpty    : TRUE
              useSelector   : @"addValue"
              withNamespace : 't'
              withXmlTag    : @"Value"

@@ -16,25 +16,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFreeBusyView class]];
 
     [handler property      : @"freeBusyViewType"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"FreeBusyViewType"
              withHandler   : [MPSEWSFreeBusyViewType class]];
 
     [handler property      : @"mergedFreeBusy"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"MergedFreeBusy"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
     [handler property      : @"calendarEventArray"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"CalendarEventArray"
              withHandler   : [MPSEWSArrayOfCalendarEvent class]];
 
     [handler property      : @"workingHours"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"WorkingHours"
              withHandler   : [MPSEWSWorkingHours class]];

@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSCalendarPermissionSetType class]];
 
     [handler property      : @"calendarPermissions"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"CalendarPermissions"
              withHandler   : [MPSEWSArrayOfCalendarPermissionsType class]];
 
     [handler property      : @"unknownEntries"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"UnknownEntries"
              withHandler   : [MPSEWSArrayOfUnknownEntriesType class]];

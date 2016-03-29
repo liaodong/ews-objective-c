@@ -13,13 +13,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSEndDateRecurrenceRangeType class]];
 
     [handler property      : @"startDate"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"StartDate"
              withHandler   : [MPSEWSDateTypeHandler class]];
 
     [handler property      : @"endDate"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"EndDate"
              withHandler   : [MPSEWSDateTypeHandler class]];

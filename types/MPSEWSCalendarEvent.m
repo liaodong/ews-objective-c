@@ -15,25 +15,21 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSCalendarEvent class]];
 
     [handler property      : @"startTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"StartTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"endTime"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"EndTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"busyType"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"BusyType"
              withHandler   : [MPSEWSLegacyFreeBusyType class]];
 
     [handler property      : @"calendarEventDetails"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"CalendarEventDetails"
              withHandler   : [MPSEWSCalendarEventDetails class]];

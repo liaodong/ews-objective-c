@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfNotificationEventTypesType class]];
 
     [handler listProperty  : @"eventType"
-             isNonEmpty    : TRUE
              useSelector   : @"addEventType"
              withNamespace : 't'
              withXmlTag    : @"EventType"

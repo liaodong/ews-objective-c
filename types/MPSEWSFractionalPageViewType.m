@@ -13,17 +13,14 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSFractionalPageViewType class]];
 
     [handler property    : @"maxEntriesReturned"
-             isRequired  : FALSE
              withAttrTag : @"MaxEntriesReturned"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"numerator"
-             isRequired  : TRUE
              withAttrTag : @"Numerator"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 
     [handler property    : @"denominator"
-             isRequired  : TRUE
              withAttrTag : @"Denominator"
              withHandler : [MPSEWSIntegerTypeHandler class]];
 

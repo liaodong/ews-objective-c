@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfSuggestion class]];
 
     [handler listProperty  : @"suggestion"
-             isNonEmpty    : FALSE
              useSelector   : @"addSuggestion"
              withNamespace : 't'
              withXmlTag    : @"Suggestion"

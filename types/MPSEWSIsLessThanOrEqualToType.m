@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSIsLessThanOrEqualToType class]];
 
     [handler property      : @"path"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"Path"
              withHandler   : [MPSEWSBasePathToElementType class]];
 
     [handler property      : @"fieldURIOrConstant"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"FieldURIOrConstant"
              withHandler   : [MPSEWSFieldURIOrConstantType class]];

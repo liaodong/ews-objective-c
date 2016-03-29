@@ -17,49 +17,41 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSSuggestionsViewOptionsType class]];
 
     [handler property      : @"goodThreshold"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"GoodThreshold"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"maximumResultsByDay"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"MaximumResultsByDay"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"maximumNonWorkHourResultsByDay"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"MaximumNonWorkHourResultsByDay"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"meetingDurationInMinutes"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"MeetingDurationInMinutes"
              withHandler   : [MPSEWSIntegerTypeHandler class]];
 
     [handler property      : @"minimumSuggestionQuality"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"MinimumSuggestionQuality"
              withHandler   : [MPSEWSSuggestionQuality class]];
 
     [handler property      : @"detailedSuggestionsWindow"
-             isRequired    : TRUE
              withNamespace : 't'
              withXmlTag    : @"DetailedSuggestionsWindow"
              withHandler   : [MPSEWSDuration class]];
 
     [handler property      : @"currentMeetingTime"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"CurrentMeetingTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
     [handler property      : @"globalObjectId"
-             isRequired    : FALSE
              withNamespace : 't'
              withXmlTag    : @"GlobalObjectId"
              withHandler   : [MPSEWSStringTypeHandler class]];

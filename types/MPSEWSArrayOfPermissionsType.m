@@ -13,7 +13,6 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfPermissionsType class]];
 
     [handler listProperty  : @"permission"
-             isNonEmpty    : TRUE
              useSelector   : @"addPermission"
              withNamespace : 't'
              withXmlTag    : @"Permission"

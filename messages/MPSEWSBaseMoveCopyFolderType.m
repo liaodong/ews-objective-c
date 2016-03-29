@@ -14,13 +14,11 @@
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBaseMoveCopyFolderType class]];
 
     [handler property      : @"toFolderId"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"ToFolderId"
              withHandler   : [MPSEWSTargetFolderIdType class]];
 
     [handler property      : @"folderIds"
-             isRequired    : TRUE
              withNamespace : 'm'
              withXmlTag    : @"FolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];
