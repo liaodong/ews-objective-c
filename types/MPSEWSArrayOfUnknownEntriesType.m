@@ -12,8 +12,9 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfUnknownEntriesType class]];
 
-    [handler property      : @"unknownEntry"
-             isRequired    : TRUE
+    [handler listProperty  : @"unknownEntry"
+             isNonEmpty    : TRUE
+             useSelector   : @"addUnknownEntry"
              withNamespace : 't'
              withXmlTag    : @"UnknownEntry"
              withHandler   : [MPSEWSStringTypeHandler class]];
@@ -34,6 +35,14 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"ArrayOfUnknownEntriesType: UnknownEntry=%@", _unknownEntry];
+}
+
+- (void) addUnknownEntry:(NSString*) elem
+{
+    if (![self unknownEntry]) {
+        [self setUnknownEntry:[[NSMutableArray<NSString*> alloc] init]];
+    }
+    [_unknownEntry addObject:elem];
 }
 
 @end

@@ -17,10 +17,13 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSItemIdType*                itemId;
-@property (strong) MPSEWSOccurrenceItemIdType*      occurrenceItemId;
-@property (strong) MPSEWSRecurringMasterItemIdType* recurringMasterItemId;
+@property (strong) NSMutableArray<MPSEWSItemIdType*>*                itemId;
+@property (strong) NSMutableArray<MPSEWSOccurrenceItemIdType*>*      occurrenceItemId;
+@property (strong) NSMutableArray<MPSEWSRecurringMasterItemIdType*>* recurringMasterItemId;
 
 
+- (void) addItemId:(MPSEWSItemIdType*) elem;
+- (void) addOccurrenceItemId:(MPSEWSOccurrenceItemIdType*) elem;
+- (void) addRecurringMasterItemId:(MPSEWSRecurringMasterItemIdType*) elem;
 @end
 

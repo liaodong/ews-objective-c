@@ -15,8 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSEmailAddressType* mailbox;
+@property (strong) NSMutableArray<MPSEWSEmailAddressType*>* mailbox;
 
 
+- (void) addMailbox:(MPSEWSEmailAddressType*) elem;
 @end
 

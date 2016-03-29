@@ -12,8 +12,9 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfCalendarPermissionsType class]];
 
-    [handler property      : @"calendarPermission"
-             isRequired    : TRUE
+    [handler listProperty  : @"calendarPermission"
+             isNonEmpty    : TRUE
+             useSelector   : @"addCalendarPermission"
              withNamespace : 't'
              withXmlTag    : @"CalendarPermission"
              withHandler   : [MPSEWSCalendarPermissionType class]];
@@ -34,6 +35,14 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"ArrayOfCalendarPermissionsType: CalendarPermission=%@", _calendarPermission];
+}
+
+- (void) addCalendarPermission:(MPSEWSCalendarPermissionType*) elem
+{
+    if (![self calendarPermission]) {
+        [self setCalendarPermission:[[NSMutableArray<MPSEWSCalendarPermissionType*> alloc] init]];
+    }
+    [_calendarPermission addObject:elem];
 }
 
 @end

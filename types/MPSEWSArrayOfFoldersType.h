@@ -19,12 +19,17 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSFolderType*         folder;
-@property (strong) MPSEWSCalendarFolderType* calendarFolder;
-@property (strong) MPSEWSContactsFolderType* contactsFolder;
-@property (strong) MPSEWSSearchFolderType*   searchFolder;
-@property (strong) MPSEWSTasksFolderType*    tasksFolder;
+@property (strong) NSMutableArray<MPSEWSFolderType*>*         folder;
+@property (strong) NSMutableArray<MPSEWSCalendarFolderType*>* calendarFolder;
+@property (strong) NSMutableArray<MPSEWSContactsFolderType*>* contactsFolder;
+@property (strong) NSMutableArray<MPSEWSSearchFolderType*>*   searchFolder;
+@property (strong) NSMutableArray<MPSEWSTasksFolderType*>*    tasksFolder;
 
 
+- (void) addFolder:(MPSEWSFolderType*) elem;
+- (void) addCalendarFolder:(MPSEWSCalendarFolderType*) elem;
+- (void) addContactsFolder:(MPSEWSContactsFolderType*) elem;
+- (void) addSearchFolder:(MPSEWSSearchFolderType*) elem;
+- (void) addTasksFolder:(MPSEWSTasksFolderType*) elem;
 @end
 

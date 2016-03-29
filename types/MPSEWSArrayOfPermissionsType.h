@@ -15,8 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSPermissionType* permission;
+@property (strong) NSMutableArray<MPSEWSPermissionType*>* permission;
 
 
+- (void) addPermission:(MPSEWSPermissionType*) elem;
 @end
 

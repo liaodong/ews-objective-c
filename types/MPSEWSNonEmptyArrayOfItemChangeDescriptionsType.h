@@ -17,10 +17,13 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSAppendToItemFieldType* appendToItemField;
-@property (strong) MPSEWSSetItemFieldType*      setItemField;
-@property (strong) MPSEWSDeleteItemFieldType*   deleteItemField;
+@property (strong) NSMutableArray<MPSEWSAppendToItemFieldType*>* appendToItemField;
+@property (strong) NSMutableArray<MPSEWSSetItemFieldType*>*      setItemField;
+@property (strong) NSMutableArray<MPSEWSDeleteItemFieldType*>*   deleteItemField;
 
 
+- (void) addAppendToItemField:(MPSEWSAppendToItemFieldType*) elem;
+- (void) addSetItemField:(MPSEWSSetItemFieldType*) elem;
+- (void) addDeleteItemField:(MPSEWSDeleteItemFieldType*) elem;
 @end
 

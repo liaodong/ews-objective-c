@@ -14,20 +14,23 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfAlternateIdsType class]];
 
-    [handler property      : @"alternateId"
-             isRequired    : TRUE
+    [handler listProperty  : @"alternateId"
+             isNonEmpty    : TRUE
+             useSelector   : @"addAlternateId"
              withNamespace : 't'
              withXmlTag    : @"AlternateId"
              withHandler   : [MPSEWSAlternateIdType class]];
 
-    [handler property      : @"alternatePublicFolderId"
-             isRequired    : TRUE
+    [handler listProperty  : @"alternatePublicFolderId"
+             isNonEmpty    : TRUE
+             useSelector   : @"addAlternatePublicFolderId"
              withNamespace : 't'
              withXmlTag    : @"AlternatePublicFolderId"
              withHandler   : [MPSEWSAlternatePublicFolderIdType class]];
 
-    [handler property      : @"alternatePublicFolderItemId"
-             isRequired    : TRUE
+    [handler listProperty  : @"alternatePublicFolderItemId"
+             isNonEmpty    : TRUE
+             useSelector   : @"addAlternatePublicFolderItemId"
              withNamespace : 't'
              withXmlTag    : @"AlternatePublicFolderItemId"
              withHandler   : [MPSEWSAlternatePublicFolderItemIdType class]];
@@ -48,6 +51,30 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"NonEmptyArrayOfAlternateIdsType: AlternateId=%@ AlternatePublicFolderId=%@ AlternatePublicFolderItemId=%@", _alternateId, _alternatePublicFolderId, _alternatePublicFolderItemId];
+}
+
+- (void) addAlternateId:(MPSEWSAlternateIdType*) elem
+{
+    if (![self alternateId]) {
+        [self setAlternateId:[[NSMutableArray<MPSEWSAlternateIdType*> alloc] init]];
+    }
+    [_alternateId addObject:elem];
+}
+
+- (void) addAlternatePublicFolderId:(MPSEWSAlternatePublicFolderIdType*) elem
+{
+    if (![self alternatePublicFolderId]) {
+        [self setAlternatePublicFolderId:[[NSMutableArray<MPSEWSAlternatePublicFolderIdType*> alloc] init]];
+    }
+    [_alternatePublicFolderId addObject:elem];
+}
+
+- (void) addAlternatePublicFolderItemId:(MPSEWSAlternatePublicFolderItemIdType*) elem
+{
+    if (![self alternatePublicFolderItemId]) {
+        [self setAlternatePublicFolderItemId:[[NSMutableArray<MPSEWSAlternatePublicFolderItemIdType*> alloc] init]];
+    }
+    [_alternatePublicFolderItemId addObject:elem];
 }
 
 @end

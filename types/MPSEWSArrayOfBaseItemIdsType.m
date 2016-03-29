@@ -12,8 +12,9 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfBaseItemIdsType class]];
 
-    [handler property      : @"itemId"
-             isRequired    : TRUE
+    [handler listProperty  : @"itemId"
+             isNonEmpty    : TRUE
+             useSelector   : @"addItemId"
              withNamespace : 't'
              withXmlTag    : @"ItemId"
              withHandler   : [MPSEWSItemIdType class]];
@@ -34,6 +35,14 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"ArrayOfBaseItemIdsType: ItemId=%@", _itemId];
+}
+
+- (void) addItemId:(MPSEWSItemIdType*) elem
+{
+    if (![self itemId]) {
+        [self setItemId:[[NSMutableArray<MPSEWSItemIdType*> alloc] init]];
+    }
+    [_itemId addObject:elem];
 }
 
 @end

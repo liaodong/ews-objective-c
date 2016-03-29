@@ -13,14 +13,16 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfAttachmentsType class]];
 
-    [handler property      : @"itemAttachment"
-             isRequired    : TRUE
+    [handler listProperty  : @"itemAttachment"
+             isNonEmpty    : TRUE
+             useSelector   : @"addItemAttachment"
              withNamespace : 't'
              withXmlTag    : @"ItemAttachment"
              withHandler   : [MPSEWSItemAttachmentType class]];
 
-    [handler property      : @"fileAttachment"
-             isRequired    : TRUE
+    [handler listProperty  : @"fileAttachment"
+             isNonEmpty    : TRUE
+             useSelector   : @"addFileAttachment"
              withNamespace : 't'
              withXmlTag    : @"FileAttachment"
              withHandler   : [MPSEWSFileAttachmentType class]];
@@ -41,6 +43,22 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"ArrayOfAttachmentsType: ItemAttachment=%@ FileAttachment=%@", _itemAttachment, _fileAttachment];
+}
+
+- (void) addItemAttachment:(MPSEWSItemAttachmentType*) elem
+{
+    if (![self itemAttachment]) {
+        [self setItemAttachment:[[NSMutableArray<MPSEWSItemAttachmentType*> alloc] init]];
+    }
+    [_itemAttachment addObject:elem];
+}
+
+- (void) addFileAttachment:(MPSEWSFileAttachmentType*) elem
+{
+    if (![self fileAttachment]) {
+        [self setFileAttachment:[[NSMutableArray<MPSEWSFileAttachmentType*> alloc] init]];
+    }
+    [_fileAttachment addObject:elem];
 }
 
 @end

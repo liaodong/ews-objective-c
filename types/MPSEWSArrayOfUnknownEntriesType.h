@@ -14,8 +14,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString* unknownEntry  /* xs:string */;
+@property (strong) NSMutableArray<NSString*>* unknownEntry /* xs:string */;
 
 
+- (void) addUnknownEntry:(NSString*) elem;
 @end
 

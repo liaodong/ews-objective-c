@@ -12,8 +12,9 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfNotificationEventTypesType class]];
 
-    [handler property      : @"eventType"
-             isRequired    : TRUE
+    [handler listProperty  : @"eventType"
+             isNonEmpty    : TRUE
+             useSelector   : @"addEventType"
              withNamespace : 't'
              withXmlTag    : @"EventType"
              withHandler   : [MPSEWSNotificationEventTypeType class]];
@@ -34,6 +35,14 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"NonEmptyArrayOfNotificationEventTypesType: EventType=%@", _eventType];
+}
+
+- (void) addEventType:(NSString*) elem
+{
+    if (![self eventType]) {
+        [self setEventType:[[NSMutableArray<NSString*> alloc] init]];
+    }
+    [_eventType addObject:elem];
 }
 
 @end

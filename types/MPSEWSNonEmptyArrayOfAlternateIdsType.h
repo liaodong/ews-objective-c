@@ -17,10 +17,13 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSAlternateIdType*                 alternateId;
-@property (strong) MPSEWSAlternatePublicFolderIdType*     alternatePublicFolderId;
-@property (strong) MPSEWSAlternatePublicFolderItemIdType* alternatePublicFolderItemId;
+@property (strong) NSMutableArray<MPSEWSAlternateIdType*>*                 alternateId;
+@property (strong) NSMutableArray<MPSEWSAlternatePublicFolderIdType*>*     alternatePublicFolderId;
+@property (strong) NSMutableArray<MPSEWSAlternatePublicFolderItemIdType*>* alternatePublicFolderItemId;
 
 
+- (void) addAlternateId:(MPSEWSAlternateIdType*) elem;
+- (void) addAlternatePublicFolderId:(MPSEWSAlternatePublicFolderIdType*) elem;
+- (void) addAlternatePublicFolderItemId:(MPSEWSAlternatePublicFolderItemIdType*) elem;
 @end
 

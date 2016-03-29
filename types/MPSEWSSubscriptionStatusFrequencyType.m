@@ -12,6 +12,14 @@ static int maxInclusive = 1440;
     [[[MPSEWSSubscriptionStatusFrequencyType alloc] init] register];
 }
 
++ (BOOL) isValid: (NSNumber *) val
+{
+    (void) val;
+    if ([val intValue] < 1) return FALSE;
+    if ([val intValue] > 1440) return FALSE;
+    return TRUE;
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSSubscriptionStatusFrequencyType class]];

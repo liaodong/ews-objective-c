@@ -8,6 +8,7 @@
 
 /** Register a handler to parse ExcludesAttributeType */
 + (void) initialize;
++ (BOOL) isValid:(NSString *) val;
 
 /** Initialize the handler */
 - (id) init;

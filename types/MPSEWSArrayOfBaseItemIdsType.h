@@ -15,8 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSItemIdType* itemId;
+@property (strong) NSMutableArray<MPSEWSItemIdType*>* itemId;
 
 
+- (void) addItemId:(MPSEWSItemIdType*) elem;
 @end
 

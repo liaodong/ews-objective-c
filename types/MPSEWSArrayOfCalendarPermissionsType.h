@@ -15,8 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSCalendarPermissionType* calendarPermission;
+@property (strong) NSMutableArray<MPSEWSCalendarPermissionType*>* calendarPermission;
 
 
+- (void) addCalendarPermission:(MPSEWSCalendarPermissionType*) elem;
 @end
 

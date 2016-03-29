@@ -14,20 +14,23 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfItemChangeDescriptionsType class]];
 
-    [handler property      : @"appendToItemField"
-             isRequired    : TRUE
+    [handler listProperty  : @"appendToItemField"
+             isNonEmpty    : TRUE
+             useSelector   : @"addAppendToItemField"
              withNamespace : 't'
              withXmlTag    : @"AppendToItemField"
              withHandler   : [MPSEWSAppendToItemFieldType class]];
 
-    [handler property      : @"setItemField"
-             isRequired    : TRUE
+    [handler listProperty  : @"setItemField"
+             isNonEmpty    : TRUE
+             useSelector   : @"addSetItemField"
              withNamespace : 't'
              withXmlTag    : @"SetItemField"
              withHandler   : [MPSEWSSetItemFieldType class]];
 
-    [handler property      : @"deleteItemField"
-             isRequired    : TRUE
+    [handler listProperty  : @"deleteItemField"
+             isNonEmpty    : TRUE
+             useSelector   : @"addDeleteItemField"
              withNamespace : 't'
              withXmlTag    : @"DeleteItemField"
              withHandler   : [MPSEWSDeleteItemFieldType class]];
@@ -48,6 +51,30 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"NonEmptyArrayOfItemChangeDescriptionsType: AppendToItemField=%@ SetItemField=%@ DeleteItemField=%@", _appendToItemField, _setItemField, _deleteItemField];
+}
+
+- (void) addAppendToItemField:(MPSEWSAppendToItemFieldType*) elem
+{
+    if (![self appendToItemField]) {
+        [self setAppendToItemField:[[NSMutableArray<MPSEWSAppendToItemFieldType*> alloc] init]];
+    }
+    [_appendToItemField addObject:elem];
+}
+
+- (void) addSetItemField:(MPSEWSSetItemFieldType*) elem
+{
+    if (![self setItemField]) {
+        [self setSetItemField:[[NSMutableArray<MPSEWSSetItemFieldType*> alloc] init]];
+    }
+    [_setItemField addObject:elem];
+}
+
+- (void) addDeleteItemField:(MPSEWSDeleteItemFieldType*) elem
+{
+    if (![self deleteItemField]) {
+        [self setDeleteItemField:[[NSMutableArray<MPSEWSDeleteItemFieldType*> alloc] init]];
+    }
+    [_deleteItemField addObject:elem];
 }
 
 @end

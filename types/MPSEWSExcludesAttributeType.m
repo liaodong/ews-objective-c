@@ -11,6 +11,13 @@ static NSString* pattern = nil;
     [[[MPSEWSExcludesAttributeType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString *) val
+{
+    (void) val;
+    // pattern = @"((0x|0X)[0-9A-Fa-f]*)|([0-9]*)";
+    return TRUE;
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSExcludesAttributeType class]];

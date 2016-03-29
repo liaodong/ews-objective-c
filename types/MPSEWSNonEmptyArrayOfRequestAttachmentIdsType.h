@@ -15,8 +15,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSRequestAttachmentIdType* attachmentId;
+@property (strong) NSMutableArray<MPSEWSRequestAttachmentIdType*>* attachmentId;
 
 
+- (void) addAttachmentId:(MPSEWSRequestAttachmentIdType*) elem;
 @end
 

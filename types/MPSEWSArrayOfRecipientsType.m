@@ -12,8 +12,9 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfRecipientsType class]];
 
-    [handler property      : @"mailbox"
-             isRequired    : TRUE
+    [handler listProperty  : @"mailbox"
+             isNonEmpty    : TRUE
+             useSelector   : @"addMailbox"
              withNamespace : 't'
              withXmlTag    : @"Mailbox"
              withHandler   : [MPSEWSEmailAddressType class]];
@@ -34,6 +35,14 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"ArrayOfRecipientsType: Mailbox=%@", _mailbox];
+}
+
+- (void) addMailbox:(MPSEWSEmailAddressType*) elem
+{
+    if (![self mailbox]) {
+        [self setMailbox:[[NSMutableArray<MPSEWSEmailAddressType*> alloc] init]];
+    }
+    [_mailbox addObject:elem];
 }
 
 @end

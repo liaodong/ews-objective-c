@@ -16,32 +16,37 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSNonEmptyArrayOfFoldersType class]];
 
-    [handler property      : @"folder"
-             isRequired    : TRUE
+    [handler listProperty  : @"folder"
+             isNonEmpty    : TRUE
+             useSelector   : @"addFolder"
              withNamespace : 't'
              withXmlTag    : @"Folder"
              withHandler   : [MPSEWSFolderType class]];
 
-    [handler property      : @"calendarFolder"
-             isRequired    : TRUE
+    [handler listProperty  : @"calendarFolder"
+             isNonEmpty    : TRUE
+             useSelector   : @"addCalendarFolder"
              withNamespace : 't'
              withXmlTag    : @"CalendarFolder"
              withHandler   : [MPSEWSCalendarFolderType class]];
 
-    [handler property      : @"contactsFolder"
-             isRequired    : TRUE
+    [handler listProperty  : @"contactsFolder"
+             isNonEmpty    : TRUE
+             useSelector   : @"addContactsFolder"
              withNamespace : 't'
              withXmlTag    : @"ContactsFolder"
              withHandler   : [MPSEWSContactsFolderType class]];
 
-    [handler property      : @"searchFolder"
-             isRequired    : TRUE
+    [handler listProperty  : @"searchFolder"
+             isNonEmpty    : TRUE
+             useSelector   : @"addSearchFolder"
              withNamespace : 't'
              withXmlTag    : @"SearchFolder"
              withHandler   : [MPSEWSSearchFolderType class]];
 
-    [handler property      : @"tasksFolder"
-             isRequired    : TRUE
+    [handler listProperty  : @"tasksFolder"
+             isNonEmpty    : TRUE
+             useSelector   : @"addTasksFolder"
              withNamespace : 't'
              withXmlTag    : @"TasksFolder"
              withHandler   : [MPSEWSTasksFolderType class]];
@@ -62,6 +67,46 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"NonEmptyArrayOfFoldersType: Folder=%@ CalendarFolder=%@ ContactsFolder=%@ SearchFolder=%@ TasksFolder=%@", _folder, _calendarFolder, _contactsFolder, _searchFolder, _tasksFolder];
+}
+
+- (void) addFolder:(MPSEWSFolderType*) elem
+{
+    if (![self folder]) {
+        [self setFolder:[[NSMutableArray<MPSEWSFolderType*> alloc] init]];
+    }
+    [_folder addObject:elem];
+}
+
+- (void) addCalendarFolder:(MPSEWSCalendarFolderType*) elem
+{
+    if (![self calendarFolder]) {
+        [self setCalendarFolder:[[NSMutableArray<MPSEWSCalendarFolderType*> alloc] init]];
+    }
+    [_calendarFolder addObject:elem];
+}
+
+- (void) addContactsFolder:(MPSEWSContactsFolderType*) elem
+{
+    if (![self contactsFolder]) {
+        [self setContactsFolder:[[NSMutableArray<MPSEWSContactsFolderType*> alloc] init]];
+    }
+    [_contactsFolder addObject:elem];
+}
+
+- (void) addSearchFolder:(MPSEWSSearchFolderType*) elem
+{
+    if (![self searchFolder]) {
+        [self setSearchFolder:[[NSMutableArray<MPSEWSSearchFolderType*> alloc] init]];
+    }
+    [_searchFolder addObject:elem];
+}
+
+- (void) addTasksFolder:(MPSEWSTasksFolderType*) elem
+{
+    if (![self tasksFolder]) {
+        [self setTasksFolder:[[NSMutableArray<MPSEWSTasksFolderType*> alloc] init]];
+    }
+    [_tasksFolder addObject:elem];
 }
 
 @end

@@ -12,8 +12,9 @@
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSArrayOfPermissionsType class]];
 
-    [handler property      : @"permission"
-             isRequired    : TRUE
+    [handler listProperty  : @"permission"
+             isNonEmpty    : TRUE
+             useSelector   : @"addPermission"
              withNamespace : 't'
              withXmlTag    : @"Permission"
              withHandler   : [MPSEWSPermissionType class]];
@@ -34,6 +35,14 @@
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"ArrayOfPermissionsType: Permission=%@", _permission];
+}
+
+- (void) addPermission:(MPSEWSPermissionType*) elem
+{
+    if (![self permission]) {
+        [self setPermission:[[NSMutableArray<MPSEWSPermissionType*> alloc] init]];
+    }
+    [_permission addObject:elem];
 }
 
 @end

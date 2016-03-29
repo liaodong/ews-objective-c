@@ -16,9 +16,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSItemAttachmentType* itemAttachment;
-@property (strong) MPSEWSFileAttachmentType* fileAttachment;
+@property (strong) NSMutableArray<MPSEWSItemAttachmentType*>* itemAttachment;
+@property (strong) NSMutableArray<MPSEWSFileAttachmentType*>* fileAttachment;
 
 
+- (void) addItemAttachment:(MPSEWSItemAttachmentType*) elem;
+- (void) addFileAttachment:(MPSEWSFileAttachmentType*) elem;
 @end
 

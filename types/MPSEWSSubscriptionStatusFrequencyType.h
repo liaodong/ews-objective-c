@@ -8,6 +8,7 @@
 
 /** Register a handler to parse SubscriptionStatusFrequencyType */
 + (void) initialize;
++ (BOOL) isValid: (NSNumber *) val;
 
 /** Initialize the handler */
 - (id) init;

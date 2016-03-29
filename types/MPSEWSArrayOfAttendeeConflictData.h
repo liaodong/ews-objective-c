@@ -18,11 +18,15 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSUnknownAttendeeConflictData*     unknownAttendeeConflictData;
-@property (strong) MPSEWSIndividualAttendeeConflictData*  individualAttendeeConflictData;
-@property (strong) MPSEWSTooBigGroupAttendeeConflictData* tooBigGroupAttendeeConflictData;
-@property (strong) MPSEWSGroupAttendeeConflictData*       groupAttendeeConflictData;
+@property (strong) NSMutableArray<MPSEWSUnknownAttendeeConflictData*>*     unknownAttendeeConflictData;
+@property (strong) NSMutableArray<MPSEWSIndividualAttendeeConflictData*>*  individualAttendeeConflictData;
+@property (strong) NSMutableArray<MPSEWSTooBigGroupAttendeeConflictData*>* tooBigGroupAttendeeConflictData;
+@property (strong) NSMutableArray<MPSEWSGroupAttendeeConflictData*>*       groupAttendeeConflictData;
 
 
+- (void) addUnknownAttendeeConflictData:(MPSEWSUnknownAttendeeConflictData*) elem;
+- (void) addIndividualAttendeeConflictData:(MPSEWSIndividualAttendeeConflictData*) elem;
+- (void) addTooBigGroupAttendeeConflictData:(MPSEWSTooBigGroupAttendeeConflictData*) elem;
+- (void) addGroupAttendeeConflictData:(MPSEWSGroupAttendeeConflictData*) elem;
 @end
 

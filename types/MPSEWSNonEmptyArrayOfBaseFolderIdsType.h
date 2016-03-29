@@ -16,9 +16,11 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSFolderIdType*              folderId;
-@property (strong) MPSEWSDistinguishedFolderIdType* distinguishedFolderId;
+@property (strong) NSMutableArray<MPSEWSFolderIdType*>*              folderId;
+@property (strong) NSMutableArray<MPSEWSDistinguishedFolderIdType*>* distinguishedFolderId;
 
 
+- (void) addFolderId:(MPSEWSFolderIdType*) elem;
+- (void) addDistinguishedFolderId:(MPSEWSDistinguishedFolderIdType*) elem;
 @end
 

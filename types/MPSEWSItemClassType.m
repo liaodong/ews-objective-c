@@ -8,6 +8,12 @@
     [[[MPSEWSItemClassType alloc] init] register];
 }
 
++ (BOOL) isValid: (NSString *) val
+{
+    (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSItemClassType class]];

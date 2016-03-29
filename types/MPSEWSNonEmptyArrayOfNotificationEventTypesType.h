@@ -14,8 +14,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString* eventType  /* MPSEWSNotificationEventTypeType */;
+@property (strong) NSMutableArray<NSString*>* eventType /* MPSEWSNotificationEventTypeType */;
 
 
+- (void) addEventType:(NSString*) elem;
 @end
 

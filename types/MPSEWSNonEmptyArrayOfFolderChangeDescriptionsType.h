@@ -17,10 +17,13 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSAppendToFolderFieldType* appendToFolderField;
-@property (strong) MPSEWSSetFolderFieldType*      setFolderField;
-@property (strong) MPSEWSDeleteFolderFieldType*   deleteFolderField;
+@property (strong) NSMutableArray<MPSEWSAppendToFolderFieldType*>* appendToFolderField;
+@property (strong) NSMutableArray<MPSEWSSetFolderFieldType*>*      setFolderField;
+@property (strong) NSMutableArray<MPSEWSDeleteFolderFieldType*>*   deleteFolderField;
 
 
+- (void) addAppendToFolderField:(MPSEWSAppendToFolderFieldType*) elem;
+- (void) addSetFolderField:(MPSEWSSetFolderFieldType*) elem;
+- (void) addDeleteFolderField:(MPSEWSDeleteFolderFieldType*) elem;
 @end
 

@@ -1,6 +1,87 @@
 #import <Foundation/Foundation.h>
 #import "generator.h"
 
+@interface Predicate : NSObject
+{
+}
+- (id) init;
+@end
+
+@implementation Predicate
+-(id) init { return self = [super init]; }
+@end
+
+@interface ListPredicate : Predicate
+{ 
+}
+@property (retain) NSMutableArray* clauses;
+- (id) init;
+- (void) addObject:(Predicate*) pred;
+@end
+@implementation ListPredicate
+- (id) init
+{
+    self = [super init];
+    [self setClauses:[[NSMutableArray alloc] init]];
+    return self;
+}
+- (void) addObject:(Predicate*) pred
+{
+    [[self clauses] addObject:pred];
+}
+@end
+@interface OrPredicate : ListPredicate
+{}
+-(id) init;
+@end
+@implementation OrPredicate
+{}
+-(id) init { return self = [super init]; }
+@end
+@interface ExclusiveOrPredicate : ListPredicate
+{}
+-(id) init;
+@end
+@implementation ExclusiveOrPredicate
+{}
+-(id) init { return self = [super init]; }
+@end
+@interface AndPredicate : ListPredicate
+{}
+-(id) init;
+@end
+@implementation AndPredicate
+{}
+-(id) init { return self = [super init]; }
+@end
+@interface ElementPredicate : Predicate
+{
+}
+@property (retain) Element* element;
+- (id) initWithElement:(Element*) e;
+@end
+@implementation ElementPredicate
+- (id) initWithElement:(Element*) e
+{
+    self = [super init];
+    [self setElement:e];
+    return self;
+}
+@end
+@interface NotNullPredicate : ElementPredicate
+{}
+- (id) initWithElement:(Element*) e;
+@end
+@implementation NotNullPredicate
+- (id) initWithElement:(Element*) e { return self = [super initWithElement:e]; }
+@end
+@interface NotEmptyPredicate : ElementPredicate
+{}
+- (id) initWithElement:(Element*) e;
+@end
+@implementation NotEmptyPredicate
+- (id) initWithElement:(Element*) e { return self = [super initWithElement:e]; }
+@end
 
 @implementation Element
 {
@@ -188,7 +269,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
-    fprintf (file, "+ (void) initialize;\n\n");
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid:(%s) val;\n\n", returnType);
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -221,6 +303,14 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    pattern = @\"%s\";\n", [pattern UTF8String]);
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid:(%s) val\n", returnType);
+    fprintf (file, "{\n");
+    fprintf (file, "    (void) val;\n");
+    fprintf (file, "    // pattern = @\"%s\";\n", [pattern UTF8String]);
+    fprintf (file, "    return TRUE;\n");
+    fprintf (file, "}\n\n");
+
 
     fprintf (file, "- (id) init\n");
     fprintf (file, "{\n");
@@ -280,7 +370,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
-    fprintf (file, "+ (void) initialize;\n\n");
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid: (%s) val;\n\n", returnType);
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -307,6 +398,12 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid: (%s) val\n", returnType);
+    fprintf (file, "{\n");
+    fprintf (file, "    (void) val;\n");
+    fprintf (file, "    return TRUE;\n");
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -370,7 +467,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
-    fprintf (file, "+ (void) initialize;\n\n");
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid: (%s) val;\n\n", returnType);
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -400,6 +498,14 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid: (%s) val\n", returnType);
+    fprintf (file, "{\n");
+    fprintf (file, "    (void) val;\n");
+    if (min) fprintf (file, "    if ([val intValue] < %s) return FALSE;\n", [min UTF8String]);
+    if (max) fprintf (file, "    if ([val intValue] > %s) return FALSE;\n", [max UTF8String]);
+    fprintf (file, "    return TRUE;\n");
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -1094,7 +1200,10 @@ static const char* prefix = "MPSEWS";
             fprintf (file, "- (void) add%s:(%s) elem\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
             fprintf (file, "{\n");
             fprintf (file, "    if (![self %s]) {\n", [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "        [self set%s:[[NSMutableArray<%s> alloc] init]];\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
+            if ([[e name] hasPrefix:@"New"] || [[e name] hasPrefix:@"Copy"])
+                fprintf (file, "        [self setP%s:[[NSMutableArray<%s> alloc] init]];\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
+            else
+                fprintf (file, "        [self set%s:[[NSMutableArray<%s> alloc] init]];\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
             fprintf (file, "    }\n");
             fprintf (file, "    [_%s addObject:elem];\n", [[self propertyName:[e name]] UTF8String]);
             fprintf (file, "}\n\n");
@@ -1570,6 +1679,146 @@ static const char* prefix = "MPSEWS";
     return nil;
 }
 
+- (AndPredicate*) validation:(Element*)e
+{
+    AndPredicate* result = [[AndPredicate alloc] init];
+
+    //Element* e = [self complexTypeElement:elem];
+    if (e)
+    {
+        if ([[e children] count] == 0)
+        {
+            return result;
+        }
+        if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice"])
+        {
+            for (Element * a in [e children])
+            {
+                if ([[a tagName] isEqual:@"choice"]) {
+                    BOOL isArray = ([a maxOccurs] && [[a maxOccurs] isEqual:@"unbounded"]);
+
+                    int elements = [[a children] count];
+
+                    if (![a minOccurs] || ![[a minOccurs] isEqual:@"0"])
+                    {
+                        if (elements == 1)
+                        {
+                            for (Element *x in [a children]) {
+                                if (isArray)
+                                    [result addObject:[[NotEmptyPredicate alloc] initWithElement:x]];
+                                else
+                                    [result addObject:[[NotNullPredicate alloc] initWithElement:x]];
+                            }
+                        }
+                        else 
+                        {
+                            OrPredicate* or = [[OrPredicate alloc] init];
+                            for (Element *x in [a children]) {
+                                if (isArray)
+                                        [or addObject:[[NotEmptyPredicate alloc] initWithElement:x]];
+                                else
+                                        [or addObject:[[NotNullPredicate alloc] initWithElement:x]];
+                            }
+                            [result addObject:or];
+                        }
+                    }
+
+                    if (elements > 1) 
+                    {
+                        if (![a maxOccurs] || [[a maxOccurs] isEqual:@"1"])
+                        {
+                            ExclusiveOrPredicate* xor = [[ExclusiveOrPredicate alloc] init];
+                            for (Element * x in [a children])
+                            {
+                                [xor addObject:[[NotNullPredicate alloc] initWithElement:x]];
+                            }
+                        }
+                    }
+                }
+                /*
+                if ([[a tagName] isEqual:@"sequence"]) {
+                    for (Element * x in [a children])
+                    {
+                        if ([[x tagName] isEqual:@"element"])
+                        {
+                            [result addObject:[self resolved:x]];
+                        }
+                        else if ([[x tagName] isEqual:@"group"])
+                        {
+                            [result addObjectsFromArray:[self elementsFromGroup:[x ref]]];
+                        }
+                        else 
+                        {
+                            NSLog(@"%$", [x tagName]);
+                            NSAssert (false, "We have someting other than element and group");
+                        }
+                    }
+                }
+                */
+            }
+            return result;
+        }
+        /*
+        else if ([self forElement:e areChildren:@"complexContent"])
+        {
+            Element* complexContent = [[e children] objectAtIndex:0];
+            NSAssert ([[e children] count] == 1, @"complexContent should be the only element");
+            NSAssert ([[complexContent children] count] == 1, @"complexContent should have only element");
+
+            Element* extension = [[complexContent children] objectAtIndex:0];
+
+            if ([[extension tagName] isEqual:@"restriction"])
+            {
+                if (r) {
+                    [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
+                }
+                return result;
+            }
+            NSAssert ([[extension tagName] isEqual:@"extension"], @"Only extension should be there");
+
+            NSAssert ([extension base], @"extension should have base spec");
+
+            if (r) {
+                [result addObjectsFromArray:[self elements:[self complexTypeElement:[extension base]] getSuper:r]];
+            }
+            if ([[extension children] count] == 0) {
+                return result;
+            }
+            NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
+
+            for (Element * a in [extension children]) {
+                if ([[a tagName] isEqual:@"choice"]) {
+                    for (Element * x in [a children])
+                    {
+                        NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
+                        [x setGroup:[[NSString alloc] initWithFormat:@"%@-%d", [e name], ++grp]];
+                        [result addObject:[self resolved:x]];
+                    }
+                }
+                if ([[a tagName] isEqual:@"sequence"]) {
+                    for (Element * x in [a children])
+                    {
+                        if ([[x tagName] isEqual:@"element"])
+                        {
+                            [result addObject:[self resolved:x]];
+                        }
+                        else if ([[x tagName] isEqual:@"group"])
+                        {
+                            [result addObjectsFromArray:[self elementsFromGroup:[x name]]];
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+        else  {
+          return nil;
+        }
+        */
+    }
+    return result;
+}
+
 - (NSMutableArray*) elements:(Element*)e getSuper:(BOOL)r
 {
     int grp = 0;
@@ -1588,6 +1837,13 @@ static const char* prefix = "MPSEWS";
             for (Element * a in [e children])
             {
                 if ([[a tagName] isEqual:@"choice"]) {
+                    if ([a maxOccurs] && [[a maxOccurs] isEqual:@"unbounded"])
+                    {
+                        for (Element * x in [a children])
+                        {
+                            [x setMaxOccurs:@"unbounded"];
+                        }
+                    }
                     for (Element * x in [a children])
                     {
                         NSAssert ([[x tagName] isEqual:@"element"], @"choice can only have element");
