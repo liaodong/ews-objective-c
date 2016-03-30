@@ -10,6 +10,7 @@
 @interface MPSEWSCalendarPermissionType : MPSEWSBasePermissionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSCalendarPermissionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

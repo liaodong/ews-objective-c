@@ -11,6 +11,7 @@
 @interface MPSEWSFindFolderResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFindFolderResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

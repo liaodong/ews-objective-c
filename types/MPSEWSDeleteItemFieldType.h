@@ -10,6 +10,7 @@
 @interface MPSEWSDeleteItemFieldType : MPSEWSItemChangeDescriptionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDeleteItemFieldType*) val;
 
 - (id) init;
 - (Class) handlerClass;

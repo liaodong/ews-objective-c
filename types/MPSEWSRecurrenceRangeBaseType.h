@@ -9,6 +9,7 @@
 @interface MPSEWSRecurrenceRangeBaseType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSRecurrenceRangeBaseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

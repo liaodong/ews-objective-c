@@ -10,6 +10,7 @@
 @interface MPSEWSItemChangeDescriptionType : MPSEWSChangeDescriptionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSItemChangeDescriptionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

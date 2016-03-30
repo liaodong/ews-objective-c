@@ -12,6 +12,7 @@
 @interface MPSEWSSetUserOofSettingsRequest : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSetUserOofSettingsRequest*) val;
 
 - (id) init;
 - (Class) handlerClass;

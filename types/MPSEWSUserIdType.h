@@ -9,6 +9,7 @@
 @interface MPSEWSUserIdType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSUserIdType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,6 +11,7 @@
 @interface MPSEWSSyncFolderHierarchyResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,6 +11,7 @@
 @interface MPSEWSConvertIdResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSConvertIdResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

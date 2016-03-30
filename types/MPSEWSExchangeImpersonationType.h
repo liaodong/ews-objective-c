@@ -10,6 +10,7 @@
 @interface MPSEWSExchangeImpersonationType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSExchangeImpersonationType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,6 +10,7 @@
 @interface MPSEWSBasePermissionType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBasePermissionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

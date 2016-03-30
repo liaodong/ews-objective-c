@@ -10,6 +10,7 @@
 @interface MPSEWSChangeDescriptionType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSChangeDescriptionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

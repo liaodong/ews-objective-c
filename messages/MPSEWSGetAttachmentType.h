@@ -12,6 +12,7 @@
 @interface MPSEWSGetAttachmentType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSGetAttachmentType*) val;
 
 - (id) init;
 - (Class) handlerClass;

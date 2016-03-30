@@ -9,6 +9,7 @@
 @interface MPSEWSBaseRequestType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseRequestType*) val;
 
 - (id) init;
 - (Class) handlerClass;

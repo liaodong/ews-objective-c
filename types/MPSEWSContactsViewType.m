@@ -28,6 +28,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSContactsViewType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

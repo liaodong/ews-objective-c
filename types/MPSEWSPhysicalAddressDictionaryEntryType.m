@@ -45,6 +45,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryEntryType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

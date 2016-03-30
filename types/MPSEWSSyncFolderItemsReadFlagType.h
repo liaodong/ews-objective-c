@@ -10,6 +10,7 @@
 @interface MPSEWSSyncFolderItemsReadFlagType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsReadFlagType*) val;
 
 - (id) init;
 - (Class) handlerClass;

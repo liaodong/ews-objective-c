@@ -9,6 +9,7 @@
 @interface MPSEWSResponseMessageType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

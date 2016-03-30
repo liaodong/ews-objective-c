@@ -9,6 +9,7 @@
 @interface MPSEWSConstantValueType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSConstantValueType*) val;
 
 - (id) init;
 - (Class) handlerClass;

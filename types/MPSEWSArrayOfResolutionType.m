@@ -43,6 +43,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSArrayOfResolutionType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

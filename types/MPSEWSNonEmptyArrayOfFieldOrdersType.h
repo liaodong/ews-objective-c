@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfFieldOrdersType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFieldOrdersType*) val;
 
 - (id) init;
 - (Class) handlerClass;

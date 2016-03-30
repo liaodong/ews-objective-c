@@ -12,6 +12,7 @@
 @interface MPSEWSMovedCopiedEventType : MPSEWSBaseObjectChangedEventType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSMovedCopiedEventType*) val;
 
 - (id) init;
 - (Class) handlerClass;

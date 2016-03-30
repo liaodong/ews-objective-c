@@ -10,6 +10,7 @@
 @interface MPSEWSPathToIndexedFieldType : MPSEWSBasePathToElementType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPathToIndexedFieldType*) val;
 
 - (id) init;
 - (Class) handlerClass;

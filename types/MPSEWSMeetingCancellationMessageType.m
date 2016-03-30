@@ -323,6 +323,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSMeetingCancellationMessageType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

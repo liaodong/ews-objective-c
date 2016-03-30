@@ -9,6 +9,7 @@
 @interface MPSEWSManagedFolderInformationType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSManagedFolderInformationType*) val;
 
 - (id) init;
 - (Class) handlerClass;

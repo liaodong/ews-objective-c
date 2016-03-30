@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfItemChangesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

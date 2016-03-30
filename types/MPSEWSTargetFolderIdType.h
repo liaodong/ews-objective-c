@@ -11,6 +11,7 @@
 @interface MPSEWSTargetFolderIdType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSTargetFolderIdType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,6 +10,7 @@
 @interface MPSEWSSetUserOofSettingsResponse : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSetUserOofSettingsResponse*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -25,6 +25,7 @@
 @interface MPSEWSArrayOfResponseMessagesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfResponseMessagesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

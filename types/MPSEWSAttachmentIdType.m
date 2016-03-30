@@ -27,6 +27,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSAttachmentIdType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

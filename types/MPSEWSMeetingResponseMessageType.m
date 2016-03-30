@@ -323,6 +323,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSMeetingResponseMessageType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

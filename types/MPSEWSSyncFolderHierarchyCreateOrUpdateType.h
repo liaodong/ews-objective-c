@@ -14,6 +14,7 @@
 @interface MPSEWSSyncFolderHierarchyCreateOrUpdateType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyCreateOrUpdateType*) val;
 
 - (id) init;
 - (Class) handlerClass;

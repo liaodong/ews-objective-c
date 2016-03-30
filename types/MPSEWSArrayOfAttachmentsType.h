@@ -11,6 +11,7 @@
 @interface MPSEWSArrayOfAttachmentsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfAttachmentsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

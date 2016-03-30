@@ -35,6 +35,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

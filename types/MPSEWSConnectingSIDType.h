@@ -9,6 +9,7 @@
 @interface MPSEWSConnectingSIDType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSConnectingSIDType*) val;
 
 - (id) init;
 - (Class) handlerClass;

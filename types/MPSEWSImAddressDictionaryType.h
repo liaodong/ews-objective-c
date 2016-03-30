@@ -10,6 +10,7 @@
 @interface MPSEWSImAddressDictionaryType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSImAddressDictionaryType*) val;
 
 - (id) init;
 - (Class) handlerClass;

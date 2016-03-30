@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfPermissionsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfPermissionsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

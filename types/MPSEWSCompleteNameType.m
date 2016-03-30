@@ -65,6 +65,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSCompleteNameType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

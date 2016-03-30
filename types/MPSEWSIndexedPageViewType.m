@@ -28,6 +28,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSIndexedPageViewType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

@@ -20,6 +20,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSDeleteItemFieldType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

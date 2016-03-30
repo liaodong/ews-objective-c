@@ -11,6 +11,7 @@
 @interface MPSEWSFolderType : MPSEWSBaseFolderType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFolderType*) val;
 
 - (id) init;
 - (Class) handlerClass;

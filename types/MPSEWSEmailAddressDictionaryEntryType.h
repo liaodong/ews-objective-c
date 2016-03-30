@@ -10,6 +10,7 @@
 @interface MPSEWSEmailAddressDictionaryEntryType : MPSEWSStringType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSEmailAddressDictionaryEntryType*) val;
 
 - (id) init;
 - (Class) handlerClass;

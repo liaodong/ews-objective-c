@@ -42,6 +42,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSArrayOfAttendeeConflictData*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

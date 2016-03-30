@@ -9,6 +9,7 @@
 @interface MPSEWSBasePagingType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBasePagingType*) val;
 
 - (id) init;
 - (Class) handlerClass;

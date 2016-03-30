@@ -10,6 +10,7 @@
 @interface MPSEWSRestrictionType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSRestrictionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

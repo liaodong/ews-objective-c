@@ -10,6 +10,7 @@
 @interface MPSEWSSuppressReadReceiptType : MPSEWSReferenceItemResponseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSuppressReadReceiptType*) val;
 
 - (id) init;
 - (Class) handlerClass;

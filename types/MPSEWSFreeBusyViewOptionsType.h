@@ -10,6 +10,7 @@
 @interface MPSEWSFreeBusyViewOptionsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFreeBusyViewOptionsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

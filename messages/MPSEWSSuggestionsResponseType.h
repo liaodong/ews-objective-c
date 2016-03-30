@@ -11,6 +11,7 @@
 @interface MPSEWSSuggestionsResponseType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSuggestionsResponseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

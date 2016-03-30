@@ -12,6 +12,7 @@
 @interface MPSEWSNonEmptyArrayOfAlternateIdsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfAlternateIdsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

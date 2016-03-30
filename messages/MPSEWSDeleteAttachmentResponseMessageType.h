@@ -11,6 +11,7 @@
 @interface MPSEWSDeleteAttachmentResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDeleteAttachmentResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

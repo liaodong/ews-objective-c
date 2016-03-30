@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfGroupedItemsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfGroupedItemsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

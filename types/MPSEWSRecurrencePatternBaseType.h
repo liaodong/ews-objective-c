@@ -9,6 +9,7 @@
 @interface MPSEWSRecurrencePatternBaseType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSRecurrencePatternBaseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -26,6 +26,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSBaseMoveCopyItemType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

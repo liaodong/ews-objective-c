@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType*) val;
 
 - (id) init;
 - (Class) handlerClass;

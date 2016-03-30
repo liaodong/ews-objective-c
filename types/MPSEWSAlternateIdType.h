@@ -10,6 +10,7 @@
 @interface MPSEWSAlternateIdType : MPSEWSAlternateIdBaseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAlternateIdType*) val;
 
 - (id) init;
 - (Class) handlerClass;

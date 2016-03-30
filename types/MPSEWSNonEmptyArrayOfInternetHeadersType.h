@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfInternetHeadersType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfInternetHeadersType*) val;
 
 - (id) init;
 - (Class) handlerClass;

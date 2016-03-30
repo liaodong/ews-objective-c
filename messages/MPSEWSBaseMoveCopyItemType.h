@@ -12,6 +12,7 @@
 @interface MPSEWSBaseMoveCopyItemType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseMoveCopyItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,6 +10,7 @@
 @interface MPSEWSCreateManagedFolderResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSCreateManagedFolderResponseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -41,6 +41,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSSyncFolderItemsChangesType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

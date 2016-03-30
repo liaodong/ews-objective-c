@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfResolutionType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfResolutionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

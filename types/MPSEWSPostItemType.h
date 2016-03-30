@@ -11,6 +11,7 @@
 @interface MPSEWSPostItemType : MPSEWSItemType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPostItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

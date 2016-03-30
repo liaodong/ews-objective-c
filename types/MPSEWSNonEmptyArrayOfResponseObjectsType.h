@@ -19,6 +19,7 @@
 @interface MPSEWSNonEmptyArrayOfResponseObjectsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfResponseObjectsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

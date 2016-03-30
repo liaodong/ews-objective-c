@@ -10,6 +10,7 @@
 @interface MPSEWSOccurrenceInfoType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSOccurrenceInfoType*) val;
 
 - (id) init;
 - (Class) handlerClass;

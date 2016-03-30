@@ -215,6 +215,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSDistributionListType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

@@ -11,6 +11,7 @@
 @interface MPSEWSExpandDLType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSExpandDLType*) val;
 
 - (id) init;
 - (Class) handlerClass;

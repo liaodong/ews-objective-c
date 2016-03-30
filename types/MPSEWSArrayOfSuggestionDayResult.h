@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfSuggestionDayResult : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfSuggestionDayResult*) val;
 
 - (id) init;
 - (Class) handlerClass;

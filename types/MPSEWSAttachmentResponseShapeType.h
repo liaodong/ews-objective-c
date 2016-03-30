@@ -10,6 +10,7 @@
 @interface MPSEWSAttachmentResponseShapeType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAttachmentResponseShapeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

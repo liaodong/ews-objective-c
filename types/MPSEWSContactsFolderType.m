@@ -72,6 +72,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSContactsFolderType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

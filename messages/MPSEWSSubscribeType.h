@@ -12,6 +12,7 @@
 @interface MPSEWSSubscribeType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSubscribeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

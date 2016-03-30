@@ -16,6 +16,7 @@
 @interface MPSEWSContactItemType : MPSEWSItemType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSContactItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,6 +11,7 @@
 @interface MPSEWSSearchParametersType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSearchParametersType*) val;
 
 - (id) init;
 - (Class) handlerClass;

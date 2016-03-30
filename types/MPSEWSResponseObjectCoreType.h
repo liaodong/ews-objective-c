@@ -11,6 +11,7 @@
 @interface MPSEWSResponseObjectCoreType : MPSEWSMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSResponseObjectCoreType*) val;
 
 - (id) init;
 - (Class) handlerClass;

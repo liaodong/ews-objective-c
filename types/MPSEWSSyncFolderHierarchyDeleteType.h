@@ -10,6 +10,7 @@
 @interface MPSEWSSyncFolderHierarchyDeleteType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyDeleteType*) val;
 
 - (id) init;
 - (Class) handlerClass;

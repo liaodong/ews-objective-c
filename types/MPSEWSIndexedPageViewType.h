@@ -10,6 +10,7 @@
 @interface MPSEWSIndexedPageViewType : MPSEWSBasePagingType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSIndexedPageViewType*) val;
 
 - (id) init;
 - (Class) handlerClass;

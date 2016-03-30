@@ -13,6 +13,7 @@
 @interface MPSEWSNotificationType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNotificationType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,6 +11,7 @@
 @interface MPSEWSResolveNamesResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSResolveNamesResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

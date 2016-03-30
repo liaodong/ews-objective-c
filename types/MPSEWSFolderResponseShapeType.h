@@ -10,6 +10,7 @@
 @interface MPSEWSFolderResponseShapeType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFolderResponseShapeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

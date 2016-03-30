@@ -10,6 +10,7 @@
 @interface MPSEWSSerializableTimeZone : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSerializableTimeZone*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -34,6 +34,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyChangesType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

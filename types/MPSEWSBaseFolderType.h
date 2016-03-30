@@ -13,6 +13,7 @@
 @interface MPSEWSBaseFolderType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseFolderType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,6 +10,7 @@
 @interface MPSEWSReplyAllToItemType : MPSEWSSmartResponseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSReplyAllToItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

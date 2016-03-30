@@ -36,6 +36,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSOccurrenceInfoType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

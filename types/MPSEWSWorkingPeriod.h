@@ -9,6 +9,7 @@
 @interface MPSEWSWorkingPeriod : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSWorkingPeriod*) val;
 
 - (id) init;
 - (Class) handlerClass;

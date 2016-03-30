@@ -13,6 +13,7 @@
 @interface MPSEWSArrayOfAttendeeConflictData : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfAttendeeConflictData*) val;
 
 - (id) init;
 - (Class) handlerClass;

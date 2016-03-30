@@ -11,6 +11,7 @@
 @interface MPSEWSBaseSubscriptionRequestType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseSubscriptionRequestType*) val;
 
 - (id) init;
 - (Class) handlerClass;

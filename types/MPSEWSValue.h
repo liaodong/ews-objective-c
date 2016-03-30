@@ -10,6 +10,7 @@
 @interface MPSEWSValue : MPSEWSStringType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSValue*) val;
 
 - (id) init;
 - (Class) handlerClass;

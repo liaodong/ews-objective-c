@@ -49,6 +49,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSModifiedEventType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

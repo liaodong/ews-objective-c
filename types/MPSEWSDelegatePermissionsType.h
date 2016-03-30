@@ -9,6 +9,7 @@
 @interface MPSEWSDelegatePermissionsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDelegatePermissionsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

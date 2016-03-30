@@ -69,6 +69,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSCalendarPermissionType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

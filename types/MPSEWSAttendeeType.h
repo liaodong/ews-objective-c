@@ -10,6 +10,7 @@
 @interface MPSEWSAttendeeType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAttendeeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

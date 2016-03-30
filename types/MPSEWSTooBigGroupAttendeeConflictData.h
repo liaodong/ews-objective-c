@@ -10,6 +10,7 @@
 @interface MPSEWSTooBigGroupAttendeeConflictData : MPSEWSAttendeeConflictData
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSTooBigGroupAttendeeConflictData*) val;
 
 - (id) init;
 - (Class) handlerClass;

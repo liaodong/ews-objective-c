@@ -10,6 +10,7 @@
 @interface MPSEWSMeetingCancellationMessageType : MPSEWSMeetingMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSMeetingCancellationMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

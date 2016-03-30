@@ -11,6 +11,7 @@
 @interface MPSEWSFieldURIOrConstantType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFieldURIOrConstantType*) val;
 
 - (id) init;
 - (Class) handlerClass;

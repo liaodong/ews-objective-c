@@ -11,6 +11,7 @@
 @interface MPSEWSFreeBusyResponseType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFreeBusyResponseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,6 +10,7 @@
 @interface MPSEWSPhoneNumberDictionaryType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPhoneNumberDictionaryType*) val;
 
 - (id) init;
 - (Class) handlerClass;

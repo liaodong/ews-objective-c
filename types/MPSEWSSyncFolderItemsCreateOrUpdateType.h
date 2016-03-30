@@ -20,6 +20,7 @@
 @interface MPSEWSSyncFolderItemsCreateOrUpdateType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsCreateOrUpdateType*) val;
 
 - (id) init;
 - (Class) handlerClass;

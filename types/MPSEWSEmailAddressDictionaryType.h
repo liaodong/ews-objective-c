@@ -10,6 +10,7 @@
 @interface MPSEWSEmailAddressDictionaryType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSEmailAddressDictionaryType*) val;
 
 - (id) init;
 - (Class) handlerClass;

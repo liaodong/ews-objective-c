@@ -12,6 +12,7 @@
 @interface MPSEWSSendItemType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSendItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

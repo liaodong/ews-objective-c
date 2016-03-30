@@ -12,6 +12,7 @@
 @interface MPSEWSCreateFolderType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSCreateFolderType*) val;
 
 - (id) init;
 - (Class) handlerClass;

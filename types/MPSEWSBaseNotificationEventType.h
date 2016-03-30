@@ -9,6 +9,7 @@
 @interface MPSEWSBaseNotificationEventType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseNotificationEventType*) val;
 
 - (id) init;
 - (Class) handlerClass;

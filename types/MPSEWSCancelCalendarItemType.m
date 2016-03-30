@@ -296,6 +296,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSCancelCalendarItemType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

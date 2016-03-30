@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfWorkingPeriod : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfWorkingPeriod*) val;
 
 - (id) init;
 - (Class) handlerClass;

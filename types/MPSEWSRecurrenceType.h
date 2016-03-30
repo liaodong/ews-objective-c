@@ -18,6 +18,7 @@
 @interface MPSEWSRecurrenceType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSRecurrenceType*) val;
 
 - (id) init;
 - (Class) handlerClass;

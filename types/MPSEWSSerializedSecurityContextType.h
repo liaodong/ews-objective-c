@@ -11,6 +11,7 @@
 @interface MPSEWSSerializedSecurityContextType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSerializedSecurityContextType*) val;
 
 - (id) init;
 - (Class) handlerClass;

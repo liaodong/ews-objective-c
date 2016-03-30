@@ -10,6 +10,7 @@
 @interface MPSEWSTimeChangeType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSTimeChangeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

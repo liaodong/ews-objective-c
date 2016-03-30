@@ -13,6 +13,7 @@
 @interface MPSEWSItemChangeType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSItemChangeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

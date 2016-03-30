@@ -12,6 +12,7 @@
 @interface MPSEWSContainsExpressionType : MPSEWSSearchExpressionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSContainsExpressionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

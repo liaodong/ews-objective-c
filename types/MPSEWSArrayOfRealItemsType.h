@@ -20,6 +20,7 @@
 @interface MPSEWSArrayOfRealItemsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfRealItemsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

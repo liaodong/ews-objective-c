@@ -9,6 +9,7 @@
 @interface MPSEWSArrayOfUnknownEntriesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfUnknownEntriesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

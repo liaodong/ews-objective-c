@@ -9,6 +9,7 @@
 @interface MPSEWSSendNotificationResultType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSendNotificationResultType*) val;
 
 - (id) init;
 - (Class) handlerClass;

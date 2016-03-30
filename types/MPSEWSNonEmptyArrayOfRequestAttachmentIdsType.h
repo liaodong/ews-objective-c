@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfRequestAttachmentIdsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRequestAttachmentIdsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -291,6 +291,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSReferenceItemResponseType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

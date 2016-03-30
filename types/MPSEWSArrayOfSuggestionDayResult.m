@@ -21,6 +21,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSArrayOfSuggestionDayResult*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

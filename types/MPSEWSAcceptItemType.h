@@ -10,6 +10,7 @@
 @interface MPSEWSAcceptItemType : MPSEWSWellKnownResponseObjectType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAcceptItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

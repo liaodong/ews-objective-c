@@ -14,6 +14,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSTooBigGroupAttendeeConflictData*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

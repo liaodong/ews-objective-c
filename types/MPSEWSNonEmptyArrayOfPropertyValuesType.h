@@ -9,6 +9,7 @@
 @interface MPSEWSNonEmptyArrayOfPropertyValuesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfPropertyValuesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

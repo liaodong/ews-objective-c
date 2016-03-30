@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfFolderChangesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -50,6 +50,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSAppendToFolderFieldType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

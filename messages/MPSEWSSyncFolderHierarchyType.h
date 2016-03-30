@@ -12,6 +12,7 @@
 @interface MPSEWSSyncFolderHierarchyType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -24,6 +24,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSAlternatePublicFolderIdType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

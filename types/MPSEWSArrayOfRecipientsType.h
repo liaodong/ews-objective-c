@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfRecipientsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfRecipientsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

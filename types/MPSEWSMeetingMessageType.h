@@ -11,6 +11,7 @@
 @interface MPSEWSMeetingMessageType : MPSEWSMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSMeetingMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

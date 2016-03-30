@@ -9,6 +9,7 @@
 @interface MPSEWSBasePathToElementType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBasePathToElementType*) val;
 
 - (id) init;
 - (Class) handlerClass;

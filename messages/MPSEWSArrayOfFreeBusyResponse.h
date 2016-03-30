@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfFreeBusyResponse : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfFreeBusyResponse*) val;
 
 - (id) init;
 - (Class) handlerClass;

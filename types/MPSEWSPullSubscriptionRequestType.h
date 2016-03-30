@@ -10,6 +10,7 @@
 @interface MPSEWSPullSubscriptionRequestType : MPSEWSBaseSubscriptionRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPullSubscriptionRequestType*) val;
 
 - (id) init;
 - (Class) handlerClass;

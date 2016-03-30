@@ -9,6 +9,7 @@
 @interface MPSEWSAlternateIdBaseType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAlternateIdBaseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

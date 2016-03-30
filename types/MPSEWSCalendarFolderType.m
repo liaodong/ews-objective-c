@@ -72,6 +72,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSCalendarFolderType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

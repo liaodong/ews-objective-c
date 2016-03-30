@@ -9,6 +9,7 @@
 @interface MPSEWSEffectiveRightsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSEffectiveRightsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

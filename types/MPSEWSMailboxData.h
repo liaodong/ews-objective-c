@@ -10,6 +10,7 @@
 @interface MPSEWSMailboxData : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSMailboxData*) val;
 
 - (id) init;
 - (Class) handlerClass;

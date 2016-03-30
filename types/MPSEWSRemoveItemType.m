@@ -291,6 +291,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSRemoveItemType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

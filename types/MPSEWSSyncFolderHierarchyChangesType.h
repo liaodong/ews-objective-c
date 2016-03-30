@@ -11,6 +11,7 @@
 @interface MPSEWSSyncFolderHierarchyChangesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyChangesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

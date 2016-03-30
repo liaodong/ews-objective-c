@@ -10,6 +10,7 @@
 @interface MPSEWSNumberedRecurrenceRangeType : MPSEWSRecurrenceRangeBaseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNumberedRecurrenceRangeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

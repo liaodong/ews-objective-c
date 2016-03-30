@@ -27,6 +27,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSFractionalPageViewType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

@@ -10,6 +10,7 @@
 @interface MPSEWSDailyRegeneratingPatternType : MPSEWSRegeneratingPatternBaseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDailyRegeneratingPatternType*) val;
 
 - (id) init;
 - (Class) handlerClass;

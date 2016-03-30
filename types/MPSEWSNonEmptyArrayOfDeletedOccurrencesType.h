@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfDeletedOccurrencesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfDeletedOccurrencesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,6 +10,7 @@
 @interface MPSEWSModifiedEventType : MPSEWSBaseObjectChangedEventType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSModifiedEventType*) val;
 
 - (id) init;
 - (Class) handlerClass;

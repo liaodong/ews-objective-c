@@ -9,6 +9,7 @@
 @interface MPSEWSArrayOfStringsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfStringsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

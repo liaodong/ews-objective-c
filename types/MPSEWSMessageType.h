@@ -12,6 +12,7 @@
 @interface MPSEWSMessageType : MPSEWSItemType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

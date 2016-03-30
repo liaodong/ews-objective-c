@@ -12,6 +12,7 @@
 @interface MPSEWSExcludesType : MPSEWSSearchExpressionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSExcludesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

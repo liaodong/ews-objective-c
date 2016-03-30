@@ -10,6 +10,7 @@
 @interface MPSEWSPathToExtendedFieldType : MPSEWSBasePathToElementType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPathToExtendedFieldType*) val;
 
 - (id) init;
 - (Class) handlerClass;

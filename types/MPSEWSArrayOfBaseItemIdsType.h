@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfBaseItemIdsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfBaseItemIdsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

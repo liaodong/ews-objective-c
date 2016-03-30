@@ -22,6 +22,7 @@
 @interface MPSEWSTaskRecurrenceType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSTaskRecurrenceType*) val;
 
 - (id) init;
 - (Class) handlerClass;

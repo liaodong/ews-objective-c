@@ -38,6 +38,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSGetUserAvailabilityRequestType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

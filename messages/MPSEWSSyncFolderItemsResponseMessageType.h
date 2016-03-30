@@ -11,6 +11,7 @@
 @interface MPSEWSSyncFolderItemsResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

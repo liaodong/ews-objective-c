@@ -11,6 +11,7 @@
 @interface MPSEWSUserOofSettings : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSUserOofSettings*) val;
 
 - (id) init;
 - (Class) handlerClass;

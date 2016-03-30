@@ -36,6 +36,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSCreateItemType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

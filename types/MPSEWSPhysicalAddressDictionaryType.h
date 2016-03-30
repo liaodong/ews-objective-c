@@ -10,6 +10,7 @@
 @interface MPSEWSPhysicalAddressDictionaryType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryType*) val;
 
 - (id) init;
 - (Class) handlerClass;

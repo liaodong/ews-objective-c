@@ -86,6 +86,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSAppendToItemFieldType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

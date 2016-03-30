@@ -19,6 +19,7 @@
 @interface MPSEWSItemType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

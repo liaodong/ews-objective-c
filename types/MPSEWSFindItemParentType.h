@@ -11,6 +11,7 @@
 @interface MPSEWSFindItemParentType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFindItemParentType*) val;
 
 - (id) init;
 - (Class) handlerClass;

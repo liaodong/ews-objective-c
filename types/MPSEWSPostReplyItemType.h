@@ -11,6 +11,7 @@
 @interface MPSEWSPostReplyItemType : MPSEWSPostReplyItemBaseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPostReplyItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -9,6 +9,7 @@
 @interface MPSEWSBaseGroupByType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseGroupByType*) val;
 
 - (id) init;
 - (Class) handlerClass;

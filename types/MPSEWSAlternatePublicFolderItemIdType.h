@@ -10,6 +10,7 @@
 @interface MPSEWSAlternatePublicFolderItemIdType : MPSEWSAlternatePublicFolderIdType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAlternatePublicFolderItemIdType*) val;
 
 - (id) init;
 - (Class) handlerClass;

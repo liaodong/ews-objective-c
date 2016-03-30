@@ -11,6 +11,7 @@
 @interface MPSEWSSmartResponseType : MPSEWSSmartResponseBaseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSmartResponseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

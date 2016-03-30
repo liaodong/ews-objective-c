@@ -11,6 +11,7 @@
 @interface MPSEWSFreeBusyView : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFreeBusyView*) val;
 
 - (id) init;
 - (Class) handlerClass;

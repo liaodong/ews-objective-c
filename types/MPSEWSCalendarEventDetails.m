@@ -56,6 +56,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSCalendarEventDetails*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

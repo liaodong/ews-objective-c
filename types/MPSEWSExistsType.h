@@ -11,6 +11,7 @@
 @interface MPSEWSExistsType : MPSEWSSearchExpressionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSExistsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

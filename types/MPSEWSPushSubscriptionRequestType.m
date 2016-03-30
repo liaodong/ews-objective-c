@@ -44,6 +44,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSPushSubscriptionRequestType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

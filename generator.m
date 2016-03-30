@@ -981,7 +981,8 @@ static const char* prefix = "MPSEWS";
 
     [elem setResultType:[@"MPSEWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
    
-    fprintf (file, "+ (void) initialize;\n\n");
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid:(%s%s*) val;\n\n", prefix, name);
 
     fprintf (file, "- (id) init;\n");
     fprintf (file, "- (Class) handlerClass;\n");
@@ -1101,7 +1102,6 @@ static const char* prefix = "MPSEWS";
 
     for (Element* e in s_attributes)
     {
-        //bool required = [e use] && [[e use] isEqual:@"required"];
         fprintf (file, "    [handler property    : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
         fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
         fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
@@ -1109,7 +1109,6 @@ static const char* prefix = "MPSEWS";
 
     for (Element* e in attributes)
     {
-        //bool required = [e use] && [[e use] isEqual:@"required"];
         fprintf (file, "    [handler property    : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
         fprintf (file, "             withAttrTag : @\"%s\"\n", [[e name] UTF8String]);
         fprintf (file, "             withHandler : [%s%s class]];\n\n", prefix, [[self handler:[e type]] UTF8String]);
@@ -1117,7 +1116,6 @@ static const char* prefix = "MPSEWS";
 
     for  (Element* e in s_elements)
     {
-        //bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
             fprintf (file, "    [handler property      : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
             fprintf (file, "             withNamespace : '%c'\n", [e ns]);
@@ -1141,7 +1139,6 @@ static const char* prefix = "MPSEWS";
 
     for  (Element* e in elements)
     {
-        //bool required = ![e minOccurs] || ![[e minOccurs] isEqual:@"0"];
         if (![e maxOccurs] || [[e maxOccurs] isEqual:@"1"]) {
             fprintf (file, "    [handler property      : @\"%s\"\n", [[self propertyName:[e name]] UTF8String]);
             fprintf (file, "             withNamespace : '%c'\n", [e ns]);
@@ -1163,6 +1160,11 @@ static const char* prefix = "MPSEWS";
         }
     }
     fprintf (file, "    [handler register];\n");
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid:(%s%s*) val\n", prefix, name);
+    fprintf (file, "{   (void) val;\n");
+    fprintf (file, "    return TRUE;\n");
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -1486,47 +1488,6 @@ static const char* prefix = "MPSEWS";
     return xor;
 }
 
-- (Element*) referencedElement:(NSString*) name
-{
-    for (Element* elem in [current children])
-    {
-        if ([[elem tagName] isEqual:@"element"])
-        {
-            if ([name isEqual:[elem qname]])
-            {
-                return elem;
-            }
-        }
-    }
-    NSLog (@"Element name is %@", name);
-    NSAssert(NO, @"element not found");
-    return nil;
-}
-
-
-- (NSMutableArray*) elementsFromGroup:(NSString*)name
-{
-    for (Element* elem in [current children])
-    {
-        if ([[elem tagName] isEqual:@"group"])
-        {
-            if ([name isEqual:[elem qname]])
-            {
-                NSMutableArray *result = [[NSMutableArray alloc] init];
-
-                for (Element* e in  [[[[[elem children] objectAtIndex:0] children] objectAtIndex:0] children])
-                {
-                    [e setGroup:name];
-                    [result addObject:e];
-                }
-                return result;
-            }
-        }
-    }
-    NSLog (@"Group name is %@", name);
-    NSAssert(NO, @"group not found");
-    return nil;
-}
 
 - (Element*) baseClassElement:(Element*) e
 {
@@ -2026,12 +1987,58 @@ static const char* prefix = "MPSEWS";
     return result;
 }
 
+- (Element*) referencedElement:(NSString*) name
+{
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"element"])
+        {
+            if ([name isEqual:[elem qname]])
+            {
+                return elem;
+            }
+        }
+    }
+    NSLog (@"Element name is %@", name);
+    NSAssert(NO, @"element not found");
+    return nil;
+}
+
+- (NSMutableArray*) elementsFromGroup:(NSString*)name
+{
+    for (Element* elem in [current children])
+    {
+        if ([[elem tagName] isEqual:@"group"])
+        {
+            if ([name isEqual:[elem qname]])
+            {
+                NSMutableArray *result = [[NSMutableArray alloc] init];
+
+                for (Element* e in  [[[[[elem children] objectAtIndex:0] children] objectAtIndex:0] children])
+                {
+                    if ([e ref])
+                        [result addObject:[self referencedElement:[e ref]]];
+                    else
+                        [result addObject:e];
+                }
+                return result;
+            }
+        }
+    }
+    NSLog (@"Group name is %@", name);
+    NSAssert(NO, @"group not found");
+    return nil;
+}
+
 - (NSMutableArray*) elementsFromChoice:(Element*)e
 {
     NSMutableArray* result = [[NSMutableArray alloc] init];
     NSAssert ([self forElement:e areChildren:@"element"], @"choice can have only elements");
     for (Element * a in [e children]) {
-        [result addObject:a];
+        if ([a ref])
+            [result addObject:[self referencedElement:[a ref]]];
+        else
+            [result addObject:a];
     }
     return result;
 }
@@ -2138,9 +2145,12 @@ static const char* prefix = "MPSEWS";
 
         return result;
     }
+    else if ([self forElement:e areChildren:@"simpleContent"])
+    {}
     else 
     {
-        
+        NSLog (@"Unknow %@", e);
+        NSAssert (NO, @"what?");
     }
     return result;
 }

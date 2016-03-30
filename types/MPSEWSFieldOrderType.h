@@ -10,6 +10,7 @@
 @interface MPSEWSFieldOrderType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFieldOrderType*) val;
 
 - (id) init;
 - (Class) handlerClass;

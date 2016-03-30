@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfCalendarEvent : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfCalendarEvent*) val;
 
 - (id) init;
 - (Class) handlerClass;

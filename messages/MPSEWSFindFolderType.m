@@ -49,6 +49,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSFindFolderType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

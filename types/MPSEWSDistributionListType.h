@@ -10,6 +10,7 @@
 @interface MPSEWSDistributionListType : MPSEWSItemType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDistributionListType*) val;
 
 - (id) init;
 - (Class) handlerClass;

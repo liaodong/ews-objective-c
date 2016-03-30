@@ -10,6 +10,7 @@
 @interface MPSEWSMimeContentType : MPSEWSStringType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSMimeContentType*) val;
 
 - (id) init;
 - (Class) handlerClass;

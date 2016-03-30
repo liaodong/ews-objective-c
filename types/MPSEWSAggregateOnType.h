@@ -12,6 +12,7 @@
 @interface MPSEWSAggregateOnType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAggregateOnType*) val;
 
 - (id) init;
 - (Class) handlerClass;

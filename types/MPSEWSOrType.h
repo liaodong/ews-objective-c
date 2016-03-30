@@ -10,6 +10,7 @@
 @interface MPSEWSOrType : MPSEWSMultipleOperandBooleanExpressionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSOrType*) val;
 
 - (id) init;
 - (Class) handlerClass;

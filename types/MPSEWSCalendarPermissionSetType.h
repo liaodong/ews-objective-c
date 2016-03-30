@@ -11,6 +11,7 @@
 @interface MPSEWSCalendarPermissionSetType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSCalendarPermissionSetType*) val;
 
 - (id) init;
 - (Class) handlerClass;

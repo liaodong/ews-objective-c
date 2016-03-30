@@ -291,6 +291,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSSuppressReadReceiptType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

@@ -10,6 +10,7 @@
 @interface MPSEWSFindFolderParentType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFindFolderParentType*) val;
 
 - (id) init;
 - (Class) handlerClass;

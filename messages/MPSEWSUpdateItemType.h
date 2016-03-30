@@ -12,6 +12,7 @@
 @interface MPSEWSUpdateItemType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSUpdateItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

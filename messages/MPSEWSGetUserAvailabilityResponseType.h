@@ -11,6 +11,7 @@
 @interface MPSEWSGetUserAvailabilityResponseType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSGetUserAvailabilityResponseType*) val;
 
 - (id) init;
 - (Class) handlerClass;

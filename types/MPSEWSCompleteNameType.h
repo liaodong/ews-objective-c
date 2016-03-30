@@ -9,6 +9,7 @@
 @interface MPSEWSCompleteNameType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSCompleteNameType*) val;
 
 - (id) init;
 - (Class) handlerClass;

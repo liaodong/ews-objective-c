@@ -11,6 +11,7 @@
 @interface MPSEWSExtendedPropertyType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSExtendedPropertyType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -14,6 +14,7 @@
 @interface MPSEWSGroupByType : MPSEWSBaseGroupByType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSGroupByType*) val;
 
 - (id) init;
 - (Class) handlerClass;

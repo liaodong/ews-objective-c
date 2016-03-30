@@ -12,6 +12,7 @@
 @interface MPSEWSNonEmptyArrayOfItemChangeDescriptionsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangeDescriptionsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

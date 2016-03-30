@@ -35,6 +35,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSGroupAttendeeConflictData*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

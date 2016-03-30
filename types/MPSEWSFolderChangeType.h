@@ -12,6 +12,7 @@
 @interface MPSEWSFolderChangeType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFolderChangeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

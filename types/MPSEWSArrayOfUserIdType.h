@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfUserIdType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfUserIdType*) val;
 
 - (id) init;
 - (Class) handlerClass;

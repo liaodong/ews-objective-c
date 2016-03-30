@@ -9,6 +9,7 @@
 @interface MPSEWSBaseEmailAddressType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseEmailAddressType*) val;
 
 - (id) init;
 - (Class) handlerClass;

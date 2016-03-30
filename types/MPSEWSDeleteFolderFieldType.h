@@ -10,6 +10,7 @@
 @interface MPSEWSDeleteFolderFieldType : MPSEWSFolderChangeDescriptionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDeleteFolderFieldType*) val;
 
 - (id) init;
 - (Class) handlerClass;

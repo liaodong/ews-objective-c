@@ -9,6 +9,7 @@
 @interface MPSEWSNonEmptyArrayOfNotificationEventTypesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfNotificationEventTypesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

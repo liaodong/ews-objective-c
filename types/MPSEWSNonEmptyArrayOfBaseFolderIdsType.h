@@ -11,6 +11,7 @@
 @interface MPSEWSNonEmptyArrayOfBaseFolderIdsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfBaseFolderIdsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

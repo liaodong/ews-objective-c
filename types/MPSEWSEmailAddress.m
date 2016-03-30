@@ -30,6 +30,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSEmailAddress*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

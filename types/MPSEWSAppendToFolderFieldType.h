@@ -15,6 +15,7 @@
 @interface MPSEWSAppendToFolderFieldType : MPSEWSFolderChangeDescriptionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAppendToFolderFieldType*) val;
 
 - (id) init;
 - (Class) handlerClass;

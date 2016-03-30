@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfOccurrenceInfoType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfOccurrenceInfoType*) val;
 
 - (id) init;
 - (Class) handlerClass;

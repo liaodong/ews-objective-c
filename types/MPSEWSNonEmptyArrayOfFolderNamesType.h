@@ -9,6 +9,7 @@
 @interface MPSEWSNonEmptyArrayOfFolderNamesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderNamesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

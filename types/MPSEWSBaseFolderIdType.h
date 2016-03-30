@@ -9,6 +9,7 @@
 @interface MPSEWSBaseFolderIdType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseFolderIdType*) val;
 
 - (id) init;
 - (Class) handlerClass;

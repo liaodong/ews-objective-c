@@ -9,6 +9,7 @@
 @interface MPSEWSDuration : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDuration*) val;
 
 - (id) init;
 - (Class) handlerClass;

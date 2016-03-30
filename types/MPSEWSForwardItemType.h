@@ -10,6 +10,7 @@
 @interface MPSEWSForwardItemType : MPSEWSSmartResponseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSForwardItemType*) val;
 
 - (id) init;
 - (Class) handlerClass;

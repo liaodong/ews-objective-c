@@ -9,6 +9,7 @@
 @interface MPSEWSSidAndAttributesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSidAndAttributesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

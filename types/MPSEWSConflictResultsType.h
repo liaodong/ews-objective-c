@@ -9,6 +9,7 @@
 @interface MPSEWSConflictResultsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSConflictResultsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

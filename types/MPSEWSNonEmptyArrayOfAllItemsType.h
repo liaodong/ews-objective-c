@@ -30,6 +30,7 @@
 @interface MPSEWSNonEmptyArrayOfAllItemsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfAllItemsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

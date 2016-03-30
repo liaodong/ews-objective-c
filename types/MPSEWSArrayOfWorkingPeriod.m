@@ -21,6 +21,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSArrayOfWorkingPeriod*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

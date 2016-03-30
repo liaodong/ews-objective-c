@@ -11,6 +11,7 @@
 @interface MPSEWSContactsFolderType : MPSEWSBaseFolderType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSContactsFolderType*) val;
 
 - (id) init;
 - (Class) handlerClass;

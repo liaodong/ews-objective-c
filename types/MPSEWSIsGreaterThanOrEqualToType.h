@@ -10,6 +10,7 @@
 @interface MPSEWSIsGreaterThanOrEqualToType : MPSEWSTwoOperandExpressionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSIsGreaterThanOrEqualToType*) val;
 
 - (id) init;
 - (Class) handlerClass;

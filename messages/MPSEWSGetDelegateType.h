@@ -11,6 +11,7 @@
 @interface MPSEWSGetDelegateType : MPSEWSBaseDelegateType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSGetDelegateType*) val;
 
 - (id) init;
 - (Class) handlerClass;

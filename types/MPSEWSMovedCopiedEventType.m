@@ -58,6 +58,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSMovedCopiedEventType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

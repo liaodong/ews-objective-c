@@ -10,6 +10,7 @@
 @interface MPSEWSUnknownAttendeeConflictData : MPSEWSAttendeeConflictData
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSUnknownAttendeeConflictData*) val;
 
 - (id) init;
 - (Class) handlerClass;

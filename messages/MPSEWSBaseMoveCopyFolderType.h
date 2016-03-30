@@ -12,6 +12,7 @@
 @interface MPSEWSBaseMoveCopyFolderType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSBaseMoveCopyFolderType*) val;
 
 - (id) init;
 - (Class) handlerClass;

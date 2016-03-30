@@ -11,6 +11,7 @@
 @interface MPSEWSWorkingHours : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSWorkingHours*) val;
 
 - (id) init;
 - (Class) handlerClass;

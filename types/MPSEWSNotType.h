@@ -11,6 +11,7 @@
 @interface MPSEWSNotType : MPSEWSSearchExpressionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNotType*) val;
 
 - (id) init;
 - (Class) handlerClass;

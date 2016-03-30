@@ -10,6 +10,7 @@
 @interface MPSEWSPermissionType : MPSEWSBasePermissionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSPermissionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

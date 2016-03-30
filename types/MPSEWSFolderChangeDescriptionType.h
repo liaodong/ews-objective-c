@@ -10,6 +10,7 @@
 @interface MPSEWSFolderChangeDescriptionType : MPSEWSChangeDescriptionType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFolderChangeDescriptionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

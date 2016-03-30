@@ -57,6 +57,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSBasePermissionType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

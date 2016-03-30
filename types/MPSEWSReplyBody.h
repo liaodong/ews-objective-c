@@ -9,6 +9,7 @@
 @interface MPSEWSReplyBody : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSReplyBody*) val;
 
 - (id) init;
 - (Class) handlerClass;

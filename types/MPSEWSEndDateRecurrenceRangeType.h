@@ -10,6 +10,7 @@
 @interface MPSEWSEndDateRecurrenceRangeType : MPSEWSRecurrenceRangeBaseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSEndDateRecurrenceRangeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

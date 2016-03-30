@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfPathsToElementType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfPathsToElementType*) val;
 
 - (id) init;
 - (Class) handlerClass;

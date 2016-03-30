@@ -9,6 +9,7 @@
 @interface MPSEWSExcludesValueType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSExcludesValueType*) val;
 
 - (id) init;
 - (Class) handlerClass;

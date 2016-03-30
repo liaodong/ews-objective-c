@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfDelegateUserResponseMessageType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfDelegateUserResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

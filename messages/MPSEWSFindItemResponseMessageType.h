@@ -11,6 +11,7 @@
 @interface MPSEWSFindItemResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSFindItemResponseMessageType*) val;
 
 - (id) init;
 - (Class) handlerClass;

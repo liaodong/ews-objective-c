@@ -11,6 +11,7 @@
 @interface MPSEWSConvertIdType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSConvertIdType*) val;
 
 - (id) init;
 - (Class) handlerClass;

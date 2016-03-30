@@ -29,6 +29,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSAlternateIdType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

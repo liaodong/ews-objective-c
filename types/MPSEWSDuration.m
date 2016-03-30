@@ -25,6 +25,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSDuration*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

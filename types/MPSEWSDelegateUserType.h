@@ -11,6 +11,7 @@
 @interface MPSEWSDelegateUserType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDelegateUserType*) val;
 
 - (id) init;
 - (Class) handlerClass;

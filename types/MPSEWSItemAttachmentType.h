@@ -20,6 +20,7 @@
 @interface MPSEWSItemAttachmentType : MPSEWSAttachmentType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSItemAttachmentType*) val;
 
 - (id) init;
 - (Class) handlerClass;

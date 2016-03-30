@@ -10,6 +10,7 @@
 @interface MPSEWSItemResponseShapeType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSItemResponseShapeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

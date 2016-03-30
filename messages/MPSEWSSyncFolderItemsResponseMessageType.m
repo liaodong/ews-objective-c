@@ -59,6 +59,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSSyncFolderItemsResponseMessageType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

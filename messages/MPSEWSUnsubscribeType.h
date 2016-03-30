@@ -10,6 +10,7 @@
 @interface MPSEWSUnsubscribeType : MPSEWSBaseRequestType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSUnsubscribeType*) val;
 
 - (id) init;
 - (Class) handlerClass;

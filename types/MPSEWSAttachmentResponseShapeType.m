@@ -32,6 +32,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSAttachmentResponseShapeType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

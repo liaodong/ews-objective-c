@@ -11,6 +11,7 @@
 @interface MPSEWSCalendarFolderType : MPSEWSBaseFolderType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSCalendarFolderType*) val;
 
 - (id) init;
 - (Class) handlerClass;

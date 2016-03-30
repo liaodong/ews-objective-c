@@ -37,6 +37,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSSerializedSecurityContextType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

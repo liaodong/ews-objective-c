@@ -19,6 +19,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSPathToUnindexedFieldType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

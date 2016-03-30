@@ -19,6 +19,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSBaseGroupByType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

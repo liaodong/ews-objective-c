@@ -10,6 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfAttendeesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfAttendeesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

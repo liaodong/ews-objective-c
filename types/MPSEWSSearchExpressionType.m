@@ -14,6 +14,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSSearchExpressionType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

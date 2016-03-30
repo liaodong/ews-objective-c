@@ -10,6 +10,7 @@
 @interface MPSEWSSuggestionsViewOptionsType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSuggestionsViewOptionsType*) val;
 
 - (id) init;
 - (Class) handlerClass;

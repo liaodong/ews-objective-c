@@ -10,6 +10,7 @@
 @interface MPSEWSAttachmentType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSAttachmentType*) val;
 
 - (id) init;
 - (Class) handlerClass;

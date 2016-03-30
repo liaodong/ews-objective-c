@@ -10,6 +10,7 @@
 @interface MPSEWSArrayOfDLExpansionType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfDLExpansionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

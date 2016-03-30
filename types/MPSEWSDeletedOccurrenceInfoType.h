@@ -9,6 +9,7 @@
 @interface MPSEWSDeletedOccurrenceInfoType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDeletedOccurrenceInfoType*) val;
 
 - (id) init;
 - (Class) handlerClass;

@@ -9,6 +9,7 @@
 @interface MPSEWSSearchExpressionType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSearchExpressionType*) val;
 
 - (id) init;
 - (Class) handlerClass;

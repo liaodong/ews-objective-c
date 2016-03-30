@@ -12,6 +12,7 @@
 @interface MPSEWSSyncFolderItemsChangesType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsChangesType*) val;
 
 - (id) init;
 - (Class) handlerClass;

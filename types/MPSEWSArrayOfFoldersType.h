@@ -14,6 +14,7 @@
 @interface MPSEWSArrayOfFoldersType : NSObject
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSArrayOfFoldersType*) val;
 
 - (id) init;
 - (Class) handlerClass;

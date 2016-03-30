@@ -19,6 +19,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSConstantValueType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

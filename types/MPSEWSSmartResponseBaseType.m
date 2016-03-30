@@ -291,6 +291,11 @@
     [handler register];
 }
 
++ (BOOL) isValid:(MPSEWSSmartResponseBaseType*) val
+{   (void) val;
+    return TRUE;
+}
+
 - (id) init
 {
     return [super init];

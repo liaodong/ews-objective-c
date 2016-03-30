@@ -10,6 +10,7 @@
 @interface MPSEWSDailyRecurrencePatternType : MPSEWSIntervalRecurrencePatternBaseType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSDailyRecurrencePatternType*) val;
 
 - (id) init;
 - (Class) handlerClass;

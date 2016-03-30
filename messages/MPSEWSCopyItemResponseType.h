@@ -10,6 +10,7 @@
 @interface MPSEWSCopyItemResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
++ (BOOL) isValid:(MPSEWSCopyItemResponseType*) val;
 
 - (id) init;
 - (Class) handlerClass;
