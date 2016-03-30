@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSNotType*) val
 {   (void) val;
+    if (![MPSEWSSearchExpressionType isValid:val]) return FALSE;
+    if ([val searchExpression] && ![MPSEWSSearchExpressionType isValid:[val searchExpression]]) return FALSE;
     return TRUE;
 }
 

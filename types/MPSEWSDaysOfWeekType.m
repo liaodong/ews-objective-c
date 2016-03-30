@@ -8,7 +8,17 @@ static NSSet* enumerations = nil;
 + (void) initialize
 {
     enumerations = [NSSet setWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Day", @"Weekday", @"WeekendDay", nil];
-    [[MPSEWSDaysOfWeekType alloc] init];}
+    [[MPSEWSDaysOfWeekType alloc] init];
+}
+
++ (BOOL) isValid:(NSArray<NSString*>*) val
+{
+    for (NSString* v in val)
+    {
+        if (![enumerations containsObject:v]) return FALSE;
+    }
+    return TRUE;
+}
 
 - (id) init
 {

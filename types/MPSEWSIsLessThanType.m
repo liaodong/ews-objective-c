@@ -28,6 +28,7 @@
 
 + (BOOL) isValid:(MPSEWSIsLessThanType*) val
 {   (void) val;
+    if (![MPSEWSTwoOperandExpressionType isValid:val]) return FALSE;
     return TRUE;
 }
 

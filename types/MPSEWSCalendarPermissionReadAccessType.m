@@ -15,6 +15,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSCalendarPermissionReadAccessType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSCalendarPermissionReadAccessType class]];

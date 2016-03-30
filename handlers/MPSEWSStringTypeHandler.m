@@ -8,6 +8,10 @@
 {
     [[[MPSEWSStringTypeHandler alloc] init] register];
 }
++ (BOOL) isValid:(NSString*) val 
+{
+    return val != nil;
+}
 
 - (id)initWithClass: (Class)cls
 {

@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSAttachmentResponseShapeType*) val
 {   (void) val;
+    if ([val includeMimeContent] && ![MPSEWSBooleanTypeHandler isValid:[val includeMimeContent]]) return FALSE;
+    if ([val bodyType] && ![MPSEWSBodyTypeResponseType isValid:[val bodyType]]) return FALSE;
+    if ([val additionalProperties] && ![MPSEWSNonEmptyArrayOfPathsToElementType isValid:[val additionalProperties]]) return FALSE;
     return TRUE;
 }
 

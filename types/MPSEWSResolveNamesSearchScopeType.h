@@ -13,6 +13,7 @@
 
 /** Register a handler to parse ResolveNamesSearchScopeType */
 + (void) initialize;
++ (BOOL) isValid:(NSString*)val;
 
 /** Initialize the handler */
 - (id) init;

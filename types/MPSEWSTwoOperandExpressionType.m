@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSTwoOperandExpressionType*) val
 {   (void) val;
+    if (![MPSEWSSearchExpressionType isValid:val]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
+    if ([val fieldURIOrConstant] && ![MPSEWSFieldURIOrConstantType isValid:[val fieldURIOrConstant]]) return FALSE;
     return TRUE;
 }
 

@@ -32,6 +32,9 @@
 
 + (BOOL) isValid:(MPSEWSEmailAddress*) val
 {   (void) val;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
+    if ([val address] && ![MPSEWSStringTypeHandler isValid:[val address]]) return FALSE;
+    if ([val routingType] && ![MPSEWSStringTypeHandler isValid:[val routingType]]) return FALSE;
     return TRUE;
 }
 

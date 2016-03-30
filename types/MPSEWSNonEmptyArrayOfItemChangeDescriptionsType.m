@@ -37,6 +37,21 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangeDescriptionsType*) val
 {   (void) val;
+    if ([val appendToItemField]) {
+        for (MPSEWSAppendToItemFieldType* obj in [val appendToItemField]) {
+            if (![MPSEWSAppendToItemFieldType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val setItemField]) {
+        for (MPSEWSSetItemFieldType* obj in [val setItemField]) {
+            if (![MPSEWSSetItemFieldType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val deleteItemField]) {
+        for (MPSEWSDeleteItemFieldType* obj in [val deleteItemField]) {
+            if (![MPSEWSDeleteItemFieldType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

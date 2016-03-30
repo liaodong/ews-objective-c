@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfSuggestion*) val
 {   (void) val;
+    if ([val suggestion]) {
+        for (MPSEWSSuggestion* obj in [val suggestion]) {
+            if (![MPSEWSSuggestion isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

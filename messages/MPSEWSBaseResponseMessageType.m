@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSBaseResponseMessageType*) val
 {   (void) val;
+    if ([val responseMessages] && ![MPSEWSArrayOfResponseMessagesType isValid:[val responseMessages]]) return FALSE;
     return TRUE;
 }
 

@@ -31,6 +31,10 @@
 
 + (BOOL) isValid:(MPSEWSOccurrenceItemIdType*) val
 {   (void) val;
+    if (![MPSEWSBaseItemIdType isValid:val]) return FALSE;
+    if ([val recurringMasterId] && ![MPSEWSDerivedItemIdType isValid:[val recurringMasterId]]) return FALSE;
+    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey]]) return FALSE;
+    if ([val instanceIndex] && ![MPSEWSIntegerTypeHandler isValid:[val instanceIndex]]) return FALSE;
     return TRUE;
 }
 

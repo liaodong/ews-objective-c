@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangesType*) val
 {   (void) val;
+    if ([val folderChange]) {
+        for (MPSEWSFolderChangeType* obj in [val folderChange]) {
+            if (![MPSEWSFolderChangeType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

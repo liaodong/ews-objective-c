@@ -45,6 +45,11 @@
 
 + (BOOL) isValid:(MPSEWSTimeChangeType*) val
 {   (void) val;
+    if ([val timeZoneName] && ![MPSEWSStringTypeHandler isValid:[val timeZoneName]]) return FALSE;
+    if ([val offset] && ![MPSEWSDurationTypeHandler isValid:[val offset]]) return FALSE;
+    if ([val relativeYearlyRecurrence] && ![MPSEWSRelativeYearlyRecurrencePatternType isValid:[val relativeYearlyRecurrence]]) return FALSE;
+    if ([val absoluteDate] && ![MPSEWSDateTypeHandler isValid:[val absoluteDate]]) return FALSE;
+    if ([val time] && ![MPSEWSTimeTypeHandler isValid:[val time]]) return FALSE;
     return TRUE;
 }
 

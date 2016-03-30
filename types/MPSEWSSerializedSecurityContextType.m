@@ -39,6 +39,10 @@
 
 + (BOOL) isValid:(MPSEWSSerializedSecurityContextType*) val
 {   (void) val;
+    if ([val userSid] && ![MPSEWSStringTypeHandler isValid:[val userSid]]) return FALSE;
+    if ([val groupSids] && ![MPSEWSNonEmptyArrayOfGroupIdentifiersType isValid:[val groupSids]]) return FALSE;
+    if ([val restrictedGroupSids] && ![MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType isValid:[val restrictedGroupSids]]) return FALSE;
+    if ([val primarySmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val primarySmtpAddress]]) return FALSE;
     return TRUE;
 }
 

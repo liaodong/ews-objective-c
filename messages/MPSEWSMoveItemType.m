@@ -28,6 +28,7 @@
 
 + (BOOL) isValid:(MPSEWSMoveItemType*) val
 {   (void) val;
+    if (![MPSEWSBaseMoveCopyItemType isValid:val]) return FALSE;
     return TRUE;
 }
 

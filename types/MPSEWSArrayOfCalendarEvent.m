@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfCalendarEvent*) val
 {   (void) val;
+    if ([val calendarEvent]) {
+        for (MPSEWSCalendarEvent* obj in [val calendarEvent]) {
+            if (![MPSEWSCalendarEvent isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

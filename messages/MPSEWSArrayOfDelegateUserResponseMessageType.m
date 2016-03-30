@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfDelegateUserResponseMessageType*) val
 {   (void) val;
+    if ([val delegateUserResponseMessageType]) {
+        for (MPSEWSDelegateUserResponseMessageType* obj in [val delegateUserResponseMessageType]) {
+            if (![MPSEWSDelegateUserResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

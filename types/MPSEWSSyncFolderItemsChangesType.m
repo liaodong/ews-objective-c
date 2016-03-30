@@ -43,6 +43,26 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderItemsChangesType*) val
 {   (void) val;
+    if ([val create]) {
+        for (MPSEWSSyncFolderItemsCreateOrUpdateType* obj in [val create]) {
+            if (![MPSEWSSyncFolderItemsCreateOrUpdateType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val update]) {
+        for (MPSEWSSyncFolderItemsCreateOrUpdateType* obj in [val update]) {
+            if (![MPSEWSSyncFolderItemsCreateOrUpdateType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val delete]) {
+        for (MPSEWSSyncFolderItemsDeleteType* obj in [val delete]) {
+            if (![MPSEWSSyncFolderItemsDeleteType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val readFlagChange]) {
+        for (MPSEWSSyncFolderItemsReadFlagType* obj in [val readFlagChange]) {
+            if (![MPSEWSSyncFolderItemsReadFlagType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

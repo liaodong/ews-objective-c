@@ -38,6 +38,10 @@
 
 + (BOOL) isValid:(MPSEWSUserIdType*) val
 {   (void) val;
+    if ([val sID ] && ![MPSEWSStringTypeHandler isValid:[val sID ]]) return FALSE;
+    if ([val primarySmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val primarySmtpAddress]]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
+    if ([val distinguishedUser] && ![MPSEWSDistinguishedUserType isValid:[val distinguishedUser]]) return FALSE;
     return TRUE;
 }
 

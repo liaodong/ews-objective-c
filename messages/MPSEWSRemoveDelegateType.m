@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSRemoveDelegateType*) val
 {   (void) val;
+    if (![MPSEWSBaseDelegateType isValid:val]) return FALSE;
+    if ([val userIds] && ![MPSEWSArrayOfUserIdType isValid:[val userIds]]) return FALSE;
     return TRUE;
 }
 

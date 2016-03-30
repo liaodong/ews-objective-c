@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSRestrictionType*) val
 {   (void) val;
+    if ([val searchExpression] && ![MPSEWSSearchExpressionType isValid:[val searchExpression]]) return FALSE;
     return TRUE;
 }
 

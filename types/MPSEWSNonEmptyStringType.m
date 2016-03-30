@@ -10,6 +10,11 @@ static int minLength = 1;
     [[[MPSEWSNonEmptyStringType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [val length] > minLength;
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSNonEmptyStringType class]];

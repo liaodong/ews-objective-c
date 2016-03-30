@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSGetEventsType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val subscriptionId] && ![MPSEWSSubscriptionIdType isValid:[val subscriptionId]]) return FALSE;
+    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark]]) return FALSE;
     return TRUE;
 }
 

@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSAddDelegateType*) val
 {   (void) val;
+    if (![MPSEWSBaseDelegateType isValid:val]) return FALSE;
+    if ([val delegateUsers] && ![MPSEWSArrayOfDelegateUserType isValid:[val delegateUsers]]) return FALSE;
+    if ([val deliverMeetingRequests] && ![MPSEWSDeliverMeetingRequestsType isValid:[val deliverMeetingRequests]]) return FALSE;
     return TRUE;
 }
 

@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSEmailAddressDictionaryEntryType*) val
 {   (void) val;
+    if (![MPSEWSStringType isValid:val]) return FALSE;
+    if ([val key ] && ![MPSEWSEmailAddressKeyType isValid:[val key ]]) return FALSE;
     return TRUE;
 }
 

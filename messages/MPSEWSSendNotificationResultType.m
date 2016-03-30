@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSSendNotificationResultType*) val
 {   (void) val;
+    if ([val subscriptionStatus] && ![MPSEWSSubscriptionStatusType isValid:[val subscriptionStatus]]) return FALSE;
     return TRUE;
 }
 

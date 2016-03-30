@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSConflictResultsType*) val
 {   (void) val;
+    if ([val count] && ![MPSEWSIntegerTypeHandler isValid:[val count]]) return FALSE;
     return TRUE;
 }
 

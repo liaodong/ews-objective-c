@@ -10,6 +10,7 @@
 
 /** Register a handler to parse StandardGroupByType */
 + (void) initialize;
++ (BOOL) isValid:(NSString*)val;
 
 /** Initialize the handler */
 - (id) init;

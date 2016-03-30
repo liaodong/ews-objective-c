@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfFreeBusyResponse*) val
 {   (void) val;
+    if ([val freeBusyResponse]) {
+        for (MPSEWSFreeBusyResponseType* obj in [val freeBusyResponse]) {
+            if (![MPSEWSFreeBusyResponseType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

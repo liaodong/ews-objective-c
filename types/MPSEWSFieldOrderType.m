@@ -27,6 +27,8 @@
 
 + (BOOL) isValid:(MPSEWSFieldOrderType*) val
 {   (void) val;
+    if ([val order] && ![MPSEWSSortDirectionType isValid:[val order]]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
     return TRUE;
 }
 

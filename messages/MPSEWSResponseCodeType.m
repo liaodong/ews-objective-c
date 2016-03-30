@@ -329,6 +329,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSResponseCodeType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSResponseCodeType class]];

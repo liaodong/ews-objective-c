@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSExistsType*) val
 {   (void) val;
+    if (![MPSEWSSearchExpressionType isValid:val]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
     return TRUE;
 }
 

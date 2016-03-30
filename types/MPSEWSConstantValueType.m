@@ -21,6 +21,7 @@
 
 + (BOOL) isValid:(MPSEWSConstantValueType*) val
 {   (void) val;
+    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value]]) return FALSE;
     return TRUE;
 }
 

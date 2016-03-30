@@ -40,6 +40,10 @@
 
 + (BOOL) isValid:(MPSEWSFreeBusyView*) val
 {   (void) val;
+    if ([val freeBusyViewType] && ![MPSEWSFreeBusyViewType isValid:[val freeBusyViewType]]) return FALSE;
+    if ([val mergedFreeBusy] && ![MPSEWSStringTypeHandler isValid:[val mergedFreeBusy]]) return FALSE;
+    if ([val calendarEventArray] && ![MPSEWSArrayOfCalendarEvent isValid:[val calendarEventArray]]) return FALSE;
+    if ([val workingHours] && ![MPSEWSWorkingHours isValid:[val workingHours]]) return FALSE;
     return TRUE;
 }
 

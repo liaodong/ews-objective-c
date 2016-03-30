@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSExchangeImpersonationType*) val
 {   (void) val;
+    if ([val connectingSID] && ![MPSEWSConnectingSIDType isValid:[val connectingSID]]) return FALSE;
     return TRUE;
 }
 

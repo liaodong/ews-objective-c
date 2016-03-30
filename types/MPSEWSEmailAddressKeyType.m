@@ -14,6 +14,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSEmailAddressKeyType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSEmailAddressKeyType class]];

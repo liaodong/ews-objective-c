@@ -587,7 +587,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
-    fprintf (file, "+ (void) initialize;\n\n");
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -616,6 +617,11 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return [val length] > minLength;\n");
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -679,7 +685,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
-    fprintf (file, "+ (void) initialize;\n\n");
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*)val;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -723,6 +730,12 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "nil];\n");
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return [enumerations containsObject:val];\n");
+    fprintf (file, "}\n\n");
+
 
     fprintf (file, "- (id) init\n");
     fprintf (file, "{\n");
@@ -776,7 +789,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "@interface %s%s : %sNonEmptyStringType \n\n", prefix, name, prefix);
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
-    fprintf (file, "+ (void) initialize;\n\n");
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*)val;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -797,6 +811,11 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "+ (void) initialize\n");
     fprintf (file, "{\n");
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid:(NSString*)val\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return [%sNonEmptyStringType isValid:val];\n", prefix);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -1164,6 +1183,42 @@ static const char* prefix = "MPSEWS";
 
     fprintf (file, "+ (BOOL) isValid:(%s%s*) val\n", prefix, name);
     fprintf (file, "{   (void) val;\n");
+
+    tlength = 4;
+    nlength = 4;
+    if (![base isEqual:@"NSObject"]) {
+        fprintf (file, "    if (![%s isValid:val]) return FALSE;\n", [base UTF8String]);
+    }
+    for (Element* e in attributes)
+    {
+        fprintf (file, "    if ([val %s] && ![%s%s isValid:[val %s]]) return FALSE;\n",
+                                      [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String],
+                                      prefix,
+                                      [[self pad:[self handler:[e type]]      toLength:(tlength - 4)] UTF8String],
+                                      [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String]);
+    }
+    for  (Element* e in elements)
+    {
+        BOOL isArray = ([e maxOccurs] && ([[e maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"]));
+        if (isArray)
+        {
+            fprintf (file, "    if ([val %s]) {\n", [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "        for (%s obj in [val %s]) {\n", [[self objectType:[e type]] UTF8String], [[self propertyName:[e name]] UTF8String]);
+            fprintf (file, "            if (![%s%s isValid:obj]) return FALSE;\n",
+                                        prefix,
+                                        [[self pad:[self handler:[e type]]      toLength:(tlength - 4)] UTF8String]);
+            fprintf (file, "        }\n");
+            fprintf (file, "    }\n");
+        }
+        else
+        {
+            fprintf (file, "    if ([val %s] && ![%s%s isValid:[val %s]]) return FALSE;\n",
+                                        [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String],
+                                        prefix,
+                                        [[self pad:[self handler:[e type]]      toLength:(tlength - 4)] UTF8String],
+                                        [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String]);
+        }
+    }
     fprintf (file, "    return TRUE;\n");
     fprintf (file, "}\n\n");
 
@@ -1705,7 +1760,7 @@ static const char* prefix = "MPSEWS";
             {
                 NSAssert ([self forElement:a areChildren:@"element"], @"can have onlt elements");
 
-                BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"]));
+                BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[a maxOccurs] isEqual:@"100"]));
                 BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
 
                 if (isArray)
@@ -1805,7 +1860,7 @@ static const char* prefix = "MPSEWS";
 
 - (AndPredicate*) validation:(Element*)e
 {
-    AndPredicate* result = [[AndPredicate alloc] init];
+        AndPredicate* result = [[AndPredicate alloc] init];
         if ([[e children] count] == 0)
         {
             return result;
@@ -1828,7 +1883,7 @@ static const char* prefix = "MPSEWS";
             {
                 if ([[a tagName] isEqual:@"choice"])
                 {
-                    BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[e maxOccurs] isEqual:@"100"]));
+                    BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[a maxOccurs] isEqual:@"100"]));
                     BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
 
                     int elements = [[a children] count];

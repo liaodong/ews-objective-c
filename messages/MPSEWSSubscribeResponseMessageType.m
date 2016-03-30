@@ -56,6 +56,9 @@
 
 + (BOOL) isValid:(MPSEWSSubscribeResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val subscriptionId] && ![MPSEWSSubscriptionIdType isValid:[val subscriptionId]]) return FALSE;
+    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark]]) return FALSE;
     return TRUE;
 }
 

@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSFolderChangeType*) val
 {   (void) val;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
+    if ([val distinguishedFolderId] && ![MPSEWSDistinguishedFolderIdType isValid:[val distinguishedFolderId]]) return FALSE;
+    if ([val updates] && ![MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType isValid:[val updates]]) return FALSE;
     return TRUE;
 }
 

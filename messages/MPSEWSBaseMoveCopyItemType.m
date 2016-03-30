@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSBaseMoveCopyItemType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val toFolderId] && ![MPSEWSTargetFolderIdType isValid:[val toFolderId]]) return FALSE;
+    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
     return TRUE;
 }
 

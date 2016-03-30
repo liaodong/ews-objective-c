@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSNumberedRecurrenceRangeType*) val
 {   (void) val;
+    if (![MPSEWSRecurrenceRangeBaseType isValid:val]) return FALSE;
+    if ([val numberOfOccurrences] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfOccurrences]]) return FALSE;
     return TRUE;
 }
 

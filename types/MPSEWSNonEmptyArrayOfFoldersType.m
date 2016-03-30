@@ -51,6 +51,31 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfFoldersType*) val
 {   (void) val;
+    if ([val folder]) {
+        for (MPSEWSFolderType* obj in [val folder]) {
+            if (![MPSEWSFolderType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val calendarFolder]) {
+        for (MPSEWSCalendarFolderType* obj in [val calendarFolder]) {
+            if (![MPSEWSCalendarFolderType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val contactsFolder]) {
+        for (MPSEWSContactsFolderType* obj in [val contactsFolder]) {
+            if (![MPSEWSContactsFolderType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val searchFolder]) {
+        for (MPSEWSSearchFolderType* obj in [val searchFolder]) {
+            if (![MPSEWSSearchFolderType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val tasksFolder]) {
+        for (MPSEWSTasksFolderType* obj in [val tasksFolder]) {
+            if (![MPSEWSTasksFolderType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

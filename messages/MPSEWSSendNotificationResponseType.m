@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSSendNotificationResponseType*) val
 {   (void) val;
+    if (![MPSEWSBaseResponseMessageType isValid:val]) return FALSE;
     return TRUE;
 }
 

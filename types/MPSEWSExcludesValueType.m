@@ -21,6 +21,7 @@
 
 + (BOOL) isValid:(MPSEWSExcludesValueType*) val
 {   (void) val;
+    if ([val value] && ![MPSEWSExcludesAttributeType isValid:[val value]]) return FALSE;
     return TRUE;
 }
 

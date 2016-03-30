@@ -12,6 +12,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSStandardGroupByType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSStandardGroupByType class]];

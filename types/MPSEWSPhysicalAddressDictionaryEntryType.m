@@ -47,6 +47,12 @@
 
 + (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryEntryType*) val
 {   (void) val;
+    if ([val key ] && ![MPSEWSPhysicalAddressKeyType isValid:[val key ]]) return FALSE;
+    if ([val street] && ![MPSEWSStringTypeHandler isValid:[val street]]) return FALSE;
+    if ([val city] && ![MPSEWSStringTypeHandler isValid:[val city]]) return FALSE;
+    if ([val state] && ![MPSEWSStringTypeHandler isValid:[val state]]) return FALSE;
+    if ([val countryOrRegion] && ![MPSEWSStringTypeHandler isValid:[val countryOrRegion]]) return FALSE;
+    if ([val postalCode] && ![MPSEWSStringTypeHandler isValid:[val postalCode]]) return FALSE;
     return TRUE;
 }
 

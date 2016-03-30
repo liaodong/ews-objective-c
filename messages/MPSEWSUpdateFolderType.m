@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSUpdateFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val folderChanges] && ![MPSEWSNonEmptyArrayOfFolderChangesType isValid:[val folderChanges]]) return FALSE;
     return TRUE;
 }
 

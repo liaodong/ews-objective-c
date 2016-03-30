@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSPathToUnindexedFieldType*) val
 {   (void) val;
+    if (![MPSEWSBasePathToElementType isValid:val]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSUnindexedFieldURIType isValid:[val fieldURI]]) return FALSE;
     return TRUE;
 }
 

@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSCreateManagedFolderRequestType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val folderNames] && ![MPSEWSNonEmptyArrayOfFolderNamesType isValid:[val folderNames]]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
     return TRUE;
 }
 

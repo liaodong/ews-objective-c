@@ -298,6 +298,7 @@
 
 + (BOOL) isValid:(MPSEWSCancelCalendarItemType*) val
 {   (void) val;
+    if (![MPSEWSSmartResponseType isValid:val]) return FALSE;
     return TRUE;
 }
 

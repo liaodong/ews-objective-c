@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSWeeklyRecurrencePatternType*) val
 {   (void) val;
+    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val]) return FALSE;
+    if ([val daysOfWeek] && ![MPSEWSDaysOfWeekType isValid:[val daysOfWeek]]) return FALSE;
     return TRUE;
 }
 

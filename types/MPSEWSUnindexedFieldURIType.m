@@ -172,6 +172,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSUnindexedFieldURIType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSUnindexedFieldURIType class]];

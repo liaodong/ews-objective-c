@@ -56,6 +56,8 @@
 
 + (BOOL) isValid:(MPSEWSGetDelegateResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSBaseDelegateResponseMessageType isValid:val]) return FALSE;
+    if ([val deliverMeetingRequests] && ![MPSEWSDeliverMeetingRequestsType isValid:[val deliverMeetingRequests]]) return FALSE;
     return TRUE;
 }
 

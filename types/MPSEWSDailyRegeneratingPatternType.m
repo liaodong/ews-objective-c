@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSDailyRegeneratingPatternType*) val
 {   (void) val;
+    if (![MPSEWSRegeneratingPatternBaseType isValid:val]) return FALSE;
     return TRUE;
 }
 

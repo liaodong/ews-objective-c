@@ -51,6 +51,13 @@
 
 + (BOOL) isValid:(MPSEWSFindFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val traversal] && ![MPSEWSFolderQueryTraversalType isValid:[val traversal]]) return FALSE;
+    if ([val folderShape] && ![MPSEWSFolderResponseShapeType isValid:[val folderShape]]) return FALSE;
+    if ([val indexedPageFolderView] && ![MPSEWSIndexedPageViewType isValid:[val indexedPageFolderView]]) return FALSE;
+    if ([val fractionalPageFolderView] && ![MPSEWSFractionalPageViewType isValid:[val fractionalPageFolderView]]) return FALSE;
+    if ([val restriction] && ![MPSEWSRestrictionType isValid:[val restriction]]) return FALSE;
+    if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds]]) return FALSE;
     return TRUE;
 }
 

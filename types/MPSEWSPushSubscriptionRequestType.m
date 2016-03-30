@@ -46,6 +46,9 @@
 
 + (BOOL) isValid:(MPSEWSPushSubscriptionRequestType*) val
 {   (void) val;
+    if (![MPSEWSBaseSubscriptionRequestType isValid:val]) return FALSE;
+    if ([val statusFrequency] && ![MPSEWSSubscriptionStatusFrequencyType isValid:[val statusFrequency]]) return FALSE;
+    if ([val uRL ] && ![MPSEWSStringTypeHandler isValid:[val uRL ]]) return FALSE;
     return TRUE;
 }
 

@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSFolderChangeDescriptionType*) val
 {   (void) val;
+    if (![MPSEWSChangeDescriptionType isValid:val]) return FALSE;
     return TRUE;
 }
 

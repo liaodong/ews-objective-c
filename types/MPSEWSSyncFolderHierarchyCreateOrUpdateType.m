@@ -46,6 +46,11 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderHierarchyCreateOrUpdateType*) val
 {   (void) val;
+    if ([val folder] && ![MPSEWSFolderType isValid:[val folder]]) return FALSE;
+    if ([val calendarFolder] && ![MPSEWSCalendarFolderType isValid:[val calendarFolder]]) return FALSE;
+    if ([val contactsFolder] && ![MPSEWSContactsFolderType isValid:[val contactsFolder]]) return FALSE;
+    if ([val searchFolder] && ![MPSEWSSearchFolderType isValid:[val searchFolder]]) return FALSE;
+    if ([val tasksFolder] && ![MPSEWSTasksFolderType isValid:[val tasksFolder]]) return FALSE;
     return TRUE;
 }
 

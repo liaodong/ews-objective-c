@@ -315,6 +315,29 @@
 
 + (BOOL) isValid:(MPSEWSTaskType*) val
 {   (void) val;
+    if (![MPSEWSItemType isValid:val]) return FALSE;
+    if ([val actualWork] && ![MPSEWSIntegerTypeHandler isValid:[val actualWork]]) return FALSE;
+    if ([val assignedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val assignedTime]]) return FALSE;
+    if ([val billingInformation] && ![MPSEWSStringTypeHandler isValid:[val billingInformation]]) return FALSE;
+    if ([val changeCount] && ![MPSEWSIntegerTypeHandler isValid:[val changeCount]]) return FALSE;
+    if ([val companies] && ![MPSEWSArrayOfStringsType isValid:[val companies]]) return FALSE;
+    if ([val completeDate] && ![MPSEWSDateTimeTypeHandler isValid:[val completeDate]]) return FALSE;
+    if ([val contacts] && ![MPSEWSArrayOfStringsType isValid:[val contacts]]) return FALSE;
+    if ([val delegationState] && ![MPSEWSTaskDelegateStateType isValid:[val delegationState]]) return FALSE;
+    if ([val delegator] && ![MPSEWSStringTypeHandler isValid:[val delegator]]) return FALSE;
+    if ([val dueDate] && ![MPSEWSDateTimeTypeHandler isValid:[val dueDate]]) return FALSE;
+    if ([val isAssignmentEditable] && ![MPSEWSIntegerTypeHandler isValid:[val isAssignmentEditable]]) return FALSE;
+    if ([val isComplete] && ![MPSEWSBooleanTypeHandler isValid:[val isComplete]]) return FALSE;
+    if ([val isRecurring] && ![MPSEWSBooleanTypeHandler isValid:[val isRecurring]]) return FALSE;
+    if ([val isTeamTask] && ![MPSEWSBooleanTypeHandler isValid:[val isTeamTask]]) return FALSE;
+    if ([val mileage] && ![MPSEWSStringTypeHandler isValid:[val mileage]]) return FALSE;
+    if ([val owner] && ![MPSEWSStringTypeHandler isValid:[val owner]]) return FALSE;
+    if ([val percentComplete] && ![MPSEWSDoubleTypeHandler isValid:[val percentComplete]]) return FALSE;
+    if ([val recurrence] && ![MPSEWSTaskRecurrenceType isValid:[val recurrence]]) return FALSE;
+    if ([val startDate] && ![MPSEWSDateTimeTypeHandler isValid:[val startDate]]) return FALSE;
+    if ([val status] && ![MPSEWSTaskStatusType isValid:[val status]]) return FALSE;
+    if ([val statusDescription] && ![MPSEWSStringTypeHandler isValid:[val statusDescription]]) return FALSE;
+    if ([val totalWork] && ![MPSEWSIntegerTypeHandler isValid:[val totalWork]]) return FALSE;
     return TRUE;
 }
 

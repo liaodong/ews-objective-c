@@ -56,6 +56,8 @@
 
 + (BOOL) isValid:(MPSEWSUpdateItemResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSItemInfoResponseMessageType isValid:val]) return FALSE;
+    if ([val conflictResults] && ![MPSEWSConflictResultsType isValid:[val conflictResults]]) return FALSE;
     return TRUE;
 }
 

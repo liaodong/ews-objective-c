@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfAttendeesType*) val
 {   (void) val;
+    if ([val attendee]) {
+        for (MPSEWSAttendeeType* obj in [val attendee]) {
+            if (![MPSEWSAttendeeType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

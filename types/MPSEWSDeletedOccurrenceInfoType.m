@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSDeletedOccurrenceInfoType*) val
 {   (void) val;
+    if ([val start] && ![MPSEWSDateTimeTypeHandler isValid:[val start]]) return FALSE;
     return TRUE;
 }
 

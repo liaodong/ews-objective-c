@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSSuggestionDayResult*) val
 {   (void) val;
+    if ([val date] && ![MPSEWSDateTimeTypeHandler isValid:[val date]]) return FALSE;
+    if ([val dayQuality] && ![MPSEWSSuggestionQuality isValid:[val dayQuality]]) return FALSE;
+    if ([val suggestionArray] && ![MPSEWSArrayOfSuggestion isValid:[val suggestionArray]]) return FALSE;
     return TRUE;
 }
 

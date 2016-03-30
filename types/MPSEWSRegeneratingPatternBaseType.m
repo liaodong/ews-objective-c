@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSRegeneratingPatternBaseType*) val
 {   (void) val;
+    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val]) return FALSE;
     return TRUE;
 }
 

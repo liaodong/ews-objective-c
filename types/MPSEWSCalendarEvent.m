@@ -39,6 +39,10 @@
 
 + (BOOL) isValid:(MPSEWSCalendarEvent*) val
 {   (void) val;
+    if ([val startTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startTime]]) return FALSE;
+    if ([val endTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endTime]]) return FALSE;
+    if ([val busyType] && ![MPSEWSLegacyFreeBusyType isValid:[val busyType]]) return FALSE;
+    if ([val calendarEventDetails] && ![MPSEWSCalendarEventDetails isValid:[val calendarEventDetails]]) return FALSE;
     return TRUE;
 }
 

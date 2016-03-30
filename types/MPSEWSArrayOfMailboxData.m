@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfMailboxData*) val
 {   (void) val;
+    if ([val mailboxData]) {
+        for (MPSEWSMailboxData* obj in [val mailboxData]) {
+            if (![MPSEWSMailboxData isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

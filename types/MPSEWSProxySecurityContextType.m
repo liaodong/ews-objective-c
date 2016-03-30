@@ -16,6 +16,7 @@
 
 + (BOOL) isValid:(MPSEWSProxySecurityContextType*) val
 {   (void) val;
+    if (![MPSEWSBase64BinaryType isValid:val]) return FALSE;
     return TRUE;
 }
 

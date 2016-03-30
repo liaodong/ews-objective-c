@@ -38,6 +38,10 @@
 
 + (BOOL) isValid:(MPSEWSTimeZoneType*) val
 {   (void) val;
+    if ([val timeZoneName] && ![MPSEWSStringTypeHandler isValid:[val timeZoneName]]) return FALSE;
+    if ([val baseOffset] && ![MPSEWSDurationTypeHandler isValid:[val baseOffset]]) return FALSE;
+    if ([val standard] && ![MPSEWSTimeChangeType isValid:[val standard]]) return FALSE;
+    if ([val daylight] && ![MPSEWSTimeChangeType isValid:[val daylight]]) return FALSE;
     return TRUE;
 }
 

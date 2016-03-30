@@ -40,6 +40,10 @@
 
 + (BOOL) isValid:(MPSEWSItemChangeType*) val
 {   (void) val;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
+    if ([val occurrenceItemId] && ![MPSEWSOccurrenceItemIdType isValid:[val occurrenceItemId]]) return FALSE;
+    if ([val recurringMasterItemId] && ![MPSEWSRecurringMasterItemIdType isValid:[val recurringMasterItemId]]) return FALSE;
+    if ([val updates] && ![MPSEWSNonEmptyArrayOfItemChangeDescriptionsType isValid:[val updates]]) return FALSE;
     return TRUE;
 }
 

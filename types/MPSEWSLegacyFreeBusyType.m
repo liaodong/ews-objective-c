@@ -16,6 +16,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSLegacyFreeBusyType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSLegacyFreeBusyType class]];

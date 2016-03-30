@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSIndividualAttendeeConflictData*) val
 {   (void) val;
+    if (![MPSEWSAttendeeConflictData isValid:val]) return FALSE;
+    if ([val busyType] && ![MPSEWSLegacyFreeBusyType isValid:[val busyType]]) return FALSE;
     return TRUE;
 }
 

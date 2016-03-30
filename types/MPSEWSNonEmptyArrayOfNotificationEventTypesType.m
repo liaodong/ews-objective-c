@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfNotificationEventTypesType*) val
 {   (void) val;
+    if ([val eventType]) {
+        for (NSString* obj in [val eventType]) {
+            if (![MPSEWSNotificationEventTypeType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

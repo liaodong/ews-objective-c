@@ -27,6 +27,8 @@
 
 + (BOOL) isValid:(MPSEWSAbsoluteMonthlyRecurrencePatternType*) val
 {   (void) val;
+    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val]) return FALSE;
+    if ([val dayOfMonth] && ![MPSEWSIntegerTypeHandler isValid:[val dayOfMonth]]) return FALSE;
     return TRUE;
 }
 

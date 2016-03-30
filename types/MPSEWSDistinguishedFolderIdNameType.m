@@ -27,6 +27,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSDistinguishedFolderIdNameType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSDistinguishedFolderIdNameType class]];

@@ -38,6 +38,10 @@
 
 + (BOOL) isValid:(MPSEWSOccurrenceInfoType*) val
 {   (void) val;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
+    if ([val start] && ![MPSEWSDateTimeTypeHandler isValid:[val start]]) return FALSE;
+    if ([val end ] && ![MPSEWSDateTimeTypeHandler isValid:[val end ]]) return FALSE;
+    if ([val originalStart] && ![MPSEWSDateTimeTypeHandler isValid:[val originalStart]]) return FALSE;
     return TRUE;
 }
 

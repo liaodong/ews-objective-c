@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSAttachmentInfoResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val attachments] && ![MPSEWSArrayOfAttachmentsType isValid:[val attachments]]) return FALSE;
     return TRUE;
 }
 

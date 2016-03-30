@@ -3,6 +3,7 @@
 @interface MPSEWSBase64BinaryTypeHandler : MPSEWSSimpleTypeHandler
 
 + (void) initialize;
++ (BOOL) isValid:(NSData*) val;
 
 - (id)initWithClass: (Class)cls;
  

@@ -201,6 +201,43 @@
 
 + (BOOL) isValid:(MPSEWSItemType*) val
 {   (void) val;
+    if ([val mimeContent] && ![MPSEWSMimeContentType isValid:[val mimeContent]]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId]]) return FALSE;
+    if ([val itemClass] && ![MPSEWSItemClassType isValid:[val itemClass]]) return FALSE;
+    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject]]) return FALSE;
+    if ([val sensitivity] && ![MPSEWSSensitivityChoicesType isValid:[val sensitivity]]) return FALSE;
+    if ([val body] && ![MPSEWSBodyType isValid:[val body]]) return FALSE;
+    if ([val attachments] && ![MPSEWSNonEmptyArrayOfAttachmentsType isValid:[val attachments]]) return FALSE;
+    if ([val dateTimeReceived] && ![MPSEWSDateTimeTypeHandler isValid:[val dateTimeReceived]]) return FALSE;
+    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size]]) return FALSE;
+    if ([val categories] && ![MPSEWSArrayOfStringsType isValid:[val categories]]) return FALSE;
+    if ([val importance] && ![MPSEWSImportanceChoicesType isValid:[val importance]]) return FALSE;
+    if ([val inReplyTo] && ![MPSEWSStringTypeHandler isValid:[val inReplyTo]]) return FALSE;
+    if ([val isSubmitted] && ![MPSEWSBooleanTypeHandler isValid:[val isSubmitted]]) return FALSE;
+    if ([val isDraft] && ![MPSEWSBooleanTypeHandler isValid:[val isDraft]]) return FALSE;
+    if ([val isFromMe] && ![MPSEWSBooleanTypeHandler isValid:[val isFromMe]]) return FALSE;
+    if ([val isResend] && ![MPSEWSBooleanTypeHandler isValid:[val isResend]]) return FALSE;
+    if ([val isUnmodified] && ![MPSEWSBooleanTypeHandler isValid:[val isUnmodified]]) return FALSE;
+    if ([val internetMessageHeaders] && ![MPSEWSNonEmptyArrayOfInternetHeadersType isValid:[val internetMessageHeaders]]) return FALSE;
+    if ([val dateTimeSent] && ![MPSEWSDateTimeTypeHandler isValid:[val dateTimeSent]]) return FALSE;
+    if ([val dateTimeCreated] && ![MPSEWSDateTimeTypeHandler isValid:[val dateTimeCreated]]) return FALSE;
+    if ([val responseObjects] && ![MPSEWSNonEmptyArrayOfResponseObjectsType isValid:[val responseObjects]]) return FALSE;
+    if ([val reminderDueBy] && ![MPSEWSDateTimeTypeHandler isValid:[val reminderDueBy]]) return FALSE;
+    if ([val reminderIsSet] && ![MPSEWSBooleanTypeHandler isValid:[val reminderIsSet]]) return FALSE;
+    if ([val reminderMinutesBeforeStart] && ![MPSEWSReminderMinutesBeforeStartType isValid:[val reminderMinutesBeforeStart]]) return FALSE;
+    if ([val displayCc] && ![MPSEWSStringTypeHandler isValid:[val displayCc]]) return FALSE;
+    if ([val displayTo] && ![MPSEWSStringTypeHandler isValid:[val displayTo]]) return FALSE;
+    if ([val hasAttachments] && ![MPSEWSBooleanTypeHandler isValid:[val hasAttachments]]) return FALSE;
+    if ([val extendedProperty]) {
+        for (MPSEWSExtendedPropertyType* obj in [val extendedProperty]) {
+            if (![MPSEWSExtendedPropertyType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val culture] && ![MPSEWSLanguageTypeHandler isValid:[val culture]]) return FALSE;
+    if ([val effectiveRights] && ![MPSEWSEffectiveRightsType isValid:[val effectiveRights]]) return FALSE;
+    if ([val lastModifiedName] && ![MPSEWSStringTypeHandler isValid:[val lastModifiedName]]) return FALSE;
+    if ([val lastModifiedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastModifiedTime]]) return FALSE;
     return TRUE;
 }
 

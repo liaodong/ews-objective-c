@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSFieldURIOrConstantType*) val
 {   (void) val;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
+    if ([val constant] && ![MPSEWSConstantValueType isValid:[val constant]]) return FALSE;
     return TRUE;
 }
 

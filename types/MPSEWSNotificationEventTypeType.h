@@ -15,6 +15,7 @@
 
 /** Register a handler to parse NotificationEventTypeType */
 + (void) initialize;
++ (BOOL) isValid:(NSString*)val;
 
 /** Initialize the handler */
 - (id) init;

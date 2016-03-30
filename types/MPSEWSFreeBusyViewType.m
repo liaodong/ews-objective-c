@@ -8,7 +8,15 @@ static NSSet* enumerations = nil;
 + (void) initialize
 {
     enumerations = [NSSet setWithObjects:@"None", @"MergedOnly", @"FreeBusy", @"FreeBusyMerged", @"Detailed", @"DetailedMerged", nil];
-    [[MPSEWSFreeBusyViewType alloc] init];}
+    [[MPSEWSFreeBusyViewType alloc] init];
+}
++ (BOOL) isValid:(NSArray*) val
+{
+    for (NSString* obj  in val) {
+        if (![enumerations containsObject:obj]) return FALSE;
+    }
+    return TRUE;
+}
 
 - (id) init
 {

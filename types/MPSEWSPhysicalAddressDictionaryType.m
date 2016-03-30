@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryType*) val
 {   (void) val;
+    if ([val entry]) {
+        for (MPSEWSPhysicalAddressDictionaryEntryType* obj in [val entry]) {
+            if (![MPSEWSPhysicalAddressDictionaryEntryType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

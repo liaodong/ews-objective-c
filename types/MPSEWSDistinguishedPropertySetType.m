@@ -20,6 +20,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSDistinguishedPropertySetType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSDistinguishedPropertySetType class]];

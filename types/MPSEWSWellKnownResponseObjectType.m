@@ -293,6 +293,7 @@
 
 + (BOOL) isValid:(MPSEWSWellKnownResponseObjectType*) val
 {   (void) val;
+    if (![MPSEWSResponseObjectType isValid:val]) return FALSE;
     return TRUE;
 }
 

@@ -46,6 +46,12 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderItemsType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val itemShape] && ![MPSEWSItemResponseShapeType isValid:[val itemShape]]) return FALSE;
+    if ([val syncFolderId] && ![MPSEWSTargetFolderIdType isValid:[val syncFolderId]]) return FALSE;
+    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState]]) return FALSE;
+    if ([val ignore] && ![MPSEWSArrayOfBaseItemIdsType isValid:[val ignore]]) return FALSE;
+    if ([val maxChangesReturned] && ![MPSEWSMaxSyncChangesReturnedType isValid:[val maxChangesReturned]]) return FALSE;
     return TRUE;
 }
 

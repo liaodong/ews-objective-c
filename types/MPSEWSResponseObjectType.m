@@ -293,6 +293,8 @@
 
 + (BOOL) isValid:(MPSEWSResponseObjectType*) val
 {   (void) val;
+    if (![MPSEWSResponseObjectCoreType isValid:val]) return FALSE;
+    if ([val objectName] && ![MPSEWSStringTypeHandler isValid:[val objectName]]) return FALSE;
     return TRUE;
 }
 

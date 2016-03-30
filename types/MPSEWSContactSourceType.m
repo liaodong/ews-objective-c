@@ -13,6 +13,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSContactSourceType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSContactSourceType class]];

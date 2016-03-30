@@ -360,6 +360,37 @@
 
 + (BOOL) isValid:(MPSEWSContactItemType*) val
 {   (void) val;
+    if (![MPSEWSItemType isValid:val]) return FALSE;
+    if ([val fileAs] && ![MPSEWSStringTypeHandler isValid:[val fileAs]]) return FALSE;
+    if ([val fileAsMapping] && ![MPSEWSFileAsMappingType isValid:[val fileAsMapping]]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
+    if ([val givenName] && ![MPSEWSStringTypeHandler isValid:[val givenName]]) return FALSE;
+    if ([val initials] && ![MPSEWSStringTypeHandler isValid:[val initials]]) return FALSE;
+    if ([val middleName] && ![MPSEWSStringTypeHandler isValid:[val middleName]]) return FALSE;
+    if ([val nickname] && ![MPSEWSStringTypeHandler isValid:[val nickname]]) return FALSE;
+    if ([val completeName] && ![MPSEWSCompleteNameType isValid:[val completeName]]) return FALSE;
+    if ([val companyName] && ![MPSEWSStringTypeHandler isValid:[val companyName]]) return FALSE;
+    if ([val emailAddresses] && ![MPSEWSEmailAddressDictionaryType isValid:[val emailAddresses]]) return FALSE;
+    if ([val physicalAddresses] && ![MPSEWSPhysicalAddressDictionaryType isValid:[val physicalAddresses]]) return FALSE;
+    if ([val phoneNumbers] && ![MPSEWSPhoneNumberDictionaryType isValid:[val phoneNumbers]]) return FALSE;
+    if ([val assistantName] && ![MPSEWSStringTypeHandler isValid:[val assistantName]]) return FALSE;
+    if ([val birthday] && ![MPSEWSDateTimeTypeHandler isValid:[val birthday]]) return FALSE;
+    if ([val businessHomePage] && ![MPSEWSAnyUriTypeHandler isValid:[val businessHomePage]]) return FALSE;
+    if ([val children] && ![MPSEWSArrayOfStringsType isValid:[val children]]) return FALSE;
+    if ([val companies] && ![MPSEWSArrayOfStringsType isValid:[val companies]]) return FALSE;
+    if ([val contactSource] && ![MPSEWSContactSourceType isValid:[val contactSource]]) return FALSE;
+    if ([val department] && ![MPSEWSStringTypeHandler isValid:[val department]]) return FALSE;
+    if ([val generation] && ![MPSEWSStringTypeHandler isValid:[val generation]]) return FALSE;
+    if ([val imAddresses] && ![MPSEWSImAddressDictionaryType isValid:[val imAddresses]]) return FALSE;
+    if ([val jobTitle] && ![MPSEWSStringTypeHandler isValid:[val jobTitle]]) return FALSE;
+    if ([val manager] && ![MPSEWSStringTypeHandler isValid:[val manager]]) return FALSE;
+    if ([val mileage] && ![MPSEWSStringTypeHandler isValid:[val mileage]]) return FALSE;
+    if ([val officeLocation] && ![MPSEWSStringTypeHandler isValid:[val officeLocation]]) return FALSE;
+    if ([val postalAddressIndex] && ![MPSEWSPhysicalAddressIndexType isValid:[val postalAddressIndex]]) return FALSE;
+    if ([val profession] && ![MPSEWSStringTypeHandler isValid:[val profession]]) return FALSE;
+    if ([val spouseName] && ![MPSEWSStringTypeHandler isValid:[val spouseName]]) return FALSE;
+    if ([val surname] && ![MPSEWSStringTypeHandler isValid:[val surname]]) return FALSE;
+    if ([val weddingAnniversary] && ![MPSEWSDateTimeTypeHandler isValid:[val weddingAnniversary]]) return FALSE;
     return TRUE;
 }
 

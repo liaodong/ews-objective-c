@@ -37,6 +37,11 @@
 
 + (BOOL) isValid:(MPSEWSGroupAttendeeConflictData*) val
 {   (void) val;
+    if (![MPSEWSAttendeeConflictData isValid:val]) return FALSE;
+    if ([val numberOfMembers] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembers]]) return FALSE;
+    if ([val numberOfMembersAvailable] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersAvailable]]) return FALSE;
+    if ([val numberOfMembersWithConflict] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersWithConflict]]) return FALSE;
+    if ([val numberOfMembersWithNoData] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersWithNoData]]) return FALSE;
     return TRUE;
 }
 

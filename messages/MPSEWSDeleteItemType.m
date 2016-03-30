@@ -37,6 +37,11 @@
 
 + (BOOL) isValid:(MPSEWSDeleteItemType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType]]) return FALSE;
+    if ([val sendMeetingCancellations] && ![MPSEWSCalendarItemCreateOrDeleteOperationType isValid:[val sendMeetingCancellations]]) return FALSE;
+    if ([val affectedTaskOccurrences] && ![MPSEWSAffectedTaskOccurrencesType isValid:[val affectedTaskOccurrences]]) return FALSE;
+    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
     return TRUE;
 }
 

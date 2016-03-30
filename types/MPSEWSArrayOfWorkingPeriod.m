@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfWorkingPeriod*) val
 {   (void) val;
+    if ([val workingPeriod]) {
+        for (MPSEWSWorkingPeriod* obj in [val workingPeriod]) {
+            if (![MPSEWSWorkingPeriod isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

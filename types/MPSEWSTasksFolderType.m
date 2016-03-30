@@ -79,6 +79,7 @@
 
 + (BOOL) isValid:(MPSEWSTasksFolderType*) val
 {   (void) val;
+    if (![MPSEWSFolderType isValid:val]) return FALSE;
     return TRUE;
 }
 

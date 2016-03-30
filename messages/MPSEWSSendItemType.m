@@ -33,6 +33,10 @@
 
 + (BOOL) isValid:(MPSEWSSendItemType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val saveItemToFolder] && ![MPSEWSBooleanTypeHandler isValid:[val saveItemToFolder]]) return FALSE;
+    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
+    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId]]) return FALSE;
     return TRUE;
 }
 

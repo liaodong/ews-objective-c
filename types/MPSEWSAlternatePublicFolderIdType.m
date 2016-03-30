@@ -26,6 +26,8 @@
 
 + (BOOL) isValid:(MPSEWSAlternatePublicFolderIdType*) val
 {   (void) val;
+    if (![MPSEWSAlternateIdBaseType isValid:val]) return FALSE;
+    if ([val folderId] && ![MPSEWSStringTypeHandler isValid:[val folderId]]) return FALSE;
     return TRUE;
 }
 

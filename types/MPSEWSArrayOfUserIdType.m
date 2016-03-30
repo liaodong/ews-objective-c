@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfUserIdType*) val
 {   (void) val;
+    if ([val userId]) {
+        for (MPSEWSUserIdType* obj in [val userId]) {
+            if (![MPSEWSUserIdType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

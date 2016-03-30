@@ -44,6 +44,11 @@
 
 + (BOOL) isValid:(MPSEWSResponseMessageType*) val
 {   (void) val;
+    if ([val responseClass] && ![MPSEWSResponseClassType isValid:[val responseClass]]) return FALSE;
+    if ([val messageText] && ![MPSEWSStringTypeHandler isValid:[val messageText]]) return FALSE;
+    if ([val responseCode] && ![MPSEWSResponseCodeType isValid:[val responseCode]]) return FALSE;
+    if ([val descriptiveLinkKey] && ![MPSEWSIntegerTypeHandler isValid:[val descriptiveLinkKey]]) return FALSE;
+    if ([val messageXml] && ![MPSEWSStringTypeHandler isValid:[val messageXml]]) return FALSE;
     return TRUE;
 }
 

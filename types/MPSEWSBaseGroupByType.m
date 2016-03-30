@@ -21,6 +21,7 @@
 
 + (BOOL) isValid:(MPSEWSBaseGroupByType*) val
 {   (void) val;
+    if ([val order] && ![MPSEWSSortDirectionType isValid:[val order]]) return FALSE;
     return TRUE;
 }
 

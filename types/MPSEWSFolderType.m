@@ -79,6 +79,9 @@
 
 + (BOOL) isValid:(MPSEWSFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
+    if ([val permissionSet] && ![MPSEWSPermissionSetType isValid:[val permissionSet]]) return FALSE;
+    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount]]) return FALSE;
     return TRUE;
 }
 

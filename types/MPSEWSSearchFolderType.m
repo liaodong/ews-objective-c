@@ -85,6 +85,8 @@
 
 + (BOOL) isValid:(MPSEWSSearchFolderType*) val
 {   (void) val;
+    if (![MPSEWSFolderType isValid:val]) return FALSE;
+    if ([val searchParameters] && ![MPSEWSSearchParametersType isValid:[val searchParameters]]) return FALSE;
     return TRUE;
 }
 

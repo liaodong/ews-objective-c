@@ -31,6 +31,9 @@
 
 + (BOOL) isValid:(MPSEWSAlternateIdType*) val
 {   (void) val;
+    if (![MPSEWSAlternateIdBaseType isValid:val]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
+    if ([val mailbox] && ![MPSEWSNonEmptyStringType isValid:[val mailbox]]) return FALSE;
     return TRUE;
 }
 

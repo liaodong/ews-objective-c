@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSItemInfoResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val items] && ![MPSEWSArrayOfRealItemsType isValid:[val items]]) return FALSE;
     return TRUE;
 }
 

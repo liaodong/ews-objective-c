@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfSuggestionDayResult*) val
 {   (void) val;
+    if ([val suggestionDayResult]) {
+        for (MPSEWSSuggestionDayResult* obj in [val suggestionDayResult]) {
+            if (![MPSEWSSuggestionDayResult isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

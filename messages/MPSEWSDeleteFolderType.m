@@ -27,6 +27,9 @@
 
 + (BOOL) isValid:(MPSEWSDeleteFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType]]) return FALSE;
+    if ([val folderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val folderIds]]) return FALSE;
     return TRUE;
 }
 

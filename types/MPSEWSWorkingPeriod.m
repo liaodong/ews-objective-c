@@ -33,6 +33,9 @@
 
 + (BOOL) isValid:(MPSEWSWorkingPeriod*) val
 {   (void) val;
+    if ([val dayOfWeek] && ![MPSEWSDaysOfWeekType isValid:[val dayOfWeek]]) return FALSE;
+    if ([val startTimeInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val startTimeInMinutes]]) return FALSE;
+    if ([val endTimeInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val endTimeInMinutes]]) return FALSE;
     return TRUE;
 }
 

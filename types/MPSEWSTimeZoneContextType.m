@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSTimeZoneContextType*) val
 {   (void) val;
+    if ([val timeZoneDefinition] && ![MPSEWSTimeZoneDefinitionType isValid:[val timeZoneDefinition]]) return FALSE;
     return TRUE;
 }
 

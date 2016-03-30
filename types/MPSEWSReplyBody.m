@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSReplyBody*) val
 {   (void) val;
+    if ([val message] && ![MPSEWSStringTypeHandler isValid:[val message]]) return FALSE;
     return TRUE;
 }
 

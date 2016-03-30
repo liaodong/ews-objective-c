@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSFreeBusyViewOptionsType*) val
 {   (void) val;
+    if ([val timeWindow] && ![MPSEWSDuration isValid:[val timeWindow]]) return FALSE;
+    if ([val mergedFreeBusyIntervalInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val mergedFreeBusyIntervalInMinutes]]) return FALSE;
+    if ([val requestedView] && ![MPSEWSFreeBusyViewType isValid:[val requestedView]]) return FALSE;
     return TRUE;
 }
 

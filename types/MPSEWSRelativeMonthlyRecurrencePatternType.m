@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSRelativeMonthlyRecurrencePatternType*) val
 {   (void) val;
+    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val]) return FALSE;
+    if ([val daysOfWeek] && ![MPSEWSDayOfWeekType isValid:[val daysOfWeek]]) return FALSE;
+    if ([val dayOfWeekIndex] && ![MPSEWSDayOfWeekIndexType isValid:[val dayOfWeekIndex]]) return FALSE;
     return TRUE;
 }
 

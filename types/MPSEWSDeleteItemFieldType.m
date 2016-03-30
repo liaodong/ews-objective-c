@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSDeleteItemFieldType*) val
 {   (void) val;
+    if (![MPSEWSItemChangeDescriptionType isValid:val]) return FALSE;
     return TRUE;
 }
 

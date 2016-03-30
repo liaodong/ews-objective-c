@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfBaseItemIdsType*) val
 {   (void) val;
+    if ([val itemId]) {
+        for (MPSEWSItemIdType* obj in [val itemId]) {
+            if (![MPSEWSItemIdType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

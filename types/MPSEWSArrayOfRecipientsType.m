@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfRecipientsType*) val
 {   (void) val;
+    if ([val mailbox]) {
+        for (MPSEWSEmailAddressType* obj in [val mailbox]) {
+            if (![MPSEWSEmailAddressType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

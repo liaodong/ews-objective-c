@@ -7,6 +7,11 @@
 {
     [[MPSEWSPropertyTagType alloc] init];
 }
++ (BOOL) isValid:(NSNumber*) val
+{
+    (void) val;  // FIX ME
+    return TRUE;
+}
 
 - (id) init
 {

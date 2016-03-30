@@ -33,6 +33,9 @@
 
 + (BOOL) isValid:(MPSEWSSerializableTimeZone*) val
 {   (void) val;
+    if ([val bias] && ![MPSEWSIntegerTypeHandler isValid:[val bias]]) return FALSE;
+    if ([val standardTime] && ![MPSEWSSerializableTimeZoneTime isValid:[val standardTime]]) return FALSE;
+    if ([val daylightTime] && ![MPSEWSSerializableTimeZoneTime isValid:[val daylightTime]]) return FALSE;
     return TRUE;
 }
 

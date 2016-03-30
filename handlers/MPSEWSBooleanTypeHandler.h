@@ -3,6 +3,7 @@
 @interface MPSEWSBooleanTypeHandler : MPSEWSSimpleTypeHandler
 
 + (void) initialize;
++ (BOOL) isValid:(NSNumber*) val;
 
 - (id)initWithClass: (Class)cls;
  

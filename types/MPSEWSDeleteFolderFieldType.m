@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSDeleteFolderFieldType*) val
 {   (void) val;
+    if (![MPSEWSFolderChangeDescriptionType isValid:val]) return FALSE;
     return TRUE;
 }
 

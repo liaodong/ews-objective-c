@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSAbsoluteYearlyRecurrencePatternType*) val
 {   (void) val;
+    if (![MPSEWSRecurrencePatternBaseType isValid:val]) return FALSE;
+    if ([val dayOfMonth] && ![MPSEWSIntegerTypeHandler isValid:[val dayOfMonth]]) return FALSE;
+    if ([val month] && ![MPSEWSMonthNamesType isValid:[val month]]) return FALSE;
     return TRUE;
 }
 

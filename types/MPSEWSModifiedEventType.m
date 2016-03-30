@@ -51,6 +51,8 @@
 
 + (BOOL) isValid:(MPSEWSModifiedEventType*) val
 {   (void) val;
+    if (![MPSEWSBaseObjectChangedEventType isValid:val]) return FALSE;
+    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount]]) return FALSE;
     return TRUE;
 }
 

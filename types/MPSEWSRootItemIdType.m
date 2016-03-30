@@ -25,6 +25,9 @@
 
 + (BOOL) isValid:(MPSEWSRootItemIdType*) val
 {   (void) val;
+    if (![MPSEWSBaseItemIdType isValid:val]) return FALSE;
+    if ([val rootItemId] && ![MPSEWSStringTypeHandler isValid:[val rootItemId]]) return FALSE;
+    if ([val rootItemChangeKey] && ![MPSEWSStringTypeHandler isValid:[val rootItemChangeKey]]) return FALSE;
     return TRUE;
 }
 

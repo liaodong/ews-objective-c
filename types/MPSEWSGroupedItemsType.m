@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSGroupedItemsType*) val
 {   (void) val;
+    if ([val groupIndex] && ![MPSEWSStringTypeHandler isValid:[val groupIndex]]) return FALSE;
+    if ([val items] && ![MPSEWSArrayOfRealItemsType isValid:[val items]]) return FALSE;
     return TRUE;
 }
 

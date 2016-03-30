@@ -16,6 +16,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSCalendarItemUpdateOperationType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSCalendarItemUpdateOperationType class]];

@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSSetUserOofSettingsResponse*) val
 {   (void) val;
+    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage]]) return FALSE;
     return TRUE;
 }
 

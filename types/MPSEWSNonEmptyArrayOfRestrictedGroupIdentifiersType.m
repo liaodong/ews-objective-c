@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType*) val
 {   (void) val;
+    if ([val restrictedGroupIdentifier]) {
+        for (MPSEWSSidAndAttributesType* obj in [val restrictedGroupIdentifier]) {
+            if (![MPSEWSSidAndAttributesType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

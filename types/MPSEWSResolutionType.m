@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSResolutionType*) val
 {   (void) val;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
+    if ([val contact] && ![MPSEWSContactItemType isValid:[val contact]]) return FALSE;
     return TRUE;
 }
 

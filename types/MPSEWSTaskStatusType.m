@@ -16,6 +16,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSTaskStatusType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSTaskStatusType class]];

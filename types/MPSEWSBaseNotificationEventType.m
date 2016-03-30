@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSBaseNotificationEventType*) val
 {   (void) val;
+    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark]]) return FALSE;
     return TRUE;
 }
 

@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSPhoneNumberDictionaryEntryType*) val
 {   (void) val;
+    if (![MPSEWSStringType isValid:val]) return FALSE;
+    if ([val key ] && ![MPSEWSPhoneNumberKeyType isValid:[val key ]]) return FALSE;
     return TRUE;
 }
 

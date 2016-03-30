@@ -7,6 +7,11 @@
 {
     [[[MPSEWSBase64BinaryTypeHandler alloc] init] register];
 }
++ (BOOL) isValid:(NSData*) val
+{
+    (void) val;
+    return TRUE;
+}
 
 - (id)initWithClass: (Class)cls
 {

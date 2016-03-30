@@ -45,6 +45,11 @@
 
 + (BOOL) isValid:(MPSEWSBaseObjectChangedEventType*) val
 {   (void) val;
+    if (![MPSEWSBaseNotificationEventType isValid:val]) return FALSE;
+    if ([val timeStamp] && ![MPSEWSDateTimeTypeHandler isValid:[val timeStamp]]) return FALSE;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId]]) return FALSE;
     return TRUE;
 }
 

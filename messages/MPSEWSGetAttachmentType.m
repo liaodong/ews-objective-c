@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSGetAttachmentType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val attachmentShape] && ![MPSEWSAttachmentResponseShapeType isValid:[val attachmentShape]]) return FALSE;
+    if ([val attachmentIds] && ![MPSEWSNonEmptyArrayOfRequestAttachmentIdsType isValid:[val attachmentIds]]) return FALSE;
     return TRUE;
 }
 

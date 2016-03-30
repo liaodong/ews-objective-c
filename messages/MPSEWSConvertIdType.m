@@ -27,6 +27,9 @@
 
 + (BOOL) isValid:(MPSEWSConvertIdType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val destinationFormat] && ![MPSEWSIdFormatType isValid:[val destinationFormat]]) return FALSE;
+    if ([val sourceIds] && ![MPSEWSNonEmptyArrayOfAlternateIdsType isValid:[val sourceIds]]) return FALSE;
     return TRUE;
 }
 

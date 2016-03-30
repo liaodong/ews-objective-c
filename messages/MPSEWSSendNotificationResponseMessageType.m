@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSSendNotificationResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val notification] && ![MPSEWSNotificationType isValid:[val notification]]) return FALSE;
     return TRUE;
 }
 

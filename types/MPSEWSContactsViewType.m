@@ -30,6 +30,9 @@
 
 + (BOOL) isValid:(MPSEWSContactsViewType*) val
 {   (void) val;
+    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
+    if ([val initialName] && ![MPSEWSStringTypeHandler isValid:[val initialName]]) return FALSE;
+    if ([val finalName] && ![MPSEWSStringTypeHandler isValid:[val finalName]]) return FALSE;
     return TRUE;
 }
 

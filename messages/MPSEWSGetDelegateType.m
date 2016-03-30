@@ -33,6 +33,9 @@
 
 + (BOOL) isValid:(MPSEWSGetDelegateType*) val
 {   (void) val;
+    if (![MPSEWSBaseDelegateType isValid:val]) return FALSE;
+    if ([val includePermissions] && ![MPSEWSBooleanTypeHandler isValid:[val includePermissions]]) return FALSE;
+    if ([val userIds] && ![MPSEWSArrayOfUserIdType isValid:[val userIds]]) return FALSE;
     return TRUE;
 }
 

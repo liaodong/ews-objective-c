@@ -43,6 +43,11 @@
 
 + (BOOL) isValid:(MPSEWSAttachmentType*) val
 {   (void) val;
+    if ([val attachmentId] && ![MPSEWSAttachmentIdType isValid:[val attachmentId]]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
+    if ([val contentType] && ![MPSEWSStringTypeHandler isValid:[val contentType]]) return FALSE;
+    if ([val contentId] && ![MPSEWSStringTypeHandler isValid:[val contentId]]) return FALSE;
+    if ([val contentLocation] && ![MPSEWSStringTypeHandler isValid:[val contentLocation]]) return FALSE;
     return TRUE;
 }
 

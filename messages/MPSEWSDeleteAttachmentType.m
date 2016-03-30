@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSDeleteAttachmentType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val attachmentIds] && ![MPSEWSNonEmptyArrayOfRequestAttachmentIdsType isValid:[val attachmentIds]]) return FALSE;
     return TRUE;
 }
 

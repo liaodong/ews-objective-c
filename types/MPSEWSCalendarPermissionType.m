@@ -71,6 +71,9 @@
 
 + (BOOL) isValid:(MPSEWSCalendarPermissionType*) val
 {   (void) val;
+    if (![MPSEWSBasePermissionType isValid:val]) return FALSE;
+    if ([val readItems] && ![MPSEWSCalendarPermissionReadAccessType isValid:[val readItems]]) return FALSE;
+    if ([val calendarPermissionLevel] && ![MPSEWSCalendarPermissionLevelType isValid:[val calendarPermissionLevel]]) return FALSE;
     return TRUE;
 }
 

@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderItemsReadFlagType*) val
 {   (void) val;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
+    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead]]) return FALSE;
     return TRUE;
 }
 

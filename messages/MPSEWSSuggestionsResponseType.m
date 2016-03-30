@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSSuggestionsResponseType*) val
 {   (void) val;
+    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage]]) return FALSE;
+    if ([val suggestionDayResultArray] && ![MPSEWSArrayOfSuggestionDayResult isValid:[val suggestionDayResultArray]]) return FALSE;
     return TRUE;
 }
 

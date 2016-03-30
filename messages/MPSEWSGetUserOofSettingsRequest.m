@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSGetUserOofSettingsRequest*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddress isValid:[val mailbox]]) return FALSE;
     return TRUE;
 }
 

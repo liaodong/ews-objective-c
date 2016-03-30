@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSGetUserOofSettingsResponse*) val
 {   (void) val;
+    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage]]) return FALSE;
+    if ([val oofSettings] && ![MPSEWSUserOofSettings isValid:[val oofSettings]]) return FALSE;
+    if ([val allowExternalOof] && ![MPSEWSExternalAudience isValid:[val allowExternalOof]]) return FALSE;
     return TRUE;
 }
 

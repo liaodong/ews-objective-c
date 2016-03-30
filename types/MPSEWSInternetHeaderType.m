@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSInternetHeaderType*) val
 {   (void) val;
+    if (![MPSEWSStringType isValid:val]) return FALSE;
+    if ([val headerName] && ![MPSEWSStringTypeHandler isValid:[val headerName]]) return FALSE;
     return TRUE;
 }
 

@@ -81,6 +81,18 @@
 
 + (BOOL) isValid:(MPSEWSFindItemType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val traversal] && ![MPSEWSItemQueryTraversalType isValid:[val traversal]]) return FALSE;
+    if ([val itemShape] && ![MPSEWSItemResponseShapeType isValid:[val itemShape]]) return FALSE;
+    if ([val indexedPageItemView] && ![MPSEWSIndexedPageViewType isValid:[val indexedPageItemView]]) return FALSE;
+    if ([val fractionalPageItemView] && ![MPSEWSFractionalPageViewType isValid:[val fractionalPageItemView]]) return FALSE;
+    if ([val calendarView] && ![MPSEWSCalendarViewType isValid:[val calendarView]]) return FALSE;
+    if ([val contactsView] && ![MPSEWSContactsViewType isValid:[val contactsView]]) return FALSE;
+    if ([val groupBy] && ![MPSEWSGroupByType isValid:[val groupBy]]) return FALSE;
+    if ([val distinguishedGroupBy] && ![MPSEWSDistinguishedGroupByType isValid:[val distinguishedGroupBy]]) return FALSE;
+    if ([val restriction] && ![MPSEWSRestrictionType isValid:[val restriction]]) return FALSE;
+    if ([val sortOrder] && ![MPSEWSNonEmptyArrayOfFieldOrdersType isValid:[val sortOrder]]) return FALSE;
+    if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds]]) return FALSE;
     return TRUE;
 }
 

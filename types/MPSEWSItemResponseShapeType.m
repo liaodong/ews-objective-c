@@ -40,6 +40,10 @@
 
 + (BOOL) isValid:(MPSEWSItemResponseShapeType*) val
 {   (void) val;
+    if ([val baseShape] && ![MPSEWSDefaultShapeNamesType isValid:[val baseShape]]) return FALSE;
+    if ([val includeMimeContent] && ![MPSEWSBooleanTypeHandler isValid:[val includeMimeContent]]) return FALSE;
+    if ([val bodyType] && ![MPSEWSBodyTypeResponseType isValid:[val bodyType]]) return FALSE;
+    if ([val additionalProperties] && ![MPSEWSNonEmptyArrayOfPathsToElementType isValid:[val additionalProperties]]) return FALSE;
     return TRUE;
 }
 

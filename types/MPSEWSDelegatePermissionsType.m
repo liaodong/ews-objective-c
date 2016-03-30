@@ -47,6 +47,12 @@
 
 + (BOOL) isValid:(MPSEWSDelegatePermissionsType*) val
 {   (void) val;
+    if ([val calendarFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val calendarFolderPermissionLevel]]) return FALSE;
+    if ([val tasksFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val tasksFolderPermissionLevel]]) return FALSE;
+    if ([val inboxFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val inboxFolderPermissionLevel]]) return FALSE;
+    if ([val contactsFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val contactsFolderPermissionLevel]]) return FALSE;
+    if ([val notesFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val notesFolderPermissionLevel]]) return FALSE;
+    if ([val journalFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val journalFolderPermissionLevel]]) return FALSE;
     return TRUE;
 }
 

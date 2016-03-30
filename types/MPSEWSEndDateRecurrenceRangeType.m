@@ -27,6 +27,8 @@
 
 + (BOOL) isValid:(MPSEWSEndDateRecurrenceRangeType*) val
 {   (void) val;
+    if (![MPSEWSRecurrenceRangeBaseType isValid:val]) return FALSE;
+    if ([val endDate] && ![MPSEWSDateTypeHandler isValid:[val endDate]]) return FALSE;
     return TRUE;
 }
 

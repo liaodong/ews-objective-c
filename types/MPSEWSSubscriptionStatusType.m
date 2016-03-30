@@ -13,6 +13,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSSubscriptionStatusType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSSubscriptionStatusType class]];

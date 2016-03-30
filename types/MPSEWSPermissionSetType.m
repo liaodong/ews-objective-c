@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSPermissionSetType*) val
 {   (void) val;
+    if ([val permissions] && ![MPSEWSArrayOfPermissionsType isValid:[val permissions]]) return FALSE;
+    if ([val unknownEntries] && ![MPSEWSArrayOfUnknownEntriesType isValid:[val unknownEntries]]) return FALSE;
     return TRUE;
 }
 

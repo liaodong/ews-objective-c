@@ -30,6 +30,9 @@
 
 + (BOOL) isValid:(MPSEWSCalendarViewType*) val
 {   (void) val;
+    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
+    if ([val startDate] && ![MPSEWSDateTimeTypeHandler isValid:[val startDate]]) return FALSE;
+    if ([val endDate] && ![MPSEWSDateTimeTypeHandler isValid:[val endDate]]) return FALSE;
     return TRUE;
 }
 

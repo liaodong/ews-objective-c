@@ -74,6 +74,8 @@
 
 + (BOOL) isValid:(MPSEWSContactsFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
+    if ([val permissionSet] && ![MPSEWSPermissionSetType isValid:[val permissionSet]]) return FALSE;
     return TRUE;
 }
 

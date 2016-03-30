@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSImAddressDictionaryType*) val
 {   (void) val;
+    if ([val entry]) {
+        for (MPSEWSImAddressDictionaryEntryType* obj in [val entry]) {
+            if (![MPSEWSImAddressDictionaryEntryType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

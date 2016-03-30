@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSBaseDelegateResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val responseMessages] && ![MPSEWSArrayOfDelegateUserResponseMessageType isValid:[val responseMessages]]) return FALSE;
     return TRUE;
 }
 

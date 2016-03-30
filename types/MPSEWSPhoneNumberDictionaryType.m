@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSPhoneNumberDictionaryType*) val
 {   (void) val;
+    if ([val entry]) {
+        for (MPSEWSPhoneNumberDictionaryEntryType* obj in [val entry]) {
+            if (![MPSEWSPhoneNumberDictionaryEntryType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

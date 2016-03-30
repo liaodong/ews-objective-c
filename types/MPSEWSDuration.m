@@ -27,6 +27,8 @@
 
 + (BOOL) isValid:(MPSEWSDuration*) val
 {   (void) val;
+    if ([val startTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startTime]]) return FALSE;
+    if ([val endTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endTime]]) return FALSE;
     return TRUE;
 }
 

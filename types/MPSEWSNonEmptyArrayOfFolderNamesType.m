@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderNamesType*) val
 {   (void) val;
+    if ([val folderName]) {
+        for (NSString* obj in [val folderName]) {
+            if (![MPSEWSStringTypeHandler isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

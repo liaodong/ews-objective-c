@@ -293,6 +293,7 @@
 
 + (BOOL) isValid:(MPSEWSSuppressReadReceiptType*) val
 {   (void) val;
+    if (![MPSEWSReferenceItemResponseType isValid:val]) return FALSE;
     return TRUE;
 }
 

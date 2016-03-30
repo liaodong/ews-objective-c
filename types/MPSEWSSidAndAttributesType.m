@@ -27,6 +27,8 @@
 
 + (BOOL) isValid:(MPSEWSSidAndAttributesType*) val
 {   (void) val;
+    if ([val attributes] && ![MPSEWSUnsignedIntTypeHandler isValid:[val attributes]]) return FALSE;
+    if ([val securityIdentifier] && ![MPSEWSStringTypeHandler isValid:[val securityIdentifier]]) return FALSE;
     return TRUE;
 }
 

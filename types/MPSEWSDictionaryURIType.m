@@ -20,6 +20,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSDictionaryURIType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSDictionaryURIType class]];

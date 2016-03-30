@@ -40,6 +40,8 @@
 
 + (BOOL) isValid:(MPSEWSPullSubscriptionRequestType*) val
 {   (void) val;
+    if (![MPSEWSBaseSubscriptionRequestType isValid:val]) return FALSE;
+    if ([val timeout] && ![MPSEWSSubscriptionTimeoutType isValid:[val timeout]]) return FALSE;
     return TRUE;
 }
 

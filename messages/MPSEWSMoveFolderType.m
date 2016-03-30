@@ -28,6 +28,7 @@
 
 + (BOOL) isValid:(MPSEWSMoveFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseMoveCopyFolderType isValid:val]) return FALSE;
     return TRUE;
 }
 

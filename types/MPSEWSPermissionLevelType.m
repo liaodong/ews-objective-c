@@ -21,6 +21,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSPermissionLevelType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSPermissionLevelType class]];

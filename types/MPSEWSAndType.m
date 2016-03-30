@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSAndType*) val
 {   (void) val;
+    if (![MPSEWSMultipleOperandBooleanExpressionType isValid:val]) return FALSE;
     return TRUE;
 }
 

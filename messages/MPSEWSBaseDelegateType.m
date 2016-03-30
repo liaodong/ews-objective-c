@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSBaseDelegateType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
     return TRUE;
 }
 

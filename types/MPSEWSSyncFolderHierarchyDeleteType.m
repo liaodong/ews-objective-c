@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderHierarchyDeleteType*) val
 {   (void) val;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
     return TRUE;
 }
 

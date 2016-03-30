@@ -74,6 +74,8 @@
 
 + (BOOL) isValid:(MPSEWSCalendarFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
+    if ([val permissionSet] && ![MPSEWSCalendarPermissionSetType isValid:[val permissionSet]]) return FALSE;
     return TRUE;
 }
 

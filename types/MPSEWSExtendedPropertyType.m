@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSExtendedPropertyType*) val
 {   (void) val;
+    if ([val extendedFieldURI] && ![MPSEWSPathToExtendedFieldType isValid:[val extendedFieldURI]]) return FALSE;
+    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value]]) return FALSE;
+    if ([val values] && ![MPSEWSNonEmptyArrayOfPropertyValuesType isValid:[val values]]) return FALSE;
     return TRUE;
 }
 

@@ -30,6 +30,8 @@
 
 + (BOOL) isValid:(MPSEWSAlternatePublicFolderItemIdType*) val
 {   (void) val;
+    if (![MPSEWSAlternatePublicFolderIdType isValid:val]) return FALSE;
+    if ([val itemId] && ![MPSEWSStringTypeHandler isValid:[val itemId]]) return FALSE;
     return TRUE;
 }
 

@@ -16,6 +16,7 @@
 
 + (BOOL) isValid:(MPSEWSUnknownAttendeeConflictData*) val
 {   (void) val;
+    if (![MPSEWSAttendeeConflictData isValid:val]) return FALSE;
     return TRUE;
 }
 

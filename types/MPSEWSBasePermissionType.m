@@ -59,6 +59,14 @@
 
 + (BOOL) isValid:(MPSEWSBasePermissionType*) val
 {   (void) val;
+    if ([val userId] && ![MPSEWSUserIdType isValid:[val userId]]) return FALSE;
+    if ([val canCreateItems] && ![MPSEWSBooleanTypeHandler isValid:[val canCreateItems]]) return FALSE;
+    if ([val canCreateSubFolders] && ![MPSEWSBooleanTypeHandler isValid:[val canCreateSubFolders]]) return FALSE;
+    if ([val isFolderOwner] && ![MPSEWSBooleanTypeHandler isValid:[val isFolderOwner]]) return FALSE;
+    if ([val isFolderVisible] && ![MPSEWSBooleanTypeHandler isValid:[val isFolderVisible]]) return FALSE;
+    if ([val isFolderContact] && ![MPSEWSBooleanTypeHandler isValid:[val isFolderContact]]) return FALSE;
+    if ([val editItems] && ![MPSEWSPermissionActionType isValid:[val editItems]]) return FALSE;
+    if ([val deleteItems] && ![MPSEWSPermissionActionType isValid:[val deleteItems]]) return FALSE;
     return TRUE;
 }
 

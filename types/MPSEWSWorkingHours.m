@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSWorkingHours*) val
 {   (void) val;
+    if ([val timeZone] && ![MPSEWSSerializableTimeZone isValid:[val timeZone]]) return FALSE;
+    if ([val workingPeriodArray] && ![MPSEWSArrayOfWorkingPeriod isValid:[val workingPeriodArray]]) return FALSE;
     return TRUE;
 }
 

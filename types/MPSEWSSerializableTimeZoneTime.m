@@ -50,6 +50,12 @@
 
 + (BOOL) isValid:(MPSEWSSerializableTimeZoneTime*) val
 {   (void) val;
+    if ([val bias] && ![MPSEWSIntegerTypeHandler isValid:[val bias]]) return FALSE;
+    if ([val time] && ![MPSEWSStringTypeHandler isValid:[val time]]) return FALSE;
+    if ([val dayOrder] && ![MPSEWSShortTypeHandler isValid:[val dayOrder]]) return FALSE;
+    if ([val month] && ![MPSEWSShortTypeHandler isValid:[val month]]) return FALSE;
+    if ([val dayOfWeek] && ![MPSEWSDayOfWeekType isValid:[val dayOfWeek]]) return FALSE;
+    if ([val year] && ![MPSEWSStringTypeHandler isValid:[val year]]) return FALSE;
     return TRUE;
 }
 

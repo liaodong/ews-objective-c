@@ -37,6 +37,21 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType*) val
 {   (void) val;
+    if ([val appendToFolderField]) {
+        for (MPSEWSAppendToFolderFieldType* obj in [val appendToFolderField]) {
+            if (![MPSEWSAppendToFolderFieldType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val setFolderField]) {
+        for (MPSEWSSetFolderFieldType* obj in [val setFolderField]) {
+            if (![MPSEWSSetFolderFieldType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val deleteFolderField]) {
+        for (MPSEWSDeleteFolderFieldType* obj in [val deleteFolderField]) {
+            if (![MPSEWSDeleteFolderFieldType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

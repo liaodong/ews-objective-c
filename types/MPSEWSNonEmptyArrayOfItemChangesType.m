@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangesType*) val
 {   (void) val;
+    if ([val itemChange]) {
+        for (MPSEWSItemChangeType* obj in [val itemChange]) {
+            if (![MPSEWSItemChangeType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

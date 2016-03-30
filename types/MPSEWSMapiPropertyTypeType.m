@@ -38,6 +38,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSMapiPropertyTypeType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSMapiPropertyTypeType class]];

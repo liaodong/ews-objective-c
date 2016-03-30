@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSAttendeeType*) val
 {   (void) val;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
+    if ([val responseType] && ![MPSEWSResponseTypeType isValid:[val responseType]]) return FALSE;
+    if ([val lastResponseTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastResponseTime]]) return FALSE;
     return TRUE;
 }
 

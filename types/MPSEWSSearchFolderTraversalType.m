@@ -13,6 +13,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSSearchFolderTraversalType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSSearchFolderTraversalType class]];

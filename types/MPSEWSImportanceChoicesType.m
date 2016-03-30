@@ -14,6 +14,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSImportanceChoicesType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSImportanceChoicesType class]];

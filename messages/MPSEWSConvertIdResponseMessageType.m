@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSConvertIdResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val alternateId] && ![MPSEWSAlternateIdBaseType isValid:[val alternateId]]) return FALSE;
     return TRUE;
 }
 

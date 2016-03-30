@@ -7,6 +7,11 @@
 {
     [[[MPSEWSUnsignedIntTypeHandler alloc] init] register];
 }
++ (BOOL) isValid:(NSNumber*) val
+{
+    (void) val;
+    return TRUE; // FIX ME
+}
 
 - (id)initWithClass: (Class)cls
 {

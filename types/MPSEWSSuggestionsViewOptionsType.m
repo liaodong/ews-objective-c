@@ -61,6 +61,14 @@
 
 + (BOOL) isValid:(MPSEWSSuggestionsViewOptionsType*) val
 {   (void) val;
+    if ([val goodThreshold] && ![MPSEWSIntegerTypeHandler isValid:[val goodThreshold]]) return FALSE;
+    if ([val maximumResultsByDay] && ![MPSEWSIntegerTypeHandler isValid:[val maximumResultsByDay]]) return FALSE;
+    if ([val maximumNonWorkHourResultsByDay] && ![MPSEWSIntegerTypeHandler isValid:[val maximumNonWorkHourResultsByDay]]) return FALSE;
+    if ([val meetingDurationInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val meetingDurationInMinutes]]) return FALSE;
+    if ([val minimumSuggestionQuality] && ![MPSEWSSuggestionQuality isValid:[val minimumSuggestionQuality]]) return FALSE;
+    if ([val detailedSuggestionsWindow] && ![MPSEWSDuration isValid:[val detailedSuggestionsWindow]]) return FALSE;
+    if ([val currentMeetingTime] && ![MPSEWSDateTimeTypeHandler isValid:[val currentMeetingTime]]) return FALSE;
+    if ([val globalObjectId] && ![MPSEWSStringTypeHandler isValid:[val globalObjectId]]) return FALSE;
     return TRUE;
 }
 

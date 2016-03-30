@@ -21,6 +21,7 @@
 
 + (BOOL) isValid:(MPSEWSTimeZoneDefinitionType*) val
 {   (void) val;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
     return TRUE;
 }
 

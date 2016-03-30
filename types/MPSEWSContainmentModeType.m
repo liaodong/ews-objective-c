@@ -16,6 +16,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSContainmentModeType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSContainmentModeType class]];

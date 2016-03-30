@@ -29,6 +29,9 @@
 
 + (BOOL) isValid:(MPSEWSFractionalPageViewType*) val
 {   (void) val;
+    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
+    if ([val numerator] && ![MPSEWSIntegerTypeHandler isValid:[val numerator]]) return FALSE;
+    if ([val denominator] && ![MPSEWSIntegerTypeHandler isValid:[val denominator]]) return FALSE;
     return TRUE;
 }
 

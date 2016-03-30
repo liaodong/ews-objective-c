@@ -325,6 +325,7 @@
 
 + (BOOL) isValid:(MPSEWSMeetingResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSMeetingMessageType isValid:val]) return FALSE;
     return TRUE;
 }
 

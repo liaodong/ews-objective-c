@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSCalendarPermissionSetType*) val
 {   (void) val;
+    if ([val calendarPermissions] && ![MPSEWSArrayOfCalendarPermissionsType isValid:[val calendarPermissions]]) return FALSE;
+    if ([val unknownEntries] && ![MPSEWSArrayOfUnknownEntriesType isValid:[val unknownEntries]]) return FALSE;
     return TRUE;
 }
 

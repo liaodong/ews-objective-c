@@ -68,6 +68,19 @@
 
 + (BOOL) isValid:(MPSEWSBaseFolderType*) val
 {   (void) val;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId]]) return FALSE;
+    if ([val folderClass] && ![MPSEWSStringTypeHandler isValid:[val folderClass]]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
+    if ([val totalCount] && ![MPSEWSIntegerTypeHandler isValid:[val totalCount]]) return FALSE;
+    if ([val childFolderCount] && ![MPSEWSIntegerTypeHandler isValid:[val childFolderCount]]) return FALSE;
+    if ([val extendedProperty]) {
+        for (MPSEWSExtendedPropertyType* obj in [val extendedProperty]) {
+            if (![MPSEWSExtendedPropertyType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val managedFolderInformation] && ![MPSEWSManagedFolderInformationType isValid:[val managedFolderInformation]]) return FALSE;
+    if ([val effectiveRights] && ![MPSEWSEffectiveRightsType isValid:[val effectiveRights]]) return FALSE;
     return TRUE;
 }
 

@@ -7,6 +7,11 @@
 {
     [[[MPSEWSBooleanTypeHandler alloc] init] register];
 }
+ + (BOOL) isValid:(NSNumber*) val
+ {
+    (void) val;
+    return TRUE;
+ }
 
 - (id)initWithClass: (Class)cls
 {

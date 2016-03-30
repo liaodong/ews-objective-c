@@ -21,6 +21,7 @@
 
 + (BOOL) isValid:(MPSEWSAlternateIdBaseType*) val
 {   (void) val;
+    if ([val format] && ![MPSEWSIdFormatType isValid:[val format]]) return FALSE;
     return TRUE;
 }
 

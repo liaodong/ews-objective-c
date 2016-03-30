@@ -27,6 +27,8 @@
 
 + (BOOL) isValid:(MPSEWSDistinguishedGroupByType*) val
 {   (void) val;
+    if (![MPSEWSBaseGroupByType isValid:val]) return FALSE;
+    if ([val standardGroupBy] && ![MPSEWSStandardGroupByType isValid:[val standardGroupBy]]) return FALSE;
     return TRUE;
 }
 

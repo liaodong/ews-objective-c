@@ -298,6 +298,8 @@
 
 + (BOOL) isValid:(MPSEWSPostReplyItemType*) val
 {   (void) val;
+    if (![MPSEWSPostReplyItemBaseType isValid:val]) return FALSE;
+    if ([val pNewBodyContent] && ![MPSEWSBodyType isValid:[val pNewBodyContent]]) return FALSE;
     return TRUE;
 }
 

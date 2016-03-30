@@ -47,6 +47,12 @@
 
 + (BOOL) isValid:(MPSEWSEffectiveRightsType*) val
 {   (void) val;
+    if ([val createAssociated] && ![MPSEWSBooleanTypeHandler isValid:[val createAssociated]]) return FALSE;
+    if ([val createContents] && ![MPSEWSBooleanTypeHandler isValid:[val createContents]]) return FALSE;
+    if ([val createHierarchy] && ![MPSEWSBooleanTypeHandler isValid:[val createHierarchy]]) return FALSE;
+    if ([val delete] && ![MPSEWSBooleanTypeHandler isValid:[val delete]]) return FALSE;
+    if ([val modify] && ![MPSEWSBooleanTypeHandler isValid:[val modify]]) return FALSE;
+    if ([val read] && ![MPSEWSBooleanTypeHandler isValid:[val read]]) return FALSE;
     return TRUE;
 }
 

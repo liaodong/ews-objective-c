@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSEmailAddressDictionaryType*) val
 {   (void) val;
+    if ([val entry]) {
+        for (MPSEWSEmailAddressDictionaryEntryType* obj in [val entry]) {
+            if (![MPSEWSEmailAddressDictionaryEntryType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

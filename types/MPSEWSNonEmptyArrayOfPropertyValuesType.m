@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfPropertyValuesType*) val
 {   (void) val;
+    if ([val value]) {
+        for (NSString* obj in [val value]) {
+            if (![MPSEWSStringTypeHandler isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

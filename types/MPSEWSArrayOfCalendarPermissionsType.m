@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfCalendarPermissionsType*) val
 {   (void) val;
+    if ([val calendarPermission]) {
+        for (MPSEWSCalendarPermissionType* obj in [val calendarPermission]) {
+            if (![MPSEWSCalendarPermissionType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

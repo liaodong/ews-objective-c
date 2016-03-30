@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSPathToExceptionFieldType*) val
 {   (void) val;
+    if (![MPSEWSBasePathToElementType isValid:val]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSExceptionPropertyURIType isValid:[val fieldURI]]) return FALSE;
     return TRUE;
 }
 

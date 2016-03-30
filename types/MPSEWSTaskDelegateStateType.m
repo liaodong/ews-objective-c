@@ -17,6 +17,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSTaskDelegateStateType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSTaskDelegateStateType class]];

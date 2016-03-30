@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSFolderInfoResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val folders] && ![MPSEWSArrayOfFoldersType isValid:[val folders]]) return FALSE;
     return TRUE;
 }
 

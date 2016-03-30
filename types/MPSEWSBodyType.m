@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSBodyType*) val
 {   (void) val;
+    if (![MPSEWSStringType isValid:val]) return FALSE;
+    if ([val bodyType] && ![MPSEWSBodyTypeType isValid:[val bodyType]]) return FALSE;
     return TRUE;
 }
 

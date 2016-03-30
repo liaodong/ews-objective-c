@@ -43,6 +43,12 @@
 
 + (BOOL) isValid:(MPSEWSUpdateItemType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val conflictResolution] && ![MPSEWSConflictResolutionType isValid:[val conflictResolution]]) return FALSE;
+    if ([val messageDisposition] && ![MPSEWSMessageDispositionType isValid:[val messageDisposition]]) return FALSE;
+    if ([val sendMeetingInvitationsOrCancellations] && ![MPSEWSCalendarItemUpdateOperationType isValid:[val sendMeetingInvitationsOrCancellations]]) return FALSE;
+    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId]]) return FALSE;
+    if ([val itemChanges] && ![MPSEWSNonEmptyArrayOfItemChangesType isValid:[val itemChanges]]) return FALSE;
     return TRUE;
 }
 

@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSRequestAttachmentIdType*) val
 {   (void) val;
+    if (![MPSEWSBaseItemIdType isValid:val]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
     return TRUE;
 }
 

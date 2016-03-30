@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSSingleRecipientType*) val
 {   (void) val;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
     return TRUE;
 }
 

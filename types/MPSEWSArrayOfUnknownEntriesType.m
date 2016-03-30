@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfUnknownEntriesType*) val
 {   (void) val;
+    if ([val unknownEntry]) {
+        for (NSString* obj in [val unknownEntry]) {
+            if (![MPSEWSStringTypeHandler isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfFieldOrdersType*) val
 {   (void) val;
+    if ([val fieldOrder]) {
+        for (MPSEWSFieldOrderType* obj in [val fieldOrder]) {
+            if (![MPSEWSFieldOrderType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

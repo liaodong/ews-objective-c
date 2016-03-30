@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfDeletedOccurrencesType*) val
 {   (void) val;
+    if ([val deletedOccurrence]) {
+        for (MPSEWSDeletedOccurrenceInfoType* obj in [val deletedOccurrence]) {
+            if (![MPSEWSDeletedOccurrenceInfoType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

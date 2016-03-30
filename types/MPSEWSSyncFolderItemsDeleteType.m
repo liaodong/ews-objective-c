@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderItemsDeleteType*) val
 {   (void) val;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
     return TRUE;
 }
 

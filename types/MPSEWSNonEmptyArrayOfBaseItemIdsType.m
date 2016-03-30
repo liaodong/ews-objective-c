@@ -37,6 +37,21 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfBaseItemIdsType*) val
 {   (void) val;
+    if ([val itemId]) {
+        for (MPSEWSItemIdType* obj in [val itemId]) {
+            if (![MPSEWSItemIdType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val occurrenceItemId]) {
+        for (MPSEWSOccurrenceItemIdType* obj in [val occurrenceItemId]) {
+            if (![MPSEWSOccurrenceItemIdType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val recurringMasterItemId]) {
+        for (MPSEWSRecurringMasterItemIdType* obj in [val recurringMasterItemId]) {
+            if (![MPSEWSRecurringMasterItemIdType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

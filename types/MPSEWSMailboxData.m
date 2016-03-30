@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSMailboxData*) val
 {   (void) val;
+    if ([val email] && ![MPSEWSEmailAddress isValid:[val email]]) return FALSE;
+    if ([val attendeeType] && ![MPSEWSMeetingAttendeeType isValid:[val attendeeType]]) return FALSE;
+    if ([val excludeConflicts] && ![MPSEWSBooleanTypeHandler isValid:[val excludeConflicts]]) return FALSE;
     return TRUE;
 }
 

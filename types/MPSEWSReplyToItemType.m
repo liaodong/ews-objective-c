@@ -298,6 +298,7 @@
 
 + (BOOL) isValid:(MPSEWSReplyToItemType*) val
 {   (void) val;
+    if (![MPSEWSSmartResponseType isValid:val]) return FALSE;
     return TRUE;
 }
 

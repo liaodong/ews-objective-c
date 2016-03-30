@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSMimeContentType*) val
 {   (void) val;
+    if (![MPSEWSStringType isValid:val]) return FALSE;
+    if ([val characterSet] && ![MPSEWSStringTypeHandler isValid:[val characterSet]]) return FALSE;
     return TRUE;
 }
 

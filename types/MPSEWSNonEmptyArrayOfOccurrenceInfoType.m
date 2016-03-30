@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfOccurrenceInfoType*) val
 {   (void) val;
+    if ([val occurrence]) {
+        for (MPSEWSOccurrenceInfoType* obj in [val occurrence]) {
+            if (![MPSEWSOccurrenceInfoType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

@@ -86,6 +86,56 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfResponseObjectsType*) val
 {   (void) val;
+    if ([val acceptItem]) {
+        for (MPSEWSAcceptItemType* obj in [val acceptItem]) {
+            if (![MPSEWSAcceptItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val tentativelyAcceptItem]) {
+        for (MPSEWSTentativelyAcceptItemType* obj in [val tentativelyAcceptItem]) {
+            if (![MPSEWSTentativelyAcceptItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val declineItem]) {
+        for (MPSEWSDeclineItemType* obj in [val declineItem]) {
+            if (![MPSEWSDeclineItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val replyToItem]) {
+        for (MPSEWSReplyToItemType* obj in [val replyToItem]) {
+            if (![MPSEWSReplyToItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val forwardItem]) {
+        for (MPSEWSForwardItemType* obj in [val forwardItem]) {
+            if (![MPSEWSForwardItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val replyAllToItem]) {
+        for (MPSEWSReplyAllToItemType* obj in [val replyAllToItem]) {
+            if (![MPSEWSReplyAllToItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val cancelCalendarItem]) {
+        for (MPSEWSCancelCalendarItemType* obj in [val cancelCalendarItem]) {
+            if (![MPSEWSCancelCalendarItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val removeItem]) {
+        for (MPSEWSRemoveItemType* obj in [val removeItem]) {
+            if (![MPSEWSRemoveItemType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val suppressReadReceipt]) {
+        for (MPSEWSSuppressReadReceiptType* obj in [val suppressReadReceipt]) {
+            if (![MPSEWSSuppressReadReceiptType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val postReplyItem]) {
+        for (MPSEWSPostReplyItemType* obj in [val postReplyItem]) {
+            if (![MPSEWSPostReplyItemType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

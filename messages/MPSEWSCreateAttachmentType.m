@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSCreateAttachmentType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val parentItemId] && ![MPSEWSItemIdType isValid:[val parentItemId]]) return FALSE;
+    if ([val attachments] && ![MPSEWSNonEmptyArrayOfAttachmentsType isValid:[val attachments]]) return FALSE;
     return TRUE;
 }
 

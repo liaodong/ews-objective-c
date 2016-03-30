@@ -30,6 +30,16 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfAttachmentsType*) val
 {   (void) val;
+    if ([val itemAttachment]) {
+        for (MPSEWSItemAttachmentType* obj in [val itemAttachment]) {
+            if (![MPSEWSItemAttachmentType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val fileAttachment]) {
+        for (MPSEWSFileAttachmentType* obj in [val fileAttachment]) {
+            if (![MPSEWSFileAttachmentType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

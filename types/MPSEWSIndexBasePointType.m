@@ -13,6 +13,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSIndexBasePointType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSIndexBasePointType class]];

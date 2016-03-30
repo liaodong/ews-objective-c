@@ -40,6 +40,10 @@
 
 + (BOOL) isValid:(MPSEWSSuggestion*) val
 {   (void) val;
+    if ([val meetingTime] && ![MPSEWSDateTimeTypeHandler isValid:[val meetingTime]]) return FALSE;
+    if ([val isWorkTime] && ![MPSEWSBooleanTypeHandler isValid:[val isWorkTime]]) return FALSE;
+    if ([val suggestionQuality] && ![MPSEWSSuggestionQuality isValid:[val suggestionQuality]]) return FALSE;
+    if ([val attendeeConflictDataArray] && ![MPSEWSArrayOfAttendeeConflictData isValid:[val attendeeConflictDataArray]]) return FALSE;
     return TRUE;
 }
 

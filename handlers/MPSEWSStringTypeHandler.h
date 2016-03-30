@@ -3,6 +3,7 @@
 @interface MPSEWSStringTypeHandler : MPSEWSSimpleTypeHandler
 
 + (void) initialize;
++ (BOOL) isValid:(NSString*)val;
 
 - (id)initWithClass: (Class)cls;
  

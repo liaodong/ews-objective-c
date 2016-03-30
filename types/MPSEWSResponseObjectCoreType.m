@@ -289,6 +289,8 @@
 
 + (BOOL) isValid:(MPSEWSResponseObjectCoreType*) val
 {   (void) val;
+    if (![MPSEWSMessageType isValid:val]) return FALSE;
+    if ([val referenceItemId] && ![MPSEWSItemIdType isValid:[val referenceItemId]]) return FALSE;
     return TRUE;
 }
 

@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfDelegateUserType*) val
 {   (void) val;
+    if ([val delegateUser]) {
+        for (MPSEWSDelegateUserType* obj in [val delegateUser]) {
+            if (![MPSEWSDelegateUserType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

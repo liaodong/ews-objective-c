@@ -26,6 +26,9 @@
 
 + (BOOL) isValid:(MPSEWSPathToIndexedFieldType*) val
 {   (void) val;
+    if (![MPSEWSBasePathToElementType isValid:val]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSDictionaryURIType isValid:[val fieldURI]]) return FALSE;
+    if ([val fieldIndex] && ![MPSEWSStringTypeHandler isValid:[val fieldIndex]]) return FALSE;
     return TRUE;
 }
 

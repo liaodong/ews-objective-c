@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSFreeBusyResponseType*) val
 {   (void) val;
+    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage]]) return FALSE;
+    if ([val freeBusyView] && ![MPSEWSFreeBusyView isValid:[val freeBusyView]]) return FALSE;
     return TRUE;
 }
 

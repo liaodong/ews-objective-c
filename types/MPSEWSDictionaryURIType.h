@@ -18,6 +18,7 @@
 
 /** Register a handler to parse DictionaryURIType */
 + (void) initialize;
++ (BOOL) isValid:(NSString*)val;
 
 /** Initialize the handler */
 - (id) init;

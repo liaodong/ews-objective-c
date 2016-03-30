@@ -7,6 +7,11 @@
 {
     [[[MPSEWSDurationTypeHandler alloc] init] register];
 }
++ (BOOL) isValid:(NSString*) val
+{
+    (void) val;
+    return TRUE; // FIX ME
+}
 
 - (id)initWithClass: (Class)cls
 {

@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSCreateManagedFolderResponseType*) val
 {   (void) val;
+    if (![MPSEWSBaseResponseMessageType isValid:val]) return FALSE;
     return TRUE;
 }
 

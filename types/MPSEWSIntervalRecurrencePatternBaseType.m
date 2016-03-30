@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSIntervalRecurrencePatternBaseType*) val
 {   (void) val;
+    if (![MPSEWSRecurrencePatternBaseType isValid:val]) return FALSE;
+    if ([val interval] && ![MPSEWSIntegerTypeHandler isValid:[val interval]]) return FALSE;
     return TRUE;
 }
 

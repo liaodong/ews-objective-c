@@ -30,6 +30,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSPhoneNumberKeyType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSPhoneNumberKeyType class]];

@@ -45,6 +45,16 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfResolutionType*) val
 {   (void) val;
+    if ([val indexedPagingOffset] && ![MPSEWSIntegerTypeHandler isValid:[val indexedPagingOffset]]) return FALSE;
+    if ([val numeratorOffset] && ![MPSEWSIntegerTypeHandler isValid:[val numeratorOffset]]) return FALSE;
+    if ([val absoluteDenominator] && ![MPSEWSIntegerTypeHandler isValid:[val absoluteDenominator]]) return FALSE;
+    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange]]) return FALSE;
+    if ([val totalItemsInView] && ![MPSEWSIntegerTypeHandler isValid:[val totalItemsInView]]) return FALSE;
+    if ([val resolution]) {
+        for (MPSEWSResolutionType* obj in [val resolution]) {
+            if (![MPSEWSResolutionType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

@@ -7,6 +7,11 @@
 {
     [[MPSEWSReminderMinutesBeforeStartType alloc] init];
 }
++ (BOOL) isValid:(NSString*) val
+{
+    (void) val; // FIX ME
+    return TRUE;
+}
 
 - (id) init
 {

@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSCreateFolderType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSTargetFolderIdType isValid:[val parentFolderId]]) return FALSE;
+    if ([val folders] && ![MPSEWSNonEmptyArrayOfFoldersType isValid:[val folders]]) return FALSE;
     return TRUE;
 }
 

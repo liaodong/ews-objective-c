@@ -60,6 +60,10 @@
 
 + (BOOL) isValid:(MPSEWSMovedCopiedEventType*) val
 {   (void) val;
+    if (![MPSEWSBaseObjectChangedEventType isValid:val]) return FALSE;
+    if ([val oldFolderId] && ![MPSEWSFolderIdType isValid:[val oldFolderId]]) return FALSE;
+    if ([val oldItemId] && ![MPSEWSItemIdType isValid:[val oldItemId]]) return FALSE;
+    if ([val oldParentFolderId] && ![MPSEWSFolderIdType isValid:[val oldParentFolderId]]) return FALSE;
     return TRUE;
 }
 

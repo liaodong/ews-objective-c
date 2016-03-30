@@ -69,6 +69,16 @@
 
 + (BOOL) isValid:(MPSEWSManagedFolderInformationType*) val
 {   (void) val;
+    if ([val canDelete] && ![MPSEWSBooleanTypeHandler isValid:[val canDelete]]) return FALSE;
+    if ([val canRenameOrMove] && ![MPSEWSBooleanTypeHandler isValid:[val canRenameOrMove]]) return FALSE;
+    if ([val mustDisplayComment] && ![MPSEWSBooleanTypeHandler isValid:[val mustDisplayComment]]) return FALSE;
+    if ([val hasQuota] && ![MPSEWSBooleanTypeHandler isValid:[val hasQuota]]) return FALSE;
+    if ([val isManagedFoldersRoot] && ![MPSEWSBooleanTypeHandler isValid:[val isManagedFoldersRoot]]) return FALSE;
+    if ([val managedFolderId] && ![MPSEWSStringTypeHandler isValid:[val managedFolderId]]) return FALSE;
+    if ([val comment] && ![MPSEWSStringTypeHandler isValid:[val comment]]) return FALSE;
+    if ([val storageQuota] && ![MPSEWSIntegerTypeHandler isValid:[val storageQuota]]) return FALSE;
+    if ([val folderSize] && ![MPSEWSIntegerTypeHandler isValid:[val folderSize]]) return FALSE;
+    if ([val homePage] && ![MPSEWSStringTypeHandler isValid:[val homePage]]) return FALSE;
     return TRUE;
 }
 

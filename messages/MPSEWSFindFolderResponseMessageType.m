@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSFindFolderResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val rootFolder] && ![MPSEWSFindFolderParentType isValid:[val rootFolder]]) return FALSE;
     return TRUE;
 }
 

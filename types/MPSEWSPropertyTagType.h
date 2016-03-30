@@ -13,6 +13,7 @@
 
 /** Register a handler to parse PropertyTagType */
 + (void) initialize;
++ (BOOL) isValid:(NSNumber*) val;
 
 /** Initialize the handler */
 - (id) init;

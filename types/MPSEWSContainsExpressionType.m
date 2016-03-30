@@ -38,6 +38,11 @@
 
 + (BOOL) isValid:(MPSEWSContainsExpressionType*) val
 {   (void) val;
+    if (![MPSEWSSearchExpressionType isValid:val]) return FALSE;
+    if ([val containmentMode] && ![MPSEWSContainmentModeType isValid:[val containmentMode]]) return FALSE;
+    if ([val containmentComparison] && ![MPSEWSContainmentComparisonType isValid:[val containmentComparison]]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
+    if ([val constant] && ![MPSEWSConstantValueType isValid:[val constant]]) return FALSE;
     return TRUE;
 }
 

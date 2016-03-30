@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfGroupedItemsType*) val
 {   (void) val;
+    if ([val groupedItems]) {
+        for (MPSEWSGroupedItemsType* obj in [val groupedItems]) {
+            if (![MPSEWSGroupedItemsType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

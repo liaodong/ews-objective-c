@@ -298,6 +298,8 @@
 
 + (BOOL) isValid:(MPSEWSSmartResponseType*) val
 {   (void) val;
+    if (![MPSEWSSmartResponseBaseType isValid:val]) return FALSE;
+    if ([val pNewBodyContent] && ![MPSEWSBodyType isValid:[val pNewBodyContent]]) return FALSE;
     return TRUE;
 }
 

@@ -217,6 +217,10 @@
 
 + (BOOL) isValid:(MPSEWSDistributionListType*) val
 {   (void) val;
+    if (![MPSEWSItemType isValid:val]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
+    if ([val fileAs] && ![MPSEWSStringTypeHandler isValid:[val fileAs]]) return FALSE;
+    if ([val contactSource] && ![MPSEWSContactSourceType isValid:[val contactSource]]) return FALSE;
     return TRUE;
 }
 

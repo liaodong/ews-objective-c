@@ -16,6 +16,7 @@
 
 + (BOOL) isValid:(MPSEWSTooBigGroupAttendeeConflictData*) val
 {   (void) val;
+    if (![MPSEWSAttendeeConflictData isValid:val]) return FALSE;
     return TRUE;
 }
 

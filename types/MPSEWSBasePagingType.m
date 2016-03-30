@@ -21,6 +21,7 @@
 
 + (BOOL) isValid:(MPSEWSBasePagingType*) val
 {   (void) val;
+    if ([val maxEntriesReturned] && ![MPSEWSIntegerTypeHandler isValid:[val maxEntriesReturned]]) return FALSE;
     return TRUE;
 }
 

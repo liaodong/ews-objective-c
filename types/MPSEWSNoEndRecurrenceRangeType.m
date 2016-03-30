@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSNoEndRecurrenceRangeType*) val
 {   (void) val;
+    if (![MPSEWSRecurrenceRangeBaseType isValid:val]) return FALSE;
     return TRUE;
 }
 

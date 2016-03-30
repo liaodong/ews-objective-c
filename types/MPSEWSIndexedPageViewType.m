@@ -30,6 +30,9 @@
 
 + (BOOL) isValid:(MPSEWSIndexedPageViewType*) val
 {   (void) val;
+    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
+    if ([val offset] && ![MPSEWSIntegerTypeHandler isValid:[val offset]]) return FALSE;
+    if ([val basePoint] && ![MPSEWSIndexBasePointType isValid:[val basePoint]]) return FALSE;
     return TRUE;
 }
 

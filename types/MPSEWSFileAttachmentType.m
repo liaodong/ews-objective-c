@@ -49,6 +49,8 @@
 
 + (BOOL) isValid:(MPSEWSFileAttachmentType*) val
 {   (void) val;
+    if (![MPSEWSAttachmentType isValid:val]) return FALSE;
+    if ([val content] && ![MPSEWSBase64BinaryTypeHandler isValid:[val content]]) return FALSE;
     return TRUE;
 }
 

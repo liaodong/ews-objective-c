@@ -44,6 +44,26 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfAttendeeConflictData*) val
 {   (void) val;
+    if ([val unknownAttendeeConflictData]) {
+        for (MPSEWSUnknownAttendeeConflictData* obj in [val unknownAttendeeConflictData]) {
+            if (![MPSEWSUnknownAttendeeConflictData isValid:obj]) return FALSE;
+        }
+    }
+    if ([val individualAttendeeConflictData]) {
+        for (MPSEWSIndividualAttendeeConflictData* obj in [val individualAttendeeConflictData]) {
+            if (![MPSEWSIndividualAttendeeConflictData isValid:obj]) return FALSE;
+        }
+    }
+    if ([val tooBigGroupAttendeeConflictData]) {
+        for (MPSEWSTooBigGroupAttendeeConflictData* obj in [val tooBigGroupAttendeeConflictData]) {
+            if (![MPSEWSTooBigGroupAttendeeConflictData isValid:obj]) return FALSE;
+        }
+    }
+    if ([val groupAttendeeConflictData]) {
+        for (MPSEWSGroupAttendeeConflictData* obj in [val groupAttendeeConflictData]) {
+            if (![MPSEWSGroupAttendeeConflictData isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

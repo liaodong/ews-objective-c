@@ -61,6 +61,10 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderItemsResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState]]) return FALSE;
+    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange]]) return FALSE;
+    if ([val changes] && ![MPSEWSSyncFolderItemsChangesType isValid:[val changes]]) return FALSE;
     return TRUE;
 }
 

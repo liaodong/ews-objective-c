@@ -11,6 +11,7 @@
 
 /** Register a handler to parse AvailabilityProxyRequestType */
 + (void) initialize;
++ (BOOL) isValid:(NSString*)val;
 
 /** Initialize the handler */
 - (id) init;

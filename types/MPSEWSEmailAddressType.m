@@ -45,6 +45,12 @@
 
 + (BOOL) isValid:(MPSEWSEmailAddressType*) val
 {   (void) val;
+    if (![MPSEWSBaseEmailAddressType isValid:val]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
+    if ([val emailAddress] && ![MPSEWSNonEmptyStringType isValid:[val emailAddress]]) return FALSE;
+    if ([val routingType] && ![MPSEWSNonEmptyStringType isValid:[val routingType]]) return FALSE;
+    if ([val mailboxType] && ![MPSEWSMailboxTypeType isValid:[val mailboxType]]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
     return TRUE;
 }
 

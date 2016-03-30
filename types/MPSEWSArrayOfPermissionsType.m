@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSArrayOfPermissionsType*) val
 {   (void) val;
+    if ([val permission]) {
+        for (MPSEWSPermissionType* obj in [val permission]) {
+            if (![MPSEWSPermissionType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

@@ -30,6 +30,16 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfBaseFolderIdsType*) val
 {   (void) val;
+    if ([val folderId]) {
+        for (MPSEWSFolderIdType* obj in [val folderId]) {
+            if (![MPSEWSFolderIdType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val distinguishedFolderId]) {
+        for (MPSEWSDistinguishedFolderIdType* obj in [val distinguishedFolderId]) {
+            if (![MPSEWSDistinguishedFolderIdType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

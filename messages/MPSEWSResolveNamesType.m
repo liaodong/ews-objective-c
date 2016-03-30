@@ -38,6 +38,11 @@
 
 + (BOOL) isValid:(MPSEWSResolveNamesType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val returnFullContactData] && ![MPSEWSBooleanTypeHandler isValid:[val returnFullContactData]]) return FALSE;
+    if ([val searchScope] && ![MPSEWSResolveNamesSearchScopeType isValid:[val searchScope]]) return FALSE;
+    if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds]]) return FALSE;
+    if ([val unresolvedEntry] && ![MPSEWSNonEmptyStringType isValid:[val unresolvedEntry]]) return FALSE;
     return TRUE;
 }
 

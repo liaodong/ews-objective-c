@@ -28,6 +28,9 @@
 
 + (BOOL) isValid:(MPSEWSSubscribeType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val pullSubscriptionRequest] && ![MPSEWSPullSubscriptionRequestType isValid:[val pullSubscriptionRequest]]) return FALSE;
+    if ([val pushSubscriptionRequest] && ![MPSEWSPushSubscriptionRequestType isValid:[val pushSubscriptionRequest]]) return FALSE;
     return TRUE;
 }
 

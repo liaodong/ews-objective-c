@@ -82,6 +82,17 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderItemsCreateOrUpdateType*) val
 {   (void) val;
+    if ([val item] && ![MPSEWSItemType isValid:[val item]]) return FALSE;
+    if ([val message] && ![MPSEWSMessageType isValid:[val message]]) return FALSE;
+    if ([val calendarItem] && ![MPSEWSCalendarItemType isValid:[val calendarItem]]) return FALSE;
+    if ([val contact] && ![MPSEWSContactItemType isValid:[val contact]]) return FALSE;
+    if ([val distributionList] && ![MPSEWSDistributionListType isValid:[val distributionList]]) return FALSE;
+    if ([val meetingMessage] && ![MPSEWSMeetingMessageType isValid:[val meetingMessage]]) return FALSE;
+    if ([val meetingRequest] && ![MPSEWSMeetingRequestMessageType isValid:[val meetingRequest]]) return FALSE;
+    if ([val meetingResponse] && ![MPSEWSMeetingResponseMessageType isValid:[val meetingResponse]]) return FALSE;
+    if ([val meetingCancellation] && ![MPSEWSMeetingCancellationMessageType isValid:[val meetingCancellation]]) return FALSE;
+    if ([val task] && ![MPSEWSTaskType isValid:[val task]]) return FALSE;
+    if ([val postItem] && ![MPSEWSPostItemType isValid:[val postItem]]) return FALSE;
     return TRUE;
 }
 

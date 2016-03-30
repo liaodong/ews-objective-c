@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSGetAttachmentResponseType*) val
 {   (void) val;
+    if (![MPSEWSBaseResponseMessageType isValid:val]) return FALSE;
     return TRUE;
 }
 

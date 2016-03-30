@@ -22,6 +22,8 @@
 
 + (BOOL) isValid:(MPSEWSUnsubscribeType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val subscriptionId] && ![MPSEWSSubscriptionIdType isValid:[val subscriptionId]]) return FALSE;
     return TRUE;
 }
 

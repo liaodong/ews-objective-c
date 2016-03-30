@@ -36,6 +36,21 @@
 
 + (BOOL) isValid:(MPSEWSSyncFolderHierarchyChangesType*) val
 {   (void) val;
+    if ([val create]) {
+        for (MPSEWSSyncFolderHierarchyCreateOrUpdateType* obj in [val create]) {
+            if (![MPSEWSSyncFolderHierarchyCreateOrUpdateType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val update]) {
+        for (MPSEWSSyncFolderHierarchyCreateOrUpdateType* obj in [val update]) {
+            if (![MPSEWSSyncFolderHierarchyCreateOrUpdateType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val delete]) {
+        for (MPSEWSSyncFolderHierarchyDeleteType* obj in [val delete]) {
+            if (![MPSEWSSyncFolderHierarchyDeleteType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

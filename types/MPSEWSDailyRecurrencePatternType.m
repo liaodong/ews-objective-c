@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSDailyRecurrencePatternType*) val
 {   (void) val;
+    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val]) return FALSE;
     return TRUE;
 }
 

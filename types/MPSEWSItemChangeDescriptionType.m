@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSItemChangeDescriptionType*) val
 {   (void) val;
+    if (![MPSEWSChangeDescriptionType isValid:val]) return FALSE;
     return TRUE;
 }
 

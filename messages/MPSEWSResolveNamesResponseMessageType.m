@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSResolveNamesResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val resolutionSet] && ![MPSEWSArrayOfResolutionType isValid:[val resolutionSet]]) return FALSE;
     return TRUE;
 }
 

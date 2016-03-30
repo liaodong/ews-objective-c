@@ -71,6 +71,9 @@
 
 + (BOOL) isValid:(MPSEWSPermissionType*) val
 {   (void) val;
+    if (![MPSEWSBasePermissionType isValid:val]) return FALSE;
+    if ([val readItems] && ![MPSEWSPermissionReadAccessType isValid:[val readItems]]) return FALSE;
+    if ([val permissionLevel] && ![MPSEWSPermissionLevelType isValid:[val permissionLevel]]) return FALSE;
     return TRUE;
 }
 

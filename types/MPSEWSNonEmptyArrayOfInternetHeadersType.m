@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfInternetHeadersType*) val
 {   (void) val;
+    if ([val internetMessageHeader]) {
+        for (MPSEWSInternetHeaderType* obj in [val internetMessageHeader]) {
+            if (![MPSEWSInternetHeaderType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

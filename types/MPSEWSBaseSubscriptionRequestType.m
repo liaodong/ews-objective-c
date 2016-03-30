@@ -34,6 +34,9 @@
 
 + (BOOL) isValid:(MPSEWSBaseSubscriptionRequestType*) val
 {   (void) val;
+    if ([val folderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val folderIds]]) return FALSE;
+    if ([val eventTypes] && ![MPSEWSNonEmptyArrayOfNotificationEventTypesType isValid:[val eventTypes]]) return FALSE;
+    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark]]) return FALSE;
     return TRUE;
 }
 

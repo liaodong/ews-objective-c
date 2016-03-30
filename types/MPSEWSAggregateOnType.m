@@ -39,6 +39,10 @@
 
 + (BOOL) isValid:(MPSEWSAggregateOnType*) val
 {   (void) val;
+    if ([val aggregate] && ![MPSEWSAggregateType isValid:[val aggregate]]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSPathToUnindexedFieldType isValid:[val fieldURI]]) return FALSE;
+    if ([val indexedFieldURI] && ![MPSEWSPathToIndexedFieldType isValid:[val indexedFieldURI]]) return FALSE;
+    if ([val extendedFieldURI] && ![MPSEWSPathToExtendedFieldType isValid:[val extendedFieldURI]]) return FALSE;
     return TRUE;
 }
 

@@ -45,6 +45,11 @@
 
 + (BOOL) isValid:(MPSEWSUserOofSettings*) val
 {   (void) val;
+    if ([val oofState] && ![MPSEWSOofState isValid:[val oofState]]) return FALSE;
+    if ([val externalAudience] && ![MPSEWSExternalAudience isValid:[val externalAudience]]) return FALSE;
+    if ([val duration] && ![MPSEWSDuration isValid:[val duration]]) return FALSE;
+    if ([val internalReply] && ![MPSEWSReplyBody isValid:[val internalReply]]) return FALSE;
+    if ([val externalReply] && ![MPSEWSReplyBody isValid:[val externalReply]]) return FALSE;
     return TRUE;
 }
 

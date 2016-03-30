@@ -24,6 +24,11 @@ static NSSet* enumerations = nil;
     [[[MPSEWSFileAsMappingType alloc] init] register];
 }
 
++ (BOOL) isValid:(NSString*) val
+{
+    return [enumerations containsObject:val];
+}
+
 - (id) init
 {
     self = [super initWithClass:[MPSEWSFileAsMappingType class]];

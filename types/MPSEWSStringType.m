@@ -9,6 +9,11 @@
      MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSStringType class] andContentHandlerClass:[MPSEWSStringTypeHandler class]];
      [handler register];
 }
++ (BOOL) isValid:(MPSEWSStringType*)val
+{
+    (void) val;
+    return TRUE;
+}
 
 - (id) init
 {

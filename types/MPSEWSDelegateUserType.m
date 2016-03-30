@@ -39,6 +39,10 @@
 
 + (BOOL) isValid:(MPSEWSDelegateUserType*) val
 {   (void) val;
+    if ([val userId] && ![MPSEWSUserIdType isValid:[val userId]]) return FALSE;
+    if ([val delegatePermissions] && ![MPSEWSDelegatePermissionsType isValid:[val delegatePermissions]]) return FALSE;
+    if ([val receiveCopiesOfMeetingMessages] && ![MPSEWSBooleanTypeHandler isValid:[val receiveCopiesOfMeetingMessages]]) return FALSE;
+    if ([val viewPrivateItems] && ![MPSEWSBooleanTypeHandler isValid:[val viewPrivateItems]]) return FALSE;
     return TRUE;
 }
 

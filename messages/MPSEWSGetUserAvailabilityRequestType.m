@@ -40,6 +40,11 @@
 
 + (BOOL) isValid:(MPSEWSGetUserAvailabilityRequestType*) val
 {   (void) val;
+    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if ([val timeZone] && ![MPSEWSSerializableTimeZone isValid:[val timeZone]]) return FALSE;
+    if ([val mailboxDataArray] && ![MPSEWSArrayOfMailboxData isValid:[val mailboxDataArray]]) return FALSE;
+    if ([val freeBusyViewOptions] && ![MPSEWSFreeBusyViewOptionsType isValid:[val freeBusyViewOptions]]) return FALSE;
+    if ([val suggestionsViewOptions] && ![MPSEWSSuggestionsViewOptionsType isValid:[val suggestionsViewOptions]]) return FALSE;
     return TRUE;
 }
 

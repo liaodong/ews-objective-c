@@ -32,6 +32,10 @@
 
 + (BOOL) isValid:(MPSEWSDistinguishedFolderIdType*) val
 {   (void) val;
+    if (![MPSEWSBaseFolderIdType isValid:val]) return FALSE;
+    if ([val id  ] && ![MPSEWSDistinguishedFolderIdNameType isValid:[val id  ]]) return FALSE;
+    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey]]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
     return TRUE;
 }
 

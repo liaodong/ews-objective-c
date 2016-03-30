@@ -22,6 +22,7 @@
 
 + (BOOL) isValid:(MPSEWSChangeDescriptionType*) val
 {   (void) val;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
     return TRUE;
 }
 

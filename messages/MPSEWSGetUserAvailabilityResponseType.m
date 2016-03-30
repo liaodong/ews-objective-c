@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSGetUserAvailabilityResponseType*) val
 {   (void) val;
+    if ([val freeBusyResponseArray] && ![MPSEWSArrayOfFreeBusyResponse isValid:[val freeBusyResponseArray]]) return FALSE;
+    if ([val suggestionsResponse] && ![MPSEWSSuggestionsResponseType isValid:[val suggestionsResponse]]) return FALSE;
     return TRUE;
 }
 

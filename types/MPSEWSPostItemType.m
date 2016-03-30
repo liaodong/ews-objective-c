@@ -243,6 +243,15 @@
 
 + (BOOL) isValid:(MPSEWSPostItemType*) val
 {   (void) val;
+    if (![MPSEWSItemType isValid:val]) return FALSE;
+    if ([val conversationIndex] && ![MPSEWSBase64BinaryTypeHandler isValid:[val conversationIndex]]) return FALSE;
+    if ([val conversationTopic] && ![MPSEWSStringTypeHandler isValid:[val conversationTopic]]) return FALSE;
+    if ([val from] && ![MPSEWSSingleRecipientType isValid:[val from]]) return FALSE;
+    if ([val internetMessageId] && ![MPSEWSStringTypeHandler isValid:[val internetMessageId]]) return FALSE;
+    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead]]) return FALSE;
+    if ([val postedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val postedTime]]) return FALSE;
+    if ([val references] && ![MPSEWSStringTypeHandler isValid:[val references]]) return FALSE;
+    if ([val sender] && ![MPSEWSSingleRecipientType isValid:[val sender]]) return FALSE;
     return TRUE;
 }
 

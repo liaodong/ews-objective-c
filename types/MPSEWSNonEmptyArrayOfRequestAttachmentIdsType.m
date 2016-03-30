@@ -23,6 +23,11 @@
 
 + (BOOL) isValid:(MPSEWSNonEmptyArrayOfRequestAttachmentIdsType*) val
 {   (void) val;
+    if ([val attachmentId]) {
+        for (MPSEWSRequestAttachmentIdType* obj in [val attachmentId]) {
+            if (![MPSEWSRequestAttachmentIdType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 

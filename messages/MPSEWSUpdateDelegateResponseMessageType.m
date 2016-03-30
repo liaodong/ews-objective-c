@@ -50,6 +50,7 @@
 
 + (BOOL) isValid:(MPSEWSUpdateDelegateResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSBaseDelegateResponseMessageType isValid:val]) return FALSE;
     return TRUE;
 }
 

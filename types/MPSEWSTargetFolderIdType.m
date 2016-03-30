@@ -28,6 +28,8 @@
 
 + (BOOL) isValid:(MPSEWSTargetFolderIdType*) val
 {   (void) val;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
+    if ([val distinguishedFolderId] && ![MPSEWSDistinguishedFolderIdType isValid:[val distinguishedFolderId]]) return FALSE;
     return TRUE;
 }
 

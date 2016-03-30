@@ -50,6 +50,8 @@
 
 + (BOOL) isValid:(MPSEWSDeleteAttachmentResponseMessageType*) val
 {   (void) val;
+    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if ([val rootItemId] && ![MPSEWSRootItemIdType isValid:[val rootItemId]]) return FALSE;
     return TRUE;
 }
 

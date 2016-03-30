@@ -21,6 +21,8 @@
 
 + (BOOL) isValid:(MPSEWSImAddressDictionaryEntryType*) val
 {   (void) val;
+    if (![MPSEWSStringType isValid:val]) return FALSE;
+    if ([val key ] && ![MPSEWSImAddressKeyType isValid:[val key ]]) return FALSE;
     return TRUE;
 }
 

@@ -19,6 +19,7 @@
 
 /** Register a handler to parse DaysOfWeekType */
 + (void) initialize;
++ (BOOL) isValid:(NSArray<NSString*>*) val;
 
 /** Initialize the handler */
 - (id) init;

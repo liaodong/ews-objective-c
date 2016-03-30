@@ -32,6 +32,9 @@
 
 + (BOOL) isValid:(MPSEWSConnectingSIDType*) val
 {   (void) val;
+    if ([val principalName] && ![MPSEWSStringTypeHandler isValid:[val principalName]]) return FALSE;
+    if ([val sID ] && ![MPSEWSStringTypeHandler isValid:[val sID ]]) return FALSE;
+    if ([val primarySmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val primarySmtpAddress]]) return FALSE;
     return TRUE;
 }
 
