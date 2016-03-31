@@ -3,7 +3,7 @@
 #import "../handlers/MPSEWSEnumeratedListTypeHandler.h"
 
 
-/** FreeBusyViewType is a list ofcan be one of the following:
+/** SimpleType: FreeBusyViewType can be one of the following:
  *       1 None
  *       2 MergedOnly
  *       3 FreeBusy
@@ -11,15 +11,23 @@
  *       5 Detailed
  *       6 DetailedMerged
  */
-@interface MPSEWSFreeBusyViewType : MPSEWSEnumeratedListTypeHandler
+@interface MPSEWSFreeBusyViewType : MPSEWSEnumeratedListTypeHandler 
 
-/** Register a handler to parse DaysOfWeekType */
+/** Register a handler to parse FreeBusyViewType */
 + (void) initialize;
-+ (BOOL) isValid:(NSArray*)val;
++ (BOOL) isValid:(NSArray<NSString*>*)val;
 
 /** Initialize the handler */
 - (id) init;
 - (id) initWithClass:(Class) cls;
 
+
+/* Valid values */
++ (NSString *) None;
++ (NSString *) MergedOnly;
++ (NSString *) FreeBusy;
++ (NSString *) FreeBusyMerged;
++ (NSString *) Detailed;
++ (NSString *) DetailedMerged;
 @end
 

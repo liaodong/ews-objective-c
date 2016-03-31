@@ -1,21 +1,25 @@
 #import <Foundation/Foundation.h>
 
 #import "MPSEWSFreeBusyViewType.h"
-@implementation MPSEWSFreeBusyViewType 
+@implementation MPSEWSFreeBusyViewType /* SimpleType */
 
 static NSSet* enumerations = nil;
 
 + (void) initialize
 {
-    enumerations = [NSSet setWithObjects:@"None", @"MergedOnly", @"FreeBusy", @"FreeBusyMerged", @"Detailed", @"DetailedMerged", nil];
+    enumerations = [NSSet setWithObjects:
+                                         [MPSEWSFreeBusyViewType None], 
+                                         [MPSEWSFreeBusyViewType MergedOnly], 
+                                         [MPSEWSFreeBusyViewType FreeBusy], 
+                                         [MPSEWSFreeBusyViewType FreeBusyMerged], 
+                                         [MPSEWSFreeBusyViewType Detailed], 
+                                         [MPSEWSFreeBusyViewType DetailedMerged], nil];
     [[[MPSEWSFreeBusyViewType alloc] init] register];
 }
-+ (BOOL) isValid:(NSArray*) val
+
++ (BOOL) isValid:(NSString*) val
 {
-    for (NSString* obj  in val) {
-        if (![enumerations containsObject:obj]) return FALSE;
-    }
-    return TRUE;
+    return [enumerations containsObject:val];
 }
 
 - (id) init
@@ -30,5 +34,11 @@ static NSSet* enumerations = nil;
     return self;
 }
 
++ (NSString *) None { return @"None"; }
++ (NSString *) MergedOnly { return @"MergedOnly"; }
++ (NSString *) FreeBusy { return @"FreeBusy"; }
++ (NSString *) FreeBusyMerged { return @"FreeBusyMerged"; }
++ (NSString *) Detailed { return @"Detailed"; }
++ (NSString *) DetailedMerged { return @"DetailedMerged"; }
 @end
 

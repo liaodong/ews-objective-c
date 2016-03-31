@@ -777,8 +777,11 @@ static const char* prefix = "MPSEWS";
 
 - (void) simpleListEnumeratedString:(Element*) elem
 {
-    const char* returnType = "NSMutableArray<NSString*> *";
-    Element* child = [[elem children] objectAtIndex: 0];
+    // <simpleType><list><simpleType><restriction><enumeration>..</en
+
+    Element* child = [[elem children] objectAtIndex:0]; // list
+    child = [[child children] objectAtIndex:0]; // simpleType
+    child = [[child children] objectAtIndex:0]; // restriction;
 
     const char* name = [[elem name] UTF8String];
     const char* dir  = [elem ns] == 't' ? "types" : "messages";
@@ -788,7 +791,7 @@ static const char* prefix = "MPSEWS";
     
     FILE* file = fopen (filename, "w");
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
-    fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
+    fprintf (file, "#import \"../handlers/%sEnumeratedListTypeHandler.h\"", prefix);
     fprintf (file, "\n\n\n");
     fprintf (file, "/** SimpleType: %s can be one of the following:\n", name);
 
@@ -799,22 +802,15 @@ static const char* prefix = "MPSEWS";
         fprintf (file, " *       %d %s\n", idx++, v);
     }
     fprintf (file, " */\n");
-    fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
+    fprintf (file, "@interface %s%s : %sEnumeratedListTypeHandler \n\n", prefix, name, prefix);
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid:(NSString*)val;\n\n");
+    fprintf (file, "+ (BOOL) isValid:(NSArray<NSString*>*)val;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
     fprintf (file, "- (id) initWithClass:(Class) cls;\n\n");
-
-    fprintf (file, "/** Process the characters */\n");
-    fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*)s;\n\n", returnType, returnType);
-    
-    fprintf (file, "/** Write to the buffer the string value */\n");
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object;\n\n", returnType);
-    
 
     fprintf (file, "\n/* Valid values */\n");
     for (Element *e in [child children])
@@ -856,28 +852,16 @@ static const char* prefix = "MPSEWS";
 
     fprintf (file, "- (id) init\n");
     fprintf (file, "{\n");
-    fprintf (file, "    self = [super initWithClass:[%s%s class]];\n", prefix, name);
+    fprintf (file, "    self = [super initWithClass:[%s%s class] andValues:enumerations];\n", prefix, name);
     fprintf (file, "    return self;\n");
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) initWithClass:(Class) cls\n");
     fprintf (file, "{\n");
-    fprintf (file, "    self = [super initWithClass:cls];\n");
+    fprintf (file, "    self = [super initWithClass:cls andValues:enumerations];\n");
     fprintf (file, "    return self;\n");
     fprintf (file, "}\n\n");
 
-    fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*) s\n", returnType, returnType);
-    fprintf (file, "{\n");
-    fprintf (file, "    s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];\n");
-    fprintf (file, "    return [enumerations containsObject:s] ? [enumerations member:s] : obj;\n");
-    fprintf (file, "}\n\n");
-   
-    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object\n", returnType);
-    fprintf (file, "{\n");
-    fprintf (file, "    NSString* obj = ((NSString*) object);\n");
-    fprintf (file, "    NSAssert([enumerations containsObject:obj], @\"String is a enumerated list\");\n");
-    fprintf (file, "    [buffer appendString:((NSString*) object)];\n"); 
-    fprintf (file, "}\n\n");
 
     for (Element *e in [child children])
     {
@@ -969,7 +953,7 @@ static const char* prefix = "MPSEWS";
             {
                 [elem setResultType:@"NSNumber*"];
             }
-            else if ([[elem name] isEqual:@"DaysOfWeekType"] || [[elem name] isEqual:@"FreeBusyViewType"])
+            else if ([[elem name] isEqual:@"DaysOfWeekType"]) 
             {
                 [elem setResultType:@"NSMutableArray<NSString*>*"];
             }
@@ -1014,6 +998,20 @@ static const char* prefix = "MPSEWS";
                         else NSLog (@"extension has children string %@ %@", [elem tagName], [elem name]);
                     }
                     else NSLog(@"restriction is not of type string %@ %@", [elem tagName], [elem name]);
+                }
+                else if ([[child tagName] isEqual:@"list"] && [[child children] count] == 1) {
+                    child = [[child children] objectAtIndex:0]; // simpleType
+
+                    if ([[child tagName] isEqual:@"simpleType"] && [[child children] count] == 1) {
+
+                        child = [[child children] objectAtIndex:0]; // restriction
+                        if ([[child tagName] isEqual:@"restriction"] && [[child base] isEqual:@"xs:string"] && [self forElement:child areChildren:@"enumeration"]) {
+                            [self simpleListEnumeratedString:elem];
+                            [elem setResultType:@"NSMutableArray<NSString*>*"];
+                        }
+                        else NSLog (@"unknown type  %@ %@", [elem tagName], [elem name]);
+                    }
+                    else NSLog (@"unknown type  %@ %@", [elem tagName], [elem name]);
                 }
                 else NSLog(@"restriction is not the child %@ %@", [elem tagName], [elem name]);
             }
