@@ -1,9 +1,9 @@
-EWSDaysOfWeekType.h
-EWSDaysOfWeekType.m
-EWSFreeBusyViewType.h
-EWSFreeBusyViewType.m
-EWSPropertyTagType.h
-EWSPropertyTagType.m
-EWSReminderMinutesBeforeStartType.h
-EWSReminderMinutesBeforeStartType.m
+MPSEWSDaysOfWeekType.h
+MPSEWSDaysOfWeekType.m
+MPSEWSFreeBusyViewType.h
+MPSEWSFreeBusyViewType.m
+MPSEWSPropertyTagType.h
+MPSEWSPropertyTagType.m
+MPSEWSReminderMinutesBeforeStartType.h
+MPSEWSReminderMinutesBeforeStartType.m
 manual_files

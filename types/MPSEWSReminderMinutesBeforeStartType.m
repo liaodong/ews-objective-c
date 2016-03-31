@@ -5,6 +5,7 @@
 
 + (void) initialize
 {
+    [[[MPSEWSReminderMinutesBeforeStartType alloc] init] register];
 }
 + (BOOL) isValid:(NSString*) val
 {
