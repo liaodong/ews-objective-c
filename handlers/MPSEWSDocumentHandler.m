@@ -219,7 +219,7 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 {
     NSMutableString* indent = nil; // [[NSMutableString alloc] init];
 
-    NSString* root = [rootTagsForCls valueForKey:[[object handlerClass] className]];
+    NSString* root = [rootTagsForCls valueForKey:NSStringFromClass([object handlerClass])];
 
     id<MPSEWSHandlerProtocol> handler = [handlersForTag valueForKey:root];
 
@@ -239,7 +239,7 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 + (void) handleTag:tag withHandlerClass:(Class) cls
 {
     [handlersForTag setObject:[MPSEWSHandler handlerForClass:cls] forKey:tag];
-    [rootTagsForCls setObject:tag forKey:[cls className]];
+    [rootTagsForCls setObject:tag forKey:NSStringFromClass(cls)];
 }
 
 + (void) initialize

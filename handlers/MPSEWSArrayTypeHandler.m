@@ -53,7 +53,7 @@
     tag = [NSString stringWithFormat:@"%c:%@", ns, tag];
 
     [handlers setObject:cls forKey:tag];
-    [elements setObject:tag forKey:[cls className]];
+    [elements setObject:tag forKey:NSStringFromClass(cls)];
 }
 
 - (id<MPSEWSHandlerProtocol>) handlerForElement: (NSString *) tag namespace: (char) ns
@@ -82,7 +82,7 @@
             cls = func (obj, handlerClass);
         }
 
-        NSString* key = cls ? [elements objectForKey:[cls className]] : [self tag];
+        NSString* key = cls ? [elements objectForKey:NSStringFromClass(cls)] : [self tag];
 
         if (!key) continue;
 

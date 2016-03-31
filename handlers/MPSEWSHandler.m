@@ -51,7 +51,7 @@ static NSMutableDictionary* _handlers = nil;
 
 - (void) register
 {
-    [_handlers setObject:self forKey: [clazz className]];
+    [_handlers setObject:self forKey: NSStringFromClass(clazz)];
 }
 
 + (id<MPSEWSHandlerProtocol>) handlerForClass: (Class) cls
@@ -60,7 +60,7 @@ static NSMutableDictionary* _handlers = nil;
     if (![handlers objectForKey: cls]) {
         [cls initialize];
     }
-    return [[self handlers] objectForKey: [cls className]];
+    return [[self handlers] objectForKey: NSStringFromClass(cls)];
 }
 
 - (id) constructWithAttributes: (NSDictionary *)attributes
