@@ -1,33 +1,12 @@
 #import <Foundation/Foundation.h>
 
-#import "MPSEWSDaysOfWeekType.h"
-@implementation MPSEWSDaysOfWeekType 
+#import "MPSEWSEnumeratedListTypeHandler.h"
+@implementation MPSEWSEnumeratedListTypeHandler
 
-static NSSet* enumerations = nil;
-
-+ (void) initialize
-{
-    enumerations = [NSSet setWithObjects:@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Day", @"Weekday", @"WeekendDay", nil];
-}
-
-+ (BOOL) isValid:(NSArray<NSString*>*) val
-{
-    for (NSString* v in val)
-    {
-        if (![enumerations containsObject:v]) return FALSE;
-    }
-    return TRUE;
-}
-
-- (id) init
-{
-    self = [super initWithClass:[MPSEWSDaysOfWeekType class]];
-    return self;
-}
-
-- (id) initWithClass:(Class) cls
+- (id) initWithClass:(Class) cls andValues:(NSSet*) v
 {
     self = [super initWithClass:cls];
+    [self setEnumerations:v];
     return self;
 }
 
@@ -40,7 +19,7 @@ static NSSet* enumerations = nil;
 {
     s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];   
     for (NSString* e in [s componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]) {
-        if ([enumerations containsObject:e]) {
+        if ([[self enumerations] containsObject:e]) {
             [obj addObject:e];
         }
     }
@@ -54,7 +33,7 @@ static NSSet* enumerations = nil;
     BOOL addSpace = FALSE;
 
     for (NSString* e in obj) {
-        NSAssert([enumerations containsObject:e], @"String is a enumerated list");
+        NSAssert([[self enumerations] containsObject:e], @"String is a enumerated list");
         if (addSpace)
             [buffer appendString:@" "];
         [buffer appendString:e];

@@ -10,7 +10,6 @@ static NSSet* enumerations = nil;
     enumerations = [NSSet setWithObjects:
                                          [MPSEWSResponseCodeType NoError], 
                                          [MPSEWSResponseCodeType ErrorAccessDenied], 
-                                         [MPSEWSResponseCodeType ErrorAccessModeSpecified], 
                                          [MPSEWSResponseCodeType ErrorAccountDisabled], 
                                          [MPSEWSResponseCodeType ErrorAddDelegatesFailed], 
                                          [MPSEWSResponseCodeType ErrorAddressSpaceNotFound], 
@@ -19,7 +18,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorADUnavailable], 
                                          [MPSEWSResponseCodeType ErrorAutoDiscoverFailed], 
                                          [MPSEWSResponseCodeType ErrorAffectedTaskOccurrencesRequired], 
-                                         [MPSEWSResponseCodeType ErrorAttachmentNestLevelLimitExceeded], 
                                          [MPSEWSResponseCodeType ErrorAttachmentSizeLimitExceeded], 
                                          [MPSEWSResponseCodeType ErrorAvailabilityConfigNotFound], 
                                          [MPSEWSResponseCodeType ErrorBatchProcessingStopped], 
@@ -37,10 +35,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorCalendarInvalidPropertyValue], 
                                          [MPSEWSResponseCodeType ErrorCalendarInvalidRecurrence], 
                                          [MPSEWSResponseCodeType ErrorCalendarInvalidTimeZone], 
-                                         [MPSEWSResponseCodeType ErrorCalendarIsCancelledForAccept], 
-                                         [MPSEWSResponseCodeType ErrorCalendarIsCancelledForDecline], 
-                                         [MPSEWSResponseCodeType ErrorCalendarIsCancelledForRemove], 
-                                         [MPSEWSResponseCodeType ErrorCalendarIsCancelledForTentative], 
                                          [MPSEWSResponseCodeType ErrorCalendarIsDelegatedForAccept], 
                                          [MPSEWSResponseCodeType ErrorCalendarIsDelegatedForDecline], 
                                          [MPSEWSResponseCodeType ErrorCalendarIsDelegatedForRemove], 
@@ -55,7 +49,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorCalendarOutOfRange], 
                                          [MPSEWSResponseCodeType ErrorCalendarMeetingRequestIsOutOfDate], 
                                          [MPSEWSResponseCodeType ErrorCalendarViewRangeTooBig], 
-                                         [MPSEWSResponseCodeType ErrorCallerIsInvalidADAccount], 
                                          [MPSEWSResponseCodeType ErrorCannotCreateCalendarItemInNonCalendarFolder], 
                                          [MPSEWSResponseCodeType ErrorCannotCreateContactInNonContactFolder], 
                                          [MPSEWSResponseCodeType ErrorCannotCreatePostItemInNonMailFolder], 
@@ -63,7 +56,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorCannotDeleteObject], 
                                          [MPSEWSResponseCodeType ErrorCannotOpenFileAttachment], 
                                          [MPSEWSResponseCodeType ErrorCannotDeleteTaskOccurrence], 
-                                         [MPSEWSResponseCodeType ErrorCannotEmptyFolder], 
                                          [MPSEWSResponseCodeType ErrorCannotSetCalendarPermissionOnNonCalendarFolder], 
                                          [MPSEWSResponseCodeType ErrorCannotSetNonCalendarPermissionOnCalendarFolder], 
                                          [MPSEWSResponseCodeType ErrorCannotSetPermissionUnknownEntries], 
@@ -71,16 +63,13 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorCannotUseItemIdForFolderId], 
                                          [MPSEWSResponseCodeType ErrorChangeKeyRequired], 
                                          [MPSEWSResponseCodeType ErrorChangeKeyRequiredForWriteOperations], 
-                                         [MPSEWSResponseCodeType ErrorClientDisconnected], 
                                          [MPSEWSResponseCodeType ErrorConnectionFailed], 
-                                         [MPSEWSResponseCodeType ErrorContainsFilterWrongType], 
                                          [MPSEWSResponseCodeType ErrorContentConversionFailed], 
                                          [MPSEWSResponseCodeType ErrorCorruptData], 
                                          [MPSEWSResponseCodeType ErrorCreateItemAccessDenied], 
                                          [MPSEWSResponseCodeType ErrorCreateManagedFolderPartialCompletion], 
                                          [MPSEWSResponseCodeType ErrorCreateSubfolderAccessDenied], 
                                          [MPSEWSResponseCodeType ErrorCrossMailboxMoveCopy], 
-                                         [MPSEWSResponseCodeType ErrorCrossSiteRequest], 
                                          [MPSEWSResponseCodeType ErrorDataSizeLimitExceeded], 
                                          [MPSEWSResponseCodeType ErrorDataSourceOperation], 
                                          [MPSEWSResponseCodeType ErrorDelegateAlreadyExists], 
@@ -91,14 +80,10 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorDeleteDistinguishedFolder], 
                                          [MPSEWSResponseCodeType ErrorDeleteItemsFailed], 
                                          [MPSEWSResponseCodeType ErrorDistinguishedUserNotSupported], 
-                                         [MPSEWSResponseCodeType ErrorDistributionListMemberNotExist], 
                                          [MPSEWSResponseCodeType ErrorDuplicateInputFolderNames], 
                                          [MPSEWSResponseCodeType ErrorDuplicateUserIdsSpecified], 
                                          [MPSEWSResponseCodeType ErrorEmailAddressMismatch], 
                                          [MPSEWSResponseCodeType ErrorEventNotFound], 
-                                         [MPSEWSResponseCodeType ErrorExceededConnectionCount], 
-                                         [MPSEWSResponseCodeType ErrorExceededSubscriptionCount], 
-                                         [MPSEWSResponseCodeType ErrorExceededFindCountLimit], 
                                          [MPSEWSResponseCodeType ErrorExpiredSubscription], 
                                          [MPSEWSResponseCodeType ErrorFolderCorrupt], 
                                          [MPSEWSResponseCodeType ErrorFolderNotFound], 
@@ -119,7 +104,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorInternalServerError], 
                                          [MPSEWSResponseCodeType ErrorInternalServerTransientError], 
                                          [MPSEWSResponseCodeType ErrorInvalidAccessLevel], 
-                                         [MPSEWSResponseCodeType ErrorInvalidArgument], 
                                          [MPSEWSResponseCodeType ErrorInvalidAttachmentId], 
                                          [MPSEWSResponseCodeType ErrorInvalidAttachmentSubfilter], 
                                          [MPSEWSResponseCodeType ErrorInvalidAttachmentSubfilterTextFilter], 
@@ -127,8 +111,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorInvalidChangeKey], 
                                          [MPSEWSResponseCodeType ErrorInvalidClientSecurityContext], 
                                          [MPSEWSResponseCodeType ErrorInvalidCompleteDate], 
-                                         [MPSEWSResponseCodeType ErrorInvalidContactEmailAddress], 
-                                         [MPSEWSResponseCodeType ErrorInvalidContactEmailIndex], 
                                          [MPSEWSResponseCodeType ErrorInvalidCrossForestCredentials], 
                                          [MPSEWSResponseCodeType ErrorInvalidDelegatePermission], 
                                          [MPSEWSResponseCodeType ErrorInvalidDelegateUserId], 
@@ -161,8 +143,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorInvalidItemForOperationRemoveItem], 
                                          [MPSEWSResponseCodeType ErrorInvalidItemForOperationSendItem], 
                                          [MPSEWSResponseCodeType ErrorInvalidItemForOperationTentative], 
-                                         [MPSEWSResponseCodeType ErrorInvalidLogonType], 
-                                         [MPSEWSResponseCodeType ErrorInvalidMailbox], 
                                          [MPSEWSResponseCodeType ErrorInvalidManagedFolderProperty], 
                                          [MPSEWSResponseCodeType ErrorInvalidManagedFolderQuota], 
                                          [MPSEWSResponseCodeType ErrorInvalidManagedFolderSize], 
@@ -175,8 +155,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorInvalidParentFolder], 
                                          [MPSEWSResponseCodeType ErrorInvalidPercentCompleteValue], 
                                          [MPSEWSResponseCodeType ErrorInvalidPermissionSettings], 
-                                         [MPSEWSResponseCodeType ErrorInvalidPhoneCallId], 
-                                         [MPSEWSResponseCodeType ErrorInvalidPhoneNumber], 
                                          [MPSEWSResponseCodeType ErrorInvalidUserInfo], 
                                          [MPSEWSResponseCodeType ErrorInvalidPropertyAppend], 
                                          [MPSEWSResponseCodeType ErrorInvalidPropertyDelete], 
@@ -198,13 +176,11 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorInvalidRestriction], 
                                          [MPSEWSResponseCodeType ErrorInvalidRoutingType], 
                                          [MPSEWSResponseCodeType ErrorInvalidScheduledOofDuration], 
-                                         [MPSEWSResponseCodeType ErrorInvalidSchemaVersionForMailboxVersion], 
                                          [MPSEWSResponseCodeType ErrorInvalidSecurityDescriptor], 
                                          [MPSEWSResponseCodeType ErrorInvalidSendItemSaveSettings], 
                                          [MPSEWSResponseCodeType ErrorInvalidSerializedAccessToken], 
                                          [MPSEWSResponseCodeType ErrorInvalidServerVersion], 
                                          [MPSEWSResponseCodeType ErrorInvalidSid], 
-                                         [MPSEWSResponseCodeType ErrorInvalidSIPUri], 
                                          [MPSEWSResponseCodeType ErrorInvalidSmtpAddress], 
                                          [MPSEWSResponseCodeType ErrorInvalidSubfilterType], 
                                          [MPSEWSResponseCodeType ErrorInvalidSubfilterTypeNotAttendeeType], 
@@ -219,7 +195,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorInvalidUserSidMissingUPN], 
                                          [MPSEWSResponseCodeType ErrorInvalidValueForProperty], 
                                          [MPSEWSResponseCodeType ErrorInvalidWatermark], 
-                                         [MPSEWSResponseCodeType ErrorIPGatewayNotFound], 
                                          [MPSEWSResponseCodeType ErrorIrresolvableConflict], 
                                          [MPSEWSResponseCodeType ErrorItemCorrupt], 
                                          [MPSEWSResponseCodeType ErrorItemNotFound], 
@@ -236,7 +211,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorMailboxMoveInProgress], 
                                          [MPSEWSResponseCodeType ErrorMailboxStoreUnavailable], 
                                          [MPSEWSResponseCodeType ErrorMailRecipientNotFound], 
-                                         [MPSEWSResponseCodeType ErrorMailTipsDisabled], 
                                          [MPSEWSResponseCodeType ErrorManagedFolderAlreadyExists], 
                                          [MPSEWSResponseCodeType ErrorManagedFolderNotFound], 
                                          [MPSEWSResponseCodeType ErrorManagedFoldersRootFailure], 
@@ -272,7 +246,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorNonPrimarySmtpAddress], 
                                          [MPSEWSResponseCodeType ErrorNoPropertyTagForCustomProperties], 
                                          [MPSEWSResponseCodeType ErrorNoPublicFolderReplicaAvailable], 
-                                         [MPSEWSResponseCodeType ErrorNoPublicFolderServerAvailable], 
                                          [MPSEWSResponseCodeType ErrorNoRespondingCASInDestinationSite], 
                                          [MPSEWSResponseCodeType ErrorNotDelegate], 
                                          [MPSEWSResponseCodeType ErrorNotEnoughMemory], 
@@ -284,7 +257,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorParentFolderNotFound], 
                                          [MPSEWSResponseCodeType ErrorPasswordChangeRequired], 
                                          [MPSEWSResponseCodeType ErrorPasswordExpired], 
-                                         [MPSEWSResponseCodeType ErrorPhoneNumberNotDialable], 
                                          [MPSEWSResponseCodeType ErrorPropertyUpdate], 
                                          [MPSEWSResponseCodeType ErrorPropertyValidationFailure], 
                                          [MPSEWSResponseCodeType ErrorProxiedSubscriptionCallFailure], 
@@ -325,11 +297,9 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorServerBusy], 
                                          [MPSEWSResponseCodeType ErrorServiceDiscoveryFailed], 
                                          [MPSEWSResponseCodeType ErrorStaleObject], 
-                                         [MPSEWSResponseCodeType ErrorSubmissionQuotaExceeded], 
                                          [MPSEWSResponseCodeType ErrorSubscriptionAccessDenied], 
                                          [MPSEWSResponseCodeType ErrorSubscriptionDelegateAccessNotSupported], 
                                          [MPSEWSResponseCodeType ErrorSubscriptionNotFound], 
-                                         [MPSEWSResponseCodeType ErrorSubscriptionUnsubscribed], 
                                          [MPSEWSResponseCodeType ErrorSyncFolderNotFound], 
                                          [MPSEWSResponseCodeType ErrorTimeIntervalTooBig], 
                                          [MPSEWSResponseCodeType ErrorTimeoutExpired], 
@@ -337,9 +307,6 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorToFolderNotFound], 
                                          [MPSEWSResponseCodeType ErrorTokenSerializationDenied], 
                                          [MPSEWSResponseCodeType ErrorUpdatePropertyMismatch], 
-                                         [MPSEWSResponseCodeType ErrorUnifiedMessagingDialPlanNotFound], 
-                                         [MPSEWSResponseCodeType ErrorUnifiedMessagingRequestFailed], 
-                                         [MPSEWSResponseCodeType ErrorUnifiedMessagingServerNotFound], 
                                          [MPSEWSResponseCodeType ErrorUnableToGetUserOofSettings], 
                                          [MPSEWSResponseCodeType ErrorUnsupportedSubFilter], 
                                          [MPSEWSResponseCodeType ErrorUnsupportedCulture], 
@@ -352,45 +319,13 @@ static NSSet* enumerations = nil;
                                          [MPSEWSResponseCodeType ErrorUnsupportedRecurrence], 
                                          [MPSEWSResponseCodeType ErrorUnsupportedTypeForConversion], 
                                          [MPSEWSResponseCodeType ErrorUpdateDelegatesFailed], 
-                                         [MPSEWSResponseCodeType ErrorUserNotUnifiedMessagingEnabled], 
                                          [MPSEWSResponseCodeType ErrorVoiceMailNotImplemented], 
-                                         [MPSEWSResponseCodeType ErrorValueOutOfRange], 
                                          [MPSEWSResponseCodeType ErrorVirusDetected], 
                                          [MPSEWSResponseCodeType ErrorVirusMessageDeleted], 
                                          [MPSEWSResponseCodeType ErrorWebRequestInInvalidState], 
                                          [MPSEWSResponseCodeType ErrorWin32InteropError], 
                                          [MPSEWSResponseCodeType ErrorWorkingHoursSaveFailed], 
-                                         [MPSEWSResponseCodeType ErrorWorkingHoursXmlMalformed], 
-                                         [MPSEWSResponseCodeType ErrorWrongServerVersion], 
-                                         [MPSEWSResponseCodeType ErrorWrongServerVersionDelegate], 
-                                         [MPSEWSResponseCodeType ErrorMissingInformationSharingFolderId], 
-                                         [MPSEWSResponseCodeType ErrorDuplicateSOAPHeader], 
-                                         [MPSEWSResponseCodeType ErrorSharingSynchronizationFailed], 
-                                         [MPSEWSResponseCodeType ErrorSharingNoExternalEwsAvailable], 
-                                         [MPSEWSResponseCodeType ErrorFreeBusyDLLimitReached], 
-                                         [MPSEWSResponseCodeType ErrorInvalidGetSharingFolderRequest], 
-                                         [MPSEWSResponseCodeType ErrorNotAllowedExternalSharingByPolicy], 
-                                         [MPSEWSResponseCodeType ErrorUserNotAllowedByPolicy], 
-                                         [MPSEWSResponseCodeType ErrorPermissionNotAllowedByPolicy], 
-                                         [MPSEWSResponseCodeType ErrorOrganizationNotFederated], 
-                                         [MPSEWSResponseCodeType ErrorMailboxFailover], 
-                                         [MPSEWSResponseCodeType ErrorInvalidExternalSharingInitiator], 
-                                         [MPSEWSResponseCodeType ErrorMessageTrackingPermanentError], 
-                                         [MPSEWSResponseCodeType ErrorMessageTrackingTransientError], 
-                                         [MPSEWSResponseCodeType ErrorMessageTrackingNoSuchDomain], 
-                                         [MPSEWSResponseCodeType ErrorUserWithoutFederatedProxyAddress], 
-                                         [MPSEWSResponseCodeType ErrorInvalidOrganizationRelationshipForFreeBusy], 
-                                         [MPSEWSResponseCodeType ErrorInvalidFederatedOrganizationId], 
-                                         [MPSEWSResponseCodeType ErrorInvalidExternalSharingSubscriber], 
-                                         [MPSEWSResponseCodeType ErrorInvalidSharingData], 
-                                         [MPSEWSResponseCodeType ErrorInvalidSharingMessage], 
-                                         [MPSEWSResponseCodeType ErrorNotSupportedSharingMessage], 
-                                         [MPSEWSResponseCodeType ErrorApplyConversationActionFailed], 
-                                         [MPSEWSResponseCodeType ErrorInboxRulesValidationError], 
-                                         [MPSEWSResponseCodeType ErrorOutlookRuleBlobExists], 
-                                         [MPSEWSResponseCodeType ErrorRulesOverQuota], 
-                                         [MPSEWSResponseCodeType ErrorNewEventStreamConnectionOpened], 
-                                         [MPSEWSResponseCodeType ErrorMissedNotificationEvents], nil];
+                                         [MPSEWSResponseCodeType ErrorWorkingHoursXmlMalformed], nil];
     [[[MPSEWSResponseCodeType alloc] init] register];
 }
 
@@ -426,7 +361,6 @@ static NSSet* enumerations = nil;
 
 + (NSString *) NoError { return @"NoError"; }
 + (NSString *) ErrorAccessDenied { return @"ErrorAccessDenied"; }
-+ (NSString *) ErrorAccessModeSpecified { return @"ErrorAccessModeSpecified"; }
 + (NSString *) ErrorAccountDisabled { return @"ErrorAccountDisabled"; }
 + (NSString *) ErrorAddDelegatesFailed { return @"ErrorAddDelegatesFailed"; }
 + (NSString *) ErrorAddressSpaceNotFound { return @"ErrorAddressSpaceNotFound"; }
@@ -435,7 +369,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorADUnavailable { return @"ErrorADUnavailable"; }
 + (NSString *) ErrorAutoDiscoverFailed { return @"ErrorAutoDiscoverFailed"; }
 + (NSString *) ErrorAffectedTaskOccurrencesRequired { return @"ErrorAffectedTaskOccurrencesRequired"; }
-+ (NSString *) ErrorAttachmentNestLevelLimitExceeded { return @"ErrorAttachmentNestLevelLimitExceeded"; }
 + (NSString *) ErrorAttachmentSizeLimitExceeded { return @"ErrorAttachmentSizeLimitExceeded"; }
 + (NSString *) ErrorAvailabilityConfigNotFound { return @"ErrorAvailabilityConfigNotFound"; }
 + (NSString *) ErrorBatchProcessingStopped { return @"ErrorBatchProcessingStopped"; }
@@ -453,10 +386,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorCalendarInvalidPropertyValue { return @"ErrorCalendarInvalidPropertyValue"; }
 + (NSString *) ErrorCalendarInvalidRecurrence { return @"ErrorCalendarInvalidRecurrence"; }
 + (NSString *) ErrorCalendarInvalidTimeZone { return @"ErrorCalendarInvalidTimeZone"; }
-+ (NSString *) ErrorCalendarIsCancelledForAccept { return @"ErrorCalendarIsCancelledForAccept"; }
-+ (NSString *) ErrorCalendarIsCancelledForDecline { return @"ErrorCalendarIsCancelledForDecline"; }
-+ (NSString *) ErrorCalendarIsCancelledForRemove { return @"ErrorCalendarIsCancelledForRemove"; }
-+ (NSString *) ErrorCalendarIsCancelledForTentative { return @"ErrorCalendarIsCancelledForTentative"; }
 + (NSString *) ErrorCalendarIsDelegatedForAccept { return @"ErrorCalendarIsDelegatedForAccept"; }
 + (NSString *) ErrorCalendarIsDelegatedForDecline { return @"ErrorCalendarIsDelegatedForDecline"; }
 + (NSString *) ErrorCalendarIsDelegatedForRemove { return @"ErrorCalendarIsDelegatedForRemove"; }
@@ -471,7 +400,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorCalendarOutOfRange { return @"ErrorCalendarOutOfRange"; }
 + (NSString *) ErrorCalendarMeetingRequestIsOutOfDate { return @"ErrorCalendarMeetingRequestIsOutOfDate"; }
 + (NSString *) ErrorCalendarViewRangeTooBig { return @"ErrorCalendarViewRangeTooBig"; }
-+ (NSString *) ErrorCallerIsInvalidADAccount { return @"ErrorCallerIsInvalidADAccount"; }
 + (NSString *) ErrorCannotCreateCalendarItemInNonCalendarFolder { return @"ErrorCannotCreateCalendarItemInNonCalendarFolder"; }
 + (NSString *) ErrorCannotCreateContactInNonContactFolder { return @"ErrorCannotCreateContactInNonContactFolder"; }
 + (NSString *) ErrorCannotCreatePostItemInNonMailFolder { return @"ErrorCannotCreatePostItemInNonMailFolder"; }
@@ -479,7 +407,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorCannotDeleteObject { return @"ErrorCannotDeleteObject"; }
 + (NSString *) ErrorCannotOpenFileAttachment { return @"ErrorCannotOpenFileAttachment"; }
 + (NSString *) ErrorCannotDeleteTaskOccurrence { return @"ErrorCannotDeleteTaskOccurrence"; }
-+ (NSString *) ErrorCannotEmptyFolder { return @"ErrorCannotEmptyFolder"; }
 + (NSString *) ErrorCannotSetCalendarPermissionOnNonCalendarFolder { return @"ErrorCannotSetCalendarPermissionOnNonCalendarFolder"; }
 + (NSString *) ErrorCannotSetNonCalendarPermissionOnCalendarFolder { return @"ErrorCannotSetNonCalendarPermissionOnCalendarFolder"; }
 + (NSString *) ErrorCannotSetPermissionUnknownEntries { return @"ErrorCannotSetPermissionUnknownEntries"; }
@@ -487,16 +414,13 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorCannotUseItemIdForFolderId { return @"ErrorCannotUseItemIdForFolderId"; }
 + (NSString *) ErrorChangeKeyRequired { return @"ErrorChangeKeyRequired"; }
 + (NSString *) ErrorChangeKeyRequiredForWriteOperations { return @"ErrorChangeKeyRequiredForWriteOperations"; }
-+ (NSString *) ErrorClientDisconnected { return @"ErrorClientDisconnected"; }
 + (NSString *) ErrorConnectionFailed { return @"ErrorConnectionFailed"; }
-+ (NSString *) ErrorContainsFilterWrongType { return @"ErrorContainsFilterWrongType"; }
 + (NSString *) ErrorContentConversionFailed { return @"ErrorContentConversionFailed"; }
 + (NSString *) ErrorCorruptData { return @"ErrorCorruptData"; }
 + (NSString *) ErrorCreateItemAccessDenied { return @"ErrorCreateItemAccessDenied"; }
 + (NSString *) ErrorCreateManagedFolderPartialCompletion { return @"ErrorCreateManagedFolderPartialCompletion"; }
 + (NSString *) ErrorCreateSubfolderAccessDenied { return @"ErrorCreateSubfolderAccessDenied"; }
 + (NSString *) ErrorCrossMailboxMoveCopy { return @"ErrorCrossMailboxMoveCopy"; }
-+ (NSString *) ErrorCrossSiteRequest { return @"ErrorCrossSiteRequest"; }
 + (NSString *) ErrorDataSizeLimitExceeded { return @"ErrorDataSizeLimitExceeded"; }
 + (NSString *) ErrorDataSourceOperation { return @"ErrorDataSourceOperation"; }
 + (NSString *) ErrorDelegateAlreadyExists { return @"ErrorDelegateAlreadyExists"; }
@@ -507,14 +431,10 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorDeleteDistinguishedFolder { return @"ErrorDeleteDistinguishedFolder"; }
 + (NSString *) ErrorDeleteItemsFailed { return @"ErrorDeleteItemsFailed"; }
 + (NSString *) ErrorDistinguishedUserNotSupported { return @"ErrorDistinguishedUserNotSupported"; }
-+ (NSString *) ErrorDistributionListMemberNotExist { return @"ErrorDistributionListMemberNotExist"; }
 + (NSString *) ErrorDuplicateInputFolderNames { return @"ErrorDuplicateInputFolderNames"; }
 + (NSString *) ErrorDuplicateUserIdsSpecified { return @"ErrorDuplicateUserIdsSpecified"; }
 + (NSString *) ErrorEmailAddressMismatch { return @"ErrorEmailAddressMismatch"; }
 + (NSString *) ErrorEventNotFound { return @"ErrorEventNotFound"; }
-+ (NSString *) ErrorExceededConnectionCount { return @"ErrorExceededConnectionCount"; }
-+ (NSString *) ErrorExceededSubscriptionCount { return @"ErrorExceededSubscriptionCount"; }
-+ (NSString *) ErrorExceededFindCountLimit { return @"ErrorExceededFindCountLimit"; }
 + (NSString *) ErrorExpiredSubscription { return @"ErrorExpiredSubscription"; }
 + (NSString *) ErrorFolderCorrupt { return @"ErrorFolderCorrupt"; }
 + (NSString *) ErrorFolderNotFound { return @"ErrorFolderNotFound"; }
@@ -535,7 +455,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorInternalServerError { return @"ErrorInternalServerError"; }
 + (NSString *) ErrorInternalServerTransientError { return @"ErrorInternalServerTransientError"; }
 + (NSString *) ErrorInvalidAccessLevel { return @"ErrorInvalidAccessLevel"; }
-+ (NSString *) ErrorInvalidArgument { return @"ErrorInvalidArgument"; }
 + (NSString *) ErrorInvalidAttachmentId { return @"ErrorInvalidAttachmentId"; }
 + (NSString *) ErrorInvalidAttachmentSubfilter { return @"ErrorInvalidAttachmentSubfilter"; }
 + (NSString *) ErrorInvalidAttachmentSubfilterTextFilter { return @"ErrorInvalidAttachmentSubfilterTextFilter"; }
@@ -543,8 +462,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorInvalidChangeKey { return @"ErrorInvalidChangeKey"; }
 + (NSString *) ErrorInvalidClientSecurityContext { return @"ErrorInvalidClientSecurityContext"; }
 + (NSString *) ErrorInvalidCompleteDate { return @"ErrorInvalidCompleteDate"; }
-+ (NSString *) ErrorInvalidContactEmailAddress { return @"ErrorInvalidContactEmailAddress"; }
-+ (NSString *) ErrorInvalidContactEmailIndex { return @"ErrorInvalidContactEmailIndex"; }
 + (NSString *) ErrorInvalidCrossForestCredentials { return @"ErrorInvalidCrossForestCredentials"; }
 + (NSString *) ErrorInvalidDelegatePermission { return @"ErrorInvalidDelegatePermission"; }
 + (NSString *) ErrorInvalidDelegateUserId { return @"ErrorInvalidDelegateUserId"; }
@@ -577,8 +494,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorInvalidItemForOperationRemoveItem { return @"ErrorInvalidItemForOperationRemoveItem"; }
 + (NSString *) ErrorInvalidItemForOperationSendItem { return @"ErrorInvalidItemForOperationSendItem"; }
 + (NSString *) ErrorInvalidItemForOperationTentative { return @"ErrorInvalidItemForOperationTentative"; }
-+ (NSString *) ErrorInvalidLogonType { return @"ErrorInvalidLogonType"; }
-+ (NSString *) ErrorInvalidMailbox { return @"ErrorInvalidMailbox"; }
 + (NSString *) ErrorInvalidManagedFolderProperty { return @"ErrorInvalidManagedFolderProperty"; }
 + (NSString *) ErrorInvalidManagedFolderQuota { return @"ErrorInvalidManagedFolderQuota"; }
 + (NSString *) ErrorInvalidManagedFolderSize { return @"ErrorInvalidManagedFolderSize"; }
@@ -591,8 +506,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorInvalidParentFolder { return @"ErrorInvalidParentFolder"; }
 + (NSString *) ErrorInvalidPercentCompleteValue { return @"ErrorInvalidPercentCompleteValue"; }
 + (NSString *) ErrorInvalidPermissionSettings { return @"ErrorInvalidPermissionSettings"; }
-+ (NSString *) ErrorInvalidPhoneCallId { return @"ErrorInvalidPhoneCallId"; }
-+ (NSString *) ErrorInvalidPhoneNumber { return @"ErrorInvalidPhoneNumber"; }
 + (NSString *) ErrorInvalidUserInfo { return @"ErrorInvalidUserInfo"; }
 + (NSString *) ErrorInvalidPropertyAppend { return @"ErrorInvalidPropertyAppend"; }
 + (NSString *) ErrorInvalidPropertyDelete { return @"ErrorInvalidPropertyDelete"; }
@@ -614,13 +527,11 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorInvalidRestriction { return @"ErrorInvalidRestriction"; }
 + (NSString *) ErrorInvalidRoutingType { return @"ErrorInvalidRoutingType"; }
 + (NSString *) ErrorInvalidScheduledOofDuration { return @"ErrorInvalidScheduledOofDuration"; }
-+ (NSString *) ErrorInvalidSchemaVersionForMailboxVersion { return @"ErrorInvalidSchemaVersionForMailboxVersion"; }
 + (NSString *) ErrorInvalidSecurityDescriptor { return @"ErrorInvalidSecurityDescriptor"; }
 + (NSString *) ErrorInvalidSendItemSaveSettings { return @"ErrorInvalidSendItemSaveSettings"; }
 + (NSString *) ErrorInvalidSerializedAccessToken { return @"ErrorInvalidSerializedAccessToken"; }
 + (NSString *) ErrorInvalidServerVersion { return @"ErrorInvalidServerVersion"; }
 + (NSString *) ErrorInvalidSid { return @"ErrorInvalidSid"; }
-+ (NSString *) ErrorInvalidSIPUri { return @"ErrorInvalidSIPUri"; }
 + (NSString *) ErrorInvalidSmtpAddress { return @"ErrorInvalidSmtpAddress"; }
 + (NSString *) ErrorInvalidSubfilterType { return @"ErrorInvalidSubfilterType"; }
 + (NSString *) ErrorInvalidSubfilterTypeNotAttendeeType { return @"ErrorInvalidSubfilterTypeNotAttendeeType"; }
@@ -635,7 +546,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorInvalidUserSidMissingUPN { return @"ErrorInvalidUserSidMissingUPN"; }
 + (NSString *) ErrorInvalidValueForProperty { return @"ErrorInvalidValueForProperty"; }
 + (NSString *) ErrorInvalidWatermark { return @"ErrorInvalidWatermark"; }
-+ (NSString *) ErrorIPGatewayNotFound { return @"ErrorIPGatewayNotFound"; }
 + (NSString *) ErrorIrresolvableConflict { return @"ErrorIrresolvableConflict"; }
 + (NSString *) ErrorItemCorrupt { return @"ErrorItemCorrupt"; }
 + (NSString *) ErrorItemNotFound { return @"ErrorItemNotFound"; }
@@ -652,7 +562,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorMailboxMoveInProgress { return @"ErrorMailboxMoveInProgress"; }
 + (NSString *) ErrorMailboxStoreUnavailable { return @"ErrorMailboxStoreUnavailable"; }
 + (NSString *) ErrorMailRecipientNotFound { return @"ErrorMailRecipientNotFound"; }
-+ (NSString *) ErrorMailTipsDisabled { return @"ErrorMailTipsDisabled"; }
 + (NSString *) ErrorManagedFolderAlreadyExists { return @"ErrorManagedFolderAlreadyExists"; }
 + (NSString *) ErrorManagedFolderNotFound { return @"ErrorManagedFolderNotFound"; }
 + (NSString *) ErrorManagedFoldersRootFailure { return @"ErrorManagedFoldersRootFailure"; }
@@ -688,7 +597,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorNonPrimarySmtpAddress { return @"ErrorNonPrimarySmtpAddress"; }
 + (NSString *) ErrorNoPropertyTagForCustomProperties { return @"ErrorNoPropertyTagForCustomProperties"; }
 + (NSString *) ErrorNoPublicFolderReplicaAvailable { return @"ErrorNoPublicFolderReplicaAvailable"; }
-+ (NSString *) ErrorNoPublicFolderServerAvailable { return @"ErrorNoPublicFolderServerAvailable"; }
 + (NSString *) ErrorNoRespondingCASInDestinationSite { return @"ErrorNoRespondingCASInDestinationSite"; }
 + (NSString *) ErrorNotDelegate { return @"ErrorNotDelegate"; }
 + (NSString *) ErrorNotEnoughMemory { return @"ErrorNotEnoughMemory"; }
@@ -700,7 +608,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorParentFolderNotFound { return @"ErrorParentFolderNotFound"; }
 + (NSString *) ErrorPasswordChangeRequired { return @"ErrorPasswordChangeRequired"; }
 + (NSString *) ErrorPasswordExpired { return @"ErrorPasswordExpired"; }
-+ (NSString *) ErrorPhoneNumberNotDialable { return @"ErrorPhoneNumberNotDialable"; }
 + (NSString *) ErrorPropertyUpdate { return @"ErrorPropertyUpdate"; }
 + (NSString *) ErrorPropertyValidationFailure { return @"ErrorPropertyValidationFailure"; }
 + (NSString *) ErrorProxiedSubscriptionCallFailure { return @"ErrorProxiedSubscriptionCallFailure"; }
@@ -741,11 +648,9 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorServerBusy { return @"ErrorServerBusy"; }
 + (NSString *) ErrorServiceDiscoveryFailed { return @"ErrorServiceDiscoveryFailed"; }
 + (NSString *) ErrorStaleObject { return @"ErrorStaleObject"; }
-+ (NSString *) ErrorSubmissionQuotaExceeded { return @"ErrorSubmissionQuotaExceeded"; }
 + (NSString *) ErrorSubscriptionAccessDenied { return @"ErrorSubscriptionAccessDenied"; }
 + (NSString *) ErrorSubscriptionDelegateAccessNotSupported { return @"ErrorSubscriptionDelegateAccessNotSupported"; }
 + (NSString *) ErrorSubscriptionNotFound { return @"ErrorSubscriptionNotFound"; }
-+ (NSString *) ErrorSubscriptionUnsubscribed { return @"ErrorSubscriptionUnsubscribed"; }
 + (NSString *) ErrorSyncFolderNotFound { return @"ErrorSyncFolderNotFound"; }
 + (NSString *) ErrorTimeIntervalTooBig { return @"ErrorTimeIntervalTooBig"; }
 + (NSString *) ErrorTimeoutExpired { return @"ErrorTimeoutExpired"; }
@@ -753,9 +658,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorToFolderNotFound { return @"ErrorToFolderNotFound"; }
 + (NSString *) ErrorTokenSerializationDenied { return @"ErrorTokenSerializationDenied"; }
 + (NSString *) ErrorUpdatePropertyMismatch { return @"ErrorUpdatePropertyMismatch"; }
-+ (NSString *) ErrorUnifiedMessagingDialPlanNotFound { return @"ErrorUnifiedMessagingDialPlanNotFound"; }
-+ (NSString *) ErrorUnifiedMessagingRequestFailed { return @"ErrorUnifiedMessagingRequestFailed"; }
-+ (NSString *) ErrorUnifiedMessagingServerNotFound { return @"ErrorUnifiedMessagingServerNotFound"; }
 + (NSString *) ErrorUnableToGetUserOofSettings { return @"ErrorUnableToGetUserOofSettings"; }
 + (NSString *) ErrorUnsupportedSubFilter { return @"ErrorUnsupportedSubFilter"; }
 + (NSString *) ErrorUnsupportedCulture { return @"ErrorUnsupportedCulture"; }
@@ -768,44 +670,12 @@ static NSSet* enumerations = nil;
 + (NSString *) ErrorUnsupportedRecurrence { return @"ErrorUnsupportedRecurrence"; }
 + (NSString *) ErrorUnsupportedTypeForConversion { return @"ErrorUnsupportedTypeForConversion"; }
 + (NSString *) ErrorUpdateDelegatesFailed { return @"ErrorUpdateDelegatesFailed"; }
-+ (NSString *) ErrorUserNotUnifiedMessagingEnabled { return @"ErrorUserNotUnifiedMessagingEnabled"; }
 + (NSString *) ErrorVoiceMailNotImplemented { return @"ErrorVoiceMailNotImplemented"; }
-+ (NSString *) ErrorValueOutOfRange { return @"ErrorValueOutOfRange"; }
 + (NSString *) ErrorVirusDetected { return @"ErrorVirusDetected"; }
 + (NSString *) ErrorVirusMessageDeleted { return @"ErrorVirusMessageDeleted"; }
 + (NSString *) ErrorWebRequestInInvalidState { return @"ErrorWebRequestInInvalidState"; }
 + (NSString *) ErrorWin32InteropError { return @"ErrorWin32InteropError"; }
 + (NSString *) ErrorWorkingHoursSaveFailed { return @"ErrorWorkingHoursSaveFailed"; }
 + (NSString *) ErrorWorkingHoursXmlMalformed { return @"ErrorWorkingHoursXmlMalformed"; }
-+ (NSString *) ErrorWrongServerVersion { return @"ErrorWrongServerVersion"; }
-+ (NSString *) ErrorWrongServerVersionDelegate { return @"ErrorWrongServerVersionDelegate"; }
-+ (NSString *) ErrorMissingInformationSharingFolderId { return @"ErrorMissingInformationSharingFolderId"; }
-+ (NSString *) ErrorDuplicateSOAPHeader { return @"ErrorDuplicateSOAPHeader"; }
-+ (NSString *) ErrorSharingSynchronizationFailed { return @"ErrorSharingSynchronizationFailed"; }
-+ (NSString *) ErrorSharingNoExternalEwsAvailable { return @"ErrorSharingNoExternalEwsAvailable"; }
-+ (NSString *) ErrorFreeBusyDLLimitReached { return @"ErrorFreeBusyDLLimitReached"; }
-+ (NSString *) ErrorInvalidGetSharingFolderRequest { return @"ErrorInvalidGetSharingFolderRequest"; }
-+ (NSString *) ErrorNotAllowedExternalSharingByPolicy { return @"ErrorNotAllowedExternalSharingByPolicy"; }
-+ (NSString *) ErrorUserNotAllowedByPolicy { return @"ErrorUserNotAllowedByPolicy"; }
-+ (NSString *) ErrorPermissionNotAllowedByPolicy { return @"ErrorPermissionNotAllowedByPolicy"; }
-+ (NSString *) ErrorOrganizationNotFederated { return @"ErrorOrganizationNotFederated"; }
-+ (NSString *) ErrorMailboxFailover { return @"ErrorMailboxFailover"; }
-+ (NSString *) ErrorInvalidExternalSharingInitiator { return @"ErrorInvalidExternalSharingInitiator"; }
-+ (NSString *) ErrorMessageTrackingPermanentError { return @"ErrorMessageTrackingPermanentError"; }
-+ (NSString *) ErrorMessageTrackingTransientError { return @"ErrorMessageTrackingTransientError"; }
-+ (NSString *) ErrorMessageTrackingNoSuchDomain { return @"ErrorMessageTrackingNoSuchDomain"; }
-+ (NSString *) ErrorUserWithoutFederatedProxyAddress { return @"ErrorUserWithoutFederatedProxyAddress"; }
-+ (NSString *) ErrorInvalidOrganizationRelationshipForFreeBusy { return @"ErrorInvalidOrganizationRelationshipForFreeBusy"; }
-+ (NSString *) ErrorInvalidFederatedOrganizationId { return @"ErrorInvalidFederatedOrganizationId"; }
-+ (NSString *) ErrorInvalidExternalSharingSubscriber { return @"ErrorInvalidExternalSharingSubscriber"; }
-+ (NSString *) ErrorInvalidSharingData { return @"ErrorInvalidSharingData"; }
-+ (NSString *) ErrorInvalidSharingMessage { return @"ErrorInvalidSharingMessage"; }
-+ (NSString *) ErrorNotSupportedSharingMessage { return @"ErrorNotSupportedSharingMessage"; }
-+ (NSString *) ErrorApplyConversationActionFailed { return @"ErrorApplyConversationActionFailed"; }
-+ (NSString *) ErrorInboxRulesValidationError { return @"ErrorInboxRulesValidationError"; }
-+ (NSString *) ErrorOutlookRuleBlobExists { return @"ErrorOutlookRuleBlobExists"; }
-+ (NSString *) ErrorRulesOverQuota { return @"ErrorRulesOverQuota"; }
-+ (NSString *) ErrorNewEventStreamConnectionOpened { return @"ErrorNewEventStreamConnectionOpened"; }
-+ (NSString *) ErrorMissedNotificationEvents { return @"ErrorMissedNotificationEvents"; }
 @end
 

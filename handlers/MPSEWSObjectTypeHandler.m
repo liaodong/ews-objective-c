@@ -123,7 +123,12 @@
     MPSEWSHandlerValue* h = [elements objectForKey:tag];
 
     if ([h sel]) {
-        [obj performSelector: [h selector] withObject:v];
+        //[obj performSelector: [h selector] withObject:v];
+
+        SEL sel = [h selector];
+        IMP imp = [obj methodForSelector:sel];
+        void (*func)(id, SEL, id) = (void*) imp;
+        func (obj, sel, v);
     }
     else {
         [obj setValue:v forKey:[h prop]];

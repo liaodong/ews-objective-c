@@ -35,7 +35,7 @@ DEPDIR = .d
 $(shell mkdir -p $(DEPDIR) >/dev/null)
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.Td
 
-COMPILE.m  = $(CXX) $(DEPFLAGS) $(CFLAGS) -c
+COMPILE.m  = $(CXX) $(DEPFLAGS) $(CFLAGS) -fobjc-arc -c
 POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
 
 objects/%.o : %.m

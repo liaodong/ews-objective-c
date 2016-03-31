@@ -10,8 +10,7 @@ static NSSet* enumerations = nil;
     enumerations = [NSSet setWithObjects:
                                          [MPSEWSDeliverMeetingRequestsType DelegatesOnly], 
                                          [MPSEWSDeliverMeetingRequestsType DelegatesAndMe], 
-                                         [MPSEWSDeliverMeetingRequestsType DelegatesAndSendInformationToMe], 
-                                         [MPSEWSDeliverMeetingRequestsType NoForward], nil];
+                                         [MPSEWSDeliverMeetingRequestsType DelegatesAndSendInformationToMe], nil];
     [[[MPSEWSDeliverMeetingRequestsType alloc] init] register];
 }
 
@@ -48,6 +47,5 @@ static NSSet* enumerations = nil;
 + (NSString *) DelegatesOnly { return @"DelegatesOnly"; }
 + (NSString *) DelegatesAndMe { return @"DelegatesAndMe"; }
 + (NSString *) DelegatesAndSendInformationToMe { return @"DelegatesAndSendInformationToMe"; }
-+ (NSString *) NoForward { return @"NoForward"; }
 @end
 

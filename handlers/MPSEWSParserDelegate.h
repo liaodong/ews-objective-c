@@ -5,7 +5,11 @@
 
 @interface MPSEWSParserDelegate : NSObject <NSXMLParserDelegate>
 
-@property (readonly) MPSEWSParserDelegate* parent;
+@property MPSEWSParserDelegate*     parent;
+@property MPSEWSParserDelegate*     delegate;
+@property id<MPSEWSHandlerProtocol> handler;
+@property id                        object;
+
 
 - (id) initWithParent: (MPSEWSParserDelegate*) parent;
 - (id) initWithHandler: (id<MPSEWSHandlerProtocol>) handler andParent:(MPSEWSParserDelegate*) parent andObjectWithAttributes:(NSDictionary *)attributeDict;

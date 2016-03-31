@@ -115,7 +115,9 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 
 - (id) init
 {
-    return [super init];
+    self = [super init];
+    NSLog (@"%p", self);
+    return self;
 }
 
 - (id<MPSEWSHandlerProtocol>) handlerForElementName:(NSString*) elementName namespace:(char) ns
@@ -144,6 +146,7 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
     [parser setShouldProcessNamespaces:TRUE];
     [parser setShouldReportNamespacePrefixes:TRUE];
 
+    NSLog(@"Setting doc delegate %p", doc);
     [parser setDelegate:doc];
 
     [parser parse];

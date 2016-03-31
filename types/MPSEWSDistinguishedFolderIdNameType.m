@@ -23,18 +23,7 @@ static NSSet* enumerations = nil;
                                          [MPSEWSDistinguishedFolderIdNameType root], 
                                          [MPSEWSDistinguishedFolderIdNameType junkemail], 
                                          [MPSEWSDistinguishedFolderIdNameType searchfolders], 
-                                         [MPSEWSDistinguishedFolderIdNameType voicemail], 
-                                         [MPSEWSDistinguishedFolderIdNameType recoverableitemsroot], 
-                                         [MPSEWSDistinguishedFolderIdNameType recoverableitemsdeletions], 
-                                         [MPSEWSDistinguishedFolderIdNameType recoverableitemsversions], 
-                                         [MPSEWSDistinguishedFolderIdNameType recoverableitemspurges], 
-                                         [MPSEWSDistinguishedFolderIdNameType archiveroot], 
-                                         [MPSEWSDistinguishedFolderIdNameType archivemsgfolderroot], 
-                                         [MPSEWSDistinguishedFolderIdNameType archivedeleteditems], 
-                                         [MPSEWSDistinguishedFolderIdNameType archiverecoverableitemsroot], 
-                                         [MPSEWSDistinguishedFolderIdNameType archiverecoverableitemsdeletions], 
-                                         [MPSEWSDistinguishedFolderIdNameType archiverecoverableitemsversions], 
-                                         [MPSEWSDistinguishedFolderIdNameType archiverecoverableitemspurges], nil];
+                                         [MPSEWSDistinguishedFolderIdNameType voicemail], nil];
     [[[MPSEWSDistinguishedFolderIdNameType alloc] init] register];
 }
 
@@ -84,16 +73,5 @@ static NSSet* enumerations = nil;
 + (NSString *) junkemail { return @"junkemail"; }
 + (NSString *) searchfolders { return @"searchfolders"; }
 + (NSString *) voicemail { return @"voicemail"; }
-+ (NSString *) recoverableitemsroot { return @"recoverableitemsroot"; }
-+ (NSString *) recoverableitemsdeletions { return @"recoverableitemsdeletions"; }
-+ (NSString *) recoverableitemsversions { return @"recoverableitemsversions"; }
-+ (NSString *) recoverableitemspurges { return @"recoverableitemspurges"; }
-+ (NSString *) archiveroot { return @"archiveroot"; }
-+ (NSString *) archivemsgfolderroot { return @"archivemsgfolderroot"; }
-+ (NSString *) archivedeleteditems { return @"archivedeleteditems"; }
-+ (NSString *) archiverecoverableitemsroot { return @"archiverecoverableitemsroot"; }
-+ (NSString *) archiverecoverableitemsdeletions { return @"archiverecoverableitemsdeletions"; }
-+ (NSString *) archiverecoverableitemsversions { return @"archiverecoverableitemsversions"; }
-+ (NSString *) archiverecoverableitemspurges { return @"archiverecoverableitemspurges"; }
 @end
 

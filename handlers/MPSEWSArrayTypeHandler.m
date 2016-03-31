@@ -76,7 +76,10 @@
     {
         Class cls = nil;
         if ([obj respondsToSelector:handlerClass]) {
-            cls = [obj performSelector:handlerClass];
+            //cls = [obj performSelector:handlerClass];
+            IMP imp = [obj methodForSelector:handlerClass];
+            Class (*func)(id, SEL) = (void*) imp;
+            cls = func (obj, handlerClass);
         }
 
         NSString* key = cls ? [elements objectForKey:[cls className]] : [self tag];

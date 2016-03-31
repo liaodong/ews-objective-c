@@ -43,6 +43,11 @@ static NSMutableDictionary* _handlers = nil;
     return [super init];
 }
 
+- (Class) cls
+{
+    return clazz;
+}
+
 
 - (void) register
 {

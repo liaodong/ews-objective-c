@@ -20,12 +20,7 @@ static NSSet* enumerations = nil;
                                          [MPSEWSFileAsMappingType LastFirstSuffix], 
                                          [MPSEWSFileAsMappingType LastSpaceFirstCompany], 
                                          [MPSEWSFileAsMappingType CompanyLastSpaceFirst], 
-                                         [MPSEWSFileAsMappingType LastSpaceFirst], 
-                                         [MPSEWSFileAsMappingType DisplayName], 
-                                         [MPSEWSFileAsMappingType FirstName], 
-                                         [MPSEWSFileAsMappingType LastFirstMiddleSuffix], 
-                                         [MPSEWSFileAsMappingType LastName], 
-                                         [MPSEWSFileAsMappingType Empty], nil];
+                                         [MPSEWSFileAsMappingType LastSpaceFirst], nil];
     [[[MPSEWSFileAsMappingType alloc] init] register];
 }
 
@@ -72,10 +67,5 @@ static NSSet* enumerations = nil;
 + (NSString *) LastSpaceFirstCompany { return @"LastSpaceFirstCompany"; }
 + (NSString *) CompanyLastSpaceFirst { return @"CompanyLastSpaceFirst"; }
 + (NSString *) LastSpaceFirst { return @"LastSpaceFirst"; }
-+ (NSString *) DisplayName { return @"DisplayName"; }
-+ (NSString *) FirstName { return @"FirstName"; }
-+ (NSString *) LastFirstMiddleSuffix { return @"LastFirstMiddleSuffix"; }
-+ (NSString *) LastName { return @"LastName"; }
-+ (NSString *) Empty { return @"Empty"; }
 @end
 

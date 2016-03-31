@@ -14,6 +14,8 @@
 
 - (id) initWithClass: (Class)cls;
 
+- (Class) cls;
+
 - (id) constructWithAttributes: (NSDictionary *)attributes;
 
 - (id) updateObject:(id)obj withCharacters:(NSString*)s;

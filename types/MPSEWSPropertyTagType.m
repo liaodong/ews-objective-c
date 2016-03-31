@@ -5,7 +5,6 @@
 
 + (void) initialize
 {
-    [[MPSEWSPropertyTagType alloc] init];
 }
 + (BOOL) isValid:(NSNumber*) val
 {

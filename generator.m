@@ -775,6 +775,120 @@ static const char* prefix = "MPSEWS";
     fclose (file);
 }
 
+- (void) simpleListEnumeratedString:(Element*) elem
+{
+    const char* returnType = "NSMutableArray<NSString*> *";
+    Element* child = [[elem children] objectAtIndex: 0];
+
+    const char* name = [[elem name] UTF8String];
+    const char* dir  = [elem ns] == 't' ? "types" : "messages";
+
+    char filename[1024];
+    sprintf (filename, "%s/%s%s.h", dir, prefix, name);
+    
+    FILE* file = fopen (filename, "w");
+    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
+    fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
+    fprintf (file, "\n\n\n");
+    fprintf (file, "/** SimpleType: %s can be one of the following:\n", name);
+
+    int idx = 1;
+    for (Element *e in [child children])
+    {
+        const char* v = [[e value] UTF8String];
+        fprintf (file, " *       %d %s\n", idx++, v);
+    }
+    fprintf (file, " */\n");
+    fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
+   
+    fprintf (file, "/** Register a handler to parse %s */\n", name);
+    fprintf (file, "+ (void) initialize;\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*)val;\n\n");
+
+    fprintf (file, "/** Initialize the handler */\n");
+    fprintf (file, "- (id) init;\n");
+    fprintf (file, "- (id) initWithClass:(Class) cls;\n\n");
+
+    fprintf (file, "/** Process the characters */\n");
+    fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*)s;\n\n", returnType, returnType);
+    
+    fprintf (file, "/** Write to the buffer the string value */\n");
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object;\n\n", returnType);
+    
+
+    fprintf (file, "\n/* Valid values */\n");
+    for (Element *e in [child children])
+    {
+        const char* v = [[[e value] stringByReplacingOccurrencesOfString:@":" withString:@"_"] UTF8String];
+        fprintf (file, "+ (NSString *) %s;\n", v);
+    }
+    fprintf (file, "@end\n\n");
+    fclose (file);
+
+    sprintf (filename, "%s/%s%s.m", dir, prefix, name);
+    
+    file = fopen (filename, "w");
+    fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
+    fprintf (file, "#import \"%s%s.h\"", prefix, name);
+    fprintf (file, "\n");
+    fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
+
+    fprintf (file, "static NSSet* enumerations = nil;\n\n");
+
+    
+    fprintf (file, "+ (void) initialize\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    enumerations = [NSSet setWithObjects:");
+    for (Element *e in [child children])
+    {
+        const char* v = [[[e value] stringByReplacingOccurrencesOfString:@":" withString:@"_"] UTF8String];
+        fprintf (file, "\n                                         [%s%s %s], ", prefix, name, v);
+    }
+    fprintf (file, "nil];\n");
+    fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    return [enumerations containsObject:val];\n");
+    fprintf (file, "}\n\n");
+
+
+    fprintf (file, "- (id) init\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    self = [super initWithClass:[%s%s class]];\n", prefix, name);
+    fprintf (file, "    return self;\n");
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "- (id) initWithClass:(Class) cls\n");
+    fprintf (file, "{\n");
+    fprintf (file, "    self = [super initWithClass:cls];\n");
+    fprintf (file, "    return self;\n");
+    fprintf (file, "}\n\n");
+
+    fprintf (file, "- (%s) updateObject:(%s)obj withCharacters:(NSString*) s\n", returnType, returnType);
+    fprintf (file, "{\n");
+    fprintf (file, "    s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];\n");
+    fprintf (file, "    return [enumerations containsObject:s] ? [enumerations member:s] : obj;\n");
+    fprintf (file, "}\n\n");
+   
+    fprintf (file, "- (void) writeXmlInto:(NSMutableString*)buffer for:(%s) object\n", returnType);
+    fprintf (file, "{\n");
+    fprintf (file, "    NSString* obj = ((NSString*) object);\n");
+    fprintf (file, "    NSAssert([enumerations containsObject:obj], @\"String is a enumerated list\");\n");
+    fprintf (file, "    [buffer appendString:((NSString*) object)];\n"); 
+    fprintf (file, "}\n\n");
+
+    for (Element *e in [child children])
+    {
+        const char* v = [[[e value] stringByReplacingOccurrencesOfString:@":" withString:@"_"] UTF8String];
+        fprintf (file, "+ (NSString *) %s { return @\"%s\"; }\n", v, [[e value] UTF8String]);
+    }
+    
+    fprintf (file, "@end\n\n");
+    fclose (file);
+}
+
 -(void) extendNonEmptyStringType:(Element*) elem
 {
     const char* name = [[elem name] UTF8String];
@@ -836,6 +950,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "@end\n\n");
     fclose (file);
 }
+
+
 
 - (BOOL) isSimpleType:(Element*) e
 {

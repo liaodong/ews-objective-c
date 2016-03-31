@@ -7,7 +7,6 @@
  *       1 DelegatesOnly
  *       2 DelegatesAndMe
  *       3 DelegatesAndSendInformationToMe
- *       4 NoForward
  */
 @interface MPSEWSDeliverMeetingRequestsType : MPSEWSSimpleTypeHandler 
 
@@ -30,6 +29,5 @@
 + (NSString *) DelegatesOnly;
 + (NSString *) DelegatesAndMe;
 + (NSString *) DelegatesAndSendInformationToMe;
-+ (NSString *) NoForward;
 @end
 

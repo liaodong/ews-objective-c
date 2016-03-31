@@ -4,14 +4,14 @@
 
 @implementation MPSEWSParserDelegate 
 {
-    id<MPSEWSHandlerProtocol> _handler;
-    id                     _object;
 }
 
 - (id) initWithParent:(MPSEWSParserDelegate*) parent
 {
     self = [super init];
-    _parent = parent;
+    [self setParent:parent];
+
+    NSLog (@"Creating an instance of MPSEWSParserDelegate = %p with parent %p", self, [self parent]);
     return self;
 }
 
@@ -19,26 +19,29 @@
 {
     self = [super init];
 
-    _parent  = parent;
-    _handler = handler ? handler : [MPSEWSHandler noop];
+    handler = handler ? handler : [MPSEWSHandler noop];
 
-    if (!_parent) {
-        _parent = self;
-    }
-    _object = [_handler constructWithAttributes:attributeDict];
+    [self setParent:parent];
+    [self setHandler:handler];
 
+    if (![self parent])
+        [self setParent:self];
+
+    [self setObject:[[self handler] constructWithAttributes:attributeDict]];
+
+    NSLog (@"Creating an instance of MPSEWSParserDelegate = %p with parent %p", self, [self parent]);
     return self;
 }
 
 - (id<MPSEWSHandlerProtocol>) handlerForElementName:(NSString*) elementName namespace:(char) ns
 {
-    return [_handler handlerForElement:elementName namespace:ns];
+    return [[self handler] handlerForElement:elementName namespace:ns];
 }
 
 - (void) populateValue:(id) value forKey: (NSString*) tag namespace:(char) ns
 {
     if (value) {
-        _object = [_handler updateObject:_object forKey: tag namespace:ns withValue:value];
+        [self setObject:[[self handler] updateObject:[self object] forKey: tag namespace:ns withValue:value]];
     }
     else NSLog(@"value is null");
 }
@@ -55,14 +58,15 @@
 
     NSLog(@"begin %@ %@ %@", elementName, namespaceURI, qName);
 
-    MPSEWSParserDelegate* delegate = [[MPSEWSParserDelegate alloc] initWithHandler: [self handlerForElementName:elementName namespace:ns] andParent:self andObjectWithAttributes:attributeDict];
-    [parser setDelegate:delegate];
+    [self setDelegate:[[MPSEWSParserDelegate alloc] initWithHandler: [self handlerForElementName:elementName namespace:ns] andParent:self andObjectWithAttributes:attributeDict]];
+    NSLog(@"Setting delegate %p", [self delegate]);
+    [parser setDelegate:[self delegate]];
 }
 
 - (void)parser:(NSXMLParser*)parser 
                 foundCharacters:(NSString *)string
 {
-    _object = [_handler updateObject:_object withCharacters:string];
+    [self setObject: [[self handler] updateObject:[self object] withCharacters:string]];
 }
 
 - (void)parser:(NSXMLParser*)parser 
@@ -74,9 +78,9 @@
     ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
     ns = [namespaceURI hasSuffix:@"messages"] ? 'm' : ns;
 
-    [_parent populateValue:_object forKey:elementName namespace:ns];
-    [parser setDelegate:_parent];
-    [self release];
+    [[self parent] populateValue:[self object] forKey:elementName namespace:ns];
+    NSLog(@"Setting delegate as parent %p of %p", [self parent], self);
+    [parser setDelegate:[self parent]];
 }
 
 - (void) parser:(NSXMLParser *)parser
