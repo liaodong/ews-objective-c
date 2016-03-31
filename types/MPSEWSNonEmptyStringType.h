@@ -3,7 +3,7 @@
 #import "../handlers/MPSEWSSimpleTypeHandler.h"
 
 
-/** SimpleType: NonEmptyStringType is a min length string of size 1 */
+/** SimpleType: NonEmptyStringType is a min length string of size 1 and max length +inf.*/
 @interface MPSEWSNonEmptyStringType : MPSEWSSimpleTypeHandler 
 
 /** Register a handler to parse NonEmptyStringType */

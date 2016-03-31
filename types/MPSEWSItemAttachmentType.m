@@ -3,6 +3,9 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSItemAttachmentType.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
+#import "../handlers/MPSEWSDateTimeTypeHandler.h"
+#import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
 #import "../types/MPSEWSAttachmentIdType.h"
 #import "../types/MPSEWSCalendarItemType.h"
@@ -47,6 +50,21 @@
              withNamespace : 't'
              withXmlTag    : @"ContentLocation"
              withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"size"
+             withNamespace : 't'
+             withXmlTag    : @"Size"
+             withHandler   : [MPSEWSIntegerTypeHandler class]];
+
+    [handler property      : @"lastModifiedTime"
+             withNamespace : 't'
+             withXmlTag    : @"LastModifiedTime"
+             withHandler   : [MPSEWSDateTimeTypeHandler class]];
+
+    [handler property      : @"isInline"
+             withNamespace : 't'
+             withXmlTag    : @"IsInline"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"item"
              withNamespace : 't'

@@ -9,7 +9,10 @@ static NSSet* enumerations = nil;
 {
     enumerations = [NSSet setWithObjects:
                                          [MPSEWSExchangeVersionType Exchange2007], 
-                                         [MPSEWSExchangeVersionType Exchange2007_SP1], nil];
+                                         [MPSEWSExchangeVersionType Exchange2007_SP1], 
+                                         [MPSEWSExchangeVersionType Exchange2010], 
+                                         [MPSEWSExchangeVersionType Exchange2010_SP1], 
+                                         [MPSEWSExchangeVersionType Exchange2010_SP2], nil];
     [[[MPSEWSExchangeVersionType alloc] init] register];
 }
 
@@ -45,5 +48,8 @@ static NSSet* enumerations = nil;
 
 + (NSString *) Exchange2007 { return @"Exchange2007"; }
 + (NSString *) Exchange2007_SP1 { return @"Exchange2007_SP1"; }
++ (NSString *) Exchange2010 { return @"Exchange2010"; }
++ (NSString *) Exchange2010_SP1 { return @"Exchange2010_SP1"; }
++ (NSString *) Exchange2010_SP2 { return @"Exchange2010_SP2"; }
 @end
 

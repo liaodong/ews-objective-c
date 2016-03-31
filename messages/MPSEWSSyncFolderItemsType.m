@@ -7,6 +7,7 @@
 #import "../types/MPSEWSArrayOfBaseItemIdsType.h"
 #import "../types/MPSEWSItemResponseShapeType.h"
 #import "../types/MPSEWSMaxSyncChangesReturnedType.h"
+#import "../types/MPSEWSSyncFolderItemsScopeType.h"
 #import "../types/MPSEWSTargetFolderIdType.h"
 
 
@@ -41,6 +42,11 @@
              withXmlTag    : @"MaxChangesReturned"
              withHandler   : [MPSEWSMaxSyncChangesReturnedType class]];
 
+    [handler property      : @"syncScope"
+             withNamespace : 'm'
+             withXmlTag    : @"SyncScope"
+             withHandler   : [MPSEWSSyncFolderItemsScopeType class]];
+
     [handler register];
 }
 
@@ -52,6 +58,7 @@
     if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState]]) return FALSE;
     if ([val ignore] && ![MPSEWSArrayOfBaseItemIdsType isValid:[val ignore]]) return FALSE;
     if ([val maxChangesReturned] && ![MPSEWSMaxSyncChangesReturnedType isValid:[val maxChangesReturned]]) return FALSE;
+    if ([val syncScope] && ![MPSEWSSyncFolderItemsScopeType isValid:[val syncScope]]) return FALSE;
     return TRUE;
 }
 
@@ -67,7 +74,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"SyncFolderItemsType: ItemShape=%@ SyncFolderId=%@ SyncState=%@ Ignore=%@ MaxChangesReturned=%@ super=%@", _itemShape, _syncFolderId, _syncState, _ignore, _maxChangesReturned, [super description]];
+    return [NSString stringWithFormat:@"SyncFolderItemsType: ItemShape=%@ SyncFolderId=%@ SyncState=%@ Ignore=%@ MaxChangesReturned=%@ SyncScope=%@ super=%@", _itemShape, _syncFolderId, _syncState, _ignore, _maxChangesReturned, _syncScope, [super description]];
 }
 
 @end

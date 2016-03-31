@@ -21,6 +21,7 @@
 @property (strong) NSNumber* delete            /* xs:boolean */;
 @property (strong) NSNumber* modify            /* xs:boolean */;
 @property (strong) NSNumber* read              /* xs:boolean */;
+@property (strong) NSNumber* viewPrivateItems  /* xs:boolean */;
 
 
 @end

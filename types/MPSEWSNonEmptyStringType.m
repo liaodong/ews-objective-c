@@ -5,6 +5,8 @@
 
 static int minLength = 1;
 
+static int maxLength = INT_MAX;
+
 + (void) initialize
 {
     [[[MPSEWSNonEmptyStringType alloc] init] register];
@@ -12,7 +14,7 @@ static int minLength = 1;
 
 + (BOOL) isValid:(NSString*) val
 {
-    return [val length] > minLength;
+    return [val length] > minLength && [val length] < maxLength;
 }
 
 - (id) init

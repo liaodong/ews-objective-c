@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSItemType.h"
+#import "../handlers/MPSEWSBase64BinaryTypeHandler.h"
 #import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
@@ -196,6 +197,36 @@
              withXmlTag    : @"LastModifiedTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
+    [handler property      : @"isAssociated"
+             withNamespace : 't'
+             withXmlTag    : @"IsAssociated"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
+    [handler property      : @"webClientReadFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientReadFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"webClientEditFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientEditFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"conversationId"
+             withNamespace : 't'
+             withXmlTag    : @"ConversationId"
+             withHandler   : [MPSEWSItemIdType class]];
+
+    [handler property      : @"uniqueBody"
+             withNamespace : 't'
+             withXmlTag    : @"UniqueBody"
+             withHandler   : [MPSEWSBodyType class]];
+
+    [handler property      : @"storeEntryId"
+             withNamespace : 't'
+             withXmlTag    : @"StoreEntryId"
+             withHandler   : [MPSEWSBase64BinaryTypeHandler class]];
+
     [handler register];
 }
 
@@ -238,6 +269,12 @@
     if ([val effectiveRights] && ![MPSEWSEffectiveRightsType isValid:[val effectiveRights]]) return FALSE;
     if ([val lastModifiedName] && ![MPSEWSStringTypeHandler isValid:[val lastModifiedName]]) return FALSE;
     if ([val lastModifiedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastModifiedTime]]) return FALSE;
+    if ([val isAssociated] && ![MPSEWSBooleanTypeHandler isValid:[val isAssociated]]) return FALSE;
+    if ([val webClientReadFormQueryString] && ![MPSEWSStringTypeHandler isValid:[val webClientReadFormQueryString]]) return FALSE;
+    if ([val webClientEditFormQueryString] && ![MPSEWSStringTypeHandler isValid:[val webClientEditFormQueryString]]) return FALSE;
+    if ([val conversationId] && ![MPSEWSItemIdType isValid:[val conversationId]]) return FALSE;
+    if ([val uniqueBody] && ![MPSEWSBodyType isValid:[val uniqueBody]]) return FALSE;
+    if ([val storeEntryId] && ![MPSEWSBase64BinaryTypeHandler isValid:[val storeEntryId]]) return FALSE;
     return TRUE;
 }
 
@@ -253,7 +290,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ItemType: MimeContent=%@ ItemId=%@ ParentFolderId=%@ ItemClass=%@ Subject=%@ Sensitivity=%@ Body=%@ Attachments=%@ DateTimeReceived=%@ Size=%@ Categories=%@ Importance=%@ InReplyTo=%@ IsSubmitted=%@ IsDraft=%@ IsFromMe=%@ IsResend=%@ IsUnmodified=%@ InternetMessageHeaders=%@ DateTimeSent=%@ DateTimeCreated=%@ ResponseObjects=%@ ReminderDueBy=%@ ReminderIsSet=%@ ReminderMinutesBeforeStart=%@ DisplayCc=%@ DisplayTo=%@ HasAttachments=%@ ExtendedProperty=%@ Culture=%@ EffectiveRights=%@ LastModifiedName=%@ LastModifiedTime=%@", _mimeContent, _itemId, _parentFolderId, _itemClass, _subject, _sensitivity, _body, _attachments, _dateTimeReceived, _size, _categories, _importance, _inReplyTo, _isSubmitted, _isDraft, _isFromMe, _isResend, _isUnmodified, _internetMessageHeaders, _dateTimeSent, _dateTimeCreated, _responseObjects, _reminderDueBy, _reminderIsSet, _reminderMinutesBeforeStart, _displayCc, _displayTo, _hasAttachments, _extendedProperty, _culture, _effectiveRights, _lastModifiedName, _lastModifiedTime];
+    return [NSString stringWithFormat:@"ItemType: MimeContent=%@ ItemId=%@ ParentFolderId=%@ ItemClass=%@ Subject=%@ Sensitivity=%@ Body=%@ Attachments=%@ DateTimeReceived=%@ Size=%@ Categories=%@ Importance=%@ InReplyTo=%@ IsSubmitted=%@ IsDraft=%@ IsFromMe=%@ IsResend=%@ IsUnmodified=%@ InternetMessageHeaders=%@ DateTimeSent=%@ DateTimeCreated=%@ ResponseObjects=%@ ReminderDueBy=%@ ReminderIsSet=%@ ReminderMinutesBeforeStart=%@ DisplayCc=%@ DisplayTo=%@ HasAttachments=%@ ExtendedProperty=%@ Culture=%@ EffectiveRights=%@ LastModifiedName=%@ LastModifiedTime=%@ IsAssociated=%@ WebClientReadFormQueryString=%@ WebClientEditFormQueryString=%@ ConversationId=%@ UniqueBody=%@ StoreEntryId=%@", _mimeContent, _itemId, _parentFolderId, _itemClass, _subject, _sensitivity, _body, _attachments, _dateTimeReceived, _size, _categories, _importance, _inReplyTo, _isSubmitted, _isDraft, _isFromMe, _isResend, _isUnmodified, _internetMessageHeaders, _dateTimeSent, _dateTimeCreated, _responseObjects, _reminderDueBy, _reminderIsSet, _reminderMinutesBeforeStart, _displayCc, _displayTo, _hasAttachments, _extendedProperty, _culture, _effectiveRights, _lastModifiedName, _lastModifiedTime, _isAssociated, _webClientReadFormQueryString, _webClientEditFormQueryString, _conversationId, _uniqueBody, _storeEntryId];
 }
 
 - (void) addExtendedProperty:(MPSEWSExtendedPropertyType*) elem

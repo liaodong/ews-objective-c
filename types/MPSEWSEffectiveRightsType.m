@@ -42,6 +42,11 @@
              withXmlTag    : @"Read"
              withHandler   : [MPSEWSBooleanTypeHandler class]];
 
+    [handler property      : @"viewPrivateItems"
+             withNamespace : 't'
+             withXmlTag    : @"ViewPrivateItems"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
     [handler register];
 }
 
@@ -53,6 +58,7 @@
     if ([val delete] && ![MPSEWSBooleanTypeHandler isValid:[val delete]]) return FALSE;
     if ([val modify] && ![MPSEWSBooleanTypeHandler isValid:[val modify]]) return FALSE;
     if ([val read] && ![MPSEWSBooleanTypeHandler isValid:[val read]]) return FALSE;
+    if ([val viewPrivateItems] && ![MPSEWSBooleanTypeHandler isValid:[val viewPrivateItems]]) return FALSE;
     return TRUE;
 }
 
@@ -68,7 +74,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"EffectiveRightsType: CreateAssociated=%@ CreateContents=%@ CreateHierarchy=%@ Delete=%@ Modify=%@ Read=%@", _createAssociated, _createContents, _createHierarchy, _delete, _modify, _read];
+    return [NSString stringWithFormat:@"EffectiveRightsType: CreateAssociated=%@ CreateContents=%@ CreateHierarchy=%@ Delete=%@ Modify=%@ Read=%@ ViewPrivateItems=%@", _createAssociated, _createContents, _createHierarchy, _delete, _modify, _read, _viewPrivateItems];
 }
 
 @end

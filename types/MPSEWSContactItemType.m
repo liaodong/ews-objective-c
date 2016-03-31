@@ -4,11 +4,14 @@
 
 #import "MPSEWSContactItemType.h"
 #import "../handlers/MPSEWSAnyUriTypeHandler.h"
+#import "../handlers/MPSEWSBase64BinaryTypeHandler.h"
 #import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSLanguageTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
+#import "../types/MPSEWSArrayOfBinaryType.h"
+#import "../types/MPSEWSArrayOfRecipientsType.h"
 #import "../types/MPSEWSArrayOfStringsType.h"
 #import "../types/MPSEWSBodyType.h"
 #import "../types/MPSEWSCompleteNameType.h"
@@ -31,6 +34,7 @@
 #import "../types/MPSEWSPhysicalAddressIndexType.h"
 #import "../types/MPSEWSReminderMinutesBeforeStartType.h"
 #import "../types/MPSEWSSensitivityChoicesType.h"
+#import "../types/MPSEWSSingleRecipientType.h"
 
 
 @implementation MPSEWSContactItemType 
@@ -205,6 +209,36 @@
              withXmlTag    : @"LastModifiedTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
+    [handler property      : @"isAssociated"
+             withNamespace : 't'
+             withXmlTag    : @"IsAssociated"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
+    [handler property      : @"webClientReadFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientReadFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"webClientEditFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientEditFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"conversationId"
+             withNamespace : 't'
+             withXmlTag    : @"ConversationId"
+             withHandler   : [MPSEWSItemIdType class]];
+
+    [handler property      : @"uniqueBody"
+             withNamespace : 't'
+             withXmlTag    : @"UniqueBody"
+             withHandler   : [MPSEWSBodyType class]];
+
+    [handler property      : @"storeEntryId"
+             withNamespace : 't'
+             withXmlTag    : @"StoreEntryId"
+             withHandler   : [MPSEWSBase64BinaryTypeHandler class]];
+
     [handler property      : @"fileAs"
              withNamespace : 't'
              withXmlTag    : @"FileAs"
@@ -355,6 +389,66 @@
              withXmlTag    : @"WeddingAnniversary"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
+    [handler property      : @"hasPicture"
+             withNamespace : 't'
+             withXmlTag    : @"HasPicture"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
+    [handler property      : @"phoneticFullName"
+             withNamespace : 't'
+             withXmlTag    : @"PhoneticFullName"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"phoneticFirstName"
+             withNamespace : 't'
+             withXmlTag    : @"PhoneticFirstName"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"phoneticLastName"
+             withNamespace : 't'
+             withXmlTag    : @"PhoneticLastName"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"alias"
+             withNamespace : 't'
+             withXmlTag    : @"Alias"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"notes"
+             withNamespace : 't'
+             withXmlTag    : @"Notes"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"photo"
+             withNamespace : 't'
+             withXmlTag    : @"Photo"
+             withHandler   : [MPSEWSBase64BinaryTypeHandler class]];
+
+    [handler property      : @"userSMIMECertificate"
+             withNamespace : 't'
+             withXmlTag    : @"UserSMIMECertificate"
+             withHandler   : [MPSEWSArrayOfBinaryType class]];
+
+    [handler property      : @"mSExchangeCertificate"
+             withNamespace : 't'
+             withXmlTag    : @"MSExchangeCertificate"
+             withHandler   : [MPSEWSArrayOfBinaryType class]];
+
+    [handler property      : @"directoryId"
+             withNamespace : 't'
+             withXmlTag    : @"DirectoryId"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"managerMailbox"
+             withNamespace : 't'
+             withXmlTag    : @"ManagerMailbox"
+             withHandler   : [MPSEWSSingleRecipientType class]];
+
+    [handler property      : @"directReports"
+             withNamespace : 't'
+             withXmlTag    : @"DirectReports"
+             withHandler   : [MPSEWSArrayOfRecipientsType class]];
+
     [handler register];
 }
 
@@ -391,6 +485,18 @@
     if ([val spouseName] && ![MPSEWSStringTypeHandler isValid:[val spouseName]]) return FALSE;
     if ([val surname] && ![MPSEWSStringTypeHandler isValid:[val surname]]) return FALSE;
     if ([val weddingAnniversary] && ![MPSEWSDateTimeTypeHandler isValid:[val weddingAnniversary]]) return FALSE;
+    if ([val hasPicture] && ![MPSEWSBooleanTypeHandler isValid:[val hasPicture]]) return FALSE;
+    if ([val phoneticFullName] && ![MPSEWSStringTypeHandler isValid:[val phoneticFullName]]) return FALSE;
+    if ([val phoneticFirstName] && ![MPSEWSStringTypeHandler isValid:[val phoneticFirstName]]) return FALSE;
+    if ([val phoneticLastName] && ![MPSEWSStringTypeHandler isValid:[val phoneticLastName]]) return FALSE;
+    if ([val alias] && ![MPSEWSStringTypeHandler isValid:[val alias]]) return FALSE;
+    if ([val notes] && ![MPSEWSStringTypeHandler isValid:[val notes]]) return FALSE;
+    if ([val photo] && ![MPSEWSBase64BinaryTypeHandler isValid:[val photo]]) return FALSE;
+    if ([val userSMIMECertificate] && ![MPSEWSArrayOfBinaryType isValid:[val userSMIMECertificate]]) return FALSE;
+    if ([val mSExchangeCertificate] && ![MPSEWSArrayOfBinaryType isValid:[val mSExchangeCertificate]]) return FALSE;
+    if ([val directoryId] && ![MPSEWSStringTypeHandler isValid:[val directoryId]]) return FALSE;
+    if ([val managerMailbox] && ![MPSEWSSingleRecipientType isValid:[val managerMailbox]]) return FALSE;
+    if ([val directReports] && ![MPSEWSArrayOfRecipientsType isValid:[val directReports]]) return FALSE;
     return TRUE;
 }
 
@@ -406,7 +512,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ContactItemType: FileAs=%@ FileAsMapping=%@ DisplayName=%@ GivenName=%@ Initials=%@ MiddleName=%@ Nickname=%@ CompleteName=%@ CompanyName=%@ EmailAddresses=%@ PhysicalAddresses=%@ PhoneNumbers=%@ AssistantName=%@ Birthday=%@ BusinessHomePage=%@ Children=%@ Companies=%@ ContactSource=%@ Department=%@ Generation=%@ ImAddresses=%@ JobTitle=%@ Manager=%@ Mileage=%@ OfficeLocation=%@ PostalAddressIndex=%@ Profession=%@ SpouseName=%@ Surname=%@ WeddingAnniversary=%@ super=%@", _fileAs, _fileAsMapping, _displayName, _givenName, _initials, _middleName, _nickname, _completeName, _companyName, _emailAddresses, _physicalAddresses, _phoneNumbers, _assistantName, _birthday, _businessHomePage, _children, _companies, _contactSource, _department, _generation, _imAddresses, _jobTitle, _manager, _mileage, _officeLocation, _postalAddressIndex, _profession, _spouseName, _surname, _weddingAnniversary, [super description]];
+    return [NSString stringWithFormat:@"ContactItemType: FileAs=%@ FileAsMapping=%@ DisplayName=%@ GivenName=%@ Initials=%@ MiddleName=%@ Nickname=%@ CompleteName=%@ CompanyName=%@ EmailAddresses=%@ PhysicalAddresses=%@ PhoneNumbers=%@ AssistantName=%@ Birthday=%@ BusinessHomePage=%@ Children=%@ Companies=%@ ContactSource=%@ Department=%@ Generation=%@ ImAddresses=%@ JobTitle=%@ Manager=%@ Mileage=%@ OfficeLocation=%@ PostalAddressIndex=%@ Profession=%@ SpouseName=%@ Surname=%@ WeddingAnniversary=%@ HasPicture=%@ PhoneticFullName=%@ PhoneticFirstName=%@ PhoneticLastName=%@ Alias=%@ Notes=%@ Photo=%@ UserSMIMECertificate=%@ MSExchangeCertificate=%@ DirectoryId=%@ ManagerMailbox=%@ DirectReports=%@ super=%@", _fileAs, _fileAsMapping, _displayName, _givenName, _initials, _middleName, _nickname, _completeName, _companyName, _emailAddresses, _physicalAddresses, _phoneNumbers, _assistantName, _birthday, _businessHomePage, _children, _companies, _contactSource, _department, _generation, _imAddresses, _jobTitle, _manager, _mileage, _officeLocation, _postalAddressIndex, _profession, _spouseName, _surname, _weddingAnniversary, _hasPicture, _phoneticFullName, _phoneticFirstName, _phoneticLastName, _alias, _notes, _photo, _userSMIMECertificate, _mSExchangeCertificate, _directoryId, _managerMailbox, _directReports, [super description]];
 }
 
 @end

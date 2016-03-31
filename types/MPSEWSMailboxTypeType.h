@@ -4,11 +4,13 @@
 
 
 /** SimpleType: MailboxTypeType can be one of the following:
- *       1 Mailbox
- *       2 PublicDL
- *       3 PrivateDL
- *       4 Contact
- *       5 PublicFolder
+ *       1 Unknown
+ *       2 OneOff
+ *       3 Mailbox
+ *       4 PublicDL
+ *       5 PrivateDL
+ *       6 Contact
+ *       7 PublicFolder
  */
 @interface MPSEWSMailboxTypeType : MPSEWSSimpleTypeHandler 
 
@@ -28,6 +30,8 @@
 
 
 /* Valid values */
++ (NSString *) Unknown;
++ (NSString *) OneOff;
 + (NSString *) Mailbox;
 + (NSString *) PublicDL;
 + (NSString *) PrivateDL;

@@ -4,6 +4,7 @@
 
 #import "MPSEWSResolveNamesType.h"
 #import "../handlers/MPSEWSBooleanTypeHandler.h"
+#import "../types/MPSEWSDefaultShapeNamesType.h"
 #import "../types/MPSEWSNonEmptyArrayOfBaseFolderIdsType.h"
 #import "../types/MPSEWSNonEmptyStringType.h"
 #import "../types/MPSEWSResolveNamesSearchScopeType.h"
@@ -23,6 +24,10 @@
              withAttrTag : @"SearchScope"
              withHandler : [MPSEWSResolveNamesSearchScopeType class]];
 
+    [handler property    : @"contactDataShape"
+             withAttrTag : @"ContactDataShape"
+             withHandler : [MPSEWSDefaultShapeNamesType class]];
+
     [handler property      : @"parentFolderIds"
              withNamespace : 'm'
              withXmlTag    : @"ParentFolderIds"
@@ -41,6 +46,7 @@
     if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
     if ([val returnFullContactData] && ![MPSEWSBooleanTypeHandler isValid:[val returnFullContactData]]) return FALSE;
     if ([val searchScope] && ![MPSEWSResolveNamesSearchScopeType isValid:[val searchScope]]) return FALSE;
+    if ([val contactDataShape] && ![MPSEWSDefaultShapeNamesType isValid:[val contactDataShape]]) return FALSE;
     if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds]]) return FALSE;
     if ([val unresolvedEntry] && ![MPSEWSNonEmptyStringType isValid:[val unresolvedEntry]]) return FALSE;
     return TRUE;
@@ -58,7 +64,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ResolveNamesType: ReturnFullContactData=%@ SearchScope=%@ ParentFolderIds=%@ UnresolvedEntry=%@ super=%@", _returnFullContactData, _searchScope, _parentFolderIds, _unresolvedEntry, [super description]];
+    return [NSString stringWithFormat:@"ResolveNamesType: ReturnFullContactData=%@ SearchScope=%@ ContactDataShape=%@ ParentFolderIds=%@ UnresolvedEntry=%@ super=%@", _returnFullContactData, _searchScope, _contactDataShape, _parentFolderIds, _unresolvedEntry, [super description]];
 }
 
 @end

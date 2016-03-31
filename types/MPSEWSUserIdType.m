@@ -33,6 +33,11 @@
              withXmlTag    : @"DistinguishedUser"
              withHandler   : [MPSEWSDistinguishedUserType class]];
 
+    [handler property      : @"externalUserIdentity"
+             withNamespace : 't'
+             withXmlTag    : @"ExternalUserIdentity"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
     [handler register];
 }
 
@@ -42,6 +47,7 @@
     if ([val primarySmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val primarySmtpAddress]]) return FALSE;
     if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
     if ([val distinguishedUser] && ![MPSEWSDistinguishedUserType isValid:[val distinguishedUser]]) return FALSE;
+    if ([val externalUserIdentity] && ![MPSEWSStringTypeHandler isValid:[val externalUserIdentity]]) return FALSE;
     return TRUE;
 }
 
@@ -57,7 +63,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"UserIdType: SID=%@ PrimarySmtpAddress=%@ DisplayName=%@ DistinguishedUser=%@", _sID, _primarySmtpAddress, _displayName, _distinguishedUser];
+    return [NSString stringWithFormat:@"UserIdType: SID=%@ PrimarySmtpAddress=%@ DisplayName=%@ DistinguishedUser=%@ ExternalUserIdentity=%@", _sID, _primarySmtpAddress, _displayName, _distinguishedUser, _externalUserIdentity];
 }
 
 @end

@@ -17,6 +17,11 @@
  *       11 LastSpaceFirstCompany
  *       12 CompanyLastSpaceFirst
  *       13 LastSpaceFirst
+ *       14 DisplayName
+ *       15 FirstName
+ *       16 LastFirstMiddleSuffix
+ *       17 LastName
+ *       18 Empty
  */
 @interface MPSEWSFileAsMappingType : MPSEWSSimpleTypeHandler 
 
@@ -49,5 +54,10 @@
 + (NSString *) LastSpaceFirstCompany;
 + (NSString *) CompanyLastSpaceFirst;
 + (NSString *) LastSpaceFirst;
++ (NSString *) DisplayName;
++ (NSString *) FirstName;
++ (NSString *) LastFirstMiddleSuffix;
++ (NSString *) LastName;
++ (NSString *) Empty;
 @end
 

@@ -16,7 +16,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString* key    /* MPSEWSEmailAddressKeyType */;
+@property (strong) NSString* key          /* MPSEWSEmailAddressKeyType */;
+@property (strong) NSString* name         /* xs:string */;
+@property (strong) NSString* routingType  /* xs:string */;
+@property (strong) NSString* mailboxType  /* MPSEWSMailboxTypeType */;
 
 
 @end

@@ -17,6 +17,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) NSString*                sharingEffectiveRights  /* MPSEWSPermissionReadAccessType */;
 @property (strong) MPSEWSPermissionSetType* permissionSet;
 
 

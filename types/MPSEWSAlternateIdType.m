@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSAlternateIdType.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
 #import "../types/MPSEWSIdFormatType.h"
 #import "../types/MPSEWSNonEmptyStringType.h"
@@ -26,6 +27,10 @@
              withAttrTag : @"Mailbox"
              withHandler : [MPSEWSNonEmptyStringType class]];
 
+    [handler property    : @"isArchive"
+             withAttrTag : @"IsArchive"
+             withHandler : [MPSEWSBooleanTypeHandler class]];
+
     [handler register];
 }
 
@@ -34,6 +39,7 @@
     if (![MPSEWSAlternateIdBaseType isValid:val]) return FALSE;
     if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
     if ([val mailbox] && ![MPSEWSNonEmptyStringType isValid:[val mailbox]]) return FALSE;
+    if ([val isArchive] && ![MPSEWSBooleanTypeHandler isValid:[val isArchive]]) return FALSE;
     return TRUE;
 }
 
@@ -49,7 +55,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"AlternateIdType: Id=%@ Mailbox=%@ super=%@", _id, _mailbox, [super description]];
+    return [NSString stringWithFormat:@"AlternateIdType: Id=%@ Mailbox=%@ IsArchive=%@ super=%@", _id, _mailbox, _isArchive, [super description]];
 }
 
 @end

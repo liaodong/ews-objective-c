@@ -5,6 +5,7 @@
 
 @class MPSEWSPullSubscriptionRequestType;
 @class MPSEWSPushSubscriptionRequestType;
+@class MPSEWSStreamingSubscriptionRequestType;
 
 
 
@@ -18,8 +19,9 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSPullSubscriptionRequestType* pullSubscriptionRequest;
-@property (strong) MPSEWSPushSubscriptionRequestType* pushSubscriptionRequest;
+@property (strong) MPSEWSPullSubscriptionRequestType*      pullSubscriptionRequest;
+@property (strong) MPSEWSPushSubscriptionRequestType*      pushSubscriptionRequest;
+@property (strong) MPSEWSStreamingSubscriptionRequestType* streamingSubscriptionRequest;
 
 
 @end

@@ -3,6 +3,9 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSAttachmentType.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
+#import "../handlers/MPSEWSDateTimeTypeHandler.h"
+#import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
 #import "../types/MPSEWSAttachmentIdType.h"
 
@@ -38,6 +41,21 @@
              withXmlTag    : @"ContentLocation"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
+    [handler property      : @"size"
+             withNamespace : 't'
+             withXmlTag    : @"Size"
+             withHandler   : [MPSEWSIntegerTypeHandler class]];
+
+    [handler property      : @"lastModifiedTime"
+             withNamespace : 't'
+             withXmlTag    : @"LastModifiedTime"
+             withHandler   : [MPSEWSDateTimeTypeHandler class]];
+
+    [handler property      : @"isInline"
+             withNamespace : 't'
+             withXmlTag    : @"IsInline"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
     [handler register];
 }
 
@@ -48,6 +66,9 @@
     if ([val contentType] && ![MPSEWSStringTypeHandler isValid:[val contentType]]) return FALSE;
     if ([val contentId] && ![MPSEWSStringTypeHandler isValid:[val contentId]]) return FALSE;
     if ([val contentLocation] && ![MPSEWSStringTypeHandler isValid:[val contentLocation]]) return FALSE;
+    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size]]) return FALSE;
+    if ([val lastModifiedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastModifiedTime]]) return FALSE;
+    if ([val isInline] && ![MPSEWSBooleanTypeHandler isValid:[val isInline]]) return FALSE;
     return TRUE;
 }
 
@@ -63,7 +84,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"AttachmentType: AttachmentId=%@ Name=%@ ContentType=%@ ContentId=%@ ContentLocation=%@", _attachmentId, _name, _contentType, _contentId, _contentLocation];
+    return [NSString stringWithFormat:@"AttachmentType: AttachmentId=%@ Name=%@ ContentType=%@ ContentId=%@ ContentLocation=%@ Size=%@ LastModifiedTime=%@ IsInline=%@", _attachmentId, _name, _contentType, _contentId, _contentLocation, _size, _lastModifiedTime, _isInline];
 }
 
 @end

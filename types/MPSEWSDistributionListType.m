@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSDistributionListType.h"
+#import "../handlers/MPSEWSBase64BinaryTypeHandler.h"
 #import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
@@ -17,6 +18,7 @@
 #import "../types/MPSEWSImportanceChoicesType.h"
 #import "../types/MPSEWSItemClassType.h"
 #import "../types/MPSEWSItemIdType.h"
+#import "../types/MPSEWSMembersListType.h"
 #import "../types/MPSEWSMimeContentType.h"
 #import "../types/MPSEWSNonEmptyArrayOfAttachmentsType.h"
 #import "../types/MPSEWSNonEmptyArrayOfInternetHeadersType.h"
@@ -197,6 +199,36 @@
              withXmlTag    : @"LastModifiedTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
 
+    [handler property      : @"isAssociated"
+             withNamespace : 't'
+             withXmlTag    : @"IsAssociated"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
+    [handler property      : @"webClientReadFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientReadFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"webClientEditFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientEditFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"conversationId"
+             withNamespace : 't'
+             withXmlTag    : @"ConversationId"
+             withHandler   : [MPSEWSItemIdType class]];
+
+    [handler property      : @"uniqueBody"
+             withNamespace : 't'
+             withXmlTag    : @"UniqueBody"
+             withHandler   : [MPSEWSBodyType class]];
+
+    [handler property      : @"storeEntryId"
+             withNamespace : 't'
+             withXmlTag    : @"StoreEntryId"
+             withHandler   : [MPSEWSBase64BinaryTypeHandler class]];
+
     [handler property      : @"displayName"
              withNamespace : 't'
              withXmlTag    : @"DisplayName"
@@ -212,6 +244,11 @@
              withXmlTag    : @"ContactSource"
              withHandler   : [MPSEWSContactSourceType class]];
 
+    [handler property      : @"members"
+             withNamespace : 't'
+             withXmlTag    : @"Members"
+             withHandler   : [MPSEWSMembersListType class]];
+
     [handler register];
 }
 
@@ -221,6 +258,7 @@
     if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
     if ([val fileAs] && ![MPSEWSStringTypeHandler isValid:[val fileAs]]) return FALSE;
     if ([val contactSource] && ![MPSEWSContactSourceType isValid:[val contactSource]]) return FALSE;
+    if ([val members] && ![MPSEWSMembersListType isValid:[val members]]) return FALSE;
     return TRUE;
 }
 
@@ -236,7 +274,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"DistributionListType: DisplayName=%@ FileAs=%@ ContactSource=%@ super=%@", _displayName, _fileAs, _contactSource, [super description]];
+    return [NSString stringWithFormat:@"DistributionListType: DisplayName=%@ FileAs=%@ ContactSource=%@ Members=%@ super=%@", _displayName, _fileAs, _contactSource, _members, [super description]];
 }
 
 @end

@@ -16,7 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSData*  content  /* xs:base64Binary */;
+@property (strong) NSNumber* isContactPhoto  /* xs:boolean */;
+@property (strong) NSData*   content         /* xs:base64Binary */;
 
 
 @end

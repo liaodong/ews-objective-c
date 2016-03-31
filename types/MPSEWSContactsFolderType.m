@@ -9,6 +9,7 @@
 #import "../types/MPSEWSExtendedPropertyType.h"
 #import "../types/MPSEWSFolderIdType.h"
 #import "../types/MPSEWSManagedFolderInformationType.h"
+#import "../types/MPSEWSPermissionReadAccessType.h"
 #import "../types/MPSEWSPermissionSetType.h"
 
 
@@ -64,6 +65,11 @@
              withXmlTag    : @"EffectiveRights"
              withHandler   : [MPSEWSEffectiveRightsType class]];
 
+    [handler property      : @"sharingEffectiveRights"
+             withNamespace : 't'
+             withXmlTag    : @"SharingEffectiveRights"
+             withHandler   : [MPSEWSPermissionReadAccessType class]];
+
     [handler property      : @"permissionSet"
              withNamespace : 't'
              withXmlTag    : @"PermissionSet"
@@ -75,6 +81,7 @@
 + (BOOL) isValid:(MPSEWSContactsFolderType*) val
 {   (void) val;
     if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
+    if ([val sharingEffectiveRights] && ![MPSEWSPermissionReadAccessType isValid:[val sharingEffectiveRights]]) return FALSE;
     if ([val permissionSet] && ![MPSEWSPermissionSetType isValid:[val permissionSet]]) return FALSE;
     return TRUE;
 }
@@ -91,7 +98,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ContactsFolderType: PermissionSet=%@ super=%@", _permissionSet, [super description]];
+    return [NSString stringWithFormat:@"ContactsFolderType: SharingEffectiveRights=%@ PermissionSet=%@ super=%@", _sharingEffectiveRights, _permissionSet, [super description]];
 }
 
 @end

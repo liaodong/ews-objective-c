@@ -20,6 +20,7 @@
 
 @property (strong) MPSEWSTargetFolderIdType*             toFolderId;
 @property (strong) MPSEWSNonEmptyArrayOfBaseItemIdsType* itemIds;
+@property (strong) NSNumber*                             returnNewItemIds  /* xs:boolean */;
 
 
 @end

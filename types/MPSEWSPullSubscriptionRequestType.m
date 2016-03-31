@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSPullSubscriptionRequestType.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../types/MPSEWSNonEmptyArrayOfBaseFolderIdsType.h"
 #import "../types/MPSEWSNonEmptyArrayOfNotificationEventTypesType.h"
 #import "../types/MPSEWSSubscriptionTimeoutType.h"
@@ -14,6 +15,10 @@
 + (void) initialize
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSPullSubscriptionRequestType class]];
+
+    [handler property    : @"subscribeToAllFolders"
+             withAttrTag : @"SubscribeToAllFolders"
+             withHandler : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"folderIds"
              withNamespace : 't'

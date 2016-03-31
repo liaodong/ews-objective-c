@@ -10,6 +10,7 @@
 @class MPSEWSOccurrenceInfoType;
 @class MPSEWSRecurrenceType;
 @class MPSEWSSingleRecipientType;
+@class MPSEWSTimeZoneDefinitionType;
 @class MPSEWSTimeZoneType;
 
 
@@ -58,6 +59,8 @@
 @property (strong) MPSEWSNonEmptyArrayOfOccurrenceInfoType*     modifiedOccurrences;
 @property (strong) MPSEWSNonEmptyArrayOfDeletedOccurrencesType* deletedOccurrences;
 @property (strong) MPSEWSTimeZoneType*                          meetingTimeZone;
+@property (strong) MPSEWSTimeZoneDefinitionType*                startTimeZone;
+@property (strong) MPSEWSTimeZoneDefinitionType*                endTimeZone;
 @property (strong) NSNumber*                                    conferenceType             /* xs:int */;
 @property (strong) NSNumber*                                    allowNewTimeProposal       /* xs:boolean */;
 @property (strong) NSNumber*                                    isOnlineMeeting            /* xs:boolean */;

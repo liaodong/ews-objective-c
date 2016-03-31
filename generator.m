@@ -568,11 +568,15 @@ static const char* prefix = "MPSEWS";
 {
     const char* returnType = "NSString *";
     NSString* min = nil;
+    NSString* max = nil;
 
     Element* child = [[elem children] objectAtIndex: 0];
     for (Element *e in [child children])
     {
-        min = [e value];
+        if ([[e tagName] isEqual:@"minLength"] || [[e tagName] isEqual:@"length"])
+            min = [e value];
+        if ([[e tagName] isEqual:@"maxLength"] || [[e tagName] isEqual:@"length"])
+            max = [e value];
     }
 
     const char* name = [[elem name] UTF8String];
@@ -585,7 +589,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "#import <Foundation/Foundation.h>\n\n"); 
     fprintf (file, "#import \"../handlers/%sSimpleTypeHandler.h\"", prefix);
     fprintf (file, "\n\n\n");
-    fprintf (file, "/** SimpleType: %s is a min length string of size %s */\n", name, [min UTF8String]);
+
+    fprintf (file, "/** SimpleType: %s is a min length string of size %s and max length %s.*/\n", name, min ? [min UTF8String] : "0", max ? [max UTF8String] : "+inf");
 
     fprintf (file, "@interface %s%s : %sSimpleTypeHandler \n\n", prefix, name, prefix);
    
@@ -614,7 +619,8 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "\n");
     fprintf (file, "@implementation %s%s /* SimpleType */\n\n", prefix, name);
 
-    fprintf (file, "static int minLength = %s;\n\n", [min UTF8String]);
+    fprintf (file, "static int minLength = %s;\n\n", min ? [min UTF8String] : "0");
+    fprintf (file, "static int maxLength = %s;\n\n", max ? [min UTF8String] : "INT_MAX");
 
     
     fprintf (file, "+ (void) initialize\n");
@@ -624,7 +630,7 @@ static const char* prefix = "MPSEWS";
 
     fprintf (file, "+ (BOOL) isValid:(NSString*) val\n");
     fprintf (file, "{\n");
-    fprintf (file, "    return [val length] > minLength;\n");
+    fprintf (file, "    return [val length] > minLength && [val length] < maxLength;\n");
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -972,12 +978,16 @@ static const char* prefix = "MPSEWS";
                             [self simpleEnumeratedString:elem];
                             [elem setResultType:@"NSString*"];
                         }
-                        else if ([self forElement:child areChildren:@"minLength"]) {
+                        else if ([self forElement:child areChildren:@"minLength,maxLength"]) {
                             [self simpleMinLengthString:elem];
                             [elem setResultType:@"NSString*"];
                         }
                         else if ([self forElement:child areChildren:@"pattern"]) {
                             [self patternString:elem];
+                            [elem setResultType:@"NSString*"];
+                        }
+                        else if ([self forElement:child areChildren:@"length"]) {
+                            [self simpleMinLengthString:elem];
                             [elem setResultType:@"NSString*"];
                         }
                         else NSLog(@"string type is not enumeration %@ %@", [elem tagName], [elem name]);
@@ -1386,7 +1396,7 @@ static const char* prefix = "MPSEWS";
             fprintf (file, "- (void) add%s:(%s) elem\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
             fprintf (file, "{\n");
             fprintf (file, "    if (![self %s]) {\n", [[self propertyName:[e name]] UTF8String]);
-            if ([[e name] hasPrefix:@"New"] || [[e name] hasPrefix:@"Copy"])
+            if ([[e name] hasPrefix:@"New"] || [[e name] hasPrefix:@"Copy"] || [[e name] isEqual:@"True"])
                 fprintf (file, "        [self setP%s:[[NSMutableArray<%s> alloc] init]];\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
             else
                 fprintf (file, "        [self set%s:[[NSMutableArray<%s> alloc] init]];\n", [[e name] UTF8String], [[self objectType:[e type]] UTF8String]);
@@ -1423,6 +1433,10 @@ static const char* prefix = "MPSEWS";
         name = [NSString stringWithFormat:@"p%@", name];
     }
     if ([name hasPrefix:@"Copy"])
+    {
+        name = [NSString stringWithFormat:@"p%@", name];
+    }
+    if ([name isEqual:@"True"])
     {
         name = [NSString stringWithFormat:@"p%@", name];
     }
@@ -1714,6 +1728,10 @@ static const char* prefix = "MPSEWS";
             {
                 return @"MPSEWSBase64BinaryType";
             }
+            if ([[extension base] isEqual:@"xs:language"])
+            {
+                return @"MPSEWSLanguageType";
+            }
             NSAssert (NO, @"base extension can be string or base64Binary");
         }
     }
@@ -1745,6 +1763,10 @@ static const char* prefix = "MPSEWS";
             if ([[extension base] isEqual:@"xs:base64Binary"])
             {
                 return @"MPSEWSBase64BinaryTypeHandler";
+            }
+            if ([[extension base] isEqual:@"xs:language"])
+            {
+                return @"MPSEWSLanguageTypeHandler";
             }
             NSAssert (NO, @"base extension can be string or base64Binary");
         }
@@ -1870,16 +1892,41 @@ static const char* prefix = "MPSEWS";
         if (![e resultType]) {
             [e setResultType:[@"MPSEWS" stringByAppendingString:[[e name] stringByAppendingString:@"*"]]];
         }
+
+        if ([[e name] isEqual:@"EncryptedDataContainerType"]) {
+            return;
+        }
     }
     if ([[e children] count] == 0 || [[e tagName] isEqual:@"simpleType"] || [[e tagName] isEqual:@"element"])
     {
         return;
     }
-    else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute"])
+    else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute,all"])
     {
         for (Element * a in [e children])
         {
-            if ([[a tagName] isEqual:@"choice"])
+            if ([[a tagName] isEqual:@"all"])
+            {
+                NSAssert ([self forElement:a areChildren:@"element"], @"can have onlt elements");
+
+                BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[a maxOccurs] isEqual:@"100"]));
+                NSString* minOccurs = [a minOccurs] ? [a minOccurs] : @"1";
+
+                if (isArray)
+                {
+                    for (Element *x in [a children])  {
+                        if (![x maxOccurs]) {
+                            [x setMaxOccurs:@"unbounded"];
+                        }
+                    }
+                }
+                for (Element *x in [a children])  {
+                    if (![x minOccurs]) {
+                            [x setMinOccurs:minOccurs];
+                    }
+                }
+            }
+            else if ([[a tagName] isEqual:@"choice"])
             {
                 NSAssert ([self forElement:a areChildren:@"element"], @"can have onlt elements");
 
@@ -1967,7 +2014,7 @@ static const char* prefix = "MPSEWS";
         if ([[extension children] count] == 0) {
             return;
         }
-        NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
+        NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup,all"], @"extension has sequence or choice");
         [self preprocessElement:extension];
         return;
     }
@@ -1988,7 +2035,7 @@ static const char* prefix = "MPSEWS";
         {
             return result;
         }
-        else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute"])
+        else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute,all"])
         {
             for (Element* x in [self elements:e getSuper:FALSE])
             {
@@ -2004,7 +2051,10 @@ static const char* prefix = "MPSEWS";
             }
             for (Element * a in [e children])
             {
-                if ([[a tagName] isEqual:@"choice"])
+                if ([[a tagName] isEqual:@"all"])
+                {
+                }
+                else if ([[a tagName] isEqual:@"choice"])
                 {
                     BOOL isArray = ([a maxOccurs] && ([[a maxOccurs] isEqual:@"unbounded"] || [[a maxOccurs] isEqual:@"100"]));
                     BOOL isEmpty = (![a minOccurs] && [[a minOccurs] isEqual:@"0"]);
@@ -2150,7 +2200,7 @@ static const char* prefix = "MPSEWS";
             if ([[extension children] count] == 0) {
                 return result;
             }
-            NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
+            NSAssert([self forElement:extension areChildren:@"all,choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
             return [self validation:extension];
         }
         else if ([self forElement:e areChildren:@"simpleContent"])
@@ -2226,7 +2276,7 @@ static const char* prefix = "MPSEWS";
     NSMutableArray* result = [[NSMutableArray alloc] init];
     if ([[s children] count] == 0) return result;
 
-    NSAssert ([self forElement:s areChildren:@"element,choice,sequence,group"], @"sequence can have only elements/choice/sequence/group");
+    NSAssert ([self forElement:s areChildren:@"element,choice,sequence,group,all"], @"sequence can have only elements/choice/sequence/group/all");
 
     for (Element* x in [s children])
     {
@@ -2245,7 +2295,7 @@ static const char* prefix = "MPSEWS";
         {
             [result addObjectsFromArray:[self elementsFromChoice:x]];
         }
-        else if ([[x tagName] isEqual:@"sequence"])
+        else if ([[x tagName] isEqual:@"sequence"] || [[x tagName] isEqual:@"all"])
         {
             [result addObjectsFromArray:[self elementsFromSequence:x]];
         }
@@ -2268,7 +2318,7 @@ static const char* prefix = "MPSEWS";
     {
             return result;
     }
-    else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute"])
+    else if ([self forElement:e areChildren:@"sequence,attribute,attributeGroup,choice,anyAttribute,all"])
     {
         for (Element * a in [e children])
         {
@@ -2276,7 +2326,7 @@ static const char* prefix = "MPSEWS";
             {
                 [result addObjectsFromArray:[self elementsFromChoice:a]];
             }
-            else if ([[a tagName] isEqual:@"sequence"])
+            else if ([[a tagName] isEqual:@"sequence"] || [[a tagName] isEqual:@"all"])
             {
                 [result addObjectsFromArray:[self elementsFromSequence:a]];
             }
@@ -2318,7 +2368,7 @@ static const char* prefix = "MPSEWS";
         if ([[extension children] count] == 0) {
             return result;
         }
-        NSAssert([self forElement:extension areChildren:@"choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
+        NSAssert([self forElement:extension areChildren:@"all,choice,sequence,attribute,attributeGroup"], @"extension has sequence or choice");
         [result addObjectsFromArray:[self elements:extension getSuper:r]];
 
         return result;

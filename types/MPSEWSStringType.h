@@ -10,7 +10,7 @@
 - (id) init;
 - (Class) handlerClass;
 
-@property (retain)  NSString* simpleContent    /* xs:string */;
+@property NSString* simpleContent    /* xs:string */;
 
 @end
 

@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSFindItemType.h"
+#import "../handlers/MPSEWSStringTypeHandler.h"
 #import "../types/MPSEWSCalendarViewType.h"
 #import "../types/MPSEWSContactsViewType.h"
 #import "../types/MPSEWSDistinguishedGroupByType.h"
@@ -76,6 +77,11 @@
              withXmlTag    : @"ParentFolderIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseFolderIdsType class]];
 
+    [handler property      : @"queryString"
+             withNamespace : 'm'
+             withXmlTag    : @"QueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
     [handler register];
 }
 
@@ -93,6 +99,7 @@
     if ([val restriction] && ![MPSEWSRestrictionType isValid:[val restriction]]) return FALSE;
     if ([val sortOrder] && ![MPSEWSNonEmptyArrayOfFieldOrdersType isValid:[val sortOrder]]) return FALSE;
     if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds]]) return FALSE;
+    if ([val queryString] && ![MPSEWSStringTypeHandler isValid:[val queryString]]) return FALSE;
     return TRUE;
 }
 
@@ -108,7 +115,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"FindItemType: Traversal=%@ ItemShape=%@ IndexedPageItemView=%@ FractionalPageItemView=%@ CalendarView=%@ ContactsView=%@ GroupBy=%@ DistinguishedGroupBy=%@ Restriction=%@ SortOrder=%@ ParentFolderIds=%@ super=%@", _traversal, _itemShape, _indexedPageItemView, _fractionalPageItemView, _calendarView, _contactsView, _groupBy, _distinguishedGroupBy, _restriction, _sortOrder, _parentFolderIds, [super description]];
+    return [NSString stringWithFormat:@"FindItemType: Traversal=%@ ItemShape=%@ IndexedPageItemView=%@ FractionalPageItemView=%@ CalendarView=%@ ContactsView=%@ GroupBy=%@ DistinguishedGroupBy=%@ Restriction=%@ SortOrder=%@ ParentFolderIds=%@ QueryString=%@ super=%@", _traversal, _itemShape, _indexedPageItemView, _fractionalPageItemView, _calendarView, _contactsView, _groupBy, _distinguishedGroupBy, _restriction, _sortOrder, _parentFolderIds, _queryString, [super description]];
 }
 
 @end

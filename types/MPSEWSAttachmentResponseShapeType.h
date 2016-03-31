@@ -18,6 +18,7 @@
 
 @property (strong) NSNumber*                                includeMimeContent    /* xs:boolean */;
 @property (strong) NSString*                                bodyType              /* MPSEWSBodyTypeResponseType */;
+@property (strong) NSNumber*                                filterHtmlContent     /* xs:boolean */;
 @property (strong) MPSEWSNonEmptyArrayOfPathsToElementType* additionalProperties;
 
 

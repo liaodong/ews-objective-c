@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSTaskType.h"
+#import "../handlers/MPSEWSBase64BinaryTypeHandler.h"
 #import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../handlers/MPSEWSDoubleTypeHandler.h"
@@ -199,6 +200,36 @@
              withNamespace : 't'
              withXmlTag    : @"LastModifiedTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
+
+    [handler property      : @"isAssociated"
+             withNamespace : 't'
+             withXmlTag    : @"IsAssociated"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
+    [handler property      : @"webClientReadFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientReadFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"webClientEditFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientEditFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"conversationId"
+             withNamespace : 't'
+             withXmlTag    : @"ConversationId"
+             withHandler   : [MPSEWSItemIdType class]];
+
+    [handler property      : @"uniqueBody"
+             withNamespace : 't'
+             withXmlTag    : @"UniqueBody"
+             withHandler   : [MPSEWSBodyType class]];
+
+    [handler property      : @"storeEntryId"
+             withNamespace : 't'
+             withXmlTag    : @"StoreEntryId"
+             withHandler   : [MPSEWSBase64BinaryTypeHandler class]];
 
     [handler property      : @"actualWork"
              withNamespace : 't'

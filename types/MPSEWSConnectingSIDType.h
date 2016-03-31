@@ -15,9 +15,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString* principalName       /* xs:string */;
-@property (strong) NSString* sID                 /* xs:string */;
-@property (strong) NSString* primarySmtpAddress  /* xs:string */;
+@property (strong) NSString* principalName       /* MPSEWSNonEmptyStringType */;
+@property (strong) NSString* sID                 /* MPSEWSNonEmptyStringType */;
+@property (strong) NSString* primarySmtpAddress  /* MPSEWSNonEmptyStringType */;
+@property (strong) NSString* smtpAddress         /* MPSEWSNonEmptyStringType */;
 
 
 @end

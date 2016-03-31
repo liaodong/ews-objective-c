@@ -125,27 +125,25 @@
   <xs:element name="ProxyPartnerToken" type="t:ProxySecurityContextType"/>
 
   <!-- Used in the SOAP header of responses for diagnostics purposes. -->
-  <xs:element name="ServerVersionInfo">
-    <xs:complexType>
+  <xs:complexType name="ServerVersionInfoType">
       <xs:attribute name="MajorVersion" type="xs:int" use="optional"/>
       <xs:attribute name="MinorVersion" type="xs:int" use="optional"/>
       <xs:attribute name="MajorBuildNumber" type="xs:int" use="optional"/>
       <xs:attribute name="MinorBuildNumber" type="xs:int" use="optional"/>
       <xs:attribute name="Version" type="xs:string" use="optional"/>
-    </xs:complexType>
-  </xs:element>
+  </xs:complexType>
+  <xs:element name="ServerVersionInfo" type="t:ServerVersionInfoType"/>
 
   <!-- Used in the SOAP header of requests to specify version for request. -->
-  <xs:element name="RequestServerVersion">
-    <xs:complexType>
-      <xs:attribute name="Version" type="t:ExchangeVersionType" fixed="Exchange2010_SP2" use="required"/>
-      <xs:anyAttribute namespace="http://schemas.xmlsoap.org/soap/envelope/">
-        <xs:annotation>
-          <xs:documentation>Allow attributes in the soap namespace to be used here</xs:documentation>
-        </xs:annotation>
-      </xs:anyAttribute>
-    </xs:complexType>
-  </xs:element>
+  <xs:complexType name="RequestServerVersionType">
+    <xs:attribute name="Version" type="t:ExchangeVersionType" fixed="Exchange2010_SP2" use="required"/>
+    <xs:anyAttribute namespace="http://schemas.xmlsoap.org/soap/envelope/">
+      <xs:annotation>
+        <xs:documentation>Allow attributes in the soap namespace to be used here</xs:documentation>
+      </xs:annotation>
+    </xs:anyAttribute>
+  </xs:complexType>
+  <xs:element name="RequestServerVersion" type="t:RequestServerVersionType"/>
 
   <!-- DateTimePrecision for Soap header -->
 
@@ -4416,7 +4414,7 @@
 
   <xs:complexType name="EncryptedDataContainerType">
     <xs:sequence>
-      <xs:any processContents="skip" namespace="##other"/>
+      <xs:element name="content" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -4575,13 +4573,7 @@
           <xs:element name="Rules" type="t:ArrayOfProtectionRulesType" minOccurs="1" maxOccurs="1"/>
           <xs:element name="InternalDomains" type="t:SmtpDomainList" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
-        <xs:attribute name="RefreshInterval" use="required">
-          <xs:simpleType>
-            <xs:restriction base="xs:int">
-              <xs:minInclusive value="1"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:attribute>
+        <xs:attribute name="RefreshInterval" use="required" type="xs:int"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -4598,21 +4590,9 @@
       <xs:element name="Condition" type="t:ProtectionRuleConditionType" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Action" type="t:ProtectionRuleActionType" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
-    <xs:attribute name="Name" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
+    <xs:attribute name="Name" use="required" type="xs:string"/>
     <xs:attribute name="UserOverridable" type="xs:boolean" use="required"/>
-    <xs:attribute name="Priority" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:int">
-          <xs:minInclusive value="1"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
+    <xs:attribute name="Priority" use="required" type="xs:int"/>
   </xs:complexType>
 
   <xs:complexType name="ProtectionRuleConditionType">
@@ -4681,13 +4661,7 @@
   </xs:complexType>
 
   <xs:complexType name="ProtectionRuleArgumentType">
-    <xs:attribute name="Value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
+    <xs:attribute name="Value" use="required" type="xs:string"/>
   </xs:complexType>
 
   <!-- MessageTracking -->
@@ -4726,7 +4700,7 @@
       <xs:element name="EventDescription" type="xs:string"/>
       <xs:element name="EventData" type="t:ArrayOfStringsType" minOccurs="0"/>
       <xs:element name="Server" type="t:NonEmptyStringType"/>
-      <xs:element name="InternalId" type="xs:nonNegativeInteger"/>
+      <xs:element name="InternalId" type="xs:unsignedInt"/>
       <xs:element name="BccRecipient" type="xs:boolean" minOccurs="0"/>
       <xs:element name="HiddenRecipient" type="xs:boolean" minOccurs="0"/>
       <xs:element name="UniquePathId" type="t:NonEmptyStringType" minOccurs="0"/>
@@ -5171,7 +5145,7 @@
     <xs:sequence>
       <xs:element name="Keyword" type="xs:string" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ItemHits" type="xs:int" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Size" type="xs:long" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Size" type="xs:int" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 

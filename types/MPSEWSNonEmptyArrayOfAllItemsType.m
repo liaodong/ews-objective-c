@@ -4,6 +4,7 @@
 
 #import "MPSEWSNonEmptyArrayOfAllItemsType.h"
 #import "../types/MPSEWSAcceptItemType.h"
+#import "../types/MPSEWSAcceptSharingInvitationType.h"
 #import "../types/MPSEWSCalendarItemType.h"
 #import "../types/MPSEWSCancelCalendarItemType.h"
 #import "../types/MPSEWSContactItemType.h"
@@ -158,6 +159,12 @@
              withXmlTag    : @"PostReplyItem"
              withHandler   : [MPSEWSPostReplyItemType class]];
 
+    [handler listProperty  : @"acceptSharingInvitation"
+             useSelector   : @"addAcceptSharingInvitation"
+             withNamespace : 't'
+             withXmlTag    : @"AcceptSharingInvitation"
+             withHandler   : [MPSEWSAcceptSharingInvitationType class]];
+
     [handler register];
 }
 
@@ -268,6 +275,11 @@
             if (![MPSEWSPostReplyItemType isValid:obj]) return FALSE;
         }
     }
+    if ([val acceptSharingInvitation]) {
+        for (MPSEWSAcceptSharingInvitationType* obj in [val acceptSharingInvitation]) {
+            if (![MPSEWSAcceptSharingInvitationType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 
@@ -283,7 +295,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"NonEmptyArrayOfAllItemsType: Item=%@ Message=%@ CalendarItem=%@ Contact=%@ DistributionList=%@ MeetingMessage=%@ MeetingRequest=%@ MeetingResponse=%@ MeetingCancellation=%@ Task=%@ PostItem=%@ ReplyToItem=%@ ForwardItem=%@ ReplyAllToItem=%@ AcceptItem=%@ TentativelyAcceptItem=%@ DeclineItem=%@ CancelCalendarItem=%@ RemoveItem=%@ SuppressReadReceipt=%@ PostReplyItem=%@", _item, _message, _calendarItem, _contact, _distributionList, _meetingMessage, _meetingRequest, _meetingResponse, _meetingCancellation, _task, _postItem, _replyToItem, _forwardItem, _replyAllToItem, _acceptItem, _tentativelyAcceptItem, _declineItem, _cancelCalendarItem, _removeItem, _suppressReadReceipt, _postReplyItem];
+    return [NSString stringWithFormat:@"NonEmptyArrayOfAllItemsType: Item=%@ Message=%@ CalendarItem=%@ Contact=%@ DistributionList=%@ MeetingMessage=%@ MeetingRequest=%@ MeetingResponse=%@ MeetingCancellation=%@ Task=%@ PostItem=%@ ReplyToItem=%@ ForwardItem=%@ ReplyAllToItem=%@ AcceptItem=%@ TentativelyAcceptItem=%@ DeclineItem=%@ CancelCalendarItem=%@ RemoveItem=%@ SuppressReadReceipt=%@ PostReplyItem=%@ AcceptSharingInvitation=%@", _item, _message, _calendarItem, _contact, _distributionList, _meetingMessage, _meetingRequest, _meetingResponse, _meetingCancellation, _task, _postItem, _replyToItem, _forwardItem, _replyAllToItem, _acceptItem, _tentativelyAcceptItem, _declineItem, _cancelCalendarItem, _removeItem, _suppressReadReceipt, _postReplyItem, _acceptSharingInvitation];
 }
 
 - (void) addItem:(MPSEWSItemType*) elem
@@ -452,6 +464,14 @@
         [self setPostReplyItem:[[NSMutableArray<MPSEWSPostReplyItemType*> alloc] init]];
     }
     [_postReplyItem addObject:elem];
+}
+
+- (void) addAcceptSharingInvitation:(MPSEWSAcceptSharingInvitationType*) elem
+{
+    if (![self acceptSharingInvitation]) {
+        [self setAcceptSharingInvitation:[[NSMutableArray<MPSEWSAcceptSharingInvitationType*> alloc] init]];
+    }
+    [_acceptSharingInvitation addObject:elem];
 }
 
 @end

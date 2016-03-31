@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSMoveItemType.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../types/MPSEWSNonEmptyArrayOfBaseItemIdsType.h"
 #import "../types/MPSEWSTargetFolderIdType.h"
 
@@ -22,6 +23,11 @@
              withNamespace : 'm'
              withXmlTag    : @"ItemIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseItemIdsType class]];
+
+    [handler property      : @"returnNewItemIds"
+             withNamespace : 'm'
+             withXmlTag    : @"ReturnNewItemIds"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
 
     [handler register];
 }

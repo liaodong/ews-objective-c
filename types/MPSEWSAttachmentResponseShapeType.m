@@ -24,6 +24,11 @@
              withXmlTag    : @"BodyType"
              withHandler   : [MPSEWSBodyTypeResponseType class]];
 
+    [handler property      : @"filterHtmlContent"
+             withNamespace : 't'
+             withXmlTag    : @"FilterHtmlContent"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
     [handler property      : @"additionalProperties"
              withNamespace : 't'
              withXmlTag    : @"AdditionalProperties"
@@ -36,6 +41,7 @@
 {   (void) val;
     if ([val includeMimeContent] && ![MPSEWSBooleanTypeHandler isValid:[val includeMimeContent]]) return FALSE;
     if ([val bodyType] && ![MPSEWSBodyTypeResponseType isValid:[val bodyType]]) return FALSE;
+    if ([val filterHtmlContent] && ![MPSEWSBooleanTypeHandler isValid:[val filterHtmlContent]]) return FALSE;
     if ([val additionalProperties] && ![MPSEWSNonEmptyArrayOfPathsToElementType isValid:[val additionalProperties]]) return FALSE;
     return TRUE;
 }
@@ -52,7 +58,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"AttachmentResponseShapeType: IncludeMimeContent=%@ BodyType=%@ AdditionalProperties=%@", _includeMimeContent, _bodyType, _additionalProperties];
+    return [NSString stringWithFormat:@"AttachmentResponseShapeType: IncludeMimeContent=%@ BodyType=%@ FilterHtmlContent=%@ AdditionalProperties=%@", _includeMimeContent, _bodyType, _filterHtmlContent, _additionalProperties];
 }
 
 @end

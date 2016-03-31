@@ -24,6 +24,7 @@
 @property (strong) NSString*                     syncState           /* xs:string */;
 @property (strong) MPSEWSArrayOfBaseItemIdsType* ignore;
 @property (strong) NSNumber*                     maxChangesReturned  /* MPSEWSMaxSyncChangesReturnedType */;
+@property (strong) NSString*                     syncScope           /* MPSEWSSyncFolderItemsScopeType */;
 
 
 @end

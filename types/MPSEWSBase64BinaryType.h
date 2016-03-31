@@ -10,7 +10,7 @@
 - (id) init;
 - (Class) handlerClass;
 
-@property (retain)  NSString* simpleContent    /* xs:base64Binary */;
+@property NSString* simpleContent    /* xs:base64Binary */;
 
 @end
 

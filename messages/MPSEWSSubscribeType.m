@@ -5,6 +5,7 @@
 #import "MPSEWSSubscribeType.h"
 #import "../types/MPSEWSPullSubscriptionRequestType.h"
 #import "../types/MPSEWSPushSubscriptionRequestType.h"
+#import "../types/MPSEWSStreamingSubscriptionRequestType.h"
 
 
 @implementation MPSEWSSubscribeType 
@@ -23,6 +24,11 @@
              withXmlTag    : @"PushSubscriptionRequest"
              withHandler   : [MPSEWSPushSubscriptionRequestType class]];
 
+    [handler property      : @"streamingSubscriptionRequest"
+             withNamespace : 'm'
+             withXmlTag    : @"StreamingSubscriptionRequest"
+             withHandler   : [MPSEWSStreamingSubscriptionRequestType class]];
+
     [handler register];
 }
 
@@ -31,6 +37,7 @@
     if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
     if ([val pullSubscriptionRequest] && ![MPSEWSPullSubscriptionRequestType isValid:[val pullSubscriptionRequest]]) return FALSE;
     if ([val pushSubscriptionRequest] && ![MPSEWSPushSubscriptionRequestType isValid:[val pushSubscriptionRequest]]) return FALSE;
+    if ([val streamingSubscriptionRequest] && ![MPSEWSStreamingSubscriptionRequestType isValid:[val streamingSubscriptionRequest]]) return FALSE;
     return TRUE;
 }
 
@@ -46,7 +53,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"SubscribeType: PullSubscriptionRequest=%@ PushSubscriptionRequest=%@ super=%@", _pullSubscriptionRequest, _pushSubscriptionRequest, [super description]];
+    return [NSString stringWithFormat:@"SubscribeType: PullSubscriptionRequest=%@ PushSubscriptionRequest=%@ StreamingSubscriptionRequest=%@ super=%@", _pullSubscriptionRequest, _pushSubscriptionRequest, _streamingSubscriptionRequest, [super description]];
 }
 
 @end

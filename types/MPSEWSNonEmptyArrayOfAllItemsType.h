@@ -3,6 +3,7 @@
 
 
 @class MPSEWSAcceptItemType;
+@class MPSEWSAcceptSharingInvitationType;
 @class MPSEWSCalendarItemType;
 @class MPSEWSCancelCalendarItemType;
 @class MPSEWSContactItemType;
@@ -57,6 +58,7 @@
 @property (strong) NSMutableArray<MPSEWSRemoveItemType*>*                 removeItem;
 @property (strong) NSMutableArray<MPSEWSSuppressReadReceiptType*>*        suppressReadReceipt;
 @property (strong) NSMutableArray<MPSEWSPostReplyItemType*>*              postReplyItem;
+@property (strong) NSMutableArray<MPSEWSAcceptSharingInvitationType*>*    acceptSharingInvitation;
 
 
 - (void) addItem:(MPSEWSItemType*) elem;
@@ -80,5 +82,6 @@
 - (void) addRemoveItem:(MPSEWSRemoveItemType*) elem;
 - (void) addSuppressReadReceipt:(MPSEWSSuppressReadReceiptType*) elem;
 - (void) addPostReplyItem:(MPSEWSPostReplyItemType*) elem;
+- (void) addAcceptSharingInvitation:(MPSEWSAcceptSharingInvitationType*) elem;
 @end
 

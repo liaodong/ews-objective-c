@@ -4,6 +4,9 @@
 
 #import "MPSEWSFileAttachmentType.h"
 #import "../handlers/MPSEWSBase64BinaryTypeHandler.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
+#import "../handlers/MPSEWSDateTimeTypeHandler.h"
+#import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
 #import "../types/MPSEWSAttachmentIdType.h"
 
@@ -39,6 +42,26 @@
              withXmlTag    : @"ContentLocation"
              withHandler   : [MPSEWSStringTypeHandler class]];
 
+    [handler property      : @"size"
+             withNamespace : 't'
+             withXmlTag    : @"Size"
+             withHandler   : [MPSEWSIntegerTypeHandler class]];
+
+    [handler property      : @"lastModifiedTime"
+             withNamespace : 't'
+             withXmlTag    : @"LastModifiedTime"
+             withHandler   : [MPSEWSDateTimeTypeHandler class]];
+
+    [handler property      : @"isInline"
+             withNamespace : 't'
+             withXmlTag    : @"IsInline"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
+    [handler property      : @"isContactPhoto"
+             withNamespace : 't'
+             withXmlTag    : @"IsContactPhoto"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
     [handler property      : @"content"
              withNamespace : 't'
              withXmlTag    : @"Content"
@@ -50,6 +73,7 @@
 + (BOOL) isValid:(MPSEWSFileAttachmentType*) val
 {   (void) val;
     if (![MPSEWSAttachmentType isValid:val]) return FALSE;
+    if ([val isContactPhoto] && ![MPSEWSBooleanTypeHandler isValid:[val isContactPhoto]]) return FALSE;
     if ([val content] && ![MPSEWSBase64BinaryTypeHandler isValid:[val content]]) return FALSE;
     return TRUE;
 }
@@ -66,7 +90,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"FileAttachmentType: Content=%@ super=%@", _content, [super description]];
+    return [NSString stringWithFormat:@"FileAttachmentType: IsContactPhoto=%@ Content=%@ super=%@", _isContactPhoto, _content, [super description]];
 }
 
 @end

@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSBaseMoveCopyItemType.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../types/MPSEWSNonEmptyArrayOfBaseItemIdsType.h"
 #import "../types/MPSEWSTargetFolderIdType.h"
 
@@ -23,6 +24,11 @@
              withXmlTag    : @"ItemIds"
              withHandler   : [MPSEWSNonEmptyArrayOfBaseItemIdsType class]];
 
+    [handler property      : @"returnNewItemIds"
+             withNamespace : 'm'
+             withXmlTag    : @"ReturnNewItemIds"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
     [handler register];
 }
 
@@ -31,6 +37,7 @@
     if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
     if ([val toFolderId] && ![MPSEWSTargetFolderIdType isValid:[val toFolderId]]) return FALSE;
     if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
+    if ([val returnNewItemIds] && ![MPSEWSBooleanTypeHandler isValid:[val returnNewItemIds]]) return FALSE;
     return TRUE;
 }
 
@@ -46,7 +53,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"BaseMoveCopyItemType: ToFolderId=%@ ItemIds=%@ super=%@", _toFolderId, _itemIds, [super description]];
+    return [NSString stringWithFormat:@"BaseMoveCopyItemType: ToFolderId=%@ ItemIds=%@ ReturnNewItemIds=%@ super=%@", _toFolderId, _itemIds, _returnNewItemIds, [super description]];
 }
 
 @end

@@ -16,7 +16,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSMutableArray<NSString*>* daysOfWeek  /* MPSEWSDaysOfWeekType */;
+@property (strong) NSMutableArray<NSString*>* daysOfWeek      /* MPSEWSDaysOfWeekType */;
+@property (strong) NSString*                  firstDayOfWeek  /* MPSEWSDayOfWeekType */;
 
 
 @end

@@ -17,6 +17,7 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) NSString*                        sharingEffectiveRights  /* MPSEWSCalendarPermissionReadAccessType */;
 @property (strong) MPSEWSCalendarPermissionSetType* permissionSet;
 
 

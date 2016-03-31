@@ -6,6 +6,9 @@
 /** SimpleType: ExchangeVersionType can be one of the following:
  *       1 Exchange2007
  *       2 Exchange2007_SP1
+ *       3 Exchange2010
+ *       4 Exchange2010_SP1
+ *       5 Exchange2010_SP2
  */
 @interface MPSEWSExchangeVersionType : MPSEWSSimpleTypeHandler 
 
@@ -27,5 +30,8 @@
 /* Valid values */
 + (NSString *) Exchange2007;
 + (NSString *) Exchange2007_SP1;
++ (NSString *) Exchange2010;
++ (NSString *) Exchange2010_SP1;
++ (NSString *) Exchange2010_SP2;
 @end
 

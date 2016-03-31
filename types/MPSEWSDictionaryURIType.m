@@ -16,7 +16,8 @@ static NSSet* enumerations = nil;
                                          [MPSEWSDictionaryURIType contacts_PhysicalAddress_CountryOrRegion], 
                                          [MPSEWSDictionaryURIType contacts_PhysicalAddress_PostalCode], 
                                          [MPSEWSDictionaryURIType contacts_PhoneNumber], 
-                                         [MPSEWSDictionaryURIType contacts_EmailAddress], nil];
+                                         [MPSEWSDictionaryURIType contacts_EmailAddress], 
+                                         [MPSEWSDictionaryURIType distributionlist_Members_Member], nil];
     [[[MPSEWSDictionaryURIType alloc] init] register];
 }
 
@@ -59,5 +60,6 @@ static NSSet* enumerations = nil;
 + (NSString *) contacts_PhysicalAddress_PostalCode { return @"contacts:PhysicalAddress:PostalCode"; }
 + (NSString *) contacts_PhoneNumber { return @"contacts:PhoneNumber"; }
 + (NSString *) contacts_EmailAddress { return @"contacts:EmailAddress"; }
++ (NSString *) distributionlist_Members_Member { return @"distributionlist:Members:Member"; }
 @end
 

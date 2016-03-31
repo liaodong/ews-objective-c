@@ -75,6 +75,12 @@
              withXmlTag    : @"StatusEvent"
              withHandler   : [MPSEWSBaseNotificationEventType class]];
 
+    [handler listProperty  : @"freeBusyChangedEvent"
+             useSelector   : @"addFreeBusyChangedEvent"
+             withNamespace : 't'
+             withXmlTag    : @"FreeBusyChangedEvent"
+             withHandler   : [MPSEWSBaseObjectChangedEventType class]];
+
     [handler register];
 }
 
@@ -118,6 +124,11 @@
             if (![MPSEWSBaseNotificationEventType isValid:obj]) return FALSE;
         }
     }
+    if ([val freeBusyChangedEvent]) {
+        for (MPSEWSBaseObjectChangedEventType* obj in [val freeBusyChangedEvent]) {
+            if (![MPSEWSBaseObjectChangedEventType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 
@@ -133,7 +144,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"NotificationType: SubscriptionId=%@ PreviousWatermark=%@ MoreEvents=%@ CopiedEvent=%@ CreatedEvent=%@ DeletedEvent=%@ ModifiedEvent=%@ MovedEvent=%@ NewMailEvent=%@ StatusEvent=%@", _subscriptionId, _previousWatermark, _moreEvents, _copiedEvent, _createdEvent, _deletedEvent, _modifiedEvent, _movedEvent, _pNewMailEvent, _statusEvent];
+    return [NSString stringWithFormat:@"NotificationType: SubscriptionId=%@ PreviousWatermark=%@ MoreEvents=%@ CopiedEvent=%@ CreatedEvent=%@ DeletedEvent=%@ ModifiedEvent=%@ MovedEvent=%@ NewMailEvent=%@ StatusEvent=%@ FreeBusyChangedEvent=%@", _subscriptionId, _previousWatermark, _moreEvents, _copiedEvent, _createdEvent, _deletedEvent, _modifiedEvent, _movedEvent, _pNewMailEvent, _statusEvent, _freeBusyChangedEvent];
 }
 
 - (void) addCopiedEvent:(MPSEWSMovedCopiedEventType*) elem
@@ -190,6 +201,14 @@
         [self setStatusEvent:[[NSMutableArray<MPSEWSBaseNotificationEventType*> alloc] init]];
     }
     [_statusEvent addObject:elem];
+}
+
+- (void) addFreeBusyChangedEvent:(MPSEWSBaseObjectChangedEventType*) elem
+{
+    if (![self freeBusyChangedEvent]) {
+        [self setFreeBusyChangedEvent:[[NSMutableArray<MPSEWSBaseObjectChangedEventType*> alloc] init]];
+    }
+    [_freeBusyChangedEvent addObject:elem];
 }
 
 @end

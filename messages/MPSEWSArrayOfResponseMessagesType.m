@@ -7,11 +7,22 @@
 #import "../messages/MPSEWSConvertIdResponseMessageType.h"
 #import "../messages/MPSEWSDeleteAttachmentResponseMessageType.h"
 #import "../messages/MPSEWSExpandDLResponseMessageType.h"
+#import "../messages/MPSEWSExportItemsResponseMessageType.h"
 #import "../messages/MPSEWSFindFolderResponseMessageType.h"
 #import "../messages/MPSEWSFindItemResponseMessageType.h"
+#import "../messages/MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType.h"
 #import "../messages/MPSEWSFolderInfoResponseMessageType.h"
 #import "../messages/MPSEWSGetEventsResponseMessageType.h"
+#import "../messages/MPSEWSGetPasswordExpirationDateResponseMessageType.h"
+#import "../messages/MPSEWSGetRoomListsResponseMessageType.h"
+#import "../messages/MPSEWSGetRoomsResponseMessageType.h"
+#import "../messages/MPSEWSGetServerTimeZonesResponseMessageType.h"
+#import "../messages/MPSEWSGetSharingFolderResponseMessageType.h"
+#import "../messages/MPSEWSGetSharingMetadataResponseMessageType.h"
+#import "../messages/MPSEWSGetStreamingEventsResponseMessageType.h"
+#import "../messages/MPSEWSGetUserConfigurationResponseMessageType.h"
 #import "../messages/MPSEWSItemInfoResponseMessageType.h"
+#import "../messages/MPSEWSRefreshSharingFolderResponseMessageType.h"
 #import "../messages/MPSEWSResolveNamesResponseMessageType.h"
 #import "../messages/MPSEWSResponseMessageType.h"
 #import "../messages/MPSEWSSendNotificationResponseMessageType.h"
@@ -19,6 +30,7 @@
 #import "../messages/MPSEWSSyncFolderHierarchyResponseMessageType.h"
 #import "../messages/MPSEWSSyncFolderItemsResponseMessageType.h"
 #import "../messages/MPSEWSUpdateItemResponseMessageType.h"
+#import "../messages/MPSEWSUploadItemsResponseMessageType.h"
 
 
 @implementation MPSEWSArrayOfResponseMessagesType 
@@ -61,6 +73,12 @@
              useSelector   : @"addDeleteFolderResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"DeleteFolderResponseMessage"
+             withHandler   : [MPSEWSResponseMessageType class]];
+
+    [handler listProperty  : @"emptyFolderResponseMessage"
+             useSelector   : @"addEmptyFolderResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"EmptyFolderResponseMessage"
              withHandler   : [MPSEWSResponseMessageType class]];
 
     [handler listProperty  : @"createFolderResponseMessage"
@@ -117,6 +135,18 @@
              withXmlTag    : @"GetAttachmentResponseMessage"
              withHandler   : [MPSEWSAttachmentInfoResponseMessageType class]];
 
+    [handler listProperty  : @"uploadItemsResponseMessage"
+             useSelector   : @"addUploadItemsResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"UploadItemsResponseMessage"
+             withHandler   : [MPSEWSUploadItemsResponseMessageType class]];
+
+    [handler listProperty  : @"exportItemsResponseMessage"
+             useSelector   : @"addExportItemsResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"ExportItemsResponseMessage"
+             withHandler   : [MPSEWSExportItemsResponseMessageType class]];
+
     [handler listProperty  : @"findItemResponseMessage"
              useSelector   : @"addFindItemResponseMessage"
              withNamespace : 'm'
@@ -147,11 +177,23 @@
              withXmlTag    : @"ExpandDLResponseMessage"
              withHandler   : [MPSEWSExpandDLResponseMessageType class]];
 
+    [handler listProperty  : @"getServerTimeZonesResponseMessage"
+             useSelector   : @"addGetServerTimeZonesResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"GetServerTimeZonesResponseMessage"
+             withHandler   : [MPSEWSGetServerTimeZonesResponseMessageType class]];
+
     [handler listProperty  : @"getEventsResponseMessage"
              useSelector   : @"addGetEventsResponseMessage"
              withNamespace : 'm'
              withXmlTag    : @"GetEventsResponseMessage"
              withHandler   : [MPSEWSGetEventsResponseMessageType class]];
+
+    [handler listProperty  : @"getStreamingEventsResponseMessage"
+             useSelector   : @"addGetStreamingEventsResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"GetStreamingEventsResponseMessage"
+             withHandler   : [MPSEWSGetStreamingEventsResponseMessageType class]];
 
     [handler listProperty  : @"subscribeResponseMessage"
              useSelector   : @"addSubscribeResponseMessage"
@@ -195,6 +237,78 @@
              withXmlTag    : @"ConvertIdResponseMessage"
              withHandler   : [MPSEWSConvertIdResponseMessageType class]];
 
+    [handler listProperty  : @"getSharingMetadataResponseMessage"
+             useSelector   : @"addGetSharingMetadataResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"GetSharingMetadataResponseMessage"
+             withHandler   : [MPSEWSGetSharingMetadataResponseMessageType class]];
+
+    [handler listProperty  : @"refreshSharingFolderResponseMessage"
+             useSelector   : @"addRefreshSharingFolderResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"RefreshSharingFolderResponseMessage"
+             withHandler   : [MPSEWSRefreshSharingFolderResponseMessageType class]];
+
+    [handler listProperty  : @"getSharingFolderResponseMessage"
+             useSelector   : @"addGetSharingFolderResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"GetSharingFolderResponseMessage"
+             withHandler   : [MPSEWSGetSharingFolderResponseMessageType class]];
+
+    [handler listProperty  : @"createUserConfigurationResponseMessage"
+             useSelector   : @"addCreateUserConfigurationResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"CreateUserConfigurationResponseMessage"
+             withHandler   : [MPSEWSResponseMessageType class]];
+
+    [handler listProperty  : @"deleteUserConfigurationResponseMessage"
+             useSelector   : @"addDeleteUserConfigurationResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"DeleteUserConfigurationResponseMessage"
+             withHandler   : [MPSEWSResponseMessageType class]];
+
+    [handler listProperty  : @"getUserConfigurationResponseMessage"
+             useSelector   : @"addGetUserConfigurationResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"GetUserConfigurationResponseMessage"
+             withHandler   : [MPSEWSGetUserConfigurationResponseMessageType class]];
+
+    [handler listProperty  : @"updateUserConfigurationResponseMessage"
+             useSelector   : @"addUpdateUserConfigurationResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"UpdateUserConfigurationResponseMessage"
+             withHandler   : [MPSEWSResponseMessageType class]];
+
+    [handler listProperty  : @"getRoomListsResponse"
+             useSelector   : @"addGetRoomListsResponse"
+             withNamespace : 'm'
+             withXmlTag    : @"GetRoomListsResponse"
+             withHandler   : [MPSEWSGetRoomListsResponseMessageType class]];
+
+    [handler listProperty  : @"getRoomsResponse"
+             useSelector   : @"addGetRoomsResponse"
+             withNamespace : 'm'
+             withXmlTag    : @"GetRoomsResponse"
+             withHandler   : [MPSEWSGetRoomsResponseMessageType class]];
+
+    [handler listProperty  : @"applyConversationActionResponseMessage"
+             useSelector   : @"addApplyConversationActionResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"ApplyConversationActionResponseMessage"
+             withHandler   : [MPSEWSResponseMessageType class]];
+
+    [handler listProperty  : @"findMailboxStatisticsByKeywordsResponseMessage"
+             useSelector   : @"addFindMailboxStatisticsByKeywordsResponseMessage"
+             withNamespace : 'm'
+             withXmlTag    : @"FindMailboxStatisticsByKeywordsResponseMessage"
+             withHandler   : [MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType class]];
+
+    [handler listProperty  : @"getPasswordExpirationDateResponse"
+             useSelector   : @"addGetPasswordExpirationDateResponse"
+             withNamespace : 'm'
+             withXmlTag    : @"GetPasswordExpirationDateResponse"
+             withHandler   : [MPSEWSGetPasswordExpirationDateResponseMessageType class]];
+
     [handler register];
 }
 
@@ -227,6 +341,11 @@
     }
     if ([val deleteFolderResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val deleteFolderResponseMessage]) {
+            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val emptyFolderResponseMessage]) {
+        for (MPSEWSResponseMessageType* obj in [val emptyFolderResponseMessage]) {
             if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
         }
     }
@@ -275,6 +394,16 @@
             if (![MPSEWSAttachmentInfoResponseMessageType isValid:obj]) return FALSE;
         }
     }
+    if ([val uploadItemsResponseMessage]) {
+        for (MPSEWSUploadItemsResponseMessageType* obj in [val uploadItemsResponseMessage]) {
+            if (![MPSEWSUploadItemsResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val exportItemsResponseMessage]) {
+        for (MPSEWSExportItemsResponseMessageType* obj in [val exportItemsResponseMessage]) {
+            if (![MPSEWSExportItemsResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
     if ([val findItemResponseMessage]) {
         for (MPSEWSFindItemResponseMessageType* obj in [val findItemResponseMessage]) {
             if (![MPSEWSFindItemResponseMessageType isValid:obj]) return FALSE;
@@ -300,9 +429,19 @@
             if (![MPSEWSExpandDLResponseMessageType isValid:obj]) return FALSE;
         }
     }
+    if ([val getServerTimeZonesResponseMessage]) {
+        for (MPSEWSGetServerTimeZonesResponseMessageType* obj in [val getServerTimeZonesResponseMessage]) {
+            if (![MPSEWSGetServerTimeZonesResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
     if ([val getEventsResponseMessage]) {
         for (MPSEWSGetEventsResponseMessageType* obj in [val getEventsResponseMessage]) {
             if (![MPSEWSGetEventsResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val getStreamingEventsResponseMessage]) {
+        for (MPSEWSGetStreamingEventsResponseMessageType* obj in [val getStreamingEventsResponseMessage]) {
+            if (![MPSEWSGetStreamingEventsResponseMessageType isValid:obj]) return FALSE;
         }
     }
     if ([val subscribeResponseMessage]) {
@@ -340,6 +479,66 @@
             if (![MPSEWSConvertIdResponseMessageType isValid:obj]) return FALSE;
         }
     }
+    if ([val getSharingMetadataResponseMessage]) {
+        for (MPSEWSGetSharingMetadataResponseMessageType* obj in [val getSharingMetadataResponseMessage]) {
+            if (![MPSEWSGetSharingMetadataResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val refreshSharingFolderResponseMessage]) {
+        for (MPSEWSRefreshSharingFolderResponseMessageType* obj in [val refreshSharingFolderResponseMessage]) {
+            if (![MPSEWSRefreshSharingFolderResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val getSharingFolderResponseMessage]) {
+        for (MPSEWSGetSharingFolderResponseMessageType* obj in [val getSharingFolderResponseMessage]) {
+            if (![MPSEWSGetSharingFolderResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val createUserConfigurationResponseMessage]) {
+        for (MPSEWSResponseMessageType* obj in [val createUserConfigurationResponseMessage]) {
+            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val deleteUserConfigurationResponseMessage]) {
+        for (MPSEWSResponseMessageType* obj in [val deleteUserConfigurationResponseMessage]) {
+            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val getUserConfigurationResponseMessage]) {
+        for (MPSEWSGetUserConfigurationResponseMessageType* obj in [val getUserConfigurationResponseMessage]) {
+            if (![MPSEWSGetUserConfigurationResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val updateUserConfigurationResponseMessage]) {
+        for (MPSEWSResponseMessageType* obj in [val updateUserConfigurationResponseMessage]) {
+            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val getRoomListsResponse]) {
+        for (MPSEWSGetRoomListsResponseMessageType* obj in [val getRoomListsResponse]) {
+            if (![MPSEWSGetRoomListsResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val getRoomsResponse]) {
+        for (MPSEWSGetRoomsResponseMessageType* obj in [val getRoomsResponse]) {
+            if (![MPSEWSGetRoomsResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val applyConversationActionResponseMessage]) {
+        for (MPSEWSResponseMessageType* obj in [val applyConversationActionResponseMessage]) {
+            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val findMailboxStatisticsByKeywordsResponseMessage]) {
+        for (MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType* obj in [val findMailboxStatisticsByKeywordsResponseMessage]) {
+            if (![MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
+    if ([val getPasswordExpirationDateResponse]) {
+        for (MPSEWSGetPasswordExpirationDateResponseMessageType* obj in [val getPasswordExpirationDateResponse]) {
+            if (![MPSEWSGetPasswordExpirationDateResponseMessageType isValid:obj]) return FALSE;
+        }
+    }
     return TRUE;
 }
 
@@ -355,7 +554,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"ArrayOfResponseMessagesType: CreateItemResponseMessage=%@ DeleteItemResponseMessage=%@ GetItemResponseMessage=%@ UpdateItemResponseMessage=%@ SendItemResponseMessage=%@ DeleteFolderResponseMessage=%@ CreateFolderResponseMessage=%@ GetFolderResponseMessage=%@ FindFolderResponseMessage=%@ UpdateFolderResponseMessage=%@ MoveFolderResponseMessage=%@ CopyFolderResponseMessage=%@ CreateAttachmentResponseMessage=%@ DeleteAttachmentResponseMessage=%@ GetAttachmentResponseMessage=%@ FindItemResponseMessage=%@ MoveItemResponseMessage=%@ CopyItemResponseMessage=%@ ResolveNamesResponseMessage=%@ ExpandDLResponseMessage=%@ GetEventsResponseMessage=%@ SubscribeResponseMessage=%@ UnsubscribeResponseMessage=%@ SendNotificationResponseMessage=%@ SyncFolderHierarchyResponseMessage=%@ SyncFolderItemsResponseMessage=%@ CreateManagedFolderResponseMessage=%@ ConvertIdResponseMessage=%@", _createItemResponseMessage, _deleteItemResponseMessage, _getItemResponseMessage, _updateItemResponseMessage, _sendItemResponseMessage, _deleteFolderResponseMessage, _createFolderResponseMessage, _getFolderResponseMessage, _findFolderResponseMessage, _updateFolderResponseMessage, _moveFolderResponseMessage, _pCopyFolderResponseMessage, _createAttachmentResponseMessage, _deleteAttachmentResponseMessage, _getAttachmentResponseMessage, _findItemResponseMessage, _moveItemResponseMessage, _pCopyItemResponseMessage, _resolveNamesResponseMessage, _expandDLResponseMessage, _getEventsResponseMessage, _subscribeResponseMessage, _unsubscribeResponseMessage, _sendNotificationResponseMessage, _syncFolderHierarchyResponseMessage, _syncFolderItemsResponseMessage, _createManagedFolderResponseMessage, _convertIdResponseMessage];
+    return [NSString stringWithFormat:@"ArrayOfResponseMessagesType: CreateItemResponseMessage=%@ DeleteItemResponseMessage=%@ GetItemResponseMessage=%@ UpdateItemResponseMessage=%@ SendItemResponseMessage=%@ DeleteFolderResponseMessage=%@ EmptyFolderResponseMessage=%@ CreateFolderResponseMessage=%@ GetFolderResponseMessage=%@ FindFolderResponseMessage=%@ UpdateFolderResponseMessage=%@ MoveFolderResponseMessage=%@ CopyFolderResponseMessage=%@ CreateAttachmentResponseMessage=%@ DeleteAttachmentResponseMessage=%@ GetAttachmentResponseMessage=%@ UploadItemsResponseMessage=%@ ExportItemsResponseMessage=%@ FindItemResponseMessage=%@ MoveItemResponseMessage=%@ CopyItemResponseMessage=%@ ResolveNamesResponseMessage=%@ ExpandDLResponseMessage=%@ GetServerTimeZonesResponseMessage=%@ GetEventsResponseMessage=%@ GetStreamingEventsResponseMessage=%@ SubscribeResponseMessage=%@ UnsubscribeResponseMessage=%@ SendNotificationResponseMessage=%@ SyncFolderHierarchyResponseMessage=%@ SyncFolderItemsResponseMessage=%@ CreateManagedFolderResponseMessage=%@ ConvertIdResponseMessage=%@ GetSharingMetadataResponseMessage=%@ RefreshSharingFolderResponseMessage=%@ GetSharingFolderResponseMessage=%@ CreateUserConfigurationResponseMessage=%@ DeleteUserConfigurationResponseMessage=%@ GetUserConfigurationResponseMessage=%@ UpdateUserConfigurationResponseMessage=%@ GetRoomListsResponse=%@ GetRoomsResponse=%@ ApplyConversationActionResponseMessage=%@ FindMailboxStatisticsByKeywordsResponseMessage=%@ GetPasswordExpirationDateResponse=%@", _createItemResponseMessage, _deleteItemResponseMessage, _getItemResponseMessage, _updateItemResponseMessage, _sendItemResponseMessage, _deleteFolderResponseMessage, _emptyFolderResponseMessage, _createFolderResponseMessage, _getFolderResponseMessage, _findFolderResponseMessage, _updateFolderResponseMessage, _moveFolderResponseMessage, _pCopyFolderResponseMessage, _createAttachmentResponseMessage, _deleteAttachmentResponseMessage, _getAttachmentResponseMessage, _uploadItemsResponseMessage, _exportItemsResponseMessage, _findItemResponseMessage, _moveItemResponseMessage, _pCopyItemResponseMessage, _resolveNamesResponseMessage, _expandDLResponseMessage, _getServerTimeZonesResponseMessage, _getEventsResponseMessage, _getStreamingEventsResponseMessage, _subscribeResponseMessage, _unsubscribeResponseMessage, _sendNotificationResponseMessage, _syncFolderHierarchyResponseMessage, _syncFolderItemsResponseMessage, _createManagedFolderResponseMessage, _convertIdResponseMessage, _getSharingMetadataResponseMessage, _refreshSharingFolderResponseMessage, _getSharingFolderResponseMessage, _createUserConfigurationResponseMessage, _deleteUserConfigurationResponseMessage, _getUserConfigurationResponseMessage, _updateUserConfigurationResponseMessage, _getRoomListsResponse, _getRoomsResponse, _applyConversationActionResponseMessage, _findMailboxStatisticsByKeywordsResponseMessage, _getPasswordExpirationDateResponse];
 }
 
 - (void) addCreateItemResponseMessage:(MPSEWSItemInfoResponseMessageType*) elem
@@ -404,6 +603,14 @@
         [self setDeleteFolderResponseMessage:[[NSMutableArray<MPSEWSResponseMessageType*> alloc] init]];
     }
     [_deleteFolderResponseMessage addObject:elem];
+}
+
+- (void) addEmptyFolderResponseMessage:(MPSEWSResponseMessageType*) elem
+{
+    if (![self emptyFolderResponseMessage]) {
+        [self setEmptyFolderResponseMessage:[[NSMutableArray<MPSEWSResponseMessageType*> alloc] init]];
+    }
+    [_emptyFolderResponseMessage addObject:elem];
 }
 
 - (void) addCreateFolderResponseMessage:(MPSEWSFolderInfoResponseMessageType*) elem
@@ -478,6 +685,22 @@
     [_getAttachmentResponseMessage addObject:elem];
 }
 
+- (void) addUploadItemsResponseMessage:(MPSEWSUploadItemsResponseMessageType*) elem
+{
+    if (![self uploadItemsResponseMessage]) {
+        [self setUploadItemsResponseMessage:[[NSMutableArray<MPSEWSUploadItemsResponseMessageType*> alloc] init]];
+    }
+    [_uploadItemsResponseMessage addObject:elem];
+}
+
+- (void) addExportItemsResponseMessage:(MPSEWSExportItemsResponseMessageType*) elem
+{
+    if (![self exportItemsResponseMessage]) {
+        [self setExportItemsResponseMessage:[[NSMutableArray<MPSEWSExportItemsResponseMessageType*> alloc] init]];
+    }
+    [_exportItemsResponseMessage addObject:elem];
+}
+
 - (void) addFindItemResponseMessage:(MPSEWSFindItemResponseMessageType*) elem
 {
     if (![self findItemResponseMessage]) {
@@ -518,12 +741,28 @@
     [_expandDLResponseMessage addObject:elem];
 }
 
+- (void) addGetServerTimeZonesResponseMessage:(MPSEWSGetServerTimeZonesResponseMessageType*) elem
+{
+    if (![self getServerTimeZonesResponseMessage]) {
+        [self setGetServerTimeZonesResponseMessage:[[NSMutableArray<MPSEWSGetServerTimeZonesResponseMessageType*> alloc] init]];
+    }
+    [_getServerTimeZonesResponseMessage addObject:elem];
+}
+
 - (void) addGetEventsResponseMessage:(MPSEWSGetEventsResponseMessageType*) elem
 {
     if (![self getEventsResponseMessage]) {
         [self setGetEventsResponseMessage:[[NSMutableArray<MPSEWSGetEventsResponseMessageType*> alloc] init]];
     }
     [_getEventsResponseMessage addObject:elem];
+}
+
+- (void) addGetStreamingEventsResponseMessage:(MPSEWSGetStreamingEventsResponseMessageType*) elem
+{
+    if (![self getStreamingEventsResponseMessage]) {
+        [self setGetStreamingEventsResponseMessage:[[NSMutableArray<MPSEWSGetStreamingEventsResponseMessageType*> alloc] init]];
+    }
+    [_getStreamingEventsResponseMessage addObject:elem];
 }
 
 - (void) addSubscribeResponseMessage:(MPSEWSSubscribeResponseMessageType*) elem
@@ -580,6 +819,102 @@
         [self setConvertIdResponseMessage:[[NSMutableArray<MPSEWSConvertIdResponseMessageType*> alloc] init]];
     }
     [_convertIdResponseMessage addObject:elem];
+}
+
+- (void) addGetSharingMetadataResponseMessage:(MPSEWSGetSharingMetadataResponseMessageType*) elem
+{
+    if (![self getSharingMetadataResponseMessage]) {
+        [self setGetSharingMetadataResponseMessage:[[NSMutableArray<MPSEWSGetSharingMetadataResponseMessageType*> alloc] init]];
+    }
+    [_getSharingMetadataResponseMessage addObject:elem];
+}
+
+- (void) addRefreshSharingFolderResponseMessage:(MPSEWSRefreshSharingFolderResponseMessageType*) elem
+{
+    if (![self refreshSharingFolderResponseMessage]) {
+        [self setRefreshSharingFolderResponseMessage:[[NSMutableArray<MPSEWSRefreshSharingFolderResponseMessageType*> alloc] init]];
+    }
+    [_refreshSharingFolderResponseMessage addObject:elem];
+}
+
+- (void) addGetSharingFolderResponseMessage:(MPSEWSGetSharingFolderResponseMessageType*) elem
+{
+    if (![self getSharingFolderResponseMessage]) {
+        [self setGetSharingFolderResponseMessage:[[NSMutableArray<MPSEWSGetSharingFolderResponseMessageType*> alloc] init]];
+    }
+    [_getSharingFolderResponseMessage addObject:elem];
+}
+
+- (void) addCreateUserConfigurationResponseMessage:(MPSEWSResponseMessageType*) elem
+{
+    if (![self createUserConfigurationResponseMessage]) {
+        [self setCreateUserConfigurationResponseMessage:[[NSMutableArray<MPSEWSResponseMessageType*> alloc] init]];
+    }
+    [_createUserConfigurationResponseMessage addObject:elem];
+}
+
+- (void) addDeleteUserConfigurationResponseMessage:(MPSEWSResponseMessageType*) elem
+{
+    if (![self deleteUserConfigurationResponseMessage]) {
+        [self setDeleteUserConfigurationResponseMessage:[[NSMutableArray<MPSEWSResponseMessageType*> alloc] init]];
+    }
+    [_deleteUserConfigurationResponseMessage addObject:elem];
+}
+
+- (void) addGetUserConfigurationResponseMessage:(MPSEWSGetUserConfigurationResponseMessageType*) elem
+{
+    if (![self getUserConfigurationResponseMessage]) {
+        [self setGetUserConfigurationResponseMessage:[[NSMutableArray<MPSEWSGetUserConfigurationResponseMessageType*> alloc] init]];
+    }
+    [_getUserConfigurationResponseMessage addObject:elem];
+}
+
+- (void) addUpdateUserConfigurationResponseMessage:(MPSEWSResponseMessageType*) elem
+{
+    if (![self updateUserConfigurationResponseMessage]) {
+        [self setUpdateUserConfigurationResponseMessage:[[NSMutableArray<MPSEWSResponseMessageType*> alloc] init]];
+    }
+    [_updateUserConfigurationResponseMessage addObject:elem];
+}
+
+- (void) addGetRoomListsResponse:(MPSEWSGetRoomListsResponseMessageType*) elem
+{
+    if (![self getRoomListsResponse]) {
+        [self setGetRoomListsResponse:[[NSMutableArray<MPSEWSGetRoomListsResponseMessageType*> alloc] init]];
+    }
+    [_getRoomListsResponse addObject:elem];
+}
+
+- (void) addGetRoomsResponse:(MPSEWSGetRoomsResponseMessageType*) elem
+{
+    if (![self getRoomsResponse]) {
+        [self setGetRoomsResponse:[[NSMutableArray<MPSEWSGetRoomsResponseMessageType*> alloc] init]];
+    }
+    [_getRoomsResponse addObject:elem];
+}
+
+- (void) addApplyConversationActionResponseMessage:(MPSEWSResponseMessageType*) elem
+{
+    if (![self applyConversationActionResponseMessage]) {
+        [self setApplyConversationActionResponseMessage:[[NSMutableArray<MPSEWSResponseMessageType*> alloc] init]];
+    }
+    [_applyConversationActionResponseMessage addObject:elem];
+}
+
+- (void) addFindMailboxStatisticsByKeywordsResponseMessage:(MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType*) elem
+{
+    if (![self findMailboxStatisticsByKeywordsResponseMessage]) {
+        [self setFindMailboxStatisticsByKeywordsResponseMessage:[[NSMutableArray<MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType*> alloc] init]];
+    }
+    [_findMailboxStatisticsByKeywordsResponseMessage addObject:elem];
+}
+
+- (void) addGetPasswordExpirationDateResponse:(MPSEWSGetPasswordExpirationDateResponseMessageType*) elem
+{
+    if (![self getPasswordExpirationDateResponse]) {
+        [self setGetPasswordExpirationDateResponse:[[NSMutableArray<MPSEWSGetPasswordExpirationDateResponseMessageType*> alloc] init]];
+    }
+    [_getPasswordExpirationDateResponse addObject:elem];
 }
 
 @end

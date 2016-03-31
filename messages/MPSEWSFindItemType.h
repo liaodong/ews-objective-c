@@ -37,6 +37,7 @@
 @property (strong) MPSEWSRestrictionType*                  restriction;
 @property (strong) MPSEWSNonEmptyArrayOfFieldOrdersType*   sortOrder;
 @property (strong) MPSEWSNonEmptyArrayOfBaseFolderIdsType* parentFolderIds;
+@property (strong) NSString*                               queryString             /* xs:string */;
 
 
 @end

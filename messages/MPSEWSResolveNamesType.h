@@ -19,6 +19,7 @@
 
 @property (strong) NSNumber*                               returnFullContactData  /* xs:boolean */;
 @property (strong) NSString*                               searchScope            /* MPSEWSResolveNamesSearchScopeType */;
+@property (strong) NSString*                               contactDataShape       /* MPSEWSDefaultShapeNamesType */;
 @property (strong) MPSEWSNonEmptyArrayOfBaseFolderIdsType* parentFolderIds;
 @property (strong) NSString*                               unresolvedEntry        /* MPSEWSNonEmptyStringType */;
 

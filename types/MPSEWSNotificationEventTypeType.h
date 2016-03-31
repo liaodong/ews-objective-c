@@ -10,6 +10,7 @@
  *       4 ModifiedEvent
  *       5 MovedEvent
  *       6 NewMailEvent
+ *       7 FreeBusyChangedEvent
  */
 @interface MPSEWSNotificationEventTypeType : MPSEWSSimpleTypeHandler 
 
@@ -35,5 +36,6 @@
 + (NSString *) ModifiedEvent;
 + (NSString *) MovedEvent;
 + (NSString *) NewMailEvent;
++ (NSString *) FreeBusyChangedEvent;
 @end
 

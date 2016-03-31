@@ -20,6 +20,17 @@
  *       14 junkemail
  *       15 searchfolders
  *       16 voicemail
+ *       17 recoverableitemsroot
+ *       18 recoverableitemsdeletions
+ *       19 recoverableitemsversions
+ *       20 recoverableitemspurges
+ *       21 archiveroot
+ *       22 archivemsgfolderroot
+ *       23 archivedeleteditems
+ *       24 archiverecoverableitemsroot
+ *       25 archiverecoverableitemsdeletions
+ *       26 archiverecoverableitemsversions
+ *       27 archiverecoverableitemspurges
  */
 @interface MPSEWSDistinguishedFolderIdNameType : MPSEWSSimpleTypeHandler 
 
@@ -55,5 +66,16 @@
 + (NSString *) junkemail;
 + (NSString *) searchfolders;
 + (NSString *) voicemail;
++ (NSString *) recoverableitemsroot;
++ (NSString *) recoverableitemsdeletions;
++ (NSString *) recoverableitemsversions;
++ (NSString *) recoverableitemspurges;
++ (NSString *) archiveroot;
++ (NSString *) archivemsgfolderroot;
++ (NSString *) archivedeleteditems;
++ (NSString *) archiverecoverableitemsroot;
++ (NSString *) archiverecoverableitemsdeletions;
++ (NSString *) archiverecoverableitemsversions;
++ (NSString *) archiverecoverableitemspurges;
 @end
 

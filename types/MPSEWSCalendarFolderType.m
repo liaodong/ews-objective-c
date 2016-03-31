@@ -5,6 +5,7 @@
 #import "MPSEWSCalendarFolderType.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
+#import "../types/MPSEWSCalendarPermissionReadAccessType.h"
 #import "../types/MPSEWSCalendarPermissionSetType.h"
 #import "../types/MPSEWSEffectiveRightsType.h"
 #import "../types/MPSEWSExtendedPropertyType.h"
@@ -64,6 +65,11 @@
              withXmlTag    : @"EffectiveRights"
              withHandler   : [MPSEWSEffectiveRightsType class]];
 
+    [handler property      : @"sharingEffectiveRights"
+             withNamespace : 't'
+             withXmlTag    : @"SharingEffectiveRights"
+             withHandler   : [MPSEWSCalendarPermissionReadAccessType class]];
+
     [handler property      : @"permissionSet"
              withNamespace : 't'
              withXmlTag    : @"PermissionSet"
@@ -75,6 +81,7 @@
 + (BOOL) isValid:(MPSEWSCalendarFolderType*) val
 {   (void) val;
     if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
+    if ([val sharingEffectiveRights] && ![MPSEWSCalendarPermissionReadAccessType isValid:[val sharingEffectiveRights]]) return FALSE;
     if ([val permissionSet] && ![MPSEWSCalendarPermissionSetType isValid:[val permissionSet]]) return FALSE;
     return TRUE;
 }
@@ -91,7 +98,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"CalendarFolderType: PermissionSet=%@ super=%@", _permissionSet, [super description]];
+    return [NSString stringWithFormat:@"CalendarFolderType: SharingEffectiveRights=%@ PermissionSet=%@ super=%@", _sharingEffectiveRights, _permissionSet, [super description]];
 }
 
 @end

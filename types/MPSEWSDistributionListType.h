@@ -3,6 +3,7 @@
 
 
 
+@class MPSEWSMembersListType;
 
 
 
@@ -16,9 +17,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) NSString* displayName    /* xs:string */;
-@property (strong) NSString* fileAs         /* xs:string */;
-@property (strong) NSString* contactSource  /* MPSEWSContactSourceType */;
+@property (strong) NSString*              displayName    /* xs:string */;
+@property (strong) NSString*              fileAs         /* xs:string */;
+@property (strong) NSString*              contactSource  /* MPSEWSContactSourceType */;
+@property (strong) MPSEWSMembersListType* members;
 
 
 @end

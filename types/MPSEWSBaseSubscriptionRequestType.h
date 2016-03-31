@@ -17,9 +17,10 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
+@property (strong) NSNumber*                                        subscribeToAllFolders  /* xs:boolean */;
 @property (strong) MPSEWSNonEmptyArrayOfBaseFolderIdsType*          folderIds;
 @property (strong) MPSEWSNonEmptyArrayOfNotificationEventTypesType* eventTypes;
-@property (strong) NSString*                                        watermark   /* MPSEWSWatermarkType */;
+@property (strong) NSString*                                        watermark              /* MPSEWSWatermarkType */;
 
 
 @end

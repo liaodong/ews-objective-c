@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSBaseSubscriptionRequestType.h"
+#import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../types/MPSEWSNonEmptyArrayOfBaseFolderIdsType.h"
 #import "../types/MPSEWSNonEmptyArrayOfNotificationEventTypesType.h"
 #import "../types/MPSEWSWatermarkType.h"
@@ -13,6 +14,10 @@
 + (void) initialize
 {
     MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBaseSubscriptionRequestType class]];
+
+    [handler property    : @"subscribeToAllFolders"
+             withAttrTag : @"SubscribeToAllFolders"
+             withHandler : [MPSEWSBooleanTypeHandler class]];
 
     [handler property      : @"folderIds"
              withNamespace : 't'
@@ -34,6 +39,7 @@
 
 + (BOOL) isValid:(MPSEWSBaseSubscriptionRequestType*) val
 {   (void) val;
+    if ([val subscribeToAllFolders] && ![MPSEWSBooleanTypeHandler isValid:[val subscribeToAllFolders]]) return FALSE;
     if ([val folderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val folderIds]]) return FALSE;
     if ([val eventTypes] && ![MPSEWSNonEmptyArrayOfNotificationEventTypesType isValid:[val eventTypes]]) return FALSE;
     if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark]]) return FALSE;
@@ -52,7 +58,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"BaseSubscriptionRequestType: FolderIds=%@ EventTypes=%@ Watermark=%@", _folderIds, _eventTypes, _watermark];
+    return [NSString stringWithFormat:@"BaseSubscriptionRequestType: SubscribeToAllFolders=%@ FolderIds=%@ EventTypes=%@ Watermark=%@", _subscribeToAllFolders, _folderIds, _eventTypes, _watermark];
 }
 
 @end

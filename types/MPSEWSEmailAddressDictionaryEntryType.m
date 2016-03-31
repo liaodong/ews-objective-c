@@ -3,7 +3,9 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSEmailAddressDictionaryEntryType.h"
+#import "../handlers/MPSEWSStringTypeHandler.h"
 #import "../types/MPSEWSEmailAddressKeyType.h"
+#import "../types/MPSEWSMailboxTypeType.h"
 
 
 @implementation MPSEWSEmailAddressDictionaryEntryType 
@@ -16,6 +18,18 @@
              withAttrTag : @"Key"
              withHandler : [MPSEWSEmailAddressKeyType class]];
 
+    [handler property    : @"name"
+             withAttrTag : @"Name"
+             withHandler : [MPSEWSStringTypeHandler class]];
+
+    [handler property    : @"routingType"
+             withAttrTag : @"RoutingType"
+             withHandler : [MPSEWSStringTypeHandler class]];
+
+    [handler property    : @"mailboxType"
+             withAttrTag : @"MailboxType"
+             withHandler : [MPSEWSMailboxTypeType class]];
+
     [handler register];
 }
 
@@ -23,6 +37,9 @@
 {   (void) val;
     if (![MPSEWSStringType isValid:val]) return FALSE;
     if ([val key ] && ![MPSEWSEmailAddressKeyType isValid:[val key ]]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
+    if ([val routingType] && ![MPSEWSStringTypeHandler isValid:[val routingType]]) return FALSE;
+    if ([val mailboxType] && ![MPSEWSMailboxTypeType isValid:[val mailboxType]]) return FALSE;
     return TRUE;
 }
 
@@ -38,7 +55,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"EmailAddressDictionaryEntryType: Key=%@ super=%@", _key, [super description]];
+    return [NSString stringWithFormat:@"EmailAddressDictionaryEntryType: Key=%@ Name=%@ RoutingType=%@ MailboxType=%@ super=%@", _key, _name, _routingType, _mailboxType, [super description]];
 }
 
 @end

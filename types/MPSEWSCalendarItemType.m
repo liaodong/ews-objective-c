@@ -3,6 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSCalendarItemType.h"
+#import "../handlers/MPSEWSBase64BinaryTypeHandler.h"
 #import "../handlers/MPSEWSBooleanTypeHandler.h"
 #import "../handlers/MPSEWSDateTimeTypeHandler.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
@@ -32,6 +33,7 @@
 #import "../types/MPSEWSResponseTypeType.h"
 #import "../types/MPSEWSSensitivityChoicesType.h"
 #import "../types/MPSEWSSingleRecipientType.h"
+#import "../types/MPSEWSTimeZoneDefinitionType.h"
 #import "../types/MPSEWSTimeZoneType.h"
 
 
@@ -206,6 +208,36 @@
              withNamespace : 't'
              withXmlTag    : @"LastModifiedTime"
              withHandler   : [MPSEWSDateTimeTypeHandler class]];
+
+    [handler property      : @"isAssociated"
+             withNamespace : 't'
+             withXmlTag    : @"IsAssociated"
+             withHandler   : [MPSEWSBooleanTypeHandler class]];
+
+    [handler property      : @"webClientReadFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientReadFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"webClientEditFormQueryString"
+             withNamespace : 't'
+             withXmlTag    : @"WebClientEditFormQueryString"
+             withHandler   : [MPSEWSStringTypeHandler class]];
+
+    [handler property      : @"conversationId"
+             withNamespace : 't'
+             withXmlTag    : @"ConversationId"
+             withHandler   : [MPSEWSItemIdType class]];
+
+    [handler property      : @"uniqueBody"
+             withNamespace : 't'
+             withXmlTag    : @"UniqueBody"
+             withHandler   : [MPSEWSBodyType class]];
+
+    [handler property      : @"storeEntryId"
+             withNamespace : 't'
+             withXmlTag    : @"StoreEntryId"
+             withHandler   : [MPSEWSBase64BinaryTypeHandler class]];
 
     [handler property      : @"uID"
              withNamespace : 't'
@@ -387,6 +419,16 @@
              withXmlTag    : @"MeetingTimeZone"
              withHandler   : [MPSEWSTimeZoneType class]];
 
+    [handler property      : @"startTimeZone"
+             withNamespace : 't'
+             withXmlTag    : @"StartTimeZone"
+             withHandler   : [MPSEWSTimeZoneDefinitionType class]];
+
+    [handler property      : @"endTimeZone"
+             withNamespace : 't'
+             withXmlTag    : @"EndTimeZone"
+             withHandler   : [MPSEWSTimeZoneDefinitionType class]];
+
     [handler property      : @"conferenceType"
              withNamespace : 't'
              withXmlTag    : @"ConferenceType"
@@ -454,6 +496,8 @@
     if ([val modifiedOccurrences] && ![MPSEWSNonEmptyArrayOfOccurrenceInfoType isValid:[val modifiedOccurrences]]) return FALSE;
     if ([val deletedOccurrences] && ![MPSEWSNonEmptyArrayOfDeletedOccurrencesType isValid:[val deletedOccurrences]]) return FALSE;
     if ([val meetingTimeZone] && ![MPSEWSTimeZoneType isValid:[val meetingTimeZone]]) return FALSE;
+    if ([val startTimeZone] && ![MPSEWSTimeZoneDefinitionType isValid:[val startTimeZone]]) return FALSE;
+    if ([val endTimeZone] && ![MPSEWSTimeZoneDefinitionType isValid:[val endTimeZone]]) return FALSE;
     if ([val conferenceType] && ![MPSEWSIntegerTypeHandler isValid:[val conferenceType]]) return FALSE;
     if ([val allowNewTimeProposal] && ![MPSEWSBooleanTypeHandler isValid:[val allowNewTimeProposal]]) return FALSE;
     if ([val isOnlineMeeting] && ![MPSEWSBooleanTypeHandler isValid:[val isOnlineMeeting]]) return FALSE;
@@ -474,7 +518,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"CalendarItemType: UID=%@ RecurrenceId=%@ DateTimeStamp=%@ Start=%@ End=%@ OriginalStart=%@ IsAllDayEvent=%@ LegacyFreeBusyStatus=%@ Location=%@ When=%@ IsMeeting=%@ IsCancelled=%@ IsRecurring=%@ MeetingRequestWasSent=%@ IsResponseRequested=%@ CalendarItemType=%@ MyResponseType=%@ Organizer=%@ RequiredAttendees=%@ OptionalAttendees=%@ Resources=%@ ConflictingMeetingCount=%@ AdjacentMeetingCount=%@ ConflictingMeetings=%@ AdjacentMeetings=%@ Duration=%@ TimeZone=%@ AppointmentReplyTime=%@ AppointmentSequenceNumber=%@ AppointmentState=%@ Recurrence=%@ FirstOccurrence=%@ LastOccurrence=%@ ModifiedOccurrences=%@ DeletedOccurrences=%@ MeetingTimeZone=%@ ConferenceType=%@ AllowNewTimeProposal=%@ IsOnlineMeeting=%@ MeetingWorkspaceUrl=%@ NetShowUrl=%@ super=%@", _uID, _recurrenceId, _dateTimeStamp, _start, _end, _originalStart, _isAllDayEvent, _legacyFreeBusyStatus, _location, _when, _isMeeting, _isCancelled, _isRecurring, _meetingRequestWasSent, _isResponseRequested, _calendarItemType, _myResponseType, _organizer, _requiredAttendees, _optionalAttendees, _resources, _conflictingMeetingCount, _adjacentMeetingCount, _conflictingMeetings, _adjacentMeetings, _duration, _timeZone, _appointmentReplyTime, _appointmentSequenceNumber, _appointmentState, _recurrence, _firstOccurrence, _lastOccurrence, _modifiedOccurrences, _deletedOccurrences, _meetingTimeZone, _conferenceType, _allowNewTimeProposal, _isOnlineMeeting, _meetingWorkspaceUrl, _netShowUrl, [super description]];
+    return [NSString stringWithFormat:@"CalendarItemType: UID=%@ RecurrenceId=%@ DateTimeStamp=%@ Start=%@ End=%@ OriginalStart=%@ IsAllDayEvent=%@ LegacyFreeBusyStatus=%@ Location=%@ When=%@ IsMeeting=%@ IsCancelled=%@ IsRecurring=%@ MeetingRequestWasSent=%@ IsResponseRequested=%@ CalendarItemType=%@ MyResponseType=%@ Organizer=%@ RequiredAttendees=%@ OptionalAttendees=%@ Resources=%@ ConflictingMeetingCount=%@ AdjacentMeetingCount=%@ ConflictingMeetings=%@ AdjacentMeetings=%@ Duration=%@ TimeZone=%@ AppointmentReplyTime=%@ AppointmentSequenceNumber=%@ AppointmentState=%@ Recurrence=%@ FirstOccurrence=%@ LastOccurrence=%@ ModifiedOccurrences=%@ DeletedOccurrences=%@ MeetingTimeZone=%@ StartTimeZone=%@ EndTimeZone=%@ ConferenceType=%@ AllowNewTimeProposal=%@ IsOnlineMeeting=%@ MeetingWorkspaceUrl=%@ NetShowUrl=%@ super=%@", _uID, _recurrenceId, _dateTimeStamp, _start, _end, _originalStart, _isAllDayEvent, _legacyFreeBusyStatus, _location, _when, _isMeeting, _isCancelled, _isRecurring, _meetingRequestWasSent, _isResponseRequested, _calendarItemType, _myResponseType, _organizer, _requiredAttendees, _optionalAttendees, _resources, _conflictingMeetingCount, _adjacentMeetingCount, _conflictingMeetings, _adjacentMeetings, _duration, _timeZone, _appointmentReplyTime, _appointmentSequenceNumber, _appointmentState, _recurrence, _firstOccurrence, _lastOccurrence, _modifiedOccurrences, _deletedOccurrences, _meetingTimeZone, _startTimeZone, _endTimeZone, _conferenceType, _allowNewTimeProposal, _isOnlineMeeting, _meetingWorkspaceUrl, _netShowUrl, [super description]];
 }
 
 @end
