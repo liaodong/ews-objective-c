@@ -8,6 +8,8 @@ static NSSet* enumerations = nil;
 + (void) initialize
 {
     enumerations = [NSSet setWithObjects:
+                                         [MPSEWSMailboxTypeType Unknown], 
+                                         [MPSEWSMailboxTypeType OneOff], 
                                          [MPSEWSMailboxTypeType Mailbox], 
                                          [MPSEWSMailboxTypeType PublicDL], 
                                          [MPSEWSMailboxTypeType PrivateDL], 
@@ -46,6 +48,8 @@ static NSSet* enumerations = nil;
     [buffer appendString:((NSString*) object)];
 }
 
++ (NSString *) Unknown { return @"Unknown"; }
++ (NSString *) OneOff { return @"OneOff"; }
 + (NSString *) Mailbox { return @"Mailbox"; }
 + (NSString *) PublicDL { return @"PublicDL"; }
 + (NSString *) PrivateDL { return @"PrivateDL"; }

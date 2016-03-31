@@ -205,7 +205,7 @@ static NSMutableArray* array;
     NSLog (@"End mapping %@", prefix);
 }
 
-- (id) init
+- (id) init:(NSString*) dir
 {
     self = [super init];
     current = nil;
@@ -213,7 +213,9 @@ static NSMutableArray* array;
     NSString* filename;
     
     dns = 't';
-    filename = @"ews_xsd/types.xsd";
+    filename = [NSString stringWithFormat:@"%@/types.xsd", dir];
+
+    NSLog (@"Parsing %@", filename);
     parser   = [[NSXMLParser alloc] initWithStream: [[NSInputStream alloc] initWithFileAtPath: filename]];
 
     [parser setShouldProcessNamespaces:TRUE];
@@ -222,7 +224,8 @@ static NSMutableArray* array;
     [self parse];
 
     dns = 'm';
-    filename = @"ews_xsd/messages.xsd";
+    filename = [NSString stringWithFormat:@"%@/messages.xsd",dir];
+    NSLog (@"Parsing %@", filename);
     parser   = [[NSXMLParser alloc] initWithStream: [[NSInputStream alloc] initWithFileAtPath: filename]];
 
     [parser setShouldProcessNamespaces:TRUE];
@@ -1328,7 +1331,8 @@ static const char* prefix = "MPSEWS";
 {
     for (Element* elem in [current children])
     {
-        [self preprocessElement:elem];
+        if ([[elem tagName] isEqual:@"complexType"])
+            [self preprocessElement:elem];
     }
 }
 
@@ -1748,6 +1752,11 @@ static const char* prefix = "MPSEWS";
 
 - (void) preprocessElement:(Element*) e
 {
+    if ([[e tagName] isEqual:@"complexType"]) {
+        if (![e resultType]) {
+            [e setResultType:[@"MPSEWS" stringByAppendingString:[[e name] stringByAppendingString:@"*"]]];
+        }
+    }
     if ([[e children] count] == 0 || [[e tagName] isEqual:@"simpleType"] || [[e tagName] isEqual:@"element"])
     {
         return;

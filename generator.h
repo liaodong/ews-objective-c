@@ -46,7 +46,7 @@
 
 @interface Generator  : NSObject <NSXMLParserDelegate>
 
-- (id) init;
+- (id) init:(NSString*) dir;
 
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
 

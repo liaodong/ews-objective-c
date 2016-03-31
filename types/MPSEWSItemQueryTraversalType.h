@@ -6,6 +6,7 @@
 /** SimpleType: ItemQueryTraversalType can be one of the following:
  *       1 Shallow
  *       2 SoftDeleted
+ *       3 Associated
  */
 @interface MPSEWSItemQueryTraversalType : MPSEWSSimpleTypeHandler 
 
@@ -27,5 +28,6 @@
 /* Valid values */
 + (NSString *) Shallow;
 + (NSString *) SoftDeleted;
++ (NSString *) Associated;
 @end
 

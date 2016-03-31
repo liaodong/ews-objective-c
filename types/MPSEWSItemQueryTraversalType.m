@@ -9,7 +9,8 @@ static NSSet* enumerations = nil;
 {
     enumerations = [NSSet setWithObjects:
                                          [MPSEWSItemQueryTraversalType Shallow], 
-                                         [MPSEWSItemQueryTraversalType SoftDeleted], nil];
+                                         [MPSEWSItemQueryTraversalType SoftDeleted], 
+                                         [MPSEWSItemQueryTraversalType Associated], nil];
     [[[MPSEWSItemQueryTraversalType alloc] init] register];
 }
 
@@ -45,5 +46,6 @@ static NSSet* enumerations = nil;
 
 + (NSString *) Shallow { return @"Shallow"; }
 + (NSString *) SoftDeleted { return @"SoftDeleted"; }
++ (NSString *) Associated { return @"Associated"; }
 @end
 

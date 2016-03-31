@@ -13,6 +13,7 @@
  *       7 contacts:PhysicalAddress:PostalCode
  *       8 contacts:PhoneNumber
  *       9 contacts:EmailAddress
+ *       10 distributionlist:Members:Member
  */
 @interface MPSEWSDictionaryURIType : MPSEWSSimpleTypeHandler 
 
@@ -41,5 +42,6 @@
 + (NSString *) contacts_PhysicalAddress_PostalCode;
 + (NSString *) contacts_PhoneNumber;
 + (NSString *) contacts_EmailAddress;
++ (NSString *) distributionlist_Members_Member;
 @end
 

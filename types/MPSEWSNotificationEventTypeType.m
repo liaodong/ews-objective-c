@@ -13,7 +13,8 @@ static NSSet* enumerations = nil;
                                          [MPSEWSNotificationEventTypeType DeletedEvent], 
                                          [MPSEWSNotificationEventTypeType ModifiedEvent], 
                                          [MPSEWSNotificationEventTypeType MovedEvent], 
-                                         [MPSEWSNotificationEventTypeType NewMailEvent], nil];
+                                         [MPSEWSNotificationEventTypeType NewMailEvent], 
+                                         [MPSEWSNotificationEventTypeType FreeBusyChangedEvent], nil];
     [[[MPSEWSNotificationEventTypeType alloc] init] register];
 }
 
@@ -53,5 +54,6 @@ static NSSet* enumerations = nil;
 + (NSString *) ModifiedEvent { return @"ModifiedEvent"; }
 + (NSString *) MovedEvent { return @"MovedEvent"; }
 + (NSString *) NewMailEvent { return @"NewMailEvent"; }
++ (NSString *) FreeBusyChangedEvent { return @"FreeBusyChangedEvent"; }
 @end
 
