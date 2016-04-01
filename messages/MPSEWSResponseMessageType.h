@@ -19,7 +19,7 @@
 @property (strong) NSString* messageText         /* xs:string */;
 @property (strong) NSString* responseCode        /* MPSEWSResponseCodeType */;
 @property (strong) NSNumber* descriptiveLinkKey  /* xs:int */;
-@property (strong) NSString* messageXml          /* xs:string */;
+@property (strong) NSData*   messageXml          /* xs:xmlContent */;
 
 
 @end

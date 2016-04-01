@@ -2,7 +2,6 @@
 
 
 
-@class MPSEWSEncryptedDataContainerType;
 
 
 
@@ -16,8 +15,8 @@
 - (Class) handlerClass;
 - (NSString*) description;
 
-@property (strong) MPSEWSEncryptedDataContainerType* token;
-@property (strong) MPSEWSEncryptedDataContainerType* data;
+@property (strong) NSData*  token  /* xs:xmlContent */;
+@property (strong) NSData*  data   /* xs:xmlContent */;
 
 
 @end

@@ -96,7 +96,7 @@
   <xs:element name="OpenAsAdminOrSystemService" type="t:OpenAsAdminOrSystemServiceType"/>
   
   <!-- External sharing security header for person-to-person sharing relationships -->
-  <xs:element name="SharingSecurity" type="t:EncryptedDataContainerType"/>
+  <xs:element name="SharingSecurity" type="xs:xmlContent"/>
 
   <!-- Enumeration of Exchange Server versions -->
   <xs:simpleType name="ExchangeVersionType">
@@ -4407,8 +4407,8 @@
 
   <xs:complexType name="EncryptedSharedFolderDataType">
     <xs:sequence>
-      <xs:element name="Token" type="t:EncryptedDataContainerType"/>
-      <xs:element name="Data" type="t:EncryptedDataContainerType"/>
+      <xs:element name="Token" type="xs:xmlContent"/>
+      <xs:element name="Data" type="xs:xmlContent"/>
     </xs:sequence>
   </xs:complexType>
 

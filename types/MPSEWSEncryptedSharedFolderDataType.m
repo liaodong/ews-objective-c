@@ -3,7 +3,7 @@
 #import "../handlers/MPSEWSObjectTypeHandler.h"
 
 #import "MPSEWSEncryptedSharedFolderDataType.h"
-#import "../types/MPSEWSEncryptedDataContainerType.h"
+#import "../handlers/MPSEWSXmlContentTypeHandler.h"
 
 
 @implementation MPSEWSEncryptedSharedFolderDataType 
@@ -15,20 +15,20 @@
     [handler property      : @"token"
              withNamespace : 't'
              withXmlTag    : @"Token"
-             withHandler   : [MPSEWSEncryptedDataContainerType class]];
+             withHandler   : [MPSEWSXmlContentTypeHandler class]];
 
     [handler property      : @"data"
              withNamespace : 't'
              withXmlTag    : @"Data"
-             withHandler   : [MPSEWSEncryptedDataContainerType class]];
+             withHandler   : [MPSEWSXmlContentTypeHandler class]];
 
     [handler register];
 }
 
 + (BOOL) isValid:(MPSEWSEncryptedSharedFolderDataType*) val
 {   (void) val;
-    if ([val token] && ![MPSEWSEncryptedDataContainerType isValid:[val token]]) return FALSE;
-    if ([val data] && ![MPSEWSEncryptedDataContainerType isValid:[val data]]) return FALSE;
+    if ([val token] && ![MPSEWSXmlContentTypeHandler isValid:[val token]]) return FALSE;
+    if ([val data] && ![MPSEWSXmlContentTypeHandler isValid:[val data]]) return FALSE;
     return TRUE;
 }
 

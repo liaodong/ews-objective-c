@@ -5,6 +5,7 @@
 #import "MPSEWSGetStreamingEventsResponseMessageType.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
+#import "../handlers/MPSEWSXmlContentTypeHandler.h"
 #import "../messages/MPSEWSResponseCodeType.h"
 #import "../types/MPSEWSConnectionStatusType.h"
 #import "../types/MPSEWSNonEmptyArrayOfNotificationsType.h"
@@ -40,7 +41,7 @@
     [handler property      : @"messageXml"
              withNamespace : 'm'
              withXmlTag    : @"MessageXml"
-             withHandler   : [MPSEWSStringTypeHandler class]];
+             withHandler   : [MPSEWSXmlContentTypeHandler class]];
 
     [handler property      : @"notifications"
              withNamespace : 'm'

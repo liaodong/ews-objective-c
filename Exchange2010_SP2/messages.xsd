@@ -401,7 +401,7 @@
             <xs:element name="MessageText" type="xs:string" minOccurs="0"/>
             <xs:element name="ResponseCode" type="m:ResponseCodeType" minOccurs="0"/>
             <xs:element name="DescriptiveLinkKey" type="xs:int" minOccurs="0"/>
-            <xs:element name="MessageXml" minOccurs="0" type="xs:string"/>
+            <xs:element name="MessageXml" minOccurs="0" type="xs:xmlContent"/>
         </xs:sequence>
         <xs:attribute name="ResponseClass" type="t:ResponseClassType" use="required"/>
     </xs:complexType>

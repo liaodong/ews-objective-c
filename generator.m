@@ -173,6 +173,7 @@ static NSMutableArray* array;
 
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary *) attributeDict
 {
+    NSLog (@"Start Element %@ Qname %@ attributes %@", elementName, qName, attributeDict);
 
     if (![elementName isEqual:@"schema"] || !current) {
         current = [[Element alloc] initWithParent: current andName:elementName];
@@ -192,6 +193,7 @@ static NSMutableArray* array;
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    NSLog (@"End Element %@ Qname %@ ", elementName, qName);
     current = [current parent];
 }
 
@@ -223,6 +225,7 @@ static NSMutableArray* array;
     [parser setDelegate: self];
     [self parse];
 
+return self;
     dns = 'm';
     filename = [NSString stringWithFormat:@"%@/messages.xsd",dir];
     NSLog (@"Parsing %@", filename);
@@ -1483,6 +1486,7 @@ static const char* prefix = "MPSEWS";
         if ([nm isEqual:@"xs:boolean"])       return @"NSNumber*";
         if ([nm isEqual:@"xs:unsignedInt"])   return @"NSNumber*";
         if ([nm isEqual:@"xs:unsignedShort"]) return @"NSNumber*";
+        if ([nm isEqual:@"xs:xmlContent"])    return @"NSData*";
 
 
         NSLog(@"Unknown type %@", nm);
@@ -1520,6 +1524,7 @@ static const char* prefix = "MPSEWS";
         if ([nm isEqual:@"xs:time"])          return @"../handlers/MPSEWSTimeTypeHandler.h";
         if ([nm isEqual:@"xs:unsignedInt"])   return @"../handlers/MPSEWSUnsignedIntTypeHandler.h";
         if ([nm isEqual:@"xs:unsignedShort"]) return @"../handlers/MPSEWSUnsignedShortTypeHandler.h";
+        if ([nm isEqual:@"xs:xmlContent"])    return @"../handlers/MPSEWSXmlContentTypeHandler.h";
 
         NSLog(@"Unknown type %@", nm);
         NSAssert(NO, @"Unknown type");
@@ -1556,6 +1561,7 @@ static const char* prefix = "MPSEWS";
         if ([nm isEqual:@"xs:time"])          return @"TimeTypeHandler";
         if ([nm isEqual:@"xs:unsignedInt"])   return @"UnsignedIntTypeHandler";
         if ([nm isEqual:@"xs:unsignedShort"]) return @"UnsignedShortTypeHandler";
+        if ([nm isEqual:@"xs:xmlContent"])     return @"XmlContentTypeHandler";
 
         NSLog(@"Unknown type %@", nm);
         NSAssert(NO, @"Unknown type");

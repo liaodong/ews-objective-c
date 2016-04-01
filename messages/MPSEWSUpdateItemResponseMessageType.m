@@ -5,6 +5,7 @@
 #import "MPSEWSUpdateItemResponseMessageType.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
+#import "../handlers/MPSEWSXmlContentTypeHandler.h"
 #import "../messages/MPSEWSResponseCodeType.h"
 #import "../types/MPSEWSArrayOfRealItemsType.h"
 #import "../types/MPSEWSConflictResultsType.h"
@@ -39,7 +40,7 @@
     [handler property      : @"messageXml"
              withNamespace : 'm'
              withXmlTag    : @"MessageXml"
-             withHandler   : [MPSEWSStringTypeHandler class]];
+             withHandler   : [MPSEWSXmlContentTypeHandler class]];
 
     [handler property      : @"items"
              withNamespace : 'm'

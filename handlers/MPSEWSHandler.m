@@ -68,6 +68,22 @@ static NSMutableDictionary* _handlers = nil;
     return nil;
 }
 
+- (id) updateObjectBeforeAssignment:(id) obj
+{
+    return obj;
+}
+
+- (id) updateObject:(id)obj startElement:(NSString*) elementName namespace:(NSString*) namespaceURI attributes:(NSDictionary*) attributeDict
+{
+    return obj;
+} 
+
+- (id) updateObject:(id)obj endElement:(NSString*) elementName namespace:(NSString*) namespaceURI
+{
+    return obj;
+}
+
+
 - (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char) ns withValue:(id)v
 {
     return nil;

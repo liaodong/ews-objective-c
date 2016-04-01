@@ -9,6 +9,7 @@
 @property MPSEWSParserDelegate*     delegate;
 @property id<MPSEWSHandlerProtocol> handler;
 @property id                        object;
+@property int                       depth; //< Used for parsing embedded xml document
 
 
 - (id) initWithParent: (MPSEWSParserDelegate*) parent;

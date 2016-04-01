@@ -5,6 +5,7 @@
 #import "MPSEWSResponseMessageType.h"
 #import "../handlers/MPSEWSIntegerTypeHandler.h"
 #import "../handlers/MPSEWSStringTypeHandler.h"
+#import "../handlers/MPSEWSXmlContentTypeHandler.h"
 #import "../messages/MPSEWSResponseCodeType.h"
 #import "../types/MPSEWSResponseClassType.h"
 
@@ -37,7 +38,7 @@
     [handler property      : @"messageXml"
              withNamespace : 'm'
              withXmlTag    : @"MessageXml"
-             withHandler   : [MPSEWSStringTypeHandler class]];
+             withHandler   : [MPSEWSXmlContentTypeHandler class]];
 
     [handler register];
 }
@@ -48,7 +49,7 @@
     if ([val messageText] && ![MPSEWSStringTypeHandler isValid:[val messageText]]) return FALSE;
     if ([val responseCode] && ![MPSEWSResponseCodeType isValid:[val responseCode]]) return FALSE;
     if ([val descriptiveLinkKey] && ![MPSEWSIntegerTypeHandler isValid:[val descriptiveLinkKey]]) return FALSE;
-    if ([val messageXml] && ![MPSEWSStringTypeHandler isValid:[val messageXml]]) return FALSE;
+    if ([val messageXml] && ![MPSEWSXmlContentTypeHandler isValid:[val messageXml]]) return FALSE;
     return TRUE;
 }
 

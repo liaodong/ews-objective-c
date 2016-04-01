@@ -16,9 +16,14 @@
 
 - (Class) cls;
 
+- (id) updateObject:(id)obj startElement:(NSString*) elementName namespace:(NSString*) namespaceURI attributes:(NSDictionary*) attributeDict;
+- (id) updateObject:(id)obj endElement:(NSString*) elementName namespace:(NSString*) namespaceURI;
+- (id) updateObjectBeforeAssignment:(id) obj;
+
 - (id) constructWithAttributes: (NSDictionary *)attributes;
 
 - (id) updateObject:(id)obj withCharacters:(NSString*)s;
+
 
 - (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char)ns withValue:(id)v;
 

@@ -11,6 +11,8 @@
     self = [super init];
     [self setParent:parent];
 
+    [self setDepth:0];
+
     NSLog (@"Creating an instance of MPSEWSParserDelegate = %p with parent %p", self, [self parent]);
     return self;
 }
@@ -23,6 +25,7 @@
 
     [self setParent:parent];
     [self setHandler:handler];
+    [self setDepth:0];
 
     if (![self parent])
         [self setParent:self];
@@ -52,15 +55,22 @@
                 qualifiedName:   (NSString *)qName
                 attributes:      (NSDictionary *)attributeDict
 {
-    char ns = 'x';
-    ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
-    ns = [namespaceURI hasSuffix:@"messages"] ? 'm' : ns;
+    if ([namespaceURI hasPrefix:@"http://schemas.microsoft.com/exchange/services"])
+    {
+        char ns = 'x';
+        ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
+        ns = [namespaceURI hasSuffix:@"messages"] ? 'm' : ns;
 
-    NSLog(@"begin %@ %@ %@", elementName, namespaceURI, qName);
 
-    [self setDelegate:[[MPSEWSParserDelegate alloc] initWithHandler: [self handlerForElementName:elementName namespace:ns] andParent:self andObjectWithAttributes:attributeDict]];
-    NSLog(@"Setting delegate %p", [self delegate]);
-    [parser setDelegate:[self delegate]];
+        id<MPSEWSHandlerProtocol> handler = [self handlerForElementName:elementName namespace:ns];
+        [self setDelegate:[[MPSEWSParserDelegate alloc] initWithHandler: handler andParent:self andObjectWithAttributes:attributeDict]];
+        [parser setDelegate:[self delegate]];
+    }
+    else
+    {
+        [self setDepth:[self depth] + 1];
+        [self setObject:[[self handler] updateObject:[self object] startElement:elementName namespace:namespaceURI attributes:attributeDict]];
+    }
 }
 
 - (void)parser:(NSXMLParser*)parser 
@@ -74,13 +84,27 @@
                 namespaceURI:    (NSString *)namespaceURI
                 qualifiedName:   (NSString *)qName
 {
-    char ns = 'x';
-    ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
-    ns = [namespaceURI hasSuffix:@"messages"] ? 'm' : ns;
+    NSAssert ([self depth] >= 0, @"Depth has to be positive");
+    if ([self depth] != 0)
+    {
+        // Handling free-form xml document, so just update the tag to be closed
+        [self setDepth:[self depth] - 1];
+        [self setObject:[[self handler] updateObject:[self object] endElement:elementName namespace:namespaceURI]];
+    }
+    else
+    {
+        NSAssert ([namespaceURI hasPrefix:@"http://schemas.microsoft.com/exchange/services"], @"We should be back to EWS schema");
 
-    [[self parent] populateValue:[self object] forKey:elementName namespace:ns];
-    NSLog(@"Setting delegate as parent %p of %p", [self parent], self);
-    [parser setDelegate:[self parent]];
+        char ns = 'x';
+        ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
+        ns = [namespaceURI hasSuffix:@"messages"] ? 'm' : ns;
+
+        [self setObject:[[self handler] updateObjectBeforeAssignment:[self object]]];
+        [[self parent] populateValue:[self object] forKey:elementName namespace:ns];
+
+        NSLog(@"Setting delegate as parent %p of %p", [self parent], self);
+        [parser setDelegate:[self parent]];
+    }
 }
 
 - (void) parser:(NSXMLParser *)parser
