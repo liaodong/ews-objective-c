@@ -173,7 +173,6 @@ static NSMutableArray* array;
 
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary *) attributeDict
 {
-    NSLog (@"Start Element %@ Qname %@ attributes %@", elementName, qName, attributeDict);
 
     if (![elementName isEqual:@"schema"] || !current) {
         current = [[Element alloc] initWithParent: current andName:elementName];
@@ -193,7 +192,6 @@ static NSMutableArray* array;
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    NSLog (@"End Element %@ Qname %@ ", elementName, qName);
     current = [current parent];
 }
 
@@ -225,7 +223,6 @@ static NSMutableArray* array;
     [parser setDelegate: self];
     [self parse];
 
-return self;
     dns = 'm';
     filename = [NSString stringWithFormat:@"%@/messages.xsd",dir];
     NSLog (@"Parsing %@", filename);
