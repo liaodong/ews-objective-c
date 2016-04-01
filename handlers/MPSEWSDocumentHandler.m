@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MPSEWSDocumentHandler.h"
+#import "MPSEWSXmlContentTypeHandler.h"
 #import "../messages/MPSEWSAddDelegateResponseMessageType.h"
 #import "../messages/MPSEWSAddDelegateType.h"
 #import "../messages/MPSEWSApplyConversationActionResponseType.h"
@@ -132,7 +133,6 @@
 #import "../types/MPSEWSContainsExpressionType.h"
 #import "../types/MPSEWSDateTimePrecisionType.h"
 #import "../types/MPSEWSEmailAddress.h"
-#import "../types/MPSEWSEncryptedDataContainerType.h"
 #import "../types/MPSEWSExchangeImpersonationType.h"
 #import "../types/MPSEWSExcludesType.h"
 #import "../types/MPSEWSExistsType.h"
@@ -185,6 +185,8 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 - (id<MPSEWSHandlerProtocol>) handlerForElementName:(NSString*) elementName namespace:(char) ns
 {
     elementName = [NSString stringWithFormat:@"%c:%@", ns, elementName];
+
+    NSAssert ([handlersForTag valueForKey:elementName], @"Can't find the handler");
     return [handlersForTag valueForKey:elementName];
 }
 
@@ -407,7 +409,7 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
     [MPSEWSDocumentHandler handleTag:@"t:SearchExpression" withHandlerClass:[MPSEWSSearchExpressionType class]];
     [MPSEWSDocumentHandler handleTag:@"t:SerializedSecurityContext" withHandlerClass:[MPSEWSSerializedSecurityContextType class]];
     [MPSEWSDocumentHandler handleTag:@"t:ServerVersionInfo" withHandlerClass:[MPSEWSServerVersionInfoType class]];
-    [MPSEWSDocumentHandler handleTag:@"t:SharingSecurity" withHandlerClass:[MPSEWSEncryptedDataContainerType class]];
+    [MPSEWSDocumentHandler handleTag:@"t:SharingSecurity" withHandlerClass:[MPSEWSXmlContentTypeHandler class]];
     [MPSEWSDocumentHandler handleTag:@"t:SuggestionsViewOptions" withHandlerClass:[MPSEWSSuggestionsViewOptionsType class]];
     [MPSEWSDocumentHandler handleTag:@"t:TimeZone" withHandlerClass:[MPSEWSSerializableTimeZone class]];
     [MPSEWSDocumentHandler handleTag:@"t:TimeZoneContext" withHandlerClass:[MPSEWSTimeZoneContextType class]];

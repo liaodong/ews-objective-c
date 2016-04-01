@@ -103,5 +103,9 @@ static NSMutableDictionary* _handlers = nil;
 {
 }
 
+- (BOOL) parse
+{
+    return TRUE;
+}
 @end
 

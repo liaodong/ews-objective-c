@@ -28,7 +28,8 @@
 /** XML String generation from Object representation, indent should be nil for compact representation */
 - (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
 
-
+/** Should we parse and create objects or just create the XML structure. */
+- (BOOL) parse;
 
 @end
 

@@ -13,7 +13,6 @@
 
     [self setDepth:0];
 
-    NSLog (@"Creating an instance of MPSEWSParserDelegate = %p with parent %p", self, [self parent]);
     return self;
 }
 
@@ -32,7 +31,6 @@
 
     [self setObject:[[self handler] constructWithAttributes:attributeDict]];
 
-    NSLog (@"Creating an instance of MPSEWSParserDelegate = %p with parent %p", self, [self parent]);
     return self;
 }
 
@@ -55,7 +53,8 @@
                 qualifiedName:   (NSString *)qName
                 attributes:      (NSDictionary *)attributeDict
 {
-    if ([namespaceURI hasPrefix:@"http://schemas.microsoft.com/exchange/services"])
+    BOOL parse = ![self handler] || [[self handler] parse];
+    if (parse && [namespaceURI hasPrefix:@"http://schemas.microsoft.com/exchange/services"])
     {
         char ns = 'x';
         ns = [namespaceURI hasSuffix:@"types"]    ? 't' : ns;
@@ -102,7 +101,6 @@
         [self setObject:[[self handler] updateObjectBeforeAssignment:[self object]]];
         [[self parent] populateValue:[self object] forKey:elementName namespace:ns];
 
-        NSLog(@"Setting delegate as parent %p of %p", [self parent], self);
         [parser setDelegate:[self parent]];
     }
 }

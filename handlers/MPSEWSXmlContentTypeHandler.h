@@ -25,6 +25,8 @@
 
 - (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
 
+- (BOOL) parse;
+
 @end
 
 

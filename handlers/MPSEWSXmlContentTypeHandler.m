@@ -28,6 +28,7 @@
 
 + (void) initialize
 {
+    [[[MPSEWSXmlContentTypeHandler alloc] init] register];
 }
 
 + (BOOL) isValid:(NSData*) val
@@ -128,6 +129,8 @@
 }
 - (id) updateObjectBeforeAssignment:(id) obj
 {
+    const char* end = "";
+    [[[self content:obj] data] appendBytes:end length:1];
     return [[self content:obj] data];
 }
 
@@ -142,6 +145,10 @@
     (void) data;
 }
 
+- (BOOL) parse
+{
+    return FALSE;
+}
 
 @end
 

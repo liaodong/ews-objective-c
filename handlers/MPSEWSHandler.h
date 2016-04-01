@@ -24,8 +24,9 @@
 
 - (id) updateObject:(id)obj withCharacters:(NSString*)s;
 
-
 - (id) updateObject:(id)obj forKey:(NSString*)tag namespace:(char)ns withValue:(id)v;
+
+- (BOOL) parse;
 
 - (id<MPSEWSHandlerProtocol>) handlerForElement: (NSString *) tag namespace:(char) ns;
 
