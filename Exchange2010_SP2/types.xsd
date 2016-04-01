@@ -4412,12 +4412,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="EncryptedDataContainerType">
-    <xs:sequence>
-      <xs:element name="content" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="ArrayOfInvalidRecipientsType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="InvalidRecipient" type="t:InvalidRecipientType"/>
