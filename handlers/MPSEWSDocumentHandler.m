@@ -225,17 +225,27 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 
     id<MPSEWSHandlerProtocol> handler = [handlersForTag valueForKey:root];
 
+    [buffer appendString:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>"];
+    [buffer appendString:@"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\""];
+    [buffer appendString:@" xmlns:m=\"http://schemas.microsoft.com/exchange/services/2006/messages\""];
+    [buffer appendString:@" xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\""];
+    [buffer appendString:@">"];
+    
+    [buffer appendString:@"<soap:Header><t:RequestServerVersion Version=\"Exchange2010_SP2\" /></soap:Header>"];
+    [buffer appendString:@"<soap:Body>"];
+
     [buffer appendString:@"<"];
     [buffer appendString:root];
     [buffer appendString:@" xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\""];
-    [buffer appendString:@" xmlns:m=\"http://schemas.microsoft.com/exchange/services/2006/messages\""];
-    [buffer appendString:@" xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\""];
 
     [handler  writeXmlInto:buffer for:object withIndentation:indent];
 
     [buffer appendString:@"</"];
     [buffer appendString:root];
     [buffer appendString:@">"];
+    
+    [buffer appendString:@"</soap:Body>"];
+    [buffer appendString:@"</soap:Envelope>"];
 }
 
 + (void) handleTag:tag withHandlerClass:(Class) cls
