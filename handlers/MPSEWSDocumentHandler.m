@@ -165,10 +165,26 @@
 #import "../types/MPSEWSUserOofSettings.h"
 #import "../types/MPSEWSValue.h"
 
+@implementation MPSEWSResponse
+{
+}
+
+-(id) init
+{
+    return [super init];
+}
+
+- (NSString*) description
+{
+    return [NSString stringWithFormat:@"Header = %@ Body=%@", _header, _body];
+}
+@end
 
 @implementation MPSEWSDocumentHandler
 {
     id _result;
+    MPSEWSResponse* response;
+    BOOL header;
 }
 
 
@@ -178,9 +194,44 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 - (id) init
 {
     self = [super init];
-    NSLog (@"%p", self);
+    response = [[MPSEWSResponse alloc] init];
+    header   = TRUE;
+
     return self;
 }
+
+- (void) parser:(NSXMLParser*)parser
+               didStartElement: (NSString *)elementName
+               namespaceURI:    (NSString *)namespaceURI
+               qualifiedName:   (NSString *)qName
+               attributes:      (NSDictionary *)attributeDict
+{
+    NSLog(@"Start Tag %@", elementName);
+    if ([namespaceURI hasPrefix:@"http://schemas.xmlsoap.org/soap/envelope"])
+    {
+        header = ![elementName isEqual:@"Body"];
+    }
+    else
+    {
+        [super parser:parser didStartElement: elementName namespaceURI: namespaceURI qualifiedName: qName attributes: attributeDict];
+    }
+}
+
+- (void)parser:(NSXMLParser*)parser
+               didEndElement:   (NSString *)elementName
+               namespaceURI:    (NSString *)namespaceURI
+               qualifiedName:   (NSString *)qName
+{
+    NSLog(@"End Tag %@", elementName);
+    if ([namespaceURI hasPrefix:@"http://schemas.xmlsoap.org/soap/envelope"])
+    {
+    }
+    else
+    {
+        [super parser:parser didEndElement: elementName namespaceURI: namespaceURI qualifiedName: qName];
+    }
+}
+
 
 - (id<MPSEWSHandlerProtocol>) handlerForElementName:(NSString*) elementName namespace:(char) ns
 {
@@ -192,16 +243,23 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 
 - (void) populateValue:(id) value forKey: (NSString*) tag namespace:(char) ns
 {
+    NSLog(@"Setting result for %@", tag);
+    if (header) {
+        [response setHeader:value];
+    }
+    else {
+        [response setBody:value];
+    }
     _result = value;
 }
 
-- (id) result
+- (MPSEWSResponse*) result
 {
-    return _result;
+    return response;
 }
 
 
-+ (id) toObj:(NSString*) xml
++ (MPSEWSResponse*) toObj:(NSString*) xml
 {
     MPSEWSDocumentHandler* doc = [[MPSEWSDocumentHandler alloc] init];
 

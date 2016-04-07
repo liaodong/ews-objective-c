@@ -53,6 +53,7 @@
                 qualifiedName:   (NSString *)qName
                 attributes:      (NSDictionary *)attributeDict
 {
+
     BOOL parse = ![self handler] || [[self handler] parse];
     if (parse && [namespaceURI hasPrefix:@"http://schemas.microsoft.com/exchange/services"])
     {
@@ -83,7 +84,6 @@
                 namespaceURI:    (NSString *)namespaceURI
                 qualifiedName:   (NSString *)qName
 {
-    NSAssert ([self depth] >= 0, @"Depth has to be positive");
     if ([self depth] != 0)
     {
         // Handling free-form xml document, so just update the tag to be closed
