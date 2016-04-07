@@ -51,7 +51,7 @@
 
 - (BOOL) isList
 {
-    return selector ? TRUE : FALSE;
+    return [self sel] ? TRUE : FALSE;
 }
 
 @end
