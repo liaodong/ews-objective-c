@@ -44,7 +44,7 @@
 - (SEL) selector
 {
     if (!selector) {
-        selector = NSSelectorFromString([self sel]);
+        selector = NSSelectorFromString([[self sel] stringByAppendingString:@":"]);
     }
     return selector;
 }
