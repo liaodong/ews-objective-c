@@ -76,8 +76,9 @@
 
     clazz = c;
 
-    keys      = [[NSMutableArray alloc] initWithCapacity: 32];
-    elements  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+    keys       = [[NSMutableArray alloc] initWithCapacity: 32];
+    elements   = [[NSMutableDictionary alloc] initWithCapacity: 32];
+    attributes = [[NSMutableDictionary alloc] initWithCapacity: 8];
 
     contentHandlerClass = h;
 
@@ -90,8 +91,9 @@
 
     clazz = c;
 
-    keys      = [[NSMutableArray alloc] initWithCapacity: 32];
-    elements  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+    keys       = [[NSMutableArray alloc] initWithCapacity: 32];
+    elements   = [[NSMutableDictionary alloc] initWithCapacity: 32];
+    attributes = [[NSMutableDictionary alloc] initWithCapacity: 8];
 
     contentHandlerClass = nil;
 
@@ -110,7 +112,7 @@
 
             id obj = [handler constructWithAttributes:nil];
             obj = [handler updateObject:obj withCharacters:[attrs objectForKey:key]];
-            [obj setValue:obj forKey:[h prop]];
+            [v setValue:obj forKey:[h prop]];
         }
     }
     return v;
