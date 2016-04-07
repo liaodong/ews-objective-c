@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProtectionRuleRecipientIsType*) val
++ (BOOL) isValid:(MPSEWSProtectionRuleRecipientIsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val value]) {
         for (NSString* obj in [val value]) {
-            if (![MPSEWSProtectionRuleValueType isValid:obj]) return FALSE;
+            if (![MPSEWSProtectionRuleValueType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

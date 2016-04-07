@@ -19,7 +19,7 @@
 @interface MPSEWSCalendarItemType : MPSEWSItemType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCalendarItemType*) val;
++ (BOOL) isValid:(MPSEWSCalendarItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,7 +10,7 @@
 @interface MPSEWSFindMailboxStatisticsByKeywordsResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindMailboxStatisticsByKeywordsResponseType*) val;
++ (BOOL) isValid:(MPSEWSFindMailboxStatisticsByKeywordsResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

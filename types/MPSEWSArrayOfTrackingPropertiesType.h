@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSArrayOfTrackingPropertiesType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfTrackingPropertiesType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfTrackingPropertiesType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

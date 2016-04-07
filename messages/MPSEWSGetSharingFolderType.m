@@ -31,12 +31,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetSharingFolderType*) val
++ (BOOL) isValid:(MPSEWSGetSharingFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val smtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val smtpAddress]]) return FALSE;
-    if ([val dataType] && ![MPSEWSSharingDataType isValid:[val dataType]]) return FALSE;
-    if ([val sharedFolderId] && ![MPSEWSNonEmptyStringType isValid:[val sharedFolderId]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val smtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val smtpAddress] forVersion:ver]) return FALSE;
+    if ([val dataType] && ![MPSEWSSharingDataType isValid:[val dataType] forVersion:ver]) return FALSE;
+    if ([val sharedFolderId] && ![MPSEWSNonEmptyStringType isValid:[val sharedFolderId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

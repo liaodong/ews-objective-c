@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSArrayOfUnknownEntriesType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfUnknownEntriesType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfUnknownEntriesType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,7 +11,7 @@
 @interface MPSEWSGetStreamingEventsType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetStreamingEventsType*) val;
++ (BOOL) isValid:(MPSEWSGetStreamingEventsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFieldURIOrConstantType*) val
++ (BOOL) isValid:(MPSEWSFieldURIOrConstantType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
-    if ([val constant] && ![MPSEWSConstantValueType isValid:[val constant]]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path] forVersion:ver]) return FALSE;
+    if ([val constant] && ![MPSEWSConstantValueType isValid:[val constant] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

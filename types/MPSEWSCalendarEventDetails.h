@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSCalendarEventDetails : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCalendarEventDetails*) val;
++ (BOOL) isValid:(MPSEWSCalendarEventDetails*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

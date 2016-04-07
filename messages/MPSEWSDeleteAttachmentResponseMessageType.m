@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeleteAttachmentResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSDeleteAttachmentResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val rootItemId] && ![MPSEWSRootItemIdType isValid:[val rootItemId]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val rootItemId] && ![MPSEWSRootItemIdType isValid:[val rootItemId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

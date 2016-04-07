@@ -43,13 +43,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBaseObjectChangedEventType*) val
++ (BOOL) isValid:(MPSEWSBaseObjectChangedEventType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseNotificationEventType isValid:val]) return FALSE;
-    if ([val timeStamp] && ![MPSEWSDateTimeTypeHandler isValid:[val timeStamp]]) return FALSE;
-    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
-    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
-    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId]]) return FALSE;
+    if (![MPSEWSBaseNotificationEventType isValid:val forVersion:ver]) return FALSE;
+    if ([val timeStamp] && ![MPSEWSDateTimeTypeHandler isValid:[val timeStamp] forVersion:ver]) return FALSE;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId] forVersion:ver]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId] forVersion:ver]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

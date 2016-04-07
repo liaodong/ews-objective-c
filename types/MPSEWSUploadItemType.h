@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSUploadItemType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSUploadItemType*) val;
++ (BOOL) isValid:(MPSEWSUploadItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

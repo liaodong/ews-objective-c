@@ -45,14 +45,14 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryEntryType*) val
++ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val key ] && ![MPSEWSPhysicalAddressKeyType isValid:[val key ]]) return FALSE;
-    if ([val street] && ![MPSEWSStringTypeHandler isValid:[val street]]) return FALSE;
-    if ([val city] && ![MPSEWSStringTypeHandler isValid:[val city]]) return FALSE;
-    if ([val state] && ![MPSEWSStringTypeHandler isValid:[val state]]) return FALSE;
-    if ([val countryOrRegion] && ![MPSEWSStringTypeHandler isValid:[val countryOrRegion]]) return FALSE;
-    if ([val postalCode] && ![MPSEWSStringTypeHandler isValid:[val postalCode]]) return FALSE;
+    if ([val key ] && ![MPSEWSPhysicalAddressKeyType isValid:[val key ] forVersion: ver]) return FALSE;
+    if ([val street] && ![MPSEWSStringTypeHandler isValid:[val street] forVersion:ver]) return FALSE;
+    if ([val city] && ![MPSEWSStringTypeHandler isValid:[val city] forVersion:ver]) return FALSE;
+    if ([val state] && ![MPSEWSStringTypeHandler isValid:[val state] forVersion:ver]) return FALSE;
+    if ([val countryOrRegion] && ![MPSEWSStringTypeHandler isValid:[val countryOrRegion] forVersion:ver]) return FALSE;
+    if ([val postalCode] && ![MPSEWSStringTypeHandler isValid:[val postalCode] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

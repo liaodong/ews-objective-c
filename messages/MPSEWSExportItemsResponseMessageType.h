@@ -11,7 +11,7 @@
 @interface MPSEWSExportItemsResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSExportItemsResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSExportItemsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSChangeDescriptionType*) val
++ (BOOL) isValid:(MPSEWSChangeDescriptionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

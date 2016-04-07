@@ -49,11 +49,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPushSubscriptionRequestType*) val
++ (BOOL) isValid:(MPSEWSPushSubscriptionRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseSubscriptionRequestType isValid:val]) return FALSE;
-    if ([val statusFrequency] && ![MPSEWSSubscriptionStatusFrequencyType isValid:[val statusFrequency]]) return FALSE;
-    if ([val uRL ] && ![MPSEWSStringTypeHandler isValid:[val uRL ]]) return FALSE;
+    if (![MPSEWSBaseSubscriptionRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val statusFrequency] && ![MPSEWSSubscriptionStatusFrequencyType isValid:[val statusFrequency] forVersion:ver]) return FALSE;
+    if ([val uRL ] && ![MPSEWSStringTypeHandler isValid:[val uRL ] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -31,11 +31,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSearchParametersType*) val
++ (BOOL) isValid:(MPSEWSSearchParametersType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val traversal] && ![MPSEWSSearchFolderTraversalType isValid:[val traversal]]) return FALSE;
-    if ([val restriction] && ![MPSEWSRestrictionType isValid:[val restriction]]) return FALSE;
-    if ([val baseFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val baseFolderIds]]) return FALSE;
+    if ([val traversal] && ![MPSEWSSearchFolderTraversalType isValid:[val traversal] forVersion: ver]) return FALSE;
+    if ([val restriction] && ![MPSEWSRestrictionType isValid:[val restriction] forVersion:ver]) return FALSE;
+    if ([val baseFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val baseFolderIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

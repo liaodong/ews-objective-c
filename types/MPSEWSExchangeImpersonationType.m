@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSExchangeImpersonationType*) val
++ (BOOL) isValid:(MPSEWSExchangeImpersonationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val connectingSID] && ![MPSEWSConnectingSIDType isValid:[val connectingSID]]) return FALSE;
+    if ([val connectingSID] && ![MPSEWSConnectingSIDType isValid:[val connectingSID] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

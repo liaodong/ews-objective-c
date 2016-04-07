@@ -10,7 +10,7 @@
 @interface MPSEWSAbsoluteDateTransitionType : MPSEWSTransitionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAbsoluteDateTransitionType*) val;
++ (BOOL) isValid:(MPSEWSAbsoluteDateTransitionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

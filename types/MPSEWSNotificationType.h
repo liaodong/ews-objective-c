@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -13,7 +14,7 @@
 @interface MPSEWSNotificationType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSNotificationType*) val;
++ (BOOL) isValid:(MPSEWSNotificationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

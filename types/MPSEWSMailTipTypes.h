@@ -19,7 +19,7 @@
 
 /** Register a handler to parse MailTipTypes */
 + (void) initialize;
-+ (BOOL) isValid:(NSArray<NSString*>*)val;
++ (BOOL) isValid:(NSArray<NSString*>*)val forVersion:(MPSEWSExchangeVersion) ver;
 
 /** Initialize the handler */
 - (id) init;

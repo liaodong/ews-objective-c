@@ -10,7 +10,7 @@
 @interface MPSEWSFolderChangeDescriptionType : MPSEWSChangeDescriptionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFolderChangeDescriptionType*) val;
++ (BOOL) isValid:(MPSEWSFolderChangeDescriptionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -19,10 +19,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSImAddressDictionaryEntryType*) val
++ (BOOL) isValid:(MPSEWSImAddressDictionaryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSStringType isValid:val]) return FALSE;
-    if ([val key ] && ![MPSEWSImAddressKeyType isValid:[val key ]]) return FALSE;
+    if (![MPSEWSStringType isValid:val forVersion:ver]) return FALSE;
+    if ([val key ] && ![MPSEWSImAddressKeyType isValid:[val key ] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfInternetHeadersType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfInternetHeadersType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val internetMessageHeader]) {
         for (MPSEWSInternetHeaderType* obj in [val internetMessageHeader]) {
-            if (![MPSEWSInternetHeaderType isValid:obj]) return FALSE;
+            if (![MPSEWSInternetHeaderType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfFreeBusyResponse*) val
++ (BOOL) isValid:(MPSEWSArrayOfFreeBusyResponse*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val freeBusyResponse]) {
         for (MPSEWSFreeBusyResponseType* obj in [val freeBusyResponse]) {
-            if (![MPSEWSFreeBusyResponseType isValid:obj]) return FALSE;
+            if (![MPSEWSFreeBusyResponseType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

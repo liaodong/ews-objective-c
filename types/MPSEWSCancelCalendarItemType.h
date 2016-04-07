@@ -10,7 +10,7 @@
 @interface MPSEWSCancelCalendarItemType : MPSEWSSmartResponseType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCancelCalendarItemType*) val;
++ (BOOL) isValid:(MPSEWSCancelCalendarItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

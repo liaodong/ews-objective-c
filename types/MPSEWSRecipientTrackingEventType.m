@@ -82,20 +82,20 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRecipientTrackingEventType*) val
++ (BOOL) isValid:(MPSEWSRecipientTrackingEventType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val date] && ![MPSEWSDateTimeTypeHandler isValid:[val date]]) return FALSE;
-    if ([val recipient] && ![MPSEWSEmailAddressType isValid:[val recipient]]) return FALSE;
-    if ([val deliveryStatus] && ![MPSEWSStringTypeHandler isValid:[val deliveryStatus]]) return FALSE;
-    if ([val eventDescription] && ![MPSEWSStringTypeHandler isValid:[val eventDescription]]) return FALSE;
-    if ([val eventData] && ![MPSEWSArrayOfStringsType isValid:[val eventData]]) return FALSE;
-    if ([val server] && ![MPSEWSNonEmptyStringType isValid:[val server]]) return FALSE;
-    if ([val internalId] && ![MPSEWSUnsignedIntTypeHandler isValid:[val internalId]]) return FALSE;
-    if ([val bccRecipient] && ![MPSEWSBooleanTypeHandler isValid:[val bccRecipient]]) return FALSE;
-    if ([val hiddenRecipient] && ![MPSEWSBooleanTypeHandler isValid:[val hiddenRecipient]]) return FALSE;
-    if ([val uniquePathId] && ![MPSEWSNonEmptyStringType isValid:[val uniquePathId]]) return FALSE;
-    if ([val rootAddress] && ![MPSEWSNonEmptyStringType isValid:[val rootAddress]]) return FALSE;
-    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties]]) return FALSE;
+    if ([val date] && ![MPSEWSDateTimeTypeHandler isValid:[val date] forVersion:ver]) return FALSE;
+    if ([val recipient] && ![MPSEWSEmailAddressType isValid:[val recipient] forVersion:ver]) return FALSE;
+    if ([val deliveryStatus] && ![MPSEWSStringTypeHandler isValid:[val deliveryStatus] forVersion:ver]) return FALSE;
+    if ([val eventDescription] && ![MPSEWSStringTypeHandler isValid:[val eventDescription] forVersion:ver]) return FALSE;
+    if ([val eventData] && ![MPSEWSArrayOfStringsType isValid:[val eventData] forVersion:ver]) return FALSE;
+    if ([val server] && ![MPSEWSNonEmptyStringType isValid:[val server] forVersion:ver]) return FALSE;
+    if ([val internalId] && ![MPSEWSUnsignedIntTypeHandler isValid:[val internalId] forVersion:ver]) return FALSE;
+    if ([val bccRecipient] && ![MPSEWSBooleanTypeHandler isValid:[val bccRecipient] forVersion:ver]) return FALSE;
+    if ([val hiddenRecipient] && ![MPSEWSBooleanTypeHandler isValid:[val hiddenRecipient] forVersion:ver]) return FALSE;
+    if ([val uniquePathId] && ![MPSEWSNonEmptyStringType isValid:[val uniquePathId] forVersion:ver]) return FALSE;
+    if ([val rootAddress] && ![MPSEWSNonEmptyStringType isValid:[val rootAddress] forVersion:ver]) return FALSE;
+    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -32,12 +32,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUpdateInboxRulesRequestType*) val
++ (BOOL) isValid:(MPSEWSUpdateInboxRulesRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val mailboxSmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val mailboxSmtpAddress]]) return FALSE;
-    if ([val removeOutlookRuleBlob] && ![MPSEWSBooleanTypeHandler isValid:[val removeOutlookRuleBlob]]) return FALSE;
-    if ([val operations] && ![MPSEWSArrayOfRuleOperationsType isValid:[val operations]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val mailboxSmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val mailboxSmtpAddress] forVersion:ver]) return FALSE;
+    if ([val removeOutlookRuleBlob] && ![MPSEWSBooleanTypeHandler isValid:[val removeOutlookRuleBlob] forVersion:ver]) return FALSE;
+    if ([val operations] && ![MPSEWSArrayOfRuleOperationsType isValid:[val operations] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

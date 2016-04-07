@@ -27,12 +27,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUserConfigurationDictionaryObjectType*) val
++ (BOOL) isValid:(MPSEWSUserConfigurationDictionaryObjectType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val type] && ![MPSEWSUserConfigurationDictionaryObjectTypesType isValid:[val type]]) return FALSE;
+    if ([val type] && ![MPSEWSUserConfigurationDictionaryObjectTypesType isValid:[val type] forVersion:ver]) return FALSE;
     if ([val value]) {
         for (NSString* obj in [val value]) {
-            if (![MPSEWSStringTypeHandler isValid:obj]) return FALSE;
+            if (![MPSEWSStringTypeHandler isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

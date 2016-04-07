@@ -23,11 +23,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFolderIdType*) val
++ (BOOL) isValid:(MPSEWSFolderIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseFolderIdType isValid:val]) return FALSE;
-    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
-    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey]]) return FALSE;
+    if (![MPSEWSBaseFolderIdType isValid:val forVersion:ver]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ] forVersion: ver]) return FALSE;
+    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

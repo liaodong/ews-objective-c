@@ -41,14 +41,14 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUpdateItemType*) val
++ (BOOL) isValid:(MPSEWSUpdateItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val conflictResolution] && ![MPSEWSConflictResolutionType isValid:[val conflictResolution]]) return FALSE;
-    if ([val messageDisposition] && ![MPSEWSMessageDispositionType isValid:[val messageDisposition]]) return FALSE;
-    if ([val sendMeetingInvitationsOrCancellations] && ![MPSEWSCalendarItemUpdateOperationType isValid:[val sendMeetingInvitationsOrCancellations]]) return FALSE;
-    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId]]) return FALSE;
-    if ([val itemChanges] && ![MPSEWSNonEmptyArrayOfItemChangesType isValid:[val itemChanges]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val conflictResolution] && ![MPSEWSConflictResolutionType isValid:[val conflictResolution] forVersion: ver]) return FALSE;
+    if ([val messageDisposition] && ![MPSEWSMessageDispositionType isValid:[val messageDisposition] forVersion: ver]) return FALSE;
+    if ([val sendMeetingInvitationsOrCancellations] && ![MPSEWSCalendarItemUpdateOperationType isValid:[val sendMeetingInvitationsOrCancellations] forVersion: ver]) return FALSE;
+    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId] forVersion:ver]) return FALSE;
+    if ([val itemChanges] && ![MPSEWSNonEmptyArrayOfItemChangesType isValid:[val itemChanges] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

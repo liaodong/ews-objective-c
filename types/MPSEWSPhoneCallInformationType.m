@@ -38,12 +38,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPhoneCallInformationType*) val
++ (BOOL) isValid:(MPSEWSPhoneCallInformationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val phoneCallState] && ![MPSEWSPhoneCallStateType isValid:[val phoneCallState]]) return FALSE;
-    if ([val connectionFailureCause] && ![MPSEWSConnectionFailureCauseType isValid:[val connectionFailureCause]]) return FALSE;
-    if ([val sIPResponseText] && ![MPSEWSStringTypeHandler isValid:[val sIPResponseText]]) return FALSE;
-    if ([val sIPResponseCode] && ![MPSEWSIntegerTypeHandler isValid:[val sIPResponseCode]]) return FALSE;
+    if ([val phoneCallState] && ![MPSEWSPhoneCallStateType isValid:[val phoneCallState] forVersion:ver]) return FALSE;
+    if ([val connectionFailureCause] && ![MPSEWSConnectionFailureCauseType isValid:[val connectionFailureCause] forVersion:ver]) return FALSE;
+    if ([val sIPResponseText] && ![MPSEWSStringTypeHandler isValid:[val sIPResponseText] forVersion:ver]) return FALSE;
+    if ([val sIPResponseCode] && ![MPSEWSIntegerTypeHandler isValid:[val sIPResponseCode] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

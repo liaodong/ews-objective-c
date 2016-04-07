@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSNonEmptyArrayOfRequestAttachmentIdsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRequestAttachmentIdsType*) val;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRequestAttachmentIdsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

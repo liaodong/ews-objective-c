@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSItemResponseShapeType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSItemResponseShapeType*) val;
++ (BOOL) isValid:(MPSEWSItemResponseShapeType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

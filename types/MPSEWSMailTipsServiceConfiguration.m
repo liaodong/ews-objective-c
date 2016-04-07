@@ -47,15 +47,15 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMailTipsServiceConfiguration*) val
++ (BOOL) isValid:(MPSEWSMailTipsServiceConfiguration*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSServiceConfiguration isValid:val]) return FALSE;
-    if ([val mailTipsEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val mailTipsEnabled]]) return FALSE;
-    if ([val maxRecipientsPerGetMailTipsRequest] && ![MPSEWSIntegerTypeHandler isValid:[val maxRecipientsPerGetMailTipsRequest]]) return FALSE;
-    if ([val maxMessageSize] && ![MPSEWSIntegerTypeHandler isValid:[val maxMessageSize]]) return FALSE;
-    if ([val largeAudienceThreshold] && ![MPSEWSIntegerTypeHandler isValid:[val largeAudienceThreshold]]) return FALSE;
-    if ([val showExternalRecipientCount] && ![MPSEWSBooleanTypeHandler isValid:[val showExternalRecipientCount]]) return FALSE;
-    if ([val internalDomains] && ![MPSEWSSmtpDomainList isValid:[val internalDomains]]) return FALSE;
+    if (![MPSEWSServiceConfiguration isValid:val forVersion:ver]) return FALSE;
+    if ([val mailTipsEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val mailTipsEnabled] forVersion:ver]) return FALSE;
+    if ([val maxRecipientsPerGetMailTipsRequest] && ![MPSEWSIntegerTypeHandler isValid:[val maxRecipientsPerGetMailTipsRequest] forVersion:ver]) return FALSE;
+    if ([val maxMessageSize] && ![MPSEWSIntegerTypeHandler isValid:[val maxMessageSize] forVersion:ver]) return FALSE;
+    if ([val largeAudienceThreshold] && ![MPSEWSIntegerTypeHandler isValid:[val largeAudienceThreshold] forVersion:ver]) return FALSE;
+    if ([val showExternalRecipientCount] && ![MPSEWSBooleanTypeHandler isValid:[val showExternalRecipientCount] forVersion:ver]) return FALSE;
+    if ([val internalDomains] && ![MPSEWSSmtpDomainList isValid:[val internalDomains] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

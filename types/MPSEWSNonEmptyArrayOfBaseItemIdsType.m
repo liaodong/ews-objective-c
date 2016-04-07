@@ -35,21 +35,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfBaseItemIdsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfBaseItemIdsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val itemId]) {
         for (MPSEWSItemIdType* obj in [val itemId]) {
-            if (![MPSEWSItemIdType isValid:obj]) return FALSE;
+            if (![MPSEWSItemIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val occurrenceItemId]) {
         for (MPSEWSOccurrenceItemIdType* obj in [val occurrenceItemId]) {
-            if (![MPSEWSOccurrenceItemIdType isValid:obj]) return FALSE;
+            if (![MPSEWSOccurrenceItemIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val recurringMasterItemId]) {
         for (MPSEWSRecurringMasterItemIdType* obj in [val recurringMasterItemId]) {
-            if (![MPSEWSRecurringMasterItemIdType isValid:obj]) return FALSE;
+            if (![MPSEWSRecurringMasterItemIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

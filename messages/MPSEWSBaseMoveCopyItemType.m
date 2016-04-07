@@ -32,12 +32,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBaseMoveCopyItemType*) val
++ (BOOL) isValid:(MPSEWSBaseMoveCopyItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val toFolderId] && ![MPSEWSTargetFolderIdType isValid:[val toFolderId]]) return FALSE;
-    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
-    if ([val returnNewItemIds] && ![MPSEWSBooleanTypeHandler isValid:[val returnNewItemIds]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val toFolderId] && ![MPSEWSTargetFolderIdType isValid:[val toFolderId] forVersion:ver]) return FALSE;
+    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds] forVersion:ver]) return FALSE;
+    if ([val returnNewItemIds] && ![MPSEWSBooleanTypeHandler isValid:[val returnNewItemIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

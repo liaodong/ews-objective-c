@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetRoomListsResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetRoomListsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val roomLists] && ![MPSEWSArrayOfEmailAddressesType isValid:[val roomLists]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val roomLists] && ![MPSEWSArrayOfEmailAddressesType isValid:[val roomLists] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

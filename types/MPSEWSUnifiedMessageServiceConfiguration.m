@@ -31,12 +31,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUnifiedMessageServiceConfiguration*) val
++ (BOOL) isValid:(MPSEWSUnifiedMessageServiceConfiguration*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSServiceConfiguration isValid:val]) return FALSE;
-    if ([val umEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val umEnabled]]) return FALSE;
-    if ([val playOnPhoneDialString] && ![MPSEWSStringTypeHandler isValid:[val playOnPhoneDialString]]) return FALSE;
-    if ([val playOnPhoneEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val playOnPhoneEnabled]]) return FALSE;
+    if (![MPSEWSServiceConfiguration isValid:val forVersion:ver]) return FALSE;
+    if ([val umEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val umEnabled] forVersion:ver]) return FALSE;
+    if ([val playOnPhoneDialString] && ![MPSEWSStringTypeHandler isValid:[val playOnPhoneDialString] forVersion:ver]) return FALSE;
+    if ([val playOnPhoneEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val playOnPhoneEnabled] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

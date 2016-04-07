@@ -11,7 +11,7 @@
 @interface MPSEWSRemoveDelegateType : MPSEWSBaseDelegateType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRemoveDelegateType*) val;
++ (BOOL) isValid:(MPSEWSRemoveDelegateType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

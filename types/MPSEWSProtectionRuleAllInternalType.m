@@ -12,7 +12,7 @@ static int maxLength = 0;
     [[[MPSEWSProtectionRuleAllInternalType alloc] init] register];
 }
 
-+ (BOOL) isValid:(NSString*) val
++ (BOOL) isValid:(NSString*) val forVersion:(MPSEWSExchangeVersion) ver
 {
     return [val length] > minLength && [val length] < maxLength;
 }

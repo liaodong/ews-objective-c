@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfApplyConversationActionType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfApplyConversationActionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val conversationAction]) {
         for (MPSEWSConversationActionType* obj in [val conversationAction]) {
-            if (![MPSEWSConversationActionType isValid:obj]) return FALSE;
+            if (![MPSEWSConversationActionType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

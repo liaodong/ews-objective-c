@@ -30,11 +30,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSEmailAddress*) val
++ (BOOL) isValid:(MPSEWSEmailAddress*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val address] && ![MPSEWSStringTypeHandler isValid:[val address]]) return FALSE;
-    if ([val routingType] && ![MPSEWSStringTypeHandler isValid:[val routingType]]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion:ver]) return FALSE;
+    if ([val address] && ![MPSEWSStringTypeHandler isValid:[val address] forVersion:ver]) return FALSE;
+    if ([val routingType] && ![MPSEWSStringTypeHandler isValid:[val routingType] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

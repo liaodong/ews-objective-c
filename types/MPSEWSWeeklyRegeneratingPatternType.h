@@ -10,7 +10,7 @@
 @interface MPSEWSWeeklyRegeneratingPatternType : MPSEWSRegeneratingPatternBaseType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSWeeklyRegeneratingPatternType*) val;
++ (BOOL) isValid:(MPSEWSWeeklyRegeneratingPatternType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -14,7 +14,7 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRequestServerVersionType*) val
++ (BOOL) isValid:(MPSEWSRequestServerVersionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     return TRUE;
 }

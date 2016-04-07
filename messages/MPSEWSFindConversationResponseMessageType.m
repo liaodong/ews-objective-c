@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFindConversationResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSFindConversationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val conversations] && ![MPSEWSArrayOfConversationsType isValid:[val conversations]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val conversations] && ![MPSEWSArrayOfConversationsType isValid:[val conversations] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

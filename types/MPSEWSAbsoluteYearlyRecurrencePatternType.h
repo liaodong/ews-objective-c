@@ -10,7 +10,7 @@
 @interface MPSEWSAbsoluteYearlyRecurrencePatternType : MPSEWSRecurrencePatternBaseType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAbsoluteYearlyRecurrencePatternType*) val;
++ (BOOL) isValid:(MPSEWSAbsoluteYearlyRecurrencePatternType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

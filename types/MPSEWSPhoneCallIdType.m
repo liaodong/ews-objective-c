@@ -19,9 +19,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPhoneCallIdType*) val
++ (BOOL) isValid:(MPSEWSPhoneCallIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

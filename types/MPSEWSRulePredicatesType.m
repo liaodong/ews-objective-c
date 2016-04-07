@@ -192,42 +192,42 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRulePredicatesType*) val
++ (BOOL) isValid:(MPSEWSRulePredicatesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val categories] && ![MPSEWSArrayOfStringsType isValid:[val categories]]) return FALSE;
-    if ([val containsBodyStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsBodyStrings]]) return FALSE;
-    if ([val containsHeaderStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsHeaderStrings]]) return FALSE;
-    if ([val containsRecipientStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsRecipientStrings]]) return FALSE;
-    if ([val containsSenderStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsSenderStrings]]) return FALSE;
-    if ([val containsSubjectOrBodyStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsSubjectOrBodyStrings]]) return FALSE;
-    if ([val containsSubjectStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsSubjectStrings]]) return FALSE;
-    if ([val flaggedForAction] && ![MPSEWSFlaggedForActionType isValid:[val flaggedForAction]]) return FALSE;
-    if ([val fromAddresses] && ![MPSEWSArrayOfEmailAddressesType isValid:[val fromAddresses]]) return FALSE;
-    if ([val fromConnectedAccounts] && ![MPSEWSArrayOfStringsType isValid:[val fromConnectedAccounts]]) return FALSE;
-    if ([val hasAttachments] && ![MPSEWSBooleanTypeHandler isValid:[val hasAttachments]]) return FALSE;
-    if ([val importance] && ![MPSEWSImportanceChoicesType isValid:[val importance]]) return FALSE;
-    if ([val isApprovalRequest] && ![MPSEWSBooleanTypeHandler isValid:[val isApprovalRequest]]) return FALSE;
-    if ([val isAutomaticForward] && ![MPSEWSBooleanTypeHandler isValid:[val isAutomaticForward]]) return FALSE;
-    if ([val isAutomaticReply] && ![MPSEWSBooleanTypeHandler isValid:[val isAutomaticReply]]) return FALSE;
-    if ([val isEncrypted] && ![MPSEWSBooleanTypeHandler isValid:[val isEncrypted]]) return FALSE;
-    if ([val isMeetingRequest] && ![MPSEWSBooleanTypeHandler isValid:[val isMeetingRequest]]) return FALSE;
-    if ([val isMeetingResponse] && ![MPSEWSBooleanTypeHandler isValid:[val isMeetingResponse]]) return FALSE;
-    if ([val isNDR] && ![MPSEWSBooleanTypeHandler isValid:[val isNDR]]) return FALSE;
-    if ([val isPermissionControlled] && ![MPSEWSBooleanTypeHandler isValid:[val isPermissionControlled]]) return FALSE;
-    if ([val isReadReceipt] && ![MPSEWSBooleanTypeHandler isValid:[val isReadReceipt]]) return FALSE;
-    if ([val isSigned] && ![MPSEWSBooleanTypeHandler isValid:[val isSigned]]) return FALSE;
-    if ([val isVoicemail] && ![MPSEWSBooleanTypeHandler isValid:[val isVoicemail]]) return FALSE;
-    if ([val itemClasses] && ![MPSEWSArrayOfStringsType isValid:[val itemClasses]]) return FALSE;
-    if ([val messageClassifications] && ![MPSEWSArrayOfStringsType isValid:[val messageClassifications]]) return FALSE;
-    if ([val notSentToMe] && ![MPSEWSBooleanTypeHandler isValid:[val notSentToMe]]) return FALSE;
-    if ([val sentCcMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentCcMe]]) return FALSE;
-    if ([val sentOnlyToMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentOnlyToMe]]) return FALSE;
-    if ([val sentToAddresses] && ![MPSEWSArrayOfEmailAddressesType isValid:[val sentToAddresses]]) return FALSE;
-    if ([val sentToMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentToMe]]) return FALSE;
-    if ([val sentToOrCcMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentToOrCcMe]]) return FALSE;
-    if ([val sensitivity] && ![MPSEWSSensitivityChoicesType isValid:[val sensitivity]]) return FALSE;
-    if ([val withinDateRange] && ![MPSEWSRulePredicateDateRangeType isValid:[val withinDateRange]]) return FALSE;
-    if ([val withinSizeRange] && ![MPSEWSRulePredicateSizeRangeType isValid:[val withinSizeRange]]) return FALSE;
+    if ([val categories] && ![MPSEWSArrayOfStringsType isValid:[val categories] forVersion:ver]) return FALSE;
+    if ([val containsBodyStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsBodyStrings] forVersion:ver]) return FALSE;
+    if ([val containsHeaderStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsHeaderStrings] forVersion:ver]) return FALSE;
+    if ([val containsRecipientStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsRecipientStrings] forVersion:ver]) return FALSE;
+    if ([val containsSenderStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsSenderStrings] forVersion:ver]) return FALSE;
+    if ([val containsSubjectOrBodyStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsSubjectOrBodyStrings] forVersion:ver]) return FALSE;
+    if ([val containsSubjectStrings] && ![MPSEWSArrayOfStringsType isValid:[val containsSubjectStrings] forVersion:ver]) return FALSE;
+    if ([val flaggedForAction] && ![MPSEWSFlaggedForActionType isValid:[val flaggedForAction] forVersion:ver]) return FALSE;
+    if ([val fromAddresses] && ![MPSEWSArrayOfEmailAddressesType isValid:[val fromAddresses] forVersion:ver]) return FALSE;
+    if ([val fromConnectedAccounts] && ![MPSEWSArrayOfStringsType isValid:[val fromConnectedAccounts] forVersion:ver]) return FALSE;
+    if ([val hasAttachments] && ![MPSEWSBooleanTypeHandler isValid:[val hasAttachments] forVersion:ver]) return FALSE;
+    if ([val importance] && ![MPSEWSImportanceChoicesType isValid:[val importance] forVersion:ver]) return FALSE;
+    if ([val isApprovalRequest] && ![MPSEWSBooleanTypeHandler isValid:[val isApprovalRequest] forVersion:ver]) return FALSE;
+    if ([val isAutomaticForward] && ![MPSEWSBooleanTypeHandler isValid:[val isAutomaticForward] forVersion:ver]) return FALSE;
+    if ([val isAutomaticReply] && ![MPSEWSBooleanTypeHandler isValid:[val isAutomaticReply] forVersion:ver]) return FALSE;
+    if ([val isEncrypted] && ![MPSEWSBooleanTypeHandler isValid:[val isEncrypted] forVersion:ver]) return FALSE;
+    if ([val isMeetingRequest] && ![MPSEWSBooleanTypeHandler isValid:[val isMeetingRequest] forVersion:ver]) return FALSE;
+    if ([val isMeetingResponse] && ![MPSEWSBooleanTypeHandler isValid:[val isMeetingResponse] forVersion:ver]) return FALSE;
+    if ([val isNDR] && ![MPSEWSBooleanTypeHandler isValid:[val isNDR] forVersion:ver]) return FALSE;
+    if ([val isPermissionControlled] && ![MPSEWSBooleanTypeHandler isValid:[val isPermissionControlled] forVersion:ver]) return FALSE;
+    if ([val isReadReceipt] && ![MPSEWSBooleanTypeHandler isValid:[val isReadReceipt] forVersion:ver]) return FALSE;
+    if ([val isSigned] && ![MPSEWSBooleanTypeHandler isValid:[val isSigned] forVersion:ver]) return FALSE;
+    if ([val isVoicemail] && ![MPSEWSBooleanTypeHandler isValid:[val isVoicemail] forVersion:ver]) return FALSE;
+    if ([val itemClasses] && ![MPSEWSArrayOfStringsType isValid:[val itemClasses] forVersion:ver]) return FALSE;
+    if ([val messageClassifications] && ![MPSEWSArrayOfStringsType isValid:[val messageClassifications] forVersion:ver]) return FALSE;
+    if ([val notSentToMe] && ![MPSEWSBooleanTypeHandler isValid:[val notSentToMe] forVersion:ver]) return FALSE;
+    if ([val sentCcMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentCcMe] forVersion:ver]) return FALSE;
+    if ([val sentOnlyToMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentOnlyToMe] forVersion:ver]) return FALSE;
+    if ([val sentToAddresses] && ![MPSEWSArrayOfEmailAddressesType isValid:[val sentToAddresses] forVersion:ver]) return FALSE;
+    if ([val sentToMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentToMe] forVersion:ver]) return FALSE;
+    if ([val sentToOrCcMe] && ![MPSEWSBooleanTypeHandler isValid:[val sentToOrCcMe] forVersion:ver]) return FALSE;
+    if ([val sensitivity] && ![MPSEWSSensitivityChoicesType isValid:[val sensitivity] forVersion:ver]) return FALSE;
+    if ([val withinDateRange] && ![MPSEWSRulePredicateDateRangeType isValid:[val withinDateRange] forVersion:ver]) return FALSE;
+    if ([val withinSizeRange] && ![MPSEWSRulePredicateSizeRangeType isValid:[val withinSizeRange] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

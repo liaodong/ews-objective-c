@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSIntervalRecurrencePatternBaseType*) val
++ (BOOL) isValid:(MPSEWSIntervalRecurrencePatternBaseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRecurrencePatternBaseType isValid:val]) return FALSE;
-    if ([val interval] && ![MPSEWSIntegerTypeHandler isValid:[val interval]]) return FALSE;
+    if (![MPSEWSRecurrencePatternBaseType isValid:val forVersion:ver]) return FALSE;
+    if ([val interval] && ![MPSEWSIntegerTypeHandler isValid:[val interval] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

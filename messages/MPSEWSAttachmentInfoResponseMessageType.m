@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAttachmentInfoResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSAttachmentInfoResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val attachments] && ![MPSEWSArrayOfAttachmentsType isValid:[val attachments]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val attachments] && ![MPSEWSArrayOfAttachmentsType isValid:[val attachments] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

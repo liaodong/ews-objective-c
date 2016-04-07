@@ -24,11 +24,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRecurringMasterItemIdType*) val
++ (BOOL) isValid:(MPSEWSRecurringMasterItemIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseItemIdType isValid:val]) return FALSE;
-    if ([val occurrenceId] && ![MPSEWSDerivedItemIdType isValid:[val occurrenceId]]) return FALSE;
-    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey]]) return FALSE;
+    if (![MPSEWSBaseItemIdType isValid:val forVersion:ver]) return FALSE;
+    if ([val occurrenceId] && ![MPSEWSDerivedItemIdType isValid:[val occurrenceId] forVersion: ver]) return FALSE;
+    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

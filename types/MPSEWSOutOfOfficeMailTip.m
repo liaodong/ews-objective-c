@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSOutOfOfficeMailTip*) val
++ (BOOL) isValid:(MPSEWSOutOfOfficeMailTip*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val replyBody] && ![MPSEWSReplyBody isValid:[val replyBody]]) return FALSE;
-    if ([val duration] && ![MPSEWSDuration isValid:[val duration]]) return FALSE;
+    if ([val replyBody] && ![MPSEWSReplyBody isValid:[val replyBody] forVersion:ver]) return FALSE;
+    if ([val duration] && ![MPSEWSDuration isValid:[val duration] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

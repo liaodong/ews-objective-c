@@ -11,7 +11,7 @@
 @interface MPSEWSEmailAddressType : MPSEWSBaseEmailAddressType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSEmailAddressType*) val;
++ (BOOL) isValid:(MPSEWSEmailAddressType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

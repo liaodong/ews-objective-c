@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFolderInfoResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSFolderInfoResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val folders] && ![MPSEWSArrayOfFoldersType isValid:[val folders]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val folders] && ![MPSEWSArrayOfFoldersType isValid:[val folders] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

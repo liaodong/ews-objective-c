@@ -353,9 +353,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMeetingResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSMeetingResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSMeetingMessageType isValid:val]) return FALSE;
+    if (![MPSEWSMeetingMessageType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSSyncFolderItemsDeleteType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSyncFolderItemsDeleteType*) val;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsDeleteType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

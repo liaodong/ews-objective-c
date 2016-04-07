@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeleteUserConfigurationType*) val
++ (BOOL) isValid:(MPSEWSDeleteUserConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val userConfigurationName] && ![MPSEWSUserConfigurationNameType isValid:[val userConfigurationName]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val userConfigurationName] && ![MPSEWSUserConfigurationNameType isValid:[val userConfigurationName] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

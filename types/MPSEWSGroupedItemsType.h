@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSGroupedItemsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGroupedItemsType*) val;
++ (BOOL) isValid:(MPSEWSGroupedItemsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

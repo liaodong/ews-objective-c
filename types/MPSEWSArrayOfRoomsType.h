@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSArrayOfRoomsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfRoomsType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfRoomsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

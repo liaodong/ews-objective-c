@@ -35,13 +35,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeleteItemType*) val
++ (BOOL) isValid:(MPSEWSDeleteItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType]]) return FALSE;
-    if ([val sendMeetingCancellations] && ![MPSEWSCalendarItemCreateOrDeleteOperationType isValid:[val sendMeetingCancellations]]) return FALSE;
-    if ([val affectedTaskOccurrences] && ![MPSEWSAffectedTaskOccurrencesType isValid:[val affectedTaskOccurrences]]) return FALSE;
-    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType] forVersion: ver]) return FALSE;
+    if ([val sendMeetingCancellations] && ![MPSEWSCalendarItemCreateOrDeleteOperationType isValid:[val sendMeetingCancellations] forVersion: ver]) return FALSE;
+    if ([val affectedTaskOccurrences] && ![MPSEWSAffectedTaskOccurrencesType isValid:[val affectedTaskOccurrences] forVersion: ver]) return FALSE;
+    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

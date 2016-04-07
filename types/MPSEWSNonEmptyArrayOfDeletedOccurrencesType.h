@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSNonEmptyArrayOfDeletedOccurrencesType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfDeletedOccurrencesType*) val;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfDeletedOccurrencesType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfNotificationsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfNotificationsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val notification]) {
         for (MPSEWSNotificationType* obj in [val notification]) {
-            if (![MPSEWSNotificationType isValid:obj]) return FALSE;
+            if (![MPSEWSNotificationType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSNonEmptyArrayOfSubscriptionIdsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfSubscriptionIdsType*) val;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfSubscriptionIdsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

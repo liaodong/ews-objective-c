@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSSyncFolderItemsReadFlagType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSyncFolderItemsReadFlagType*) val;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsReadFlagType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

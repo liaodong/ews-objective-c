@@ -12,7 +12,7 @@
 @interface MPSEWSGetSharingMetadataResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetSharingMetadataResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSGetSharingMetadataResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

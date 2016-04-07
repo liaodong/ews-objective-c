@@ -11,7 +11,7 @@
 @interface MPSEWSItemInfoResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSItemInfoResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSItemInfoResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

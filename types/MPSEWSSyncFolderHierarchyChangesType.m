@@ -34,21 +34,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSyncFolderHierarchyChangesType*) val
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyChangesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val create]) {
         for (MPSEWSSyncFolderHierarchyCreateOrUpdateType* obj in [val create]) {
-            if (![MPSEWSSyncFolderHierarchyCreateOrUpdateType isValid:obj]) return FALSE;
+            if (![MPSEWSSyncFolderHierarchyCreateOrUpdateType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val update]) {
         for (MPSEWSSyncFolderHierarchyCreateOrUpdateType* obj in [val update]) {
-            if (![MPSEWSSyncFolderHierarchyCreateOrUpdateType isValid:obj]) return FALSE;
+            if (![MPSEWSSyncFolderHierarchyCreateOrUpdateType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val delete]) {
         for (MPSEWSSyncFolderHierarchyDeleteType* obj in [val delete]) {
-            if (![MPSEWSSyncFolderHierarchyDeleteType isValid:obj]) return FALSE;
+            if (![MPSEWSSyncFolderHierarchyDeleteType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeleteItemFieldType*) val
++ (BOOL) isValid:(MPSEWSDeleteItemFieldType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSItemChangeDescriptionType isValid:val]) return FALSE;
+    if (![MPSEWSItemChangeDescriptionType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

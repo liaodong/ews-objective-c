@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSSerializedSecurityContextType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSerializedSecurityContextType*) val;
++ (BOOL) isValid:(MPSEWSSerializedSecurityContextType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

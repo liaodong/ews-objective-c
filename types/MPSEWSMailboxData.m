@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMailboxData*) val
++ (BOOL) isValid:(MPSEWSMailboxData*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val email] && ![MPSEWSEmailAddress isValid:[val email]]) return FALSE;
-    if ([val attendeeType] && ![MPSEWSMeetingAttendeeType isValid:[val attendeeType]]) return FALSE;
-    if ([val excludeConflicts] && ![MPSEWSBooleanTypeHandler isValid:[val excludeConflicts]]) return FALSE;
+    if ([val email] && ![MPSEWSEmailAddress isValid:[val email] forVersion:ver]) return FALSE;
+    if ([val attendeeType] && ![MPSEWSMeetingAttendeeType isValid:[val attendeeType] forVersion:ver]) return FALSE;
+    if ([val excludeConflicts] && ![MPSEWSBooleanTypeHandler isValid:[val excludeConflicts] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

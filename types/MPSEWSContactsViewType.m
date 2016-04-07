@@ -28,11 +28,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSContactsViewType*) val
++ (BOOL) isValid:(MPSEWSContactsViewType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
-    if ([val initialName] && ![MPSEWSStringTypeHandler isValid:[val initialName]]) return FALSE;
-    if ([val finalName] && ![MPSEWSStringTypeHandler isValid:[val finalName]]) return FALSE;
+    if (![MPSEWSBasePagingType isValid:val forVersion:ver]) return FALSE;
+    if ([val initialName] && ![MPSEWSStringTypeHandler isValid:[val initialName] forVersion: ver]) return FALSE;
+    if ([val finalName] && ![MPSEWSStringTypeHandler isValid:[val finalName] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

@@ -41,13 +41,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUserIdType*) val
++ (BOOL) isValid:(MPSEWSUserIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val sID ] && ![MPSEWSStringTypeHandler isValid:[val sID ]]) return FALSE;
-    if ([val primarySmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val primarySmtpAddress]]) return FALSE;
-    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
-    if ([val distinguishedUser] && ![MPSEWSDistinguishedUserType isValid:[val distinguishedUser]]) return FALSE;
-    if ([val externalUserIdentity] && ![MPSEWSStringTypeHandler isValid:[val externalUserIdentity]]) return FALSE;
+    if ([val sID ] && ![MPSEWSStringTypeHandler isValid:[val sID ] forVersion:ver]) return FALSE;
+    if ([val primarySmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val primarySmtpAddress] forVersion:ver]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName] forVersion:ver]) return FALSE;
+    if ([val distinguishedUser] && ![MPSEWSDistinguishedUserType isValid:[val distinguishedUser] forVersion:ver]) return FALSE;
+    if ([val externalUserIdentity] && ![MPSEWSStringTypeHandler isValid:[val externalUserIdentity] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

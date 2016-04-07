@@ -71,18 +71,18 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSConversationActionType*) val
++ (BOOL) isValid:(MPSEWSConversationActionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val action] && ![MPSEWSConversationActionTypeType isValid:[val action]]) return FALSE;
-    if ([val conversationId] && ![MPSEWSItemIdType isValid:[val conversationId]]) return FALSE;
-    if ([val contextFolderId] && ![MPSEWSTargetFolderIdType isValid:[val contextFolderId]]) return FALSE;
-    if ([val conversationLastSyncTime] && ![MPSEWSDateTimeTypeHandler isValid:[val conversationLastSyncTime]]) return FALSE;
-    if ([val processRightAway] && ![MPSEWSBooleanTypeHandler isValid:[val processRightAway]]) return FALSE;
-    if ([val destinationFolderId] && ![MPSEWSTargetFolderIdType isValid:[val destinationFolderId]]) return FALSE;
-    if ([val categories] && ![MPSEWSArrayOfStringsType isValid:[val categories]]) return FALSE;
-    if ([val enableAlwaysDelete] && ![MPSEWSBooleanTypeHandler isValid:[val enableAlwaysDelete]]) return FALSE;
-    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead]]) return FALSE;
-    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType]]) return FALSE;
+    if ([val action] && ![MPSEWSConversationActionTypeType isValid:[val action] forVersion:ver]) return FALSE;
+    if ([val conversationId] && ![MPSEWSItemIdType isValid:[val conversationId] forVersion:ver]) return FALSE;
+    if ([val contextFolderId] && ![MPSEWSTargetFolderIdType isValid:[val contextFolderId] forVersion:ver]) return FALSE;
+    if ([val conversationLastSyncTime] && ![MPSEWSDateTimeTypeHandler isValid:[val conversationLastSyncTime] forVersion:ver]) return FALSE;
+    if ([val processRightAway] && ![MPSEWSBooleanTypeHandler isValid:[val processRightAway] forVersion:ver]) return FALSE;
+    if ([val destinationFolderId] && ![MPSEWSTargetFolderIdType isValid:[val destinationFolderId] forVersion:ver]) return FALSE;
+    if ([val categories] && ![MPSEWSArrayOfStringsType isValid:[val categories] forVersion:ver]) return FALSE;
+    if ([val enableAlwaysDelete] && ![MPSEWSBooleanTypeHandler isValid:[val enableAlwaysDelete] forVersion:ver]) return FALSE;
+    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead] forVersion:ver]) return FALSE;
+    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

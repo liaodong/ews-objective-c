@@ -31,11 +31,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMemberType*) val
++ (BOOL) isValid:(MPSEWSMemberType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val key ] && ![MPSEWSStringTypeHandler isValid:[val key ]]) return FALSE;
-    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
-    if ([val status] && ![MPSEWSMemberStatusType isValid:[val status]]) return FALSE;
+    if ([val key ] && ![MPSEWSStringTypeHandler isValid:[val key ] forVersion: ver]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox] forVersion:ver]) return FALSE;
+    if ([val status] && ![MPSEWSMemberStatusType isValid:[val status] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

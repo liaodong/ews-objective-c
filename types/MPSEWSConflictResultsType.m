@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSConflictResultsType*) val
++ (BOOL) isValid:(MPSEWSConflictResultsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val count] && ![MPSEWSIntegerTypeHandler isValid:[val count]]) return FALSE;
+    if ([val count] && ![MPSEWSIntegerTypeHandler isValid:[val count] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -30,12 +30,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDistinguishedFolderIdType*) val
++ (BOOL) isValid:(MPSEWSDistinguishedFolderIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseFolderIdType isValid:val]) return FALSE;
-    if ([val id  ] && ![MPSEWSDistinguishedFolderIdNameType isValid:[val id  ]]) return FALSE;
-    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey]]) return FALSE;
-    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
+    if (![MPSEWSBaseFolderIdType isValid:val forVersion:ver]) return FALSE;
+    if ([val id  ] && ![MPSEWSDistinguishedFolderIdNameType isValid:[val id  ] forVersion: ver]) return FALSE;
+    if ([val changeKey] && ![MPSEWSStringTypeHandler isValid:[val changeKey] forVersion: ver]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

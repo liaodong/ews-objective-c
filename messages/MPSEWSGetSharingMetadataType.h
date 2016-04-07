@@ -12,7 +12,7 @@
 @interface MPSEWSGetSharingMetadataType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetSharingMetadataType*) val;
++ (BOOL) isValid:(MPSEWSGetSharingMetadataType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

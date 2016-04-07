@@ -44,13 +44,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProtectionRuleConditionType*) val
++ (BOOL) isValid:(MPSEWSProtectionRuleConditionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val allInternal] && ![MPSEWSProtectionRuleAllInternalType isValid:[val allInternal]]) return FALSE;
-    if ([val and ] && ![MPSEWSProtectionRuleAndType isValid:[val and ]]) return FALSE;
-    if ([val recipientIs] && ![MPSEWSProtectionRuleRecipientIsType isValid:[val recipientIs]]) return FALSE;
-    if ([val senderDepartments] && ![MPSEWSProtectionRuleSenderDepartmentsType isValid:[val senderDepartments]]) return FALSE;
-    if ([val pTrue] && ![MPSEWSProtectionRuleTrueType isValid:[val pTrue]]) return FALSE;
+    if ([val allInternal] && ![MPSEWSProtectionRuleAllInternalType isValid:[val allInternal] forVersion:ver]) return FALSE;
+    if ([val and ] && ![MPSEWSProtectionRuleAndType isValid:[val and ] forVersion:ver]) return FALSE;
+    if ([val recipientIs] && ![MPSEWSProtectionRuleRecipientIsType isValid:[val recipientIs] forVersion:ver]) return FALSE;
+    if ([val senderDepartments] && ![MPSEWSProtectionRuleSenderDepartmentsType isValid:[val senderDepartments] forVersion:ver]) return FALSE;
+    if ([val pTrue] && ![MPSEWSProtectionRuleTrueType isValid:[val pTrue] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

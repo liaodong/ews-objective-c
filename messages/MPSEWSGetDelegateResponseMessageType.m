@@ -55,10 +55,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetDelegateResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetDelegateResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseDelegateResponseMessageType isValid:val]) return FALSE;
-    if ([val deliverMeetingRequests] && ![MPSEWSDeliverMeetingRequestsType isValid:[val deliverMeetingRequests]]) return FALSE;
+    if (![MPSEWSBaseDelegateResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val deliverMeetingRequests] && ![MPSEWSDeliverMeetingRequestsType isValid:[val deliverMeetingRequests] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

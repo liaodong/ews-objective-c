@@ -49,31 +49,31 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProtectionRuleAndType*) val
++ (BOOL) isValid:(MPSEWSProtectionRuleAndType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val allInternal]) {
         for (NSString* obj in [val allInternal]) {
-            if (![MPSEWSProtectionRuleAllInternalType isValid:obj]) return FALSE;
+            if (![MPSEWSProtectionRuleAllInternalType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val and]) {
         for (MPSEWSProtectionRuleAndType* obj in [val and]) {
-            if (![MPSEWSProtectionRuleAndType isValid:obj]) return FALSE;
+            if (![MPSEWSProtectionRuleAndType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val recipientIs]) {
         for (MPSEWSProtectionRuleRecipientIsType* obj in [val recipientIs]) {
-            if (![MPSEWSProtectionRuleRecipientIsType isValid:obj]) return FALSE;
+            if (![MPSEWSProtectionRuleRecipientIsType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val senderDepartments]) {
         for (MPSEWSProtectionRuleSenderDepartmentsType* obj in [val senderDepartments]) {
-            if (![MPSEWSProtectionRuleSenderDepartmentsType isValid:obj]) return FALSE;
+            if (![MPSEWSProtectionRuleSenderDepartmentsType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val pTrue]) {
         for (NSString* obj in [val pTrue]) {
-            if (![MPSEWSProtectionRuleTrueType isValid:obj]) return FALSE;
+            if (![MPSEWSProtectionRuleTrueType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

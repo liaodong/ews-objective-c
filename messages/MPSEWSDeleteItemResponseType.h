@@ -10,7 +10,7 @@
 @interface MPSEWSDeleteItemResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeleteItemResponseType*) val;
++ (BOOL) isValid:(MPSEWSDeleteItemResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

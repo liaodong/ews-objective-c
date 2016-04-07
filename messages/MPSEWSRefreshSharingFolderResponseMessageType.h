@@ -10,7 +10,7 @@
 @interface MPSEWSRefreshSharingFolderResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRefreshSharingFolderResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSRefreshSharingFolderResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

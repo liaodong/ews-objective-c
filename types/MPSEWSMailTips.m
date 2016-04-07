@@ -75,19 +75,19 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMailTips*) val
++ (BOOL) isValid:(MPSEWSMailTips*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val recipientAddress] && ![MPSEWSEmailAddressType isValid:[val recipientAddress]]) return FALSE;
-    if ([val pendingMailTips] && ![MPSEWSMailTipTypes isValid:[val pendingMailTips]]) return FALSE;
-    if ([val outOfOffice] && ![MPSEWSOutOfOfficeMailTip isValid:[val outOfOffice]]) return FALSE;
-    if ([val mailboxFull] && ![MPSEWSBooleanTypeHandler isValid:[val mailboxFull]]) return FALSE;
-    if ([val customMailTip] && ![MPSEWSStringTypeHandler isValid:[val customMailTip]]) return FALSE;
-    if ([val totalMemberCount] && ![MPSEWSIntegerTypeHandler isValid:[val totalMemberCount]]) return FALSE;
-    if ([val externalMemberCount] && ![MPSEWSIntegerTypeHandler isValid:[val externalMemberCount]]) return FALSE;
-    if ([val maxMessageSize] && ![MPSEWSIntegerTypeHandler isValid:[val maxMessageSize]]) return FALSE;
-    if ([val deliveryRestricted] && ![MPSEWSBooleanTypeHandler isValid:[val deliveryRestricted]]) return FALSE;
-    if ([val isModerated] && ![MPSEWSBooleanTypeHandler isValid:[val isModerated]]) return FALSE;
-    if ([val invalidRecipient] && ![MPSEWSBooleanTypeHandler isValid:[val invalidRecipient]]) return FALSE;
+    if ([val recipientAddress] && ![MPSEWSEmailAddressType isValid:[val recipientAddress] forVersion:ver]) return FALSE;
+    if ([val pendingMailTips] && ![MPSEWSMailTipTypes isValid:[val pendingMailTips] forVersion:ver]) return FALSE;
+    if ([val outOfOffice] && ![MPSEWSOutOfOfficeMailTip isValid:[val outOfOffice] forVersion:ver]) return FALSE;
+    if ([val mailboxFull] && ![MPSEWSBooleanTypeHandler isValid:[val mailboxFull] forVersion:ver]) return FALSE;
+    if ([val customMailTip] && ![MPSEWSStringTypeHandler isValid:[val customMailTip] forVersion:ver]) return FALSE;
+    if ([val totalMemberCount] && ![MPSEWSIntegerTypeHandler isValid:[val totalMemberCount] forVersion:ver]) return FALSE;
+    if ([val externalMemberCount] && ![MPSEWSIntegerTypeHandler isValid:[val externalMemberCount] forVersion:ver]) return FALSE;
+    if ([val maxMessageSize] && ![MPSEWSIntegerTypeHandler isValid:[val maxMessageSize] forVersion:ver]) return FALSE;
+    if ([val deliveryRestricted] && ![MPSEWSBooleanTypeHandler isValid:[val deliveryRestricted] forVersion:ver]) return FALSE;
+    if ([val isModerated] && ![MPSEWSBooleanTypeHandler isValid:[val isModerated] forVersion:ver]) return FALSE;
+    if ([val invalidRecipient] && ![MPSEWSBooleanTypeHandler isValid:[val invalidRecipient] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

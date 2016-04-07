@@ -11,7 +11,7 @@
 @interface MPSEWSBaseDelegateType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSBaseDelegateType*) val;
++ (BOOL) isValid:(MPSEWSBaseDelegateType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCreateAttachmentType*) val
++ (BOOL) isValid:(MPSEWSCreateAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val parentItemId] && ![MPSEWSItemIdType isValid:[val parentItemId]]) return FALSE;
-    if ([val attachments] && ![MPSEWSNonEmptyArrayOfAttachmentsType isValid:[val attachments]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val parentItemId] && ![MPSEWSItemIdType isValid:[val parentItemId] forVersion:ver]) return FALSE;
+    if ([val attachments] && ![MPSEWSNonEmptyArrayOfAttachmentsType isValid:[val attachments] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

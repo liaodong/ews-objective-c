@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSYearlyRegeneratingPatternType*) val
++ (BOOL) isValid:(MPSEWSYearlyRegeneratingPatternType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRegeneratingPatternBaseType isValid:val]) return FALSE;
+    if (![MPSEWSRegeneratingPatternBaseType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

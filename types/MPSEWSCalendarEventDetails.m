@@ -56,16 +56,16 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCalendarEventDetails*) val
++ (BOOL) isValid:(MPSEWSCalendarEventDetails*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val iD  ] && ![MPSEWSStringTypeHandler isValid:[val iD  ]]) return FALSE;
-    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject]]) return FALSE;
-    if ([val location] && ![MPSEWSStringTypeHandler isValid:[val location]]) return FALSE;
-    if ([val isMeeting] && ![MPSEWSBooleanTypeHandler isValid:[val isMeeting]]) return FALSE;
-    if ([val isRecurring] && ![MPSEWSBooleanTypeHandler isValid:[val isRecurring]]) return FALSE;
-    if ([val isException] && ![MPSEWSBooleanTypeHandler isValid:[val isException]]) return FALSE;
-    if ([val isReminderSet] && ![MPSEWSBooleanTypeHandler isValid:[val isReminderSet]]) return FALSE;
-    if ([val isPrivate] && ![MPSEWSBooleanTypeHandler isValid:[val isPrivate]]) return FALSE;
+    if ([val iD  ] && ![MPSEWSStringTypeHandler isValid:[val iD  ] forVersion:ver]) return FALSE;
+    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject] forVersion:ver]) return FALSE;
+    if ([val location] && ![MPSEWSStringTypeHandler isValid:[val location] forVersion:ver]) return FALSE;
+    if ([val isMeeting] && ![MPSEWSBooleanTypeHandler isValid:[val isMeeting] forVersion:ver]) return FALSE;
+    if ([val isRecurring] && ![MPSEWSBooleanTypeHandler isValid:[val isRecurring] forVersion:ver]) return FALSE;
+    if ([val isException] && ![MPSEWSBooleanTypeHandler isValid:[val isException] forVersion:ver]) return FALSE;
+    if ([val isReminderSet] && ![MPSEWSBooleanTypeHandler isValid:[val isReminderSet] forVersion:ver]) return FALSE;
+    if ([val isPrivate] && ![MPSEWSBooleanTypeHandler isValid:[val isPrivate] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

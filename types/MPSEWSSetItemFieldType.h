@@ -21,7 +21,7 @@
 @interface MPSEWSSetItemFieldType : MPSEWSItemChangeDescriptionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSetItemFieldType*) val;
++ (BOOL) isValid:(MPSEWSSetItemFieldType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

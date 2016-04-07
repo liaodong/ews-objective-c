@@ -12,7 +12,7 @@
 @interface MPSEWSCreateAttachmentType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCreateAttachmentType*) val;
++ (BOOL) isValid:(MPSEWSCreateAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

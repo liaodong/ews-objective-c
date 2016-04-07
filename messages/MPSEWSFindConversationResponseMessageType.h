@@ -11,7 +11,7 @@
 @interface MPSEWSFindConversationResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindConversationResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSFindConversationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -20,7 +21,7 @@
 @interface MPSEWSArrayOfRealItemsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfRealItemsType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfRealItemsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

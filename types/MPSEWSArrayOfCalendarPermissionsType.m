@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfCalendarPermissionsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfCalendarPermissionsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val calendarPermission]) {
         for (MPSEWSCalendarPermissionType* obj in [val calendarPermission]) {
-            if (![MPSEWSCalendarPermissionType isValid:obj]) return FALSE;
+            if (![MPSEWSCalendarPermissionType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -26,9 +26,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSIsEqualToType*) val
++ (BOOL) isValid:(MPSEWSIsEqualToType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSTwoOperandExpressionType isValid:val]) return FALSE;
+    if (![MPSEWSTwoOperandExpressionType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -10,7 +10,7 @@
 @interface MPSEWSUnifiedMessageServiceConfiguration : MPSEWSServiceConfiguration
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSUnifiedMessageServiceConfiguration*) val;
++ (BOOL) isValid:(MPSEWSUnifiedMessageServiceConfiguration*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

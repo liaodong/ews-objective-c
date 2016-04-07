@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetServerTimeZonesResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetServerTimeZonesResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val timeZoneDefinitions] && ![MPSEWSArrayOfTimeZoneDefinitionType isValid:[val timeZoneDefinitions]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val timeZoneDefinitions] && ![MPSEWSArrayOfTimeZoneDefinitionType isValid:[val timeZoneDefinitions] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

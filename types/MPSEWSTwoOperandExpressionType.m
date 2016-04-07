@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTwoOperandExpressionType*) val
++ (BOOL) isValid:(MPSEWSTwoOperandExpressionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSSearchExpressionType isValid:val]) return FALSE;
-    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
-    if ([val fieldURIOrConstant] && ![MPSEWSFieldURIOrConstantType isValid:[val fieldURIOrConstant]]) return FALSE;
+    if (![MPSEWSSearchExpressionType isValid:val forVersion:ver]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path] forVersion:ver]) return FALSE;
+    if ([val fieldURIOrConstant] && ![MPSEWSFieldURIOrConstantType isValid:[val fieldURIOrConstant] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

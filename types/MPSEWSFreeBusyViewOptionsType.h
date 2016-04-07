@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSFreeBusyViewOptionsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFreeBusyViewOptionsType*) val;
++ (BOOL) isValid:(MPSEWSFreeBusyViewOptionsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

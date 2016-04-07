@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSModifiedEventType*) val
++ (BOOL) isValid:(MPSEWSModifiedEventType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseObjectChangedEventType isValid:val]) return FALSE;
-    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount]]) return FALSE;
+    if (![MPSEWSBaseObjectChangedEventType isValid:val forVersion:ver]) return FALSE;
+    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

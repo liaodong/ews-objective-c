@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDelegateUserResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSDelegateUserResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val delegateUser] && ![MPSEWSDelegateUserType isValid:[val delegateUser]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val delegateUser] && ![MPSEWSDelegateUserType isValid:[val delegateUser] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -19,10 +19,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPhoneNumberDictionaryEntryType*) val
++ (BOOL) isValid:(MPSEWSPhoneNumberDictionaryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSStringType isValid:val]) return FALSE;
-    if ([val key ] && ![MPSEWSPhoneNumberKeyType isValid:[val key ]]) return FALSE;
+    if (![MPSEWSStringType isValid:val forVersion:ver]) return FALSE;
+    if ([val key ] && ![MPSEWSPhoneNumberKeyType isValid:[val key ] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

@@ -64,17 +64,17 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRuleType*) val
++ (BOOL) isValid:(MPSEWSRuleType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val ruleId] && ![MPSEWSStringTypeHandler isValid:[val ruleId]]) return FALSE;
-    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
-    if ([val priority] && ![MPSEWSIntegerTypeHandler isValid:[val priority]]) return FALSE;
-    if ([val isEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val isEnabled]]) return FALSE;
-    if ([val isNotSupported] && ![MPSEWSBooleanTypeHandler isValid:[val isNotSupported]]) return FALSE;
-    if ([val isInError] && ![MPSEWSBooleanTypeHandler isValid:[val isInError]]) return FALSE;
-    if ([val conditions] && ![MPSEWSRulePredicatesType isValid:[val conditions]]) return FALSE;
-    if ([val exceptions] && ![MPSEWSRulePredicatesType isValid:[val exceptions]]) return FALSE;
-    if ([val actions] && ![MPSEWSRuleActionsType isValid:[val actions]]) return FALSE;
+    if ([val ruleId] && ![MPSEWSStringTypeHandler isValid:[val ruleId] forVersion:ver]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName] forVersion:ver]) return FALSE;
+    if ([val priority] && ![MPSEWSIntegerTypeHandler isValid:[val priority] forVersion:ver]) return FALSE;
+    if ([val isEnabled] && ![MPSEWSBooleanTypeHandler isValid:[val isEnabled] forVersion:ver]) return FALSE;
+    if ([val isNotSupported] && ![MPSEWSBooleanTypeHandler isValid:[val isNotSupported] forVersion:ver]) return FALSE;
+    if ([val isInError] && ![MPSEWSBooleanTypeHandler isValid:[val isInError] forVersion:ver]) return FALSE;
+    if ([val conditions] && ![MPSEWSRulePredicatesType isValid:[val conditions] forVersion:ver]) return FALSE;
+    if ([val exceptions] && ![MPSEWSRulePredicatesType isValid:[val exceptions] forVersion:ver]) return FALSE;
+    if ([val actions] && ![MPSEWSRuleActionsType isValid:[val actions] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

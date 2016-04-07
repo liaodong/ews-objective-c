@@ -36,13 +36,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSContainsExpressionType*) val
++ (BOOL) isValid:(MPSEWSContainsExpressionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSSearchExpressionType isValid:val]) return FALSE;
-    if ([val containmentMode] && ![MPSEWSContainmentModeType isValid:[val containmentMode]]) return FALSE;
-    if ([val containmentComparison] && ![MPSEWSContainmentComparisonType isValid:[val containmentComparison]]) return FALSE;
-    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
-    if ([val constant] && ![MPSEWSConstantValueType isValid:[val constant]]) return FALSE;
+    if (![MPSEWSSearchExpressionType isValid:val forVersion:ver]) return FALSE;
+    if ([val containmentMode] && ![MPSEWSContainmentModeType isValid:[val containmentMode] forVersion: ver]) return FALSE;
+    if ([val containmentComparison] && ![MPSEWSContainmentComparisonType isValid:[val containmentComparison] forVersion: ver]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path] forVersion:ver]) return FALSE;
+    if ([val constant] && ![MPSEWSConstantValueType isValid:[val constant] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -70,15 +70,15 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSExpandDLResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSExpandDLResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val indexedPagingOffset] && ![MPSEWSIntegerTypeHandler isValid:[val indexedPagingOffset]]) return FALSE;
-    if ([val numeratorOffset] && ![MPSEWSIntegerTypeHandler isValid:[val numeratorOffset]]) return FALSE;
-    if ([val absoluteDenominator] && ![MPSEWSIntegerTypeHandler isValid:[val absoluteDenominator]]) return FALSE;
-    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange]]) return FALSE;
-    if ([val totalItemsInView] && ![MPSEWSIntegerTypeHandler isValid:[val totalItemsInView]]) return FALSE;
-    if ([val dLExpansion] && ![MPSEWSArrayOfDLExpansionType isValid:[val dLExpansion]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val indexedPagingOffset] && ![MPSEWSIntegerTypeHandler isValid:[val indexedPagingOffset] forVersion: ver]) return FALSE;
+    if ([val numeratorOffset] && ![MPSEWSIntegerTypeHandler isValid:[val numeratorOffset] forVersion: ver]) return FALSE;
+    if ([val absoluteDenominator] && ![MPSEWSIntegerTypeHandler isValid:[val absoluteDenominator] forVersion: ver]) return FALSE;
+    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange] forVersion: ver]) return FALSE;
+    if ([val totalItemsInView] && ![MPSEWSIntegerTypeHandler isValid:[val totalItemsInView] forVersion: ver]) return FALSE;
+    if ([val dLExpansion] && ![MPSEWSArrayOfDLExpansionType isValid:[val dLExpansion] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

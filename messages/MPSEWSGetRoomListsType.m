@@ -14,9 +14,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetRoomListsType*) val
++ (BOOL) isValid:(MPSEWSGetRoomListsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

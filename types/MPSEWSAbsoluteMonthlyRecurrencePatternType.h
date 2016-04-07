@@ -10,7 +10,7 @@
 @interface MPSEWSAbsoluteMonthlyRecurrencePatternType : MPSEWSIntervalRecurrencePatternBaseType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAbsoluteMonthlyRecurrencePatternType*) val;
++ (BOOL) isValid:(MPSEWSAbsoluteMonthlyRecurrencePatternType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

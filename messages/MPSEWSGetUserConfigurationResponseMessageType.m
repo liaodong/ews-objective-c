@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetUserConfigurationResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetUserConfigurationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val userConfiguration] && ![MPSEWSUserConfigurationType isValid:[val userConfiguration]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val userConfiguration] && ![MPSEWSUserConfigurationType isValid:[val userConfiguration] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

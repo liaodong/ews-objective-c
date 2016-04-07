@@ -11,7 +11,7 @@
 @interface MPSEWSMailTipsServiceConfiguration : MPSEWSServiceConfiguration
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMailTipsServiceConfiguration*) val;
++ (BOOL) isValid:(MPSEWSMailTipsServiceConfiguration*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

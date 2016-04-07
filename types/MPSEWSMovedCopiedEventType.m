@@ -58,12 +58,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMovedCopiedEventType*) val
++ (BOOL) isValid:(MPSEWSMovedCopiedEventType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseObjectChangedEventType isValid:val]) return FALSE;
-    if ([val oldFolderId] && ![MPSEWSFolderIdType isValid:[val oldFolderId]]) return FALSE;
-    if ([val oldItemId] && ![MPSEWSItemIdType isValid:[val oldItemId]]) return FALSE;
-    if ([val oldParentFolderId] && ![MPSEWSFolderIdType isValid:[val oldParentFolderId]]) return FALSE;
+    if (![MPSEWSBaseObjectChangedEventType isValid:val forVersion:ver]) return FALSE;
+    if ([val oldFolderId] && ![MPSEWSFolderIdType isValid:[val oldFolderId] forVersion:ver]) return FALSE;
+    if ([val oldItemId] && ![MPSEWSItemIdType isValid:[val oldItemId] forVersion:ver]) return FALSE;
+    if ([val oldParentFolderId] && ![MPSEWSFolderIdType isValid:[val oldParentFolderId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

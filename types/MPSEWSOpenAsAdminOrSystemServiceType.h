@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSOpenAsAdminOrSystemServiceType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSOpenAsAdminOrSystemServiceType*) val;
++ (BOOL) isValid:(MPSEWSOpenAsAdminOrSystemServiceType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

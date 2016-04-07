@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfStringsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfStringsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val string]) {
         for (NSString* obj in [val string]) {
-            if (![MPSEWSStringTypeHandler isValid:obj]) return FALSE;
+            if (![MPSEWSStringTypeHandler isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSArrayOfMailTipsResponseMessageType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfMailTipsResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfMailTipsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

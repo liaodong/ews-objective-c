@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSArrayOfDLExpansionType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfDLExpansionType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfDLExpansionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

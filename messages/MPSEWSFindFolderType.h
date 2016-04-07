@@ -15,7 +15,7 @@
 @interface MPSEWSFindFolderType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindFolderType*) val;
++ (BOOL) isValid:(MPSEWSFindFolderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

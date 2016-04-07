@@ -10,7 +10,7 @@
 @interface MPSEWSDeleteUserConfigurationResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeleteUserConfigurationResponseType*) val;
++ (BOOL) isValid:(MPSEWSDeleteUserConfigurationResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

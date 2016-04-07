@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSArrayOfServiceConfigurationType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfServiceConfigurationType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfServiceConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

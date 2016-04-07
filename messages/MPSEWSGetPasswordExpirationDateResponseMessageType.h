@@ -10,7 +10,7 @@
 @interface MPSEWSGetPasswordExpirationDateResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

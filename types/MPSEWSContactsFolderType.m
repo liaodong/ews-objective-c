@@ -78,11 +78,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSContactsFolderType*) val
++ (BOOL) isValid:(MPSEWSContactsFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
-    if ([val sharingEffectiveRights] && ![MPSEWSPermissionReadAccessType isValid:[val sharingEffectiveRights]]) return FALSE;
-    if ([val permissionSet] && ![MPSEWSPermissionSetType isValid:[val permissionSet]]) return FALSE;
+    if (![MPSEWSBaseFolderType isValid:val forVersion:ver]) return FALSE;
+    if ([val sharingEffectiveRights] && ![MPSEWSPermissionReadAccessType isValid:[val sharingEffectiveRights] forVersion:ver]) return FALSE;
+    if ([val permissionSet] && ![MPSEWSPermissionSetType isValid:[val permissionSet] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

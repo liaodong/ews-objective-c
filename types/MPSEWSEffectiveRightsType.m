@@ -50,15 +50,15 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSEffectiveRightsType*) val
++ (BOOL) isValid:(MPSEWSEffectiveRightsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val createAssociated] && ![MPSEWSBooleanTypeHandler isValid:[val createAssociated]]) return FALSE;
-    if ([val createContents] && ![MPSEWSBooleanTypeHandler isValid:[val createContents]]) return FALSE;
-    if ([val createHierarchy] && ![MPSEWSBooleanTypeHandler isValid:[val createHierarchy]]) return FALSE;
-    if ([val delete] && ![MPSEWSBooleanTypeHandler isValid:[val delete]]) return FALSE;
-    if ([val modify] && ![MPSEWSBooleanTypeHandler isValid:[val modify]]) return FALSE;
-    if ([val read] && ![MPSEWSBooleanTypeHandler isValid:[val read]]) return FALSE;
-    if ([val viewPrivateItems] && ![MPSEWSBooleanTypeHandler isValid:[val viewPrivateItems]]) return FALSE;
+    if ([val createAssociated] && ![MPSEWSBooleanTypeHandler isValid:[val createAssociated] forVersion:ver]) return FALSE;
+    if ([val createContents] && ![MPSEWSBooleanTypeHandler isValid:[val createContents] forVersion:ver]) return FALSE;
+    if ([val createHierarchy] && ![MPSEWSBooleanTypeHandler isValid:[val createHierarchy] forVersion:ver]) return FALSE;
+    if ([val delete] && ![MPSEWSBooleanTypeHandler isValid:[val delete] forVersion:ver]) return FALSE;
+    if ([val modify] && ![MPSEWSBooleanTypeHandler isValid:[val modify] forVersion:ver]) return FALSE;
+    if ([val read] && ![MPSEWSBooleanTypeHandler isValid:[val read] forVersion:ver]) return FALSE;
+    if ([val viewPrivateItems] && ![MPSEWSBooleanTypeHandler isValid:[val viewPrivateItems] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

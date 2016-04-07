@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetAttachmentType*) val
++ (BOOL) isValid:(MPSEWSGetAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val attachmentShape] && ![MPSEWSAttachmentResponseShapeType isValid:[val attachmentShape]]) return FALSE;
-    if ([val attachmentIds] && ![MPSEWSNonEmptyArrayOfRequestAttachmentIdsType isValid:[val attachmentIds]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val attachmentShape] && ![MPSEWSAttachmentResponseShapeType isValid:[val attachmentShape] forVersion:ver]) return FALSE;
+    if ([val attachmentIds] && ![MPSEWSNonEmptyArrayOfRequestAttachmentIdsType isValid:[val attachmentIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

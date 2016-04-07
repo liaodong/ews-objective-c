@@ -35,21 +35,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val appendToFolderField]) {
         for (MPSEWSAppendToFolderFieldType* obj in [val appendToFolderField]) {
-            if (![MPSEWSAppendToFolderFieldType isValid:obj]) return FALSE;
+            if (![MPSEWSAppendToFolderFieldType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val setFolderField]) {
         for (MPSEWSSetFolderFieldType* obj in [val setFolderField]) {
-            if (![MPSEWSSetFolderFieldType isValid:obj]) return FALSE;
+            if (![MPSEWSSetFolderFieldType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deleteFolderField]) {
         for (MPSEWSDeleteFolderFieldType* obj in [val deleteFolderField]) {
-            if (![MPSEWSDeleteFolderFieldType isValid:obj]) return FALSE;
+            if (![MPSEWSDeleteFolderFieldType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

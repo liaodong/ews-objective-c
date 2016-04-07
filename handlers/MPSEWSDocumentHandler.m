@@ -182,7 +182,6 @@
 
 @implementation MPSEWSDocumentHandler
 {
-    id _result;
     MPSEWSResponse* response;
     BOOL header;
 }
@@ -206,7 +205,6 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
                qualifiedName:   (NSString *)qName
                attributes:      (NSDictionary *)attributeDict
 {
-    NSLog(@"Start Tag %@", elementName);
     if ([namespaceURI hasPrefix:@"http://schemas.xmlsoap.org/soap/envelope"])
     {
         header = ![elementName isEqual:@"Body"];
@@ -222,7 +220,6 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
                namespaceURI:    (NSString *)namespaceURI
                qualifiedName:   (NSString *)qName
 {
-    NSLog(@"End Tag %@", elementName);
     if ([namespaceURI hasPrefix:@"http://schemas.xmlsoap.org/soap/envelope"])
     {
     }
@@ -243,14 +240,12 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 
 - (void) populateValue:(id) value forKey: (NSString*) tag namespace:(char) ns
 {
-    NSLog(@"Setting result for %@", tag);
     if (header) {
         [response setHeader:value];
     }
     else {
         [response setBody:value];
     }
-    _result = value;
 }
 
 - (MPSEWSResponse*) result
@@ -268,7 +263,6 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
     [parser setShouldProcessNamespaces:TRUE];
     [parser setShouldReportNamespacePrefixes:TRUE];
 
-    NSLog(@"Setting doc delegate %p", doc);
     [parser setDelegate:doc];
 
     [parser parse];

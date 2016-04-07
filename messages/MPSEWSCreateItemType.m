@@ -36,13 +36,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCreateItemType*) val
++ (BOOL) isValid:(MPSEWSCreateItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val messageDisposition] && ![MPSEWSMessageDispositionType isValid:[val messageDisposition]]) return FALSE;
-    if ([val sendMeetingInvitations] && ![MPSEWSCalendarItemCreateOrDeleteOperationType isValid:[val sendMeetingInvitations]]) return FALSE;
-    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId]]) return FALSE;
-    if ([val items] && ![MPSEWSNonEmptyArrayOfAllItemsType isValid:[val items]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val messageDisposition] && ![MPSEWSMessageDispositionType isValid:[val messageDisposition] forVersion: ver]) return FALSE;
+    if ([val sendMeetingInvitations] && ![MPSEWSCalendarItemCreateOrDeleteOperationType isValid:[val sendMeetingInvitations] forVersion: ver]) return FALSE;
+    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId] forVersion:ver]) return FALSE;
+    if ([val items] && ![MPSEWSNonEmptyArrayOfAllItemsType isValid:[val items] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

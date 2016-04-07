@@ -84,49 +84,49 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNotificationType*) val
++ (BOOL) isValid:(MPSEWSNotificationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val subscriptionId] && ![MPSEWSSubscriptionIdType isValid:[val subscriptionId]]) return FALSE;
-    if ([val previousWatermark] && ![MPSEWSWatermarkType isValid:[val previousWatermark]]) return FALSE;
-    if ([val moreEvents] && ![MPSEWSBooleanTypeHandler isValid:[val moreEvents]]) return FALSE;
+    if ([val subscriptionId] && ![MPSEWSSubscriptionIdType isValid:[val subscriptionId] forVersion:ver]) return FALSE;
+    if ([val previousWatermark] && ![MPSEWSWatermarkType isValid:[val previousWatermark] forVersion:ver]) return FALSE;
+    if ([val moreEvents] && ![MPSEWSBooleanTypeHandler isValid:[val moreEvents] forVersion:ver]) return FALSE;
     if ([val copiedEvent]) {
         for (MPSEWSMovedCopiedEventType* obj in [val copiedEvent]) {
-            if (![MPSEWSMovedCopiedEventType isValid:obj]) return FALSE;
+            if (![MPSEWSMovedCopiedEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val createdEvent]) {
         for (MPSEWSBaseObjectChangedEventType* obj in [val createdEvent]) {
-            if (![MPSEWSBaseObjectChangedEventType isValid:obj]) return FALSE;
+            if (![MPSEWSBaseObjectChangedEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deletedEvent]) {
         for (MPSEWSBaseObjectChangedEventType* obj in [val deletedEvent]) {
-            if (![MPSEWSBaseObjectChangedEventType isValid:obj]) return FALSE;
+            if (![MPSEWSBaseObjectChangedEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val modifiedEvent]) {
         for (MPSEWSModifiedEventType* obj in [val modifiedEvent]) {
-            if (![MPSEWSModifiedEventType isValid:obj]) return FALSE;
+            if (![MPSEWSModifiedEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val movedEvent]) {
         for (MPSEWSMovedCopiedEventType* obj in [val movedEvent]) {
-            if (![MPSEWSMovedCopiedEventType isValid:obj]) return FALSE;
+            if (![MPSEWSMovedCopiedEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val pNewMailEvent]) {
         for (MPSEWSBaseObjectChangedEventType* obj in [val pNewMailEvent]) {
-            if (![MPSEWSBaseObjectChangedEventType isValid:obj]) return FALSE;
+            if (![MPSEWSBaseObjectChangedEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val statusEvent]) {
         for (MPSEWSBaseNotificationEventType* obj in [val statusEvent]) {
-            if (![MPSEWSBaseNotificationEventType isValid:obj]) return FALSE;
+            if (![MPSEWSBaseNotificationEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val freeBusyChangedEvent]) {
         for (MPSEWSBaseObjectChangedEventType* obj in [val freeBusyChangedEvent]) {
-            if (![MPSEWSBaseObjectChangedEventType isValid:obj]) return FALSE;
+            if (![MPSEWSBaseObjectChangedEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

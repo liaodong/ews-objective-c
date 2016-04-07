@@ -42,26 +42,26 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfAttendeeConflictData*) val
++ (BOOL) isValid:(MPSEWSArrayOfAttendeeConflictData*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val unknownAttendeeConflictData]) {
         for (MPSEWSUnknownAttendeeConflictData* obj in [val unknownAttendeeConflictData]) {
-            if (![MPSEWSUnknownAttendeeConflictData isValid:obj]) return FALSE;
+            if (![MPSEWSUnknownAttendeeConflictData isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val individualAttendeeConflictData]) {
         for (MPSEWSIndividualAttendeeConflictData* obj in [val individualAttendeeConflictData]) {
-            if (![MPSEWSIndividualAttendeeConflictData isValid:obj]) return FALSE;
+            if (![MPSEWSIndividualAttendeeConflictData isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val tooBigGroupAttendeeConflictData]) {
         for (MPSEWSTooBigGroupAttendeeConflictData* obj in [val tooBigGroupAttendeeConflictData]) {
-            if (![MPSEWSTooBigGroupAttendeeConflictData isValid:obj]) return FALSE;
+            if (![MPSEWSTooBigGroupAttendeeConflictData isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val groupAttendeeConflictData]) {
         for (MPSEWSGroupAttendeeConflictData* obj in [val groupAttendeeConflictData]) {
-            if (![MPSEWSGroupAttendeeConflictData isValid:obj]) return FALSE;
+            if (![MPSEWSGroupAttendeeConflictData isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

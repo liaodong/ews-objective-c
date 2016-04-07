@@ -42,13 +42,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUploadItemType*) val
++ (BOOL) isValid:(MPSEWSUploadItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val createAction] && ![MPSEWSCreateActionType isValid:[val createAction]]) return FALSE;
-    if ([val isAssociated] && ![MPSEWSBooleanTypeHandler isValid:[val isAssociated]]) return FALSE;
-    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId]]) return FALSE;
-    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
-    if ([val data] && ![MPSEWSBase64BinaryTypeHandler isValid:[val data]]) return FALSE;
+    if ([val createAction] && ![MPSEWSCreateActionType isValid:[val createAction] forVersion: ver]) return FALSE;
+    if ([val isAssociated] && ![MPSEWSBooleanTypeHandler isValid:[val isAssociated] forVersion: ver]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId] forVersion:ver]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId] forVersion:ver]) return FALSE;
+    if ([val data] && ![MPSEWSBase64BinaryTypeHandler isValid:[val data] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

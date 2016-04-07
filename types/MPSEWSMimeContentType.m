@@ -19,10 +19,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMimeContentType*) val
++ (BOOL) isValid:(MPSEWSMimeContentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSStringType isValid:val]) return FALSE;
-    if ([val characterSet] && ![MPSEWSStringTypeHandler isValid:[val characterSet]]) return FALSE;
+    if (![MPSEWSStringType isValid:val forVersion:ver]) return FALSE;
+    if ([val characterSet] && ![MPSEWSStringTypeHandler isValid:[val characterSet] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

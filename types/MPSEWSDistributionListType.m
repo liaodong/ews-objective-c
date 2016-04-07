@@ -252,13 +252,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDistributionListType*) val
++ (BOOL) isValid:(MPSEWSDistributionListType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSItemType isValid:val]) return FALSE;
-    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
-    if ([val fileAs] && ![MPSEWSStringTypeHandler isValid:[val fileAs]]) return FALSE;
-    if ([val contactSource] && ![MPSEWSContactSourceType isValid:[val contactSource]]) return FALSE;
-    if ([val members] && ![MPSEWSMembersListType isValid:[val members]]) return FALSE;
+    if (![MPSEWSItemType isValid:val forVersion:ver]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName] forVersion:ver]) return FALSE;
+    if ([val fileAs] && ![MPSEWSStringTypeHandler isValid:[val fileAs] forVersion:ver]) return FALSE;
+    if ([val contactSource] && ![MPSEWSContactSourceType isValid:[val contactSource] forVersion:ver]) return FALSE;
+    if ([val members] && ![MPSEWSMembersListType isValid:[val members] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

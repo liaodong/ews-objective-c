@@ -11,7 +11,7 @@
 @interface MPSEWSMailTipsResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMailTipsResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSMailTipsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -35,13 +35,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGroupAttendeeConflictData*) val
++ (BOOL) isValid:(MPSEWSGroupAttendeeConflictData*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSAttendeeConflictData isValid:val]) return FALSE;
-    if ([val numberOfMembers] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembers]]) return FALSE;
-    if ([val numberOfMembersAvailable] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersAvailable]]) return FALSE;
-    if ([val numberOfMembersWithConflict] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersWithConflict]]) return FALSE;
-    if ([val numberOfMembersWithNoData] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersWithNoData]]) return FALSE;
+    if (![MPSEWSAttendeeConflictData isValid:val forVersion:ver]) return FALSE;
+    if ([val numberOfMembers] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembers] forVersion:ver]) return FALSE;
+    if ([val numberOfMembersAvailable] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersAvailable] forVersion:ver]) return FALSE;
+    if ([val numberOfMembersWithConflict] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersWithConflict] forVersion:ver]) return FALSE;
+    if ([val numberOfMembersWithNoData] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfMembersWithNoData] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

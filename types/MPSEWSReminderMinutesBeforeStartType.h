@@ -10,7 +10,7 @@
 
 /** Register a handler to parse ReminderMinutesBeforeStartType */
 + (void) initialize;
-+ (BOOL) isValid:(NSNumber*) val;
++ (BOOL) isValid:(NSNumber*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 /** Initialize the handler */
 - (id) init;

@@ -11,7 +11,7 @@
 @interface MPSEWSSetRuleOperationType : MPSEWSRuleOperationType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSetRuleOperationType*) val;
++ (BOOL) isValid:(MPSEWSSetRuleOperationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

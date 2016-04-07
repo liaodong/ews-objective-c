@@ -33,13 +33,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSEmailAddressDictionaryEntryType*) val
++ (BOOL) isValid:(MPSEWSEmailAddressDictionaryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSStringType isValid:val]) return FALSE;
-    if ([val key ] && ![MPSEWSEmailAddressKeyType isValid:[val key ]]) return FALSE;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val routingType] && ![MPSEWSStringTypeHandler isValid:[val routingType]]) return FALSE;
-    if ([val mailboxType] && ![MPSEWSMailboxTypeType isValid:[val mailboxType]]) return FALSE;
+    if (![MPSEWSStringType isValid:val forVersion:ver]) return FALSE;
+    if ([val key ] && ![MPSEWSEmailAddressKeyType isValid:[val key ] forVersion: ver]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion: ver]) return FALSE;
+    if ([val routingType] && ![MPSEWSStringTypeHandler isValid:[val routingType] forVersion: ver]) return FALSE;
+    if ([val mailboxType] && ![MPSEWSMailboxTypeType isValid:[val mailboxType] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

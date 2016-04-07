@@ -10,7 +10,7 @@
 @interface MPSEWSMoveFolderType : MPSEWSBaseMoveCopyFolderType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMoveFolderType*) val;
++ (BOOL) isValid:(MPSEWSMoveFolderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

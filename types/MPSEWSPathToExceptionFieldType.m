@@ -19,10 +19,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPathToExceptionFieldType*) val
++ (BOOL) isValid:(MPSEWSPathToExceptionFieldType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePathToElementType isValid:val]) return FALSE;
-    if ([val fieldURI] && ![MPSEWSExceptionPropertyURIType isValid:[val fieldURI]]) return FALSE;
+    if (![MPSEWSBasePathToElementType isValid:val forVersion:ver]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSExceptionPropertyURIType isValid:[val fieldURI] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

@@ -92,21 +92,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTaskRecurrenceType*) val
++ (BOOL) isValid:(MPSEWSTaskRecurrenceType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val relativeYearlyRecurrence] && ![MPSEWSRelativeYearlyRecurrencePatternType isValid:[val relativeYearlyRecurrence]]) return FALSE;
-    if ([val absoluteYearlyRecurrence] && ![MPSEWSAbsoluteYearlyRecurrencePatternType isValid:[val absoluteYearlyRecurrence]]) return FALSE;
-    if ([val relativeMonthlyRecurrence] && ![MPSEWSRelativeMonthlyRecurrencePatternType isValid:[val relativeMonthlyRecurrence]]) return FALSE;
-    if ([val absoluteMonthlyRecurrence] && ![MPSEWSAbsoluteMonthlyRecurrencePatternType isValid:[val absoluteMonthlyRecurrence]]) return FALSE;
-    if ([val weeklyRecurrence] && ![MPSEWSWeeklyRecurrencePatternType isValid:[val weeklyRecurrence]]) return FALSE;
-    if ([val dailyRecurrence] && ![MPSEWSDailyRecurrencePatternType isValid:[val dailyRecurrence]]) return FALSE;
-    if ([val dailyRegeneration] && ![MPSEWSDailyRegeneratingPatternType isValid:[val dailyRegeneration]]) return FALSE;
-    if ([val weeklyRegeneration] && ![MPSEWSWeeklyRegeneratingPatternType isValid:[val weeklyRegeneration]]) return FALSE;
-    if ([val monthlyRegeneration] && ![MPSEWSMonthlyRegeneratingPatternType isValid:[val monthlyRegeneration]]) return FALSE;
-    if ([val yearlyRegeneration] && ![MPSEWSYearlyRegeneratingPatternType isValid:[val yearlyRegeneration]]) return FALSE;
-    if ([val noEndRecurrence] && ![MPSEWSNoEndRecurrenceRangeType isValid:[val noEndRecurrence]]) return FALSE;
-    if ([val endDateRecurrence] && ![MPSEWSEndDateRecurrenceRangeType isValid:[val endDateRecurrence]]) return FALSE;
-    if ([val numberedRecurrence] && ![MPSEWSNumberedRecurrenceRangeType isValid:[val numberedRecurrence]]) return FALSE;
+    if ([val relativeYearlyRecurrence] && ![MPSEWSRelativeYearlyRecurrencePatternType isValid:[val relativeYearlyRecurrence] forVersion:ver]) return FALSE;
+    if ([val absoluteYearlyRecurrence] && ![MPSEWSAbsoluteYearlyRecurrencePatternType isValid:[val absoluteYearlyRecurrence] forVersion:ver]) return FALSE;
+    if ([val relativeMonthlyRecurrence] && ![MPSEWSRelativeMonthlyRecurrencePatternType isValid:[val relativeMonthlyRecurrence] forVersion:ver]) return FALSE;
+    if ([val absoluteMonthlyRecurrence] && ![MPSEWSAbsoluteMonthlyRecurrencePatternType isValid:[val absoluteMonthlyRecurrence] forVersion:ver]) return FALSE;
+    if ([val weeklyRecurrence] && ![MPSEWSWeeklyRecurrencePatternType isValid:[val weeklyRecurrence] forVersion:ver]) return FALSE;
+    if ([val dailyRecurrence] && ![MPSEWSDailyRecurrencePatternType isValid:[val dailyRecurrence] forVersion:ver]) return FALSE;
+    if ([val dailyRegeneration] && ![MPSEWSDailyRegeneratingPatternType isValid:[val dailyRegeneration] forVersion:ver]) return FALSE;
+    if ([val weeklyRegeneration] && ![MPSEWSWeeklyRegeneratingPatternType isValid:[val weeklyRegeneration] forVersion:ver]) return FALSE;
+    if ([val monthlyRegeneration] && ![MPSEWSMonthlyRegeneratingPatternType isValid:[val monthlyRegeneration] forVersion:ver]) return FALSE;
+    if ([val yearlyRegeneration] && ![MPSEWSYearlyRegeneratingPatternType isValid:[val yearlyRegeneration] forVersion:ver]) return FALSE;
+    if ([val noEndRecurrence] && ![MPSEWSNoEndRecurrenceRangeType isValid:[val noEndRecurrence] forVersion:ver]) return FALSE;
+    if ([val endDateRecurrence] && ![MPSEWSEndDateRecurrenceRangeType isValid:[val endDateRecurrence] forVersion:ver]) return FALSE;
+    if ([val numberedRecurrence] && ![MPSEWSNumberedRecurrenceRangeType isValid:[val numberedRecurrence] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

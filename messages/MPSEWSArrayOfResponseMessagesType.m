@@ -312,231 +312,231 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfResponseMessagesType*) val
++ (BOOL) isValid:(MPSEWSArrayOfResponseMessagesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val createItemResponseMessage]) {
         for (MPSEWSItemInfoResponseMessageType* obj in [val createItemResponseMessage]) {
-            if (![MPSEWSItemInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSItemInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deleteItemResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val deleteItemResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getItemResponseMessage]) {
         for (MPSEWSItemInfoResponseMessageType* obj in [val getItemResponseMessage]) {
-            if (![MPSEWSItemInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSItemInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val updateItemResponseMessage]) {
         for (MPSEWSUpdateItemResponseMessageType* obj in [val updateItemResponseMessage]) {
-            if (![MPSEWSUpdateItemResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSUpdateItemResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val sendItemResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val sendItemResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deleteFolderResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val deleteFolderResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val emptyFolderResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val emptyFolderResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val createFolderResponseMessage]) {
         for (MPSEWSFolderInfoResponseMessageType* obj in [val createFolderResponseMessage]) {
-            if (![MPSEWSFolderInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getFolderResponseMessage]) {
         for (MPSEWSFolderInfoResponseMessageType* obj in [val getFolderResponseMessage]) {
-            if (![MPSEWSFolderInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val findFolderResponseMessage]) {
         for (MPSEWSFindFolderResponseMessageType* obj in [val findFolderResponseMessage]) {
-            if (![MPSEWSFindFolderResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFindFolderResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val updateFolderResponseMessage]) {
         for (MPSEWSFolderInfoResponseMessageType* obj in [val updateFolderResponseMessage]) {
-            if (![MPSEWSFolderInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val moveFolderResponseMessage]) {
         for (MPSEWSFolderInfoResponseMessageType* obj in [val moveFolderResponseMessage]) {
-            if (![MPSEWSFolderInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val pCopyFolderResponseMessage]) {
         for (MPSEWSFolderInfoResponseMessageType* obj in [val pCopyFolderResponseMessage]) {
-            if (![MPSEWSFolderInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val createAttachmentResponseMessage]) {
         for (MPSEWSAttachmentInfoResponseMessageType* obj in [val createAttachmentResponseMessage]) {
-            if (![MPSEWSAttachmentInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSAttachmentInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deleteAttachmentResponseMessage]) {
         for (MPSEWSDeleteAttachmentResponseMessageType* obj in [val deleteAttachmentResponseMessage]) {
-            if (![MPSEWSDeleteAttachmentResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSDeleteAttachmentResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getAttachmentResponseMessage]) {
         for (MPSEWSAttachmentInfoResponseMessageType* obj in [val getAttachmentResponseMessage]) {
-            if (![MPSEWSAttachmentInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSAttachmentInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val uploadItemsResponseMessage]) {
         for (MPSEWSUploadItemsResponseMessageType* obj in [val uploadItemsResponseMessage]) {
-            if (![MPSEWSUploadItemsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSUploadItemsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val exportItemsResponseMessage]) {
         for (MPSEWSExportItemsResponseMessageType* obj in [val exportItemsResponseMessage]) {
-            if (![MPSEWSExportItemsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSExportItemsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val findItemResponseMessage]) {
         for (MPSEWSFindItemResponseMessageType* obj in [val findItemResponseMessage]) {
-            if (![MPSEWSFindItemResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFindItemResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val moveItemResponseMessage]) {
         for (MPSEWSItemInfoResponseMessageType* obj in [val moveItemResponseMessage]) {
-            if (![MPSEWSItemInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSItemInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val pCopyItemResponseMessage]) {
         for (MPSEWSItemInfoResponseMessageType* obj in [val pCopyItemResponseMessage]) {
-            if (![MPSEWSItemInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSItemInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val resolveNamesResponseMessage]) {
         for (MPSEWSResolveNamesResponseMessageType* obj in [val resolveNamesResponseMessage]) {
-            if (![MPSEWSResolveNamesResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResolveNamesResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val expandDLResponseMessage]) {
         for (MPSEWSExpandDLResponseMessageType* obj in [val expandDLResponseMessage]) {
-            if (![MPSEWSExpandDLResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSExpandDLResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getServerTimeZonesResponseMessage]) {
         for (MPSEWSGetServerTimeZonesResponseMessageType* obj in [val getServerTimeZonesResponseMessage]) {
-            if (![MPSEWSGetServerTimeZonesResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetServerTimeZonesResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getEventsResponseMessage]) {
         for (MPSEWSGetEventsResponseMessageType* obj in [val getEventsResponseMessage]) {
-            if (![MPSEWSGetEventsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetEventsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getStreamingEventsResponseMessage]) {
         for (MPSEWSGetStreamingEventsResponseMessageType* obj in [val getStreamingEventsResponseMessage]) {
-            if (![MPSEWSGetStreamingEventsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetStreamingEventsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val subscribeResponseMessage]) {
         for (MPSEWSSubscribeResponseMessageType* obj in [val subscribeResponseMessage]) {
-            if (![MPSEWSSubscribeResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSSubscribeResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val unsubscribeResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val unsubscribeResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val sendNotificationResponseMessage]) {
         for (MPSEWSSendNotificationResponseMessageType* obj in [val sendNotificationResponseMessage]) {
-            if (![MPSEWSSendNotificationResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSSendNotificationResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val syncFolderHierarchyResponseMessage]) {
         for (MPSEWSSyncFolderHierarchyResponseMessageType* obj in [val syncFolderHierarchyResponseMessage]) {
-            if (![MPSEWSSyncFolderHierarchyResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSSyncFolderHierarchyResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val syncFolderItemsResponseMessage]) {
         for (MPSEWSSyncFolderItemsResponseMessageType* obj in [val syncFolderItemsResponseMessage]) {
-            if (![MPSEWSSyncFolderItemsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSSyncFolderItemsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val createManagedFolderResponseMessage]) {
         for (MPSEWSFolderInfoResponseMessageType* obj in [val createManagedFolderResponseMessage]) {
-            if (![MPSEWSFolderInfoResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderInfoResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val convertIdResponseMessage]) {
         for (MPSEWSConvertIdResponseMessageType* obj in [val convertIdResponseMessage]) {
-            if (![MPSEWSConvertIdResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSConvertIdResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getSharingMetadataResponseMessage]) {
         for (MPSEWSGetSharingMetadataResponseMessageType* obj in [val getSharingMetadataResponseMessage]) {
-            if (![MPSEWSGetSharingMetadataResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetSharingMetadataResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val refreshSharingFolderResponseMessage]) {
         for (MPSEWSRefreshSharingFolderResponseMessageType* obj in [val refreshSharingFolderResponseMessage]) {
-            if (![MPSEWSRefreshSharingFolderResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSRefreshSharingFolderResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getSharingFolderResponseMessage]) {
         for (MPSEWSGetSharingFolderResponseMessageType* obj in [val getSharingFolderResponseMessage]) {
-            if (![MPSEWSGetSharingFolderResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetSharingFolderResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val createUserConfigurationResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val createUserConfigurationResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deleteUserConfigurationResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val deleteUserConfigurationResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getUserConfigurationResponseMessage]) {
         for (MPSEWSGetUserConfigurationResponseMessageType* obj in [val getUserConfigurationResponseMessage]) {
-            if (![MPSEWSGetUserConfigurationResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetUserConfigurationResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val updateUserConfigurationResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val updateUserConfigurationResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getRoomListsResponse]) {
         for (MPSEWSGetRoomListsResponseMessageType* obj in [val getRoomListsResponse]) {
-            if (![MPSEWSGetRoomListsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetRoomListsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getRoomsResponse]) {
         for (MPSEWSGetRoomsResponseMessageType* obj in [val getRoomsResponse]) {
-            if (![MPSEWSGetRoomsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetRoomsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val applyConversationActionResponseMessage]) {
         for (MPSEWSResponseMessageType* obj in [val applyConversationActionResponseMessage]) {
-            if (![MPSEWSResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val findMailboxStatisticsByKeywordsResponseMessage]) {
         for (MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType* obj in [val findMailboxStatisticsByKeywordsResponseMessage]) {
-            if (![MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSFindMailboxStatisticsByKeywordsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val getPasswordExpirationDateResponse]) {
         for (MPSEWSGetPasswordExpirationDateResponseMessageType* obj in [val getPasswordExpirationDateResponse]) {
-            if (![MPSEWSGetPasswordExpirationDateResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSGetPasswordExpirationDateResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

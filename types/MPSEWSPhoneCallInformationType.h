@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSPhoneCallInformationType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPhoneCallInformationType*) val;
++ (BOOL) isValid:(MPSEWSPhoneCallInformationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

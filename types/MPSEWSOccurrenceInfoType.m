@@ -36,12 +36,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSOccurrenceInfoType*) val
++ (BOOL) isValid:(MPSEWSOccurrenceInfoType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
-    if ([val start] && ![MPSEWSDateTimeTypeHandler isValid:[val start]]) return FALSE;
-    if ([val end ] && ![MPSEWSDateTimeTypeHandler isValid:[val end ]]) return FALSE;
-    if ([val originalStart] && ![MPSEWSDateTimeTypeHandler isValid:[val originalStart]]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId] forVersion:ver]) return FALSE;
+    if ([val start] && ![MPSEWSDateTimeTypeHandler isValid:[val start] forVersion:ver]) return FALSE;
+    if ([val end ] && ![MPSEWSDateTimeTypeHandler isValid:[val end ] forVersion:ver]) return FALSE;
+    if ([val originalStart] && ![MPSEWSDateTimeTypeHandler isValid:[val originalStart] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

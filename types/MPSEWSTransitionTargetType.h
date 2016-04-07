@@ -10,7 +10,7 @@
 @interface MPSEWSTransitionTargetType : MPSEWSStringType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSTransitionTargetType*) val;
++ (BOOL) isValid:(MPSEWSTransitionTargetType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

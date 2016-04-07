@@ -37,10 +37,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRecurringDateTransitionType*) val
++ (BOOL) isValid:(MPSEWSRecurringDateTransitionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRecurringTimeTransitionType isValid:val]) return FALSE;
-    if ([val day ] && ![MPSEWSIntegerTypeHandler isValid:[val day ]]) return FALSE;
+    if (![MPSEWSRecurringTimeTransitionType isValid:val forVersion:ver]) return FALSE;
+    if ([val day ] && ![MPSEWSIntegerTypeHandler isValid:[val day ] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

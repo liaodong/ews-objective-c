@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMembersListType*) val
++ (BOOL) isValid:(MPSEWSMembersListType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val member]) {
         for (MPSEWSMemberType* obj in [val member]) {
-            if (![MPSEWSMemberType isValid:obj]) return FALSE;
+            if (![MPSEWSMemberType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

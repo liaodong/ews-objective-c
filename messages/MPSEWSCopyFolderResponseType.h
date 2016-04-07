@@ -10,7 +10,7 @@
 @interface MPSEWSCopyFolderResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCopyFolderResponseType*) val;
++ (BOOL) isValid:(MPSEWSCopyFolderResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

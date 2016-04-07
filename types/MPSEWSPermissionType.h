@@ -10,7 +10,7 @@
 @interface MPSEWSPermissionType : MPSEWSBasePermissionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPermissionType*) val;
++ (BOOL) isValid:(MPSEWSPermissionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

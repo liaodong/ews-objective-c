@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSPeriodType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPeriodType*) val;
++ (BOOL) isValid:(MPSEWSPeriodType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

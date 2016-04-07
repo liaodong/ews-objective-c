@@ -83,10 +83,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSearchFolderType*) val
++ (BOOL) isValid:(MPSEWSSearchFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSFolderType isValid:val]) return FALSE;
-    if ([val searchParameters] && ![MPSEWSSearchParametersType isValid:[val searchParameters]]) return FALSE;
+    if (![MPSEWSFolderType isValid:val forVersion:ver]) return FALSE;
+    if ([val searchParameters] && ![MPSEWSSearchParametersType isValid:[val searchParameters] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

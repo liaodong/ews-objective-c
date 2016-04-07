@@ -38,12 +38,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSuggestion*) val
++ (BOOL) isValid:(MPSEWSSuggestion*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val meetingTime] && ![MPSEWSDateTimeTypeHandler isValid:[val meetingTime]]) return FALSE;
-    if ([val isWorkTime] && ![MPSEWSBooleanTypeHandler isValid:[val isWorkTime]]) return FALSE;
-    if ([val suggestionQuality] && ![MPSEWSSuggestionQuality isValid:[val suggestionQuality]]) return FALSE;
-    if ([val attendeeConflictDataArray] && ![MPSEWSArrayOfAttendeeConflictData isValid:[val attendeeConflictDataArray]]) return FALSE;
+    if ([val meetingTime] && ![MPSEWSDateTimeTypeHandler isValid:[val meetingTime] forVersion:ver]) return FALSE;
+    if ([val isWorkTime] && ![MPSEWSBooleanTypeHandler isValid:[val isWorkTime] forVersion:ver]) return FALSE;
+    if ([val suggestionQuality] && ![MPSEWSSuggestionQuality isValid:[val suggestionQuality] forVersion:ver]) return FALSE;
+    if ([val attendeeConflictDataArray] && ![MPSEWSArrayOfAttendeeConflictData isValid:[val attendeeConflictDataArray] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

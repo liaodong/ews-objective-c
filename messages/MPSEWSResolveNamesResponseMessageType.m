@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSResolveNamesResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSResolveNamesResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val resolutionSet] && ![MPSEWSArrayOfResolutionType isValid:[val resolutionSet]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val resolutionSet] && ![MPSEWSArrayOfResolutionType isValid:[val resolutionSet] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

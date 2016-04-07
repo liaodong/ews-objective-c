@@ -10,7 +10,7 @@
 @interface MPSEWSGetSharingFolderType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetSharingFolderType*) val;
++ (BOOL) isValid:(MPSEWSGetSharingFolderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

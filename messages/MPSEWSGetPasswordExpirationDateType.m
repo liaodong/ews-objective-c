@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateType*) val
++ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val mailboxSmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val mailboxSmtpAddress]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val mailboxSmtpAddress] && ![MPSEWSStringTypeHandler isValid:[val mailboxSmtpAddress] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

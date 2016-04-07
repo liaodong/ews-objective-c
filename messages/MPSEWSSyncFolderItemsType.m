@@ -50,15 +50,15 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSyncFolderItemsType*) val
++ (BOOL) isValid:(MPSEWSSyncFolderItemsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val itemShape] && ![MPSEWSItemResponseShapeType isValid:[val itemShape]]) return FALSE;
-    if ([val syncFolderId] && ![MPSEWSTargetFolderIdType isValid:[val syncFolderId]]) return FALSE;
-    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState]]) return FALSE;
-    if ([val ignore] && ![MPSEWSArrayOfBaseItemIdsType isValid:[val ignore]]) return FALSE;
-    if ([val maxChangesReturned] && ![MPSEWSMaxSyncChangesReturnedType isValid:[val maxChangesReturned]]) return FALSE;
-    if ([val syncScope] && ![MPSEWSSyncFolderItemsScopeType isValid:[val syncScope]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val itemShape] && ![MPSEWSItemResponseShapeType isValid:[val itemShape] forVersion:ver]) return FALSE;
+    if ([val syncFolderId] && ![MPSEWSTargetFolderIdType isValid:[val syncFolderId] forVersion:ver]) return FALSE;
+    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState] forVersion:ver]) return FALSE;
+    if ([val ignore] && ![MPSEWSArrayOfBaseItemIdsType isValid:[val ignore] forVersion:ver]) return FALSE;
+    if ([val maxChangesReturned] && ![MPSEWSMaxSyncChangesReturnedType isValid:[val maxChangesReturned] forVersion:ver]) return FALSE;
+    if ([val syncScope] && ![MPSEWSSyncFolderItemsScopeType isValid:[val syncScope] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

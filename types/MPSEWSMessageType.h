@@ -12,7 +12,7 @@
 @interface MPSEWSMessageType : MPSEWSItemType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMessageType*) val;
++ (BOOL) isValid:(MPSEWSMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

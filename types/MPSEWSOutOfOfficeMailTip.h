@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSOutOfOfficeMailTip : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSOutOfOfficeMailTip*) val;
++ (BOOL) isValid:(MPSEWSOutOfOfficeMailTip*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -43,11 +43,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRecurringDayTransitionType*) val
++ (BOOL) isValid:(MPSEWSRecurringDayTransitionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRecurringTimeTransitionType isValid:val]) return FALSE;
-    if ([val dayOfWeek] && ![MPSEWSDayOfWeekType isValid:[val dayOfWeek]]) return FALSE;
-    if ([val occurrence] && ![MPSEWSIntegerTypeHandler isValid:[val occurrence]]) return FALSE;
+    if (![MPSEWSRecurringTimeTransitionType isValid:val forVersion:ver]) return FALSE;
+    if ([val dayOfWeek] && ![MPSEWSDayOfWeekType isValid:[val dayOfWeek] forVersion:ver]) return FALSE;
+    if ([val occurrence] && ![MPSEWSIntegerTypeHandler isValid:[val occurrence] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

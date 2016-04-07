@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfRoomsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfRoomsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val room]) {
         for (MPSEWSRoomType* obj in [val room]) {
-            if (![MPSEWSRoomType isValid:obj]) return FALSE;
+            if (![MPSEWSRoomType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

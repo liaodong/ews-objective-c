@@ -12,7 +12,7 @@
 @interface MPSEWSGetServiceConfigurationType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetServiceConfigurationType*) val;
++ (BOOL) isValid:(MPSEWSGetServiceConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

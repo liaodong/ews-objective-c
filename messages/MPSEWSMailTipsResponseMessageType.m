@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMailTipsResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSMailTipsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val mailTips] && ![MPSEWSMailTips isValid:[val mailTips]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val mailTips] && ![MPSEWSMailTips isValid:[val mailTips] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

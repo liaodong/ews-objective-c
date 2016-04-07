@@ -5,7 +5,7 @@
 @interface MPSEWSStringType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSStringType*)val;
++ (BOOL) isValid:(MPSEWSStringType*)val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

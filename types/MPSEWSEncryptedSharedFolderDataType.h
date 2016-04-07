@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSEncryptedSharedFolderDataType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSEncryptedSharedFolderDataType*) val;
++ (BOOL) isValid:(MPSEWSEncryptedSharedFolderDataType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

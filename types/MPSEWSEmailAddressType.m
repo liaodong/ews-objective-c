@@ -43,14 +43,14 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSEmailAddressType*) val
++ (BOOL) isValid:(MPSEWSEmailAddressType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseEmailAddressType isValid:val]) return FALSE;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val emailAddress] && ![MPSEWSNonEmptyStringType isValid:[val emailAddress]]) return FALSE;
-    if ([val routingType] && ![MPSEWSNonEmptyStringType isValid:[val routingType]]) return FALSE;
-    if ([val mailboxType] && ![MPSEWSMailboxTypeType isValid:[val mailboxType]]) return FALSE;
-    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
+    if (![MPSEWSBaseEmailAddressType isValid:val forVersion:ver]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion:ver]) return FALSE;
+    if ([val emailAddress] && ![MPSEWSNonEmptyStringType isValid:[val emailAddress] forVersion:ver]) return FALSE;
+    if ([val routingType] && ![MPSEWSNonEmptyStringType isValid:[val routingType] forVersion:ver]) return FALSE;
+    if ([val mailboxType] && ![MPSEWSMailboxTypeType isValid:[val mailboxType] forVersion:ver]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

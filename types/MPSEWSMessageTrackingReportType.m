@@ -55,15 +55,15 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMessageTrackingReportType*) val
++ (BOOL) isValid:(MPSEWSMessageTrackingReportType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val sender] && ![MPSEWSEmailAddressType isValid:[val sender]]) return FALSE;
-    if ([val purportedSender] && ![MPSEWSEmailAddressType isValid:[val purportedSender]]) return FALSE;
-    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject]]) return FALSE;
-    if ([val submitTime] && ![MPSEWSDateTimeTypeHandler isValid:[val submitTime]]) return FALSE;
-    if ([val originalRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val originalRecipients]]) return FALSE;
-    if ([val recipientTrackingEvents] && ![MPSEWSArrayOfRecipientTrackingEventType isValid:[val recipientTrackingEvents]]) return FALSE;
-    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties]]) return FALSE;
+    if ([val sender] && ![MPSEWSEmailAddressType isValid:[val sender] forVersion:ver]) return FALSE;
+    if ([val purportedSender] && ![MPSEWSEmailAddressType isValid:[val purportedSender] forVersion:ver]) return FALSE;
+    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject] forVersion:ver]) return FALSE;
+    if ([val submitTime] && ![MPSEWSDateTimeTypeHandler isValid:[val submitTime] forVersion:ver]) return FALSE;
+    if ([val originalRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val originalRecipients] forVersion:ver]) return FALSE;
+    if ([val recipientTrackingEvents] && ![MPSEWSArrayOfRecipientTrackingEventType isValid:[val recipientTrackingEvents] forVersion:ver]) return FALSE;
+    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

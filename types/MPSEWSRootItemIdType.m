@@ -23,11 +23,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRootItemIdType*) val
++ (BOOL) isValid:(MPSEWSRootItemIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseItemIdType isValid:val]) return FALSE;
-    if ([val rootItemId] && ![MPSEWSStringTypeHandler isValid:[val rootItemId]]) return FALSE;
-    if ([val rootItemChangeKey] && ![MPSEWSStringTypeHandler isValid:[val rootItemChangeKey]]) return FALSE;
+    if (![MPSEWSBaseItemIdType isValid:val forVersion:ver]) return FALSE;
+    if ([val rootItemId] && ![MPSEWSStringTypeHandler isValid:[val rootItemId] forVersion: ver]) return FALSE;
+    if ([val rootItemChangeKey] && ![MPSEWSStringTypeHandler isValid:[val rootItemChangeKey] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

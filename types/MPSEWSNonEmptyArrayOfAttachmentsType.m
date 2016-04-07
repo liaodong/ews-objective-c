@@ -28,16 +28,16 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfAttachmentsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfAttachmentsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val itemAttachment]) {
         for (MPSEWSItemAttachmentType* obj in [val itemAttachment]) {
-            if (![MPSEWSItemAttachmentType isValid:obj]) return FALSE;
+            if (![MPSEWSItemAttachmentType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val fileAttachment]) {
         for (MPSEWSFileAttachmentType* obj in [val fileAttachment]) {
-            if (![MPSEWSFileAttachmentType isValid:obj]) return FALSE;
+            if (![MPSEWSFileAttachmentType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

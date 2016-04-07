@@ -10,7 +10,7 @@
 @interface MPSEWSDeleteFolderResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeleteFolderResponseType*) val;
++ (BOOL) isValid:(MPSEWSDeleteFolderResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

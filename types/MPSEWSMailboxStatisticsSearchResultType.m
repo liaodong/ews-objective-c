@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMailboxStatisticsSearchResultType*) val
++ (BOOL) isValid:(MPSEWSMailboxStatisticsSearchResultType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val userMailbox] && ![MPSEWSUserMailboxType isValid:[val userMailbox]]) return FALSE;
-    if ([val keywordStatisticsSearchResult] && ![MPSEWSKeywordStatisticsSearchResultType isValid:[val keywordStatisticsSearchResult]]) return FALSE;
+    if ([val userMailbox] && ![MPSEWSUserMailboxType isValid:[val userMailbox] forVersion:ver]) return FALSE;
+    if ([val keywordStatisticsSearchResult] && ![MPSEWSKeywordStatisticsSearchResultType isValid:[val keywordStatisticsSearchResult] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

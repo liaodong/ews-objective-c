@@ -11,7 +11,7 @@
 @interface MPSEWSExpandDLResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSExpandDLResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSExpandDLResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

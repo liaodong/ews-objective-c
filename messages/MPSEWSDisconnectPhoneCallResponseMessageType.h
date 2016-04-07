@@ -10,7 +10,7 @@
 @interface MPSEWSDisconnectPhoneCallResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDisconnectPhoneCallResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSDisconnectPhoneCallResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

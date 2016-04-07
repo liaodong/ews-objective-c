@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSSearchExpressionType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSearchExpressionType*) val;
++ (BOOL) isValid:(MPSEWSSearchExpressionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

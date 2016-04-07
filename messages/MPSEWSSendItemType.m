@@ -31,12 +31,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSendItemType*) val
++ (BOOL) isValid:(MPSEWSSendItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val saveItemToFolder] && ![MPSEWSBooleanTypeHandler isValid:[val saveItemToFolder]]) return FALSE;
-    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
-    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val saveItemToFolder] && ![MPSEWSBooleanTypeHandler isValid:[val saveItemToFolder] forVersion: ver]) return FALSE;
+    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds] forVersion:ver]) return FALSE;
+    if ([val savedItemFolderId] && ![MPSEWSTargetFolderIdType isValid:[val savedItemFolderId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

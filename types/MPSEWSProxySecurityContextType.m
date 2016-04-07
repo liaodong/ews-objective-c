@@ -14,9 +14,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProxySecurityContextType*) val
++ (BOOL) isValid:(MPSEWSProxySecurityContextType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBase64BinaryType isValid:val]) return FALSE;
+    if (![MPSEWSBase64BinaryType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

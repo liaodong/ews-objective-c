@@ -61,12 +61,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSServiceConfigurationResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSServiceConfigurationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val mailTipsConfiguration] && ![MPSEWSMailTipsServiceConfiguration isValid:[val mailTipsConfiguration]]) return FALSE;
-    if ([val unifiedMessagingConfiguration] && ![MPSEWSUnifiedMessageServiceConfiguration isValid:[val unifiedMessagingConfiguration]]) return FALSE;
-    if ([val protectionRulesConfiguration] && ![MPSEWSProtectionRulesServiceConfiguration isValid:[val protectionRulesConfiguration]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val mailTipsConfiguration] && ![MPSEWSMailTipsServiceConfiguration isValid:[val mailTipsConfiguration] forVersion:ver]) return FALSE;
+    if ([val unifiedMessagingConfiguration] && ![MPSEWSUnifiedMessageServiceConfiguration isValid:[val unifiedMessagingConfiguration] forVersion:ver]) return FALSE;
+    if ([val protectionRulesConfiguration] && ![MPSEWSProtectionRulesServiceConfiguration isValid:[val protectionRulesConfiguration] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

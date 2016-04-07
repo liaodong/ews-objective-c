@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangesType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderChangesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val folderChange]) {
         for (MPSEWSFolderChangeType* obj in [val folderChange]) {
-            if (![MPSEWSFolderChangeType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderChangeType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

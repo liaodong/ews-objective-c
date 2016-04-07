@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetPhoneCallInformationResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetPhoneCallInformationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val phoneCallInformation] && ![MPSEWSPhoneCallInformationType isValid:[val phoneCallInformation]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val phoneCallInformation] && ![MPSEWSPhoneCallInformationType isValid:[val phoneCallInformation] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -12,7 +12,7 @@ static int maxLength = INT_MAX;
     [[[MPSEWSNonEmptyStringType alloc] init] register];
 }
 
-+ (BOOL) isValid:(NSString*) val
++ (BOOL) isValid:(NSString*) val forVersion:(MPSEWSExchangeVersion) ver
 {
     return [val length] > minLength && [val length] < maxLength;
 }

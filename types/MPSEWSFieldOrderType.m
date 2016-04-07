@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFieldOrderType*) val
++ (BOOL) isValid:(MPSEWSFieldOrderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val order] && ![MPSEWSSortDirectionType isValid:[val order]]) return FALSE;
-    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
+    if ([val order] && ![MPSEWSSortDirectionType isValid:[val order] forVersion: ver]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

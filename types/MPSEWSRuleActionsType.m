@@ -85,21 +85,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRuleActionsType*) val
++ (BOOL) isValid:(MPSEWSRuleActionsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val assignCategories] && ![MPSEWSArrayOfStringsType isValid:[val assignCategories]]) return FALSE;
-    if ([val pCopyToFolder] && ![MPSEWSTargetFolderIdType isValid:[val pCopyToFolder]]) return FALSE;
-    if ([val delete] && ![MPSEWSBooleanTypeHandler isValid:[val delete]]) return FALSE;
-    if ([val forwardAsAttachmentToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val forwardAsAttachmentToRecipients]]) return FALSE;
-    if ([val forwardToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val forwardToRecipients]]) return FALSE;
-    if ([val markImportance] && ![MPSEWSImportanceChoicesType isValid:[val markImportance]]) return FALSE;
-    if ([val markAsRead] && ![MPSEWSBooleanTypeHandler isValid:[val markAsRead]]) return FALSE;
-    if ([val moveToFolder] && ![MPSEWSTargetFolderIdType isValid:[val moveToFolder]]) return FALSE;
-    if ([val permanentDelete] && ![MPSEWSBooleanTypeHandler isValid:[val permanentDelete]]) return FALSE;
-    if ([val redirectToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val redirectToRecipients]]) return FALSE;
-    if ([val sendSMSAlertToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val sendSMSAlertToRecipients]]) return FALSE;
-    if ([val serverReplyWithMessage] && ![MPSEWSItemIdType isValid:[val serverReplyWithMessage]]) return FALSE;
-    if ([val stopProcessingRules] && ![MPSEWSBooleanTypeHandler isValid:[val stopProcessingRules]]) return FALSE;
+    if ([val assignCategories] && ![MPSEWSArrayOfStringsType isValid:[val assignCategories] forVersion:ver]) return FALSE;
+    if ([val pCopyToFolder] && ![MPSEWSTargetFolderIdType isValid:[val pCopyToFolder] forVersion:ver]) return FALSE;
+    if ([val delete] && ![MPSEWSBooleanTypeHandler isValid:[val delete] forVersion:ver]) return FALSE;
+    if ([val forwardAsAttachmentToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val forwardAsAttachmentToRecipients] forVersion:ver]) return FALSE;
+    if ([val forwardToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val forwardToRecipients] forVersion:ver]) return FALSE;
+    if ([val markImportance] && ![MPSEWSImportanceChoicesType isValid:[val markImportance] forVersion:ver]) return FALSE;
+    if ([val markAsRead] && ![MPSEWSBooleanTypeHandler isValid:[val markAsRead] forVersion:ver]) return FALSE;
+    if ([val moveToFolder] && ![MPSEWSTargetFolderIdType isValid:[val moveToFolder] forVersion:ver]) return FALSE;
+    if ([val permanentDelete] && ![MPSEWSBooleanTypeHandler isValid:[val permanentDelete] forVersion:ver]) return FALSE;
+    if ([val redirectToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val redirectToRecipients] forVersion:ver]) return FALSE;
+    if ([val sendSMSAlertToRecipients] && ![MPSEWSArrayOfEmailAddressesType isValid:[val sendSMSAlertToRecipients] forVersion:ver]) return FALSE;
+    if ([val serverReplyWithMessage] && ![MPSEWSItemIdType isValid:[val serverReplyWithMessage] forVersion:ver]) return FALSE;
+    if ([val stopProcessingRules] && ![MPSEWSBooleanTypeHandler isValid:[val stopProcessingRules] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

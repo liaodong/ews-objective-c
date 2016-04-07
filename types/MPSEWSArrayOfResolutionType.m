@@ -43,16 +43,16 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfResolutionType*) val
++ (BOOL) isValid:(MPSEWSArrayOfResolutionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val indexedPagingOffset] && ![MPSEWSIntegerTypeHandler isValid:[val indexedPagingOffset]]) return FALSE;
-    if ([val numeratorOffset] && ![MPSEWSIntegerTypeHandler isValid:[val numeratorOffset]]) return FALSE;
-    if ([val absoluteDenominator] && ![MPSEWSIntegerTypeHandler isValid:[val absoluteDenominator]]) return FALSE;
-    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange]]) return FALSE;
-    if ([val totalItemsInView] && ![MPSEWSIntegerTypeHandler isValid:[val totalItemsInView]]) return FALSE;
+    if ([val indexedPagingOffset] && ![MPSEWSIntegerTypeHandler isValid:[val indexedPagingOffset] forVersion: ver]) return FALSE;
+    if ([val numeratorOffset] && ![MPSEWSIntegerTypeHandler isValid:[val numeratorOffset] forVersion: ver]) return FALSE;
+    if ([val absoluteDenominator] && ![MPSEWSIntegerTypeHandler isValid:[val absoluteDenominator] forVersion: ver]) return FALSE;
+    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange] forVersion: ver]) return FALSE;
+    if ([val totalItemsInView] && ![MPSEWSIntegerTypeHandler isValid:[val totalItemsInView] forVersion: ver]) return FALSE;
     if ([val resolution]) {
         for (MPSEWSResolutionType* obj in [val resolution]) {
-            if (![MPSEWSResolutionType isValid:obj]) return FALSE;
+            if (![MPSEWSResolutionType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

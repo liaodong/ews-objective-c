@@ -10,7 +10,7 @@
 @interface MPSEWSReferenceItemResponseType : MPSEWSResponseObjectType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSReferenceItemResponseType*) val;
++ (BOOL) isValid:(MPSEWSReferenceItemResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

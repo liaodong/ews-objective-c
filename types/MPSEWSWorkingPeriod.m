@@ -31,11 +31,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSWorkingPeriod*) val
++ (BOOL) isValid:(MPSEWSWorkingPeriod*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val dayOfWeek] && ![MPSEWSDaysOfWeekType isValid:[val dayOfWeek]]) return FALSE;
-    if ([val startTimeInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val startTimeInMinutes]]) return FALSE;
-    if ([val endTimeInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val endTimeInMinutes]]) return FALSE;
+    if ([val dayOfWeek] && ![MPSEWSDaysOfWeekType isValid:[val dayOfWeek] forVersion:ver]) return FALSE;
+    if ([val startTimeInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val startTimeInMinutes] forVersion:ver]) return FALSE;
+    if ([val endTimeInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val endTimeInMinutes] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

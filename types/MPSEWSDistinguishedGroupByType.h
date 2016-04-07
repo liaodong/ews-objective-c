@@ -10,7 +10,7 @@
 @interface MPSEWSDistinguishedGroupByType : MPSEWSBaseGroupByType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDistinguishedGroupByType*) val;
++ (BOOL) isValid:(MPSEWSDistinguishedGroupByType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

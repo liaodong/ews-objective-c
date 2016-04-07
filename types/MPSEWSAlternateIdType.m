@@ -34,12 +34,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAlternateIdType*) val
++ (BOOL) isValid:(MPSEWSAlternateIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSAlternateIdBaseType isValid:val]) return FALSE;
-    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
-    if ([val mailbox] && ![MPSEWSNonEmptyStringType isValid:[val mailbox]]) return FALSE;
-    if ([val isArchive] && ![MPSEWSBooleanTypeHandler isValid:[val isArchive]]) return FALSE;
+    if (![MPSEWSAlternateIdBaseType isValid:val forVersion:ver]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ] forVersion: ver]) return FALSE;
+    if ([val mailbox] && ![MPSEWSNonEmptyStringType isValid:[val mailbox] forVersion: ver]) return FALSE;
+    if ([val isArchive] && ![MPSEWSBooleanTypeHandler isValid:[val isArchive] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

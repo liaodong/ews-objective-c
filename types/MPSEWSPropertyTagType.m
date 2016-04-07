@@ -7,7 +7,7 @@
 {
     [[[MPSEWSPropertyTagType alloc] init] register];
 }
-+ (BOOL) isValid:(NSNumber*) val
++ (BOOL) isValid:(NSNumber*) val forVersion:(MPSEWSExchangeVersion) ver
 {
     (void) val;  // FIX ME
     return TRUE;

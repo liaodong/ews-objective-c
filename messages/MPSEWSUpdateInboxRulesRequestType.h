@@ -11,7 +11,7 @@
 @interface MPSEWSUpdateInboxRulesRequestType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSUpdateInboxRulesRequestType*) val;
++ (BOOL) isValid:(MPSEWSUpdateInboxRulesRequestType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

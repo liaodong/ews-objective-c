@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSFieldOrderType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFieldOrderType*) val;
++ (BOOL) isValid:(MPSEWSFieldOrderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

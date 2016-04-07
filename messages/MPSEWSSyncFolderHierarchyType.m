@@ -32,12 +32,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSyncFolderHierarchyType*) val
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val folderShape] && ![MPSEWSFolderResponseShapeType isValid:[val folderShape]]) return FALSE;
-    if ([val syncFolderId] && ![MPSEWSTargetFolderIdType isValid:[val syncFolderId]]) return FALSE;
-    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val folderShape] && ![MPSEWSFolderResponseShapeType isValid:[val folderShape] forVersion:ver]) return FALSE;
+    if ([val syncFolderId] && ![MPSEWSTargetFolderIdType isValid:[val syncFolderId] forVersion:ver]) return FALSE;
+    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSyncFolderItemsReadFlagType*) val
++ (BOOL) isValid:(MPSEWSSyncFolderItemsReadFlagType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
-    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead]]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId] forVersion:ver]) return FALSE;
+    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

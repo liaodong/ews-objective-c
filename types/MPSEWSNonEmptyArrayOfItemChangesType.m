@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangesType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val itemChange]) {
         for (MPSEWSItemChangeType* obj in [val itemChange]) {
-            if (![MPSEWSItemChangeType isValid:obj]) return FALSE;
+            if (![MPSEWSItemChangeType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfDelegateUserResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSArrayOfDelegateUserResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val delegateUserResponseMessageType]) {
         for (MPSEWSDelegateUserResponseMessageType* obj in [val delegateUserResponseMessageType]) {
-            if (![MPSEWSDelegateUserResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSDelegateUserResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

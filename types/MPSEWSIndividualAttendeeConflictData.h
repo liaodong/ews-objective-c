@@ -10,7 +10,7 @@
 @interface MPSEWSIndividualAttendeeConflictData : MPSEWSAttendeeConflictData
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSIndividualAttendeeConflictData*) val;
++ (BOOL) isValid:(MPSEWSIndividualAttendeeConflictData*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

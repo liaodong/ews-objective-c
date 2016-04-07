@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSRulePredicateDateRangeType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRulePredicateDateRangeType*) val;
++ (BOOL) isValid:(MPSEWSRulePredicateDateRangeType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

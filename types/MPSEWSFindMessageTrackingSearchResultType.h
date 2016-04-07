@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -12,7 +13,7 @@
 @interface MPSEWSFindMessageTrackingSearchResultType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindMessageTrackingSearchResultType*) val;
++ (BOOL) isValid:(MPSEWSFindMessageTrackingSearchResultType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

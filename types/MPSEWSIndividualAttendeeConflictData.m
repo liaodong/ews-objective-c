@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSIndividualAttendeeConflictData*) val
++ (BOOL) isValid:(MPSEWSIndividualAttendeeConflictData*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSAttendeeConflictData isValid:val]) return FALSE;
-    if ([val busyType] && ![MPSEWSLegacyFreeBusyType isValid:[val busyType]]) return FALSE;
+    if (![MPSEWSAttendeeConflictData isValid:val forVersion:ver]) return FALSE;
+    if ([val busyType] && ![MPSEWSLegacyFreeBusyType isValid:[val busyType] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

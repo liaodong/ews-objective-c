@@ -5,7 +5,7 @@
 @interface MPSEWSBase64BinaryType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSBase64BinaryType*)val;
++ (BOOL) isValid:(MPSEWSBase64BinaryType*)val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

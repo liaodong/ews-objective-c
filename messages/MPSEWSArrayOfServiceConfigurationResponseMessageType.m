@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfServiceConfigurationResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSArrayOfServiceConfigurationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val serviceConfigurationResponseMessageType]) {
         for (MPSEWSServiceConfigurationResponseMessageType* obj in [val serviceConfigurationResponseMessageType]) {
-            if (![MPSEWSServiceConfigurationResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSServiceConfigurationResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFolderChangeType*) val
++ (BOOL) isValid:(MPSEWSFolderChangeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
-    if ([val distinguishedFolderId] && ![MPSEWSDistinguishedFolderIdType isValid:[val distinguishedFolderId]]) return FALSE;
-    if ([val updates] && ![MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType isValid:[val updates]]) return FALSE;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId] forVersion:ver]) return FALSE;
+    if ([val distinguishedFolderId] && ![MPSEWSDistinguishedFolderIdType isValid:[val distinguishedFolderId] forVersion:ver]) return FALSE;
+    if ([val updates] && ![MPSEWSNonEmptyArrayOfFolderChangeDescriptionsType isValid:[val updates] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

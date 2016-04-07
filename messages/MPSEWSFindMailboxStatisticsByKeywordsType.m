@@ -76,20 +76,20 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFindMailboxStatisticsByKeywordsType*) val
++ (BOOL) isValid:(MPSEWSFindMailboxStatisticsByKeywordsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val mailboxes] && ![MPSEWSArrayOfUserMailboxesType isValid:[val mailboxes]]) return FALSE;
-    if ([val keywords] && ![MPSEWSArrayOfStringsType isValid:[val keywords]]) return FALSE;
-    if ([val language] && ![MPSEWSStringTypeHandler isValid:[val language]]) return FALSE;
-    if ([val senders] && ![MPSEWSArrayOfSmtpAddressType isValid:[val senders]]) return FALSE;
-    if ([val recipients] && ![MPSEWSArrayOfSmtpAddressType isValid:[val recipients]]) return FALSE;
-    if ([val fromDate] && ![MPSEWSDateTimeTypeHandler isValid:[val fromDate]]) return FALSE;
-    if ([val toDate] && ![MPSEWSDateTimeTypeHandler isValid:[val toDate]]) return FALSE;
-    if ([val messageTypes] && ![MPSEWSArrayOfSearchItemKindsType isValid:[val messageTypes]]) return FALSE;
-    if ([val searchDumpster] && ![MPSEWSBooleanTypeHandler isValid:[val searchDumpster]]) return FALSE;
-    if ([val includePersonalArchive] && ![MPSEWSBooleanTypeHandler isValid:[val includePersonalArchive]]) return FALSE;
-    if ([val includeUnsearchableItems] && ![MPSEWSBooleanTypeHandler isValid:[val includeUnsearchableItems]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val mailboxes] && ![MPSEWSArrayOfUserMailboxesType isValid:[val mailboxes] forVersion:ver]) return FALSE;
+    if ([val keywords] && ![MPSEWSArrayOfStringsType isValid:[val keywords] forVersion:ver]) return FALSE;
+    if ([val language] && ![MPSEWSStringTypeHandler isValid:[val language] forVersion:ver]) return FALSE;
+    if ([val senders] && ![MPSEWSArrayOfSmtpAddressType isValid:[val senders] forVersion:ver]) return FALSE;
+    if ([val recipients] && ![MPSEWSArrayOfSmtpAddressType isValid:[val recipients] forVersion:ver]) return FALSE;
+    if ([val fromDate] && ![MPSEWSDateTimeTypeHandler isValid:[val fromDate] forVersion:ver]) return FALSE;
+    if ([val toDate] && ![MPSEWSDateTimeTypeHandler isValid:[val toDate] forVersion:ver]) return FALSE;
+    if ([val messageTypes] && ![MPSEWSArrayOfSearchItemKindsType isValid:[val messageTypes] forVersion:ver]) return FALSE;
+    if ([val searchDumpster] && ![MPSEWSBooleanTypeHandler isValid:[val searchDumpster] forVersion:ver]) return FALSE;
+    if ([val includePersonalArchive] && ![MPSEWSBooleanTypeHandler isValid:[val includePersonalArchive] forVersion:ver]) return FALSE;
+    if ([val includeUnsearchableItems] && ![MPSEWSBooleanTypeHandler isValid:[val includeUnsearchableItems] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

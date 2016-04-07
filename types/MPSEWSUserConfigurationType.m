@@ -43,13 +43,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUserConfigurationType*) val
++ (BOOL) isValid:(MPSEWSUserConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val userConfigurationName] && ![MPSEWSUserConfigurationNameType isValid:[val userConfigurationName]]) return FALSE;
-    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
-    if ([val dictionary] && ![MPSEWSUserConfigurationDictionaryType isValid:[val dictionary]]) return FALSE;
-    if ([val xmlData] && ![MPSEWSBase64BinaryTypeHandler isValid:[val xmlData]]) return FALSE;
-    if ([val binaryData] && ![MPSEWSBase64BinaryTypeHandler isValid:[val binaryData]]) return FALSE;
+    if ([val userConfigurationName] && ![MPSEWSUserConfigurationNameType isValid:[val userConfigurationName] forVersion:ver]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId] forVersion:ver]) return FALSE;
+    if ([val dictionary] && ![MPSEWSUserConfigurationDictionaryType isValid:[val dictionary] forVersion:ver]) return FALSE;
+    if ([val xmlData] && ![MPSEWSBase64BinaryTypeHandler isValid:[val xmlData] forVersion:ver]) return FALSE;
+    if ([val binaryData] && ![MPSEWSBase64BinaryTypeHandler isValid:[val binaryData] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -31,11 +31,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSKeywordStatisticsSearchResultType*) val
++ (BOOL) isValid:(MPSEWSKeywordStatisticsSearchResultType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val keyword] && ![MPSEWSStringTypeHandler isValid:[val keyword]]) return FALSE;
-    if ([val itemHits] && ![MPSEWSIntegerTypeHandler isValid:[val itemHits]]) return FALSE;
-    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size]]) return FALSE;
+    if ([val keyword] && ![MPSEWSStringTypeHandler isValid:[val keyword] forVersion:ver]) return FALSE;
+    if ([val itemHits] && ![MPSEWSIntegerTypeHandler isValid:[val itemHits] forVersion:ver]) return FALSE;
+    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

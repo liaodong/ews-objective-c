@@ -35,21 +35,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfRuleOperationsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfRuleOperationsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val createRuleOperation]) {
         for (MPSEWSCreateRuleOperationType* obj in [val createRuleOperation]) {
-            if (![MPSEWSCreateRuleOperationType isValid:obj]) return FALSE;
+            if (![MPSEWSCreateRuleOperationType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val setRuleOperation]) {
         for (MPSEWSSetRuleOperationType* obj in [val setRuleOperation]) {
-            if (![MPSEWSSetRuleOperationType isValid:obj]) return FALSE;
+            if (![MPSEWSSetRuleOperationType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deleteRuleOperation]) {
         for (MPSEWSDeleteRuleOperationType* obj in [val deleteRuleOperation]) {
-            if (![MPSEWSDeleteRuleOperationType isValid:obj]) return FALSE;
+            if (![MPSEWSDeleteRuleOperationType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

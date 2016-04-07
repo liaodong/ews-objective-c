@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUpdateDelegateType*) val
++ (BOOL) isValid:(MPSEWSUpdateDelegateType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseDelegateType isValid:val]) return FALSE;
-    if ([val delegateUsers] && ![MPSEWSArrayOfDelegateUserType isValid:[val delegateUsers]]) return FALSE;
-    if ([val deliverMeetingRequests] && ![MPSEWSDeliverMeetingRequestsType isValid:[val deliverMeetingRequests]]) return FALSE;
+    if (![MPSEWSBaseDelegateType isValid:val forVersion:ver]) return FALSE;
+    if ([val delegateUsers] && ![MPSEWSArrayOfDelegateUserType isValid:[val delegateUsers] forVersion:ver]) return FALSE;
+    if ([val deliverMeetingRequests] && ![MPSEWSDeliverMeetingRequestsType isValid:[val deliverMeetingRequests] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

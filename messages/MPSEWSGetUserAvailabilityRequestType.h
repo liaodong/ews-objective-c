@@ -14,7 +14,7 @@
 @interface MPSEWSGetUserAvailabilityRequestType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetUserAvailabilityRequestType*) val;
++ (BOOL) isValid:(MPSEWSGetUserAvailabilityRequestType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,7 +11,7 @@
 @interface MPSEWSAttachmentInfoResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAttachmentInfoResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSAttachmentInfoResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

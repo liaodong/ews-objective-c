@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfInvalidRecipientsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfInvalidRecipientsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val invalidRecipient]) {
         for (MPSEWSInvalidRecipientType* obj in [val invalidRecipient]) {
-            if (![MPSEWSInvalidRecipientType isValid:obj]) return FALSE;
+            if (![MPSEWSInvalidRecipientType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

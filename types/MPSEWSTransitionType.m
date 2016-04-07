@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTransitionType*) val
++ (BOOL) isValid:(MPSEWSTransitionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val to  ] && ![MPSEWSTransitionTargetType isValid:[val to  ]]) return FALSE;
+    if ([val to  ] && ![MPSEWSTransitionTargetType isValid:[val to  ] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

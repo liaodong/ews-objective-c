@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSArrayOfMailboxData : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfMailboxData*) val;
++ (BOOL) isValid:(MPSEWSArrayOfMailboxData*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

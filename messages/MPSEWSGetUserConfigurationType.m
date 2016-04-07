@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetUserConfigurationType*) val
++ (BOOL) isValid:(MPSEWSGetUserConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val userConfigurationName] && ![MPSEWSUserConfigurationNameType isValid:[val userConfigurationName]]) return FALSE;
-    if ([val userConfigurationProperties] && ![MPSEWSUserConfigurationPropertyType isValid:[val userConfigurationProperties]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val userConfigurationName] && ![MPSEWSUserConfigurationNameType isValid:[val userConfigurationName] forVersion:ver]) return FALSE;
+    if ([val userConfigurationProperties] && ![MPSEWSUserConfigurationPropertyType isValid:[val userConfigurationProperties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -21,7 +21,7 @@
 @interface MPSEWSAppendToItemFieldType : MPSEWSItemChangeDescriptionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAppendToItemFieldType*) val;
++ (BOOL) isValid:(MPSEWSAppendToItemFieldType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

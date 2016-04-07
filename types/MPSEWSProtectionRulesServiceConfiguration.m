@@ -31,12 +31,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProtectionRulesServiceConfiguration*) val
++ (BOOL) isValid:(MPSEWSProtectionRulesServiceConfiguration*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSServiceConfiguration isValid:val]) return FALSE;
-    if ([val refreshInterval] && ![MPSEWSIntegerTypeHandler isValid:[val refreshInterval]]) return FALSE;
-    if ([val rules] && ![MPSEWSArrayOfProtectionRulesType isValid:[val rules]]) return FALSE;
-    if ([val internalDomains] && ![MPSEWSSmtpDomainList isValid:[val internalDomains]]) return FALSE;
+    if (![MPSEWSServiceConfiguration isValid:val forVersion:ver]) return FALSE;
+    if ([val refreshInterval] && ![MPSEWSIntegerTypeHandler isValid:[val refreshInterval] forVersion: ver]) return FALSE;
+    if ([val rules] && ![MPSEWSArrayOfProtectionRulesType isValid:[val rules] forVersion:ver]) return FALSE;
+    if ([val internalDomains] && ![MPSEWSSmtpDomainList isValid:[val internalDomains] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

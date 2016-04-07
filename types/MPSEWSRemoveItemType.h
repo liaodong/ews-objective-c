@@ -10,7 +10,7 @@
 @interface MPSEWSRemoveItemType : MPSEWSResponseObjectType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRemoveItemType*) val;
++ (BOOL) isValid:(MPSEWSRemoveItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

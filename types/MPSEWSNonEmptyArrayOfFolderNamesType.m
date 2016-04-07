@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderNamesType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFolderNamesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val folderName]) {
         for (NSString* obj in [val folderName]) {
-            if (![MPSEWSStringTypeHandler isValid:obj]) return FALSE;
+            if (![MPSEWSStringTypeHandler isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -43,13 +43,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTimeChangeType*) val
++ (BOOL) isValid:(MPSEWSTimeChangeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val timeZoneName] && ![MPSEWSStringTypeHandler isValid:[val timeZoneName]]) return FALSE;
-    if ([val offset] && ![MPSEWSDurationTypeHandler isValid:[val offset]]) return FALSE;
-    if ([val relativeYearlyRecurrence] && ![MPSEWSRelativeYearlyRecurrencePatternType isValid:[val relativeYearlyRecurrence]]) return FALSE;
-    if ([val absoluteDate] && ![MPSEWSDateTypeHandler isValid:[val absoluteDate]]) return FALSE;
-    if ([val time] && ![MPSEWSTimeTypeHandler isValid:[val time]]) return FALSE;
+    if ([val timeZoneName] && ![MPSEWSStringTypeHandler isValid:[val timeZoneName] forVersion: ver]) return FALSE;
+    if ([val offset] && ![MPSEWSDurationTypeHandler isValid:[val offset] forVersion:ver]) return FALSE;
+    if ([val relativeYearlyRecurrence] && ![MPSEWSRelativeYearlyRecurrencePatternType isValid:[val relativeYearlyRecurrence] forVersion:ver]) return FALSE;
+    if ([val absoluteDate] && ![MPSEWSDateTypeHandler isValid:[val absoluteDate] forVersion:ver]) return FALSE;
+    if ([val time] && ![MPSEWSTimeTypeHandler isValid:[val time] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

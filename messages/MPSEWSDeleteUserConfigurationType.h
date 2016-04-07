@@ -11,7 +11,7 @@
 @interface MPSEWSDeleteUserConfigurationType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeleteUserConfigurationType*) val;
++ (BOOL) isValid:(MPSEWSDeleteUserConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

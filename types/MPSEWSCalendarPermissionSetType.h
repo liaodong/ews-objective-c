@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSCalendarPermissionSetType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCalendarPermissionSetType*) val;
++ (BOOL) isValid:(MPSEWSCalendarPermissionSetType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

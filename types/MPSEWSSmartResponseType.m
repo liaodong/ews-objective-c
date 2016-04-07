@@ -326,10 +326,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSmartResponseType*) val
++ (BOOL) isValid:(MPSEWSSmartResponseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSSmartResponseBaseType isValid:val]) return FALSE;
-    if ([val pNewBodyContent] && ![MPSEWSBodyType isValid:[val pNewBodyContent]]) return FALSE;
+    if (![MPSEWSSmartResponseBaseType isValid:val forVersion:ver]) return FALSE;
+    if ([val pNewBodyContent] && ![MPSEWSBodyType isValid:[val pNewBodyContent] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

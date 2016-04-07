@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFreeBusyViewOptionsType*) val
++ (BOOL) isValid:(MPSEWSFreeBusyViewOptionsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val timeWindow] && ![MPSEWSDuration isValid:[val timeWindow]]) return FALSE;
-    if ([val mergedFreeBusyIntervalInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val mergedFreeBusyIntervalInMinutes]]) return FALSE;
-    if ([val requestedView] && ![MPSEWSFreeBusyViewType isValid:[val requestedView]]) return FALSE;
+    if ([val timeWindow] && ![MPSEWSDuration isValid:[val timeWindow] forVersion:ver]) return FALSE;
+    if ([val mergedFreeBusyIntervalInMinutes] && ![MPSEWSIntegerTypeHandler isValid:[val mergedFreeBusyIntervalInMinutes] forVersion:ver]) return FALSE;
+    if ([val requestedView] && ![MPSEWSFreeBusyViewType isValid:[val requestedView] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

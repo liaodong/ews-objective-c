@@ -10,7 +10,7 @@
 @interface MPSEWSProxySecurityContextType : MPSEWSBase64BinaryType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSProxySecurityContextType*) val;
++ (BOOL) isValid:(MPSEWSProxySecurityContextType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

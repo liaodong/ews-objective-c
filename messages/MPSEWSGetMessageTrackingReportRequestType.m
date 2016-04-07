@@ -55,16 +55,16 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetMessageTrackingReportRequestType*) val
++ (BOOL) isValid:(MPSEWSGetMessageTrackingReportRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val scope] && ![MPSEWSNonEmptyStringType isValid:[val scope]]) return FALSE;
-    if ([val reportTemplate] && ![MPSEWSMessageTrackingReportTemplateType isValid:[val reportTemplate]]) return FALSE;
-    if ([val recipientFilter] && ![MPSEWSEmailAddressType isValid:[val recipientFilter]]) return FALSE;
-    if ([val messageTrackingReportId] && ![MPSEWSNonEmptyStringType isValid:[val messageTrackingReportId]]) return FALSE;
-    if ([val returnQueueEvents] && ![MPSEWSBooleanTypeHandler isValid:[val returnQueueEvents]]) return FALSE;
-    if ([val diagnosticsLevel] && ![MPSEWSStringTypeHandler isValid:[val diagnosticsLevel]]) return FALSE;
-    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val scope] && ![MPSEWSNonEmptyStringType isValid:[val scope] forVersion:ver]) return FALSE;
+    if ([val reportTemplate] && ![MPSEWSMessageTrackingReportTemplateType isValid:[val reportTemplate] forVersion:ver]) return FALSE;
+    if ([val recipientFilter] && ![MPSEWSEmailAddressType isValid:[val recipientFilter] forVersion:ver]) return FALSE;
+    if ([val messageTrackingReportId] && ![MPSEWSNonEmptyStringType isValid:[val messageTrackingReportId] forVersion:ver]) return FALSE;
+    if ([val returnQueueEvents] && ![MPSEWSBooleanTypeHandler isValid:[val returnQueueEvents] forVersion:ver]) return FALSE;
+    if ([val diagnosticsLevel] && ![MPSEWSStringTypeHandler isValid:[val diagnosticsLevel] forVersion:ver]) return FALSE;
+    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

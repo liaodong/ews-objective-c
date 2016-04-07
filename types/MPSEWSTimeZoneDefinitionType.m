@@ -41,13 +41,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTimeZoneDefinitionType*) val
++ (BOOL) isValid:(MPSEWSTimeZoneDefinitionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val periods] && ![MPSEWSNonEmptyArrayOfPeriodsType isValid:[val periods]]) return FALSE;
-    if ([val transitionsGroups] && ![MPSEWSArrayOfTransitionsGroupsType isValid:[val transitionsGroups]]) return FALSE;
-    if ([val transitions] && ![MPSEWSArrayOfTransitionsType isValid:[val transitions]]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ] forVersion: ver]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion: ver]) return FALSE;
+    if ([val periods] && ![MPSEWSNonEmptyArrayOfPeriodsType isValid:[val periods] forVersion:ver]) return FALSE;
+    if ([val transitionsGroups] && ![MPSEWSArrayOfTransitionsGroupsType isValid:[val transitionsGroups] forVersion:ver]) return FALSE;
+    if ([val transitions] && ![MPSEWSArrayOfTransitionsType isValid:[val transitions] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

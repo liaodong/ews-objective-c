@@ -43,10 +43,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPullSubscriptionRequestType*) val
++ (BOOL) isValid:(MPSEWSPullSubscriptionRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseSubscriptionRequestType isValid:val]) return FALSE;
-    if ([val timeout] && ![MPSEWSSubscriptionTimeoutType isValid:[val timeout]]) return FALSE;
+    if (![MPSEWSBaseSubscriptionRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val timeout] && ![MPSEWSSubscriptionTimeoutType isValid:[val timeout] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -164,36 +164,36 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSConversationType*) val
++ (BOOL) isValid:(MPSEWSConversationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val conversationId] && ![MPSEWSItemIdType isValid:[val conversationId]]) return FALSE;
-    if ([val conversationTopic] && ![MPSEWSStringTypeHandler isValid:[val conversationTopic]]) return FALSE;
-    if ([val uniqueRecipients] && ![MPSEWSArrayOfStringsType isValid:[val uniqueRecipients]]) return FALSE;
-    if ([val globalUniqueRecipients] && ![MPSEWSArrayOfStringsType isValid:[val globalUniqueRecipients]]) return FALSE;
-    if ([val uniqueUnreadSenders] && ![MPSEWSArrayOfStringsType isValid:[val uniqueUnreadSenders]]) return FALSE;
-    if ([val globalUniqueUnreadSenders] && ![MPSEWSArrayOfStringsType isValid:[val globalUniqueUnreadSenders]]) return FALSE;
-    if ([val uniqueSenders] && ![MPSEWSArrayOfStringsType isValid:[val uniqueSenders]]) return FALSE;
-    if ([val globalUniqueSenders] && ![MPSEWSArrayOfStringsType isValid:[val globalUniqueSenders]]) return FALSE;
-    if ([val lastDeliveryTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastDeliveryTime]]) return FALSE;
-    if ([val globalLastDeliveryTime] && ![MPSEWSDateTimeTypeHandler isValid:[val globalLastDeliveryTime]]) return FALSE;
-    if ([val categories] && ![MPSEWSArrayOfStringsType isValid:[val categories]]) return FALSE;
-    if ([val globalCategories] && ![MPSEWSArrayOfStringsType isValid:[val globalCategories]]) return FALSE;
-    if ([val flagStatus] && ![MPSEWSFlagStatusType isValid:[val flagStatus]]) return FALSE;
-    if ([val globalFlagStatus] && ![MPSEWSFlagStatusType isValid:[val globalFlagStatus]]) return FALSE;
-    if ([val hasAttachments] && ![MPSEWSBooleanTypeHandler isValid:[val hasAttachments]]) return FALSE;
-    if ([val globalHasAttachments] && ![MPSEWSBooleanTypeHandler isValid:[val globalHasAttachments]]) return FALSE;
-    if ([val messageCount] && ![MPSEWSIntegerTypeHandler isValid:[val messageCount]]) return FALSE;
-    if ([val globalMessageCount] && ![MPSEWSIntegerTypeHandler isValid:[val globalMessageCount]]) return FALSE;
-    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount]]) return FALSE;
-    if ([val globalUnreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val globalUnreadCount]]) return FALSE;
-    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size]]) return FALSE;
-    if ([val globalSize] && ![MPSEWSIntegerTypeHandler isValid:[val globalSize]]) return FALSE;
-    if ([val itemClasses] && ![MPSEWSArrayOfItemClassType isValid:[val itemClasses]]) return FALSE;
-    if ([val globalItemClasses] && ![MPSEWSArrayOfItemClassType isValid:[val globalItemClasses]]) return FALSE;
-    if ([val importance] && ![MPSEWSImportanceChoicesType isValid:[val importance]]) return FALSE;
-    if ([val globalImportance] && ![MPSEWSImportanceChoicesType isValid:[val globalImportance]]) return FALSE;
-    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds]]) return FALSE;
-    if ([val globalItemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val globalItemIds]]) return FALSE;
+    if ([val conversationId] && ![MPSEWSItemIdType isValid:[val conversationId] forVersion:ver]) return FALSE;
+    if ([val conversationTopic] && ![MPSEWSStringTypeHandler isValid:[val conversationTopic] forVersion:ver]) return FALSE;
+    if ([val uniqueRecipients] && ![MPSEWSArrayOfStringsType isValid:[val uniqueRecipients] forVersion:ver]) return FALSE;
+    if ([val globalUniqueRecipients] && ![MPSEWSArrayOfStringsType isValid:[val globalUniqueRecipients] forVersion:ver]) return FALSE;
+    if ([val uniqueUnreadSenders] && ![MPSEWSArrayOfStringsType isValid:[val uniqueUnreadSenders] forVersion:ver]) return FALSE;
+    if ([val globalUniqueUnreadSenders] && ![MPSEWSArrayOfStringsType isValid:[val globalUniqueUnreadSenders] forVersion:ver]) return FALSE;
+    if ([val uniqueSenders] && ![MPSEWSArrayOfStringsType isValid:[val uniqueSenders] forVersion:ver]) return FALSE;
+    if ([val globalUniqueSenders] && ![MPSEWSArrayOfStringsType isValid:[val globalUniqueSenders] forVersion:ver]) return FALSE;
+    if ([val lastDeliveryTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastDeliveryTime] forVersion:ver]) return FALSE;
+    if ([val globalLastDeliveryTime] && ![MPSEWSDateTimeTypeHandler isValid:[val globalLastDeliveryTime] forVersion:ver]) return FALSE;
+    if ([val categories] && ![MPSEWSArrayOfStringsType isValid:[val categories] forVersion:ver]) return FALSE;
+    if ([val globalCategories] && ![MPSEWSArrayOfStringsType isValid:[val globalCategories] forVersion:ver]) return FALSE;
+    if ([val flagStatus] && ![MPSEWSFlagStatusType isValid:[val flagStatus] forVersion:ver]) return FALSE;
+    if ([val globalFlagStatus] && ![MPSEWSFlagStatusType isValid:[val globalFlagStatus] forVersion:ver]) return FALSE;
+    if ([val hasAttachments] && ![MPSEWSBooleanTypeHandler isValid:[val hasAttachments] forVersion:ver]) return FALSE;
+    if ([val globalHasAttachments] && ![MPSEWSBooleanTypeHandler isValid:[val globalHasAttachments] forVersion:ver]) return FALSE;
+    if ([val messageCount] && ![MPSEWSIntegerTypeHandler isValid:[val messageCount] forVersion:ver]) return FALSE;
+    if ([val globalMessageCount] && ![MPSEWSIntegerTypeHandler isValid:[val globalMessageCount] forVersion:ver]) return FALSE;
+    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount] forVersion:ver]) return FALSE;
+    if ([val globalUnreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val globalUnreadCount] forVersion:ver]) return FALSE;
+    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size] forVersion:ver]) return FALSE;
+    if ([val globalSize] && ![MPSEWSIntegerTypeHandler isValid:[val globalSize] forVersion:ver]) return FALSE;
+    if ([val itemClasses] && ![MPSEWSArrayOfItemClassType isValid:[val itemClasses] forVersion:ver]) return FALSE;
+    if ([val globalItemClasses] && ![MPSEWSArrayOfItemClassType isValid:[val globalItemClasses] forVersion:ver]) return FALSE;
+    if ([val importance] && ![MPSEWSImportanceChoicesType isValid:[val importance] forVersion:ver]) return FALSE;
+    if ([val globalImportance] && ![MPSEWSImportanceChoicesType isValid:[val globalImportance] forVersion:ver]) return FALSE;
+    if ([val itemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val itemIds] forVersion:ver]) return FALSE;
+    if ([val globalItemIds] && ![MPSEWSNonEmptyArrayOfBaseItemIdsType isValid:[val globalItemIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

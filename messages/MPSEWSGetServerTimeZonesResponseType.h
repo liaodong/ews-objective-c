@@ -10,7 +10,7 @@
 @interface MPSEWSGetServerTimeZonesResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetServerTimeZonesResponseType*) val;
++ (BOOL) isValid:(MPSEWSGetServerTimeZonesResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfOccurrenceInfoType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfOccurrenceInfoType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val occurrence]) {
         for (MPSEWSOccurrenceInfoType* obj in [val occurrence]) {
-            if (![MPSEWSOccurrenceInfoType isValid:obj]) return FALSE;
+            if (![MPSEWSOccurrenceInfoType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

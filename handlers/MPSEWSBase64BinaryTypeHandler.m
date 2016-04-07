@@ -7,7 +7,7 @@
 {
     [[[MPSEWSBase64BinaryTypeHandler alloc] init] register];
 }
-+ (BOOL) isValid:(NSData*) val
++ (BOOL) isValid:(NSData*) val forVersion:(MPSEWSExchangeVersion) ver
 {
     (void) val;
     return TRUE;

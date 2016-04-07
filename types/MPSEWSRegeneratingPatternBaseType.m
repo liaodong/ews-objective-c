@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRegeneratingPatternBaseType*) val
++ (BOOL) isValid:(MPSEWSRegeneratingPatternBaseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val]) return FALSE;
+    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

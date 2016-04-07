@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeleteAttachmentType*) val
++ (BOOL) isValid:(MPSEWSDeleteAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val attachmentIds] && ![MPSEWSNonEmptyArrayOfRequestAttachmentIdsType isValid:[val attachmentIds]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val attachmentIds] && ![MPSEWSNonEmptyArrayOfRequestAttachmentIdsType isValid:[val attachmentIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

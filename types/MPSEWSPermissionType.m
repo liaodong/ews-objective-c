@@ -69,11 +69,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPermissionType*) val
++ (BOOL) isValid:(MPSEWSPermissionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePermissionType isValid:val]) return FALSE;
-    if ([val readItems] && ![MPSEWSPermissionReadAccessType isValid:[val readItems]]) return FALSE;
-    if ([val permissionLevel] && ![MPSEWSPermissionLevelType isValid:[val permissionLevel]]) return FALSE;
+    if (![MPSEWSBasePermissionType isValid:val forVersion:ver]) return FALSE;
+    if ([val readItems] && ![MPSEWSPermissionReadAccessType isValid:[val readItems] forVersion:ver]) return FALSE;
+    if ([val permissionLevel] && ![MPSEWSPermissionLevelType isValid:[val permissionLevel] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

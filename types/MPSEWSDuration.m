@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDuration*) val
++ (BOOL) isValid:(MPSEWSDuration*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val startTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startTime]]) return FALSE;
-    if ([val endTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endTime]]) return FALSE;
+    if ([val startTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startTime] forVersion:ver]) return FALSE;
+    if ([val endTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endTime] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -14,9 +14,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMailboxCultureType*) val
++ (BOOL) isValid:(MPSEWSMailboxCultureType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSLanguageType isValid:val]) return FALSE;
+    if (![MPSEWSLanguageType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

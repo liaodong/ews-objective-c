@@ -11,7 +11,7 @@
 @interface MPSEWSDeleteFolderType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeleteFolderType*) val;
++ (BOOL) isValid:(MPSEWSDeleteFolderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

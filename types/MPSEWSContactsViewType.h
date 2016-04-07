@@ -10,7 +10,7 @@
 @interface MPSEWSContactsViewType : MPSEWSBasePagingType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSContactsViewType*) val;
++ (BOOL) isValid:(MPSEWSContactsViewType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

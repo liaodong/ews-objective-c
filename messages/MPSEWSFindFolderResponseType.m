@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFindFolderResponseType*) val
++ (BOOL) isValid:(MPSEWSFindFolderResponseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseResponseMessageType isValid:val]) return FALSE;
+    if (![MPSEWSBaseResponseMessageType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

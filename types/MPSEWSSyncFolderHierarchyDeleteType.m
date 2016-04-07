@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSyncFolderHierarchyDeleteType*) val
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyDeleteType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

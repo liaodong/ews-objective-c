@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSTimeZoneType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSTimeZoneType*) val;
++ (BOOL) isValid:(MPSEWSTimeZoneType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

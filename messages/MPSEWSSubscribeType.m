@@ -32,12 +32,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSubscribeType*) val
++ (BOOL) isValid:(MPSEWSSubscribeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val pullSubscriptionRequest] && ![MPSEWSPullSubscriptionRequestType isValid:[val pullSubscriptionRequest]]) return FALSE;
-    if ([val pushSubscriptionRequest] && ![MPSEWSPushSubscriptionRequestType isValid:[val pushSubscriptionRequest]]) return FALSE;
-    if ([val streamingSubscriptionRequest] && ![MPSEWSStreamingSubscriptionRequestType isValid:[val streamingSubscriptionRequest]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val pullSubscriptionRequest] && ![MPSEWSPullSubscriptionRequestType isValid:[val pullSubscriptionRequest] forVersion:ver]) return FALSE;
+    if ([val pushSubscriptionRequest] && ![MPSEWSPushSubscriptionRequestType isValid:[val pushSubscriptionRequest] forVersion:ver]) return FALSE;
+    if ([val streamingSubscriptionRequest] && ![MPSEWSStreamingSubscriptionRequestType isValid:[val streamingSubscriptionRequest] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

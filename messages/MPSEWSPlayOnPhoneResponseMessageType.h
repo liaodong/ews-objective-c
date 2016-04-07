@@ -11,7 +11,7 @@
 @interface MPSEWSPlayOnPhoneResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPlayOnPhoneResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSPlayOnPhoneResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

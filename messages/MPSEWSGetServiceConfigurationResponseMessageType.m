@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetServiceConfigurationResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetServiceConfigurationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val responseMessages] && ![MPSEWSArrayOfServiceConfigurationResponseMessageType isValid:[val responseMessages]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val responseMessages] && ![MPSEWSArrayOfServiceConfigurationResponseMessageType isValid:[val responseMessages] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

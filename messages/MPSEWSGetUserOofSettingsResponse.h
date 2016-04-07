@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSGetUserOofSettingsResponse : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetUserOofSettingsResponse*) val;
++ (BOOL) isValid:(MPSEWSGetUserOofSettingsResponse*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

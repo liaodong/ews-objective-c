@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSResolutionType*) val
++ (BOOL) isValid:(MPSEWSResolutionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
-    if ([val contact] && ![MPSEWSContactItemType isValid:[val contact]]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox] forVersion:ver]) return FALSE;
+    if ([val contact] && ![MPSEWSContactItemType isValid:[val contact] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

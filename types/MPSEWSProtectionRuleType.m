@@ -41,13 +41,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProtectionRuleType*) val
++ (BOOL) isValid:(MPSEWSProtectionRuleType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val userOverridable] && ![MPSEWSBooleanTypeHandler isValid:[val userOverridable]]) return FALSE;
-    if ([val priority] && ![MPSEWSIntegerTypeHandler isValid:[val priority]]) return FALSE;
-    if ([val condition] && ![MPSEWSProtectionRuleConditionType isValid:[val condition]]) return FALSE;
-    if ([val action] && ![MPSEWSProtectionRuleActionType isValid:[val action]]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion: ver]) return FALSE;
+    if ([val userOverridable] && ![MPSEWSBooleanTypeHandler isValid:[val userOverridable] forVersion: ver]) return FALSE;
+    if ([val priority] && ![MPSEWSIntegerTypeHandler isValid:[val priority] forVersion: ver]) return FALSE;
+    if ([val condition] && ![MPSEWSProtectionRuleConditionType isValid:[val condition] forVersion:ver]) return FALSE;
+    if ([val action] && ![MPSEWSProtectionRuleActionType isValid:[val action] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

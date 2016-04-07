@@ -77,9 +77,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTasksFolderType*) val
++ (BOOL) isValid:(MPSEWSTasksFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSFolderType isValid:val]) return FALSE;
+    if (![MPSEWSFolderType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

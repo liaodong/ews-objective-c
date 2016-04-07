@@ -28,11 +28,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCalendarViewType*) val
++ (BOOL) isValid:(MPSEWSCalendarViewType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
-    if ([val startDate] && ![MPSEWSDateTimeTypeHandler isValid:[val startDate]]) return FALSE;
-    if ([val endDate] && ![MPSEWSDateTimeTypeHandler isValid:[val endDate]]) return FALSE;
+    if (![MPSEWSBasePagingType isValid:val forVersion:ver]) return FALSE;
+    if ([val startDate] && ![MPSEWSDateTimeTypeHandler isValid:[val startDate] forVersion: ver]) return FALSE;
+    if ([val endDate] && ![MPSEWSDateTimeTypeHandler isValid:[val endDate] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

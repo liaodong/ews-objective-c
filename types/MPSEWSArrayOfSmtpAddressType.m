@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfSmtpAddressType*) val
++ (BOOL) isValid:(MPSEWSArrayOfSmtpAddressType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val smtpAddress]) {
         for (NSString* obj in [val smtpAddress]) {
-            if (![MPSEWSNonEmptyStringType isValid:obj]) return FALSE;
+            if (![MPSEWSNonEmptyStringType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

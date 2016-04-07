@@ -13,7 +13,7 @@
 @interface MPSEWSSyncFolderItemsType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSyncFolderItemsType*) val;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

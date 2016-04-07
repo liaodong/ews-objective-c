@@ -12,7 +12,7 @@
 @interface MPSEWSBaseObjectChangedEventType : MPSEWSBaseNotificationEventType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSBaseObjectChangedEventType*) val;
++ (BOOL) isValid:(MPSEWSBaseObjectChangedEventType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -24,11 +24,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPathToIndexedFieldType*) val
++ (BOOL) isValid:(MPSEWSPathToIndexedFieldType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePathToElementType isValid:val]) return FALSE;
-    if ([val fieldURI] && ![MPSEWSDictionaryURIType isValid:[val fieldURI]]) return FALSE;
-    if ([val fieldIndex] && ![MPSEWSStringTypeHandler isValid:[val fieldIndex]]) return FALSE;
+    if (![MPSEWSBasePathToElementType isValid:val forVersion:ver]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSDictionaryURIType isValid:[val fieldURI] forVersion: ver]) return FALSE;
+    if ([val fieldIndex] && ![MPSEWSStringTypeHandler isValid:[val fieldIndex] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

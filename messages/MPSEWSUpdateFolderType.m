@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUpdateFolderType*) val
++ (BOOL) isValid:(MPSEWSUpdateFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val folderChanges] && ![MPSEWSNonEmptyArrayOfFolderChangesType isValid:[val folderChanges]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val folderChanges] && ![MPSEWSNonEmptyArrayOfFolderChangesType isValid:[val folderChanges] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

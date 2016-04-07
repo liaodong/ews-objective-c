@@ -31,7 +31,7 @@
     [[[MPSEWSXmlContentTypeHandler alloc] init] register];
 }
 
-+ (BOOL) isValid:(NSData*) val
++ (BOOL) isValid:(NSData*) val forVersion:(MPSEWSExchangeVersion) ver
 {
     // Check is it is a valid xml document, just parse it
     return TRUE;

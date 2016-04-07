@@ -10,7 +10,7 @@
 @interface MPSEWSOccurrenceItemIdType : MPSEWSBaseItemIdType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSOccurrenceItemIdType*) val;
++ (BOOL) isValid:(MPSEWSOccurrenceItemIdType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

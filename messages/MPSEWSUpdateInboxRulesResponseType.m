@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUpdateInboxRulesResponseType*) val
++ (BOOL) isValid:(MPSEWSUpdateInboxRulesResponseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val ruleOperationErrors] && ![MPSEWSArrayOfRuleOperationErrorsType isValid:[val ruleOperationErrors]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val ruleOperationErrors] && ![MPSEWSArrayOfRuleOperationErrorsType isValid:[val ruleOperationErrors] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

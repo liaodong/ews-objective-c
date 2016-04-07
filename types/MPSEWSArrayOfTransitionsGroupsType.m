@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfTransitionsGroupsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfTransitionsGroupsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val transitionsGroup]) {
         for (MPSEWSArrayOfTransitionsType* obj in [val transitionsGroup]) {
-            if (![MPSEWSArrayOfTransitionsType isValid:obj]) return FALSE;
+            if (![MPSEWSArrayOfTransitionsType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAbsoluteDateTransitionType*) val
++ (BOOL) isValid:(MPSEWSAbsoluteDateTransitionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSTransitionType isValid:val]) return FALSE;
-    if ([val dateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val dateTime]]) return FALSE;
+    if (![MPSEWSTransitionType isValid:val forVersion:ver]) return FALSE;
+    if ([val dateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val dateTime] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

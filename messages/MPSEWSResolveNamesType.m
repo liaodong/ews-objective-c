@@ -41,14 +41,14 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSResolveNamesType*) val
++ (BOOL) isValid:(MPSEWSResolveNamesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val returnFullContactData] && ![MPSEWSBooleanTypeHandler isValid:[val returnFullContactData]]) return FALSE;
-    if ([val searchScope] && ![MPSEWSResolveNamesSearchScopeType isValid:[val searchScope]]) return FALSE;
-    if ([val contactDataShape] && ![MPSEWSDefaultShapeNamesType isValid:[val contactDataShape]]) return FALSE;
-    if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds]]) return FALSE;
-    if ([val unresolvedEntry] && ![MPSEWSNonEmptyStringType isValid:[val unresolvedEntry]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val returnFullContactData] && ![MPSEWSBooleanTypeHandler isValid:[val returnFullContactData] forVersion: ver]) return FALSE;
+    if ([val searchScope] && ![MPSEWSResolveNamesSearchScopeType isValid:[val searchScope] forVersion: ver]) return FALSE;
+    if ([val contactDataShape] && ![MPSEWSDefaultShapeNamesType isValid:[val contactDataShape] forVersion: ver]) return FALSE;
+    if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds] forVersion:ver]) return FALSE;
+    if ([val unresolvedEntry] && ![MPSEWSNonEmptyStringType isValid:[val unresolvedEntry] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

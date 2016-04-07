@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSendNotificationResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSSendNotificationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val notification] && ![MPSEWSNotificationType isValid:[val notification]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val notification] && ![MPSEWSNotificationType isValid:[val notification] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

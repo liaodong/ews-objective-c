@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetStreamingEventsType*) val
++ (BOOL) isValid:(MPSEWSGetStreamingEventsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val subscriptionIds] && ![MPSEWSNonEmptyArrayOfSubscriptionIdsType isValid:[val subscriptionIds]]) return FALSE;
-    if ([val connectionTimeout] && ![MPSEWSStreamingSubscriptionConnectionTimeoutType isValid:[val connectionTimeout]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val subscriptionIds] && ![MPSEWSNonEmptyArrayOfSubscriptionIdsType isValid:[val subscriptionIds] forVersion:ver]) return FALSE;
+    if ([val connectionTimeout] && ![MPSEWSStreamingSubscriptionConnectionTimeoutType isValid:[val connectionTimeout] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

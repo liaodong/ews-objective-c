@@ -70,11 +70,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFileAttachmentType*) val
++ (BOOL) isValid:(MPSEWSFileAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSAttachmentType isValid:val]) return FALSE;
-    if ([val isContactPhoto] && ![MPSEWSBooleanTypeHandler isValid:[val isContactPhoto]]) return FALSE;
-    if ([val content] && ![MPSEWSBase64BinaryTypeHandler isValid:[val content]]) return FALSE;
+    if (![MPSEWSAttachmentType isValid:val forVersion:ver]) return FALSE;
+    if ([val isContactPhoto] && ![MPSEWSBooleanTypeHandler isValid:[val isContactPhoto] forVersion:ver]) return FALSE;
+    if ([val content] && ![MPSEWSBase64BinaryTypeHandler isValid:[val content] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

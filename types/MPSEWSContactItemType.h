@@ -19,7 +19,7 @@
 @interface MPSEWSContactItemType : MPSEWSItemType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSContactItemType*) val;
++ (BOOL) isValid:(MPSEWSContactItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

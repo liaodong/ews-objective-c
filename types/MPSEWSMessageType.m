@@ -312,25 +312,25 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMessageType*) val
++ (BOOL) isValid:(MPSEWSMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSItemType isValid:val]) return FALSE;
-    if ([val sender] && ![MPSEWSSingleRecipientType isValid:[val sender]]) return FALSE;
-    if ([val toRecipients] && ![MPSEWSArrayOfRecipientsType isValid:[val toRecipients]]) return FALSE;
-    if ([val ccRecipients] && ![MPSEWSArrayOfRecipientsType isValid:[val ccRecipients]]) return FALSE;
-    if ([val bccRecipients] && ![MPSEWSArrayOfRecipientsType isValid:[val bccRecipients]]) return FALSE;
-    if ([val isReadReceiptRequested] && ![MPSEWSBooleanTypeHandler isValid:[val isReadReceiptRequested]]) return FALSE;
-    if ([val isDeliveryReceiptRequested] && ![MPSEWSBooleanTypeHandler isValid:[val isDeliveryReceiptRequested]]) return FALSE;
-    if ([val conversationIndex] && ![MPSEWSBase64BinaryTypeHandler isValid:[val conversationIndex]]) return FALSE;
-    if ([val conversationTopic] && ![MPSEWSStringTypeHandler isValid:[val conversationTopic]]) return FALSE;
-    if ([val from] && ![MPSEWSSingleRecipientType isValid:[val from]]) return FALSE;
-    if ([val internetMessageId] && ![MPSEWSStringTypeHandler isValid:[val internetMessageId]]) return FALSE;
-    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead]]) return FALSE;
-    if ([val isResponseRequested] && ![MPSEWSBooleanTypeHandler isValid:[val isResponseRequested]]) return FALSE;
-    if ([val references] && ![MPSEWSStringTypeHandler isValid:[val references]]) return FALSE;
-    if ([val replyTo] && ![MPSEWSArrayOfRecipientsType isValid:[val replyTo]]) return FALSE;
-    if ([val receivedBy] && ![MPSEWSSingleRecipientType isValid:[val receivedBy]]) return FALSE;
-    if ([val receivedRepresenting] && ![MPSEWSSingleRecipientType isValid:[val receivedRepresenting]]) return FALSE;
+    if (![MPSEWSItemType isValid:val forVersion:ver]) return FALSE;
+    if ([val sender] && ![MPSEWSSingleRecipientType isValid:[val sender] forVersion:ver]) return FALSE;
+    if ([val toRecipients] && ![MPSEWSArrayOfRecipientsType isValid:[val toRecipients] forVersion:ver]) return FALSE;
+    if ([val ccRecipients] && ![MPSEWSArrayOfRecipientsType isValid:[val ccRecipients] forVersion:ver]) return FALSE;
+    if ([val bccRecipients] && ![MPSEWSArrayOfRecipientsType isValid:[val bccRecipients] forVersion:ver]) return FALSE;
+    if ([val isReadReceiptRequested] && ![MPSEWSBooleanTypeHandler isValid:[val isReadReceiptRequested] forVersion:ver]) return FALSE;
+    if ([val isDeliveryReceiptRequested] && ![MPSEWSBooleanTypeHandler isValid:[val isDeliveryReceiptRequested] forVersion:ver]) return FALSE;
+    if ([val conversationIndex] && ![MPSEWSBase64BinaryTypeHandler isValid:[val conversationIndex] forVersion:ver]) return FALSE;
+    if ([val conversationTopic] && ![MPSEWSStringTypeHandler isValid:[val conversationTopic] forVersion:ver]) return FALSE;
+    if ([val from] && ![MPSEWSSingleRecipientType isValid:[val from] forVersion:ver]) return FALSE;
+    if ([val internetMessageId] && ![MPSEWSStringTypeHandler isValid:[val internetMessageId] forVersion:ver]) return FALSE;
+    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead] forVersion:ver]) return FALSE;
+    if ([val isResponseRequested] && ![MPSEWSBooleanTypeHandler isValid:[val isResponseRequested] forVersion:ver]) return FALSE;
+    if ([val references] && ![MPSEWSStringTypeHandler isValid:[val references] forVersion:ver]) return FALSE;
+    if ([val replyTo] && ![MPSEWSArrayOfRecipientsType isValid:[val replyTo] forVersion:ver]) return FALSE;
+    if ([val receivedBy] && ![MPSEWSSingleRecipientType isValid:[val receivedBy] forVersion:ver]) return FALSE;
+    if ([val receivedRepresenting] && ![MPSEWSSingleRecipientType isValid:[val receivedRepresenting] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

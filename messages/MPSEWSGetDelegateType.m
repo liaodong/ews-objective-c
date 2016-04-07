@@ -31,11 +31,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetDelegateType*) val
++ (BOOL) isValid:(MPSEWSGetDelegateType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseDelegateType isValid:val]) return FALSE;
-    if ([val includePermissions] && ![MPSEWSBooleanTypeHandler isValid:[val includePermissions]]) return FALSE;
-    if ([val userIds] && ![MPSEWSArrayOfUserIdType isValid:[val userIds]]) return FALSE;
+    if (![MPSEWSBaseDelegateType isValid:val forVersion:ver]) return FALSE;
+    if ([val includePermissions] && ![MPSEWSBooleanTypeHandler isValid:[val includePermissions] forVersion: ver]) return FALSE;
+    if ([val userIds] && ![MPSEWSArrayOfUserIdType isValid:[val userIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

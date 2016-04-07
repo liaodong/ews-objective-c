@@ -10,7 +10,7 @@
 @interface MPSEWSPhoneNumberDictionaryEntryType : MPSEWSStringType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPhoneNumberDictionaryEntryType*) val;
++ (BOOL) isValid:(MPSEWSPhoneNumberDictionaryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

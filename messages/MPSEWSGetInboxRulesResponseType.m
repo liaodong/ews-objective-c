@@ -55,11 +55,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetInboxRulesResponseType*) val
++ (BOOL) isValid:(MPSEWSGetInboxRulesResponseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val outlookRuleBlobExists] && ![MPSEWSBooleanTypeHandler isValid:[val outlookRuleBlobExists]]) return FALSE;
-    if ([val inboxRules] && ![MPSEWSArrayOfRulesType isValid:[val inboxRules]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val outlookRuleBlobExists] && ![MPSEWSBooleanTypeHandler isValid:[val outlookRuleBlobExists] forVersion:ver]) return FALSE;
+    if ([val inboxRules] && ![MPSEWSArrayOfRulesType isValid:[val inboxRules] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

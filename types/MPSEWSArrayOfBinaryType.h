@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSArrayOfBinaryType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfBinaryType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfBinaryType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

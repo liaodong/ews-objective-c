@@ -317,10 +317,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSResponseObjectCoreType*) val
++ (BOOL) isValid:(MPSEWSResponseObjectCoreType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSMessageType isValid:val]) return FALSE;
-    if ([val referenceItemId] && ![MPSEWSItemIdType isValid:[val referenceItemId]]) return FALSE;
+    if (![MPSEWSMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val referenceItemId] && ![MPSEWSItemIdType isValid:[val referenceItemId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

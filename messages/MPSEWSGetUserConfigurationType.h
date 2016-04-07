@@ -11,7 +11,7 @@
 @interface MPSEWSGetUserConfigurationType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetUserConfigurationType*) val;
++ (BOOL) isValid:(MPSEWSGetUserConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

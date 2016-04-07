@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSExtendedPropertyType*) val
++ (BOOL) isValid:(MPSEWSExtendedPropertyType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val extendedFieldURI] && ![MPSEWSPathToExtendedFieldType isValid:[val extendedFieldURI]]) return FALSE;
-    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value]]) return FALSE;
-    if ([val values] && ![MPSEWSNonEmptyArrayOfPropertyValuesType isValid:[val values]]) return FALSE;
+    if ([val extendedFieldURI] && ![MPSEWSPathToExtendedFieldType isValid:[val extendedFieldURI] forVersion:ver]) return FALSE;
+    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value] forVersion:ver]) return FALSE;
+    if ([val values] && ![MPSEWSNonEmptyArrayOfPropertyValuesType isValid:[val values] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

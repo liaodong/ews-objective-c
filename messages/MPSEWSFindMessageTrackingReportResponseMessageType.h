@@ -14,7 +14,7 @@
 @interface MPSEWSFindMessageTrackingReportResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindMessageTrackingReportResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSFindMessageTrackingReportResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

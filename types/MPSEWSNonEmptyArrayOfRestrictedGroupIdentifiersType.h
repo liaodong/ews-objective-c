@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType*) val;
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRestrictedGroupIdentifiersType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

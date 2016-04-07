@@ -321,9 +321,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRemoveItemType*) val
++ (BOOL) isValid:(MPSEWSRemoveItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseObjectType isValid:val]) return FALSE;
+    if (![MPSEWSResponseObjectType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

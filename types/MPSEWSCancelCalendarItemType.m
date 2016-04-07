@@ -326,9 +326,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCancelCalendarItemType*) val
++ (BOOL) isValid:(MPSEWSCancelCalendarItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSSmartResponseType isValid:val]) return FALSE;
+    if (![MPSEWSSmartResponseType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

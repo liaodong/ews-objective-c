@@ -27,11 +27,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAttachmentIdType*) val
++ (BOOL) isValid:(MPSEWSAttachmentIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRequestAttachmentIdType isValid:val]) return FALSE;
-    if ([val rootItemId] && ![MPSEWSStringTypeHandler isValid:[val rootItemId]]) return FALSE;
-    if ([val rootItemChangeKey] && ![MPSEWSStringTypeHandler isValid:[val rootItemChangeKey]]) return FALSE;
+    if (![MPSEWSRequestAttachmentIdType isValid:val forVersion:ver]) return FALSE;
+    if ([val rootItemId] && ![MPSEWSStringTypeHandler isValid:[val rootItemId] forVersion: ver]) return FALSE;
+    if ([val rootItemChangeKey] && ![MPSEWSStringTypeHandler isValid:[val rootItemChangeKey] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

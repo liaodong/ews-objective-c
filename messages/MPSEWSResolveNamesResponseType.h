@@ -10,7 +10,7 @@
 @interface MPSEWSResolveNamesResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSResolveNamesResponseType*) val;
++ (BOOL) isValid:(MPSEWSResolveNamesResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -10,7 +10,7 @@
 @interface MPSEWSCreateItemResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCreateItemResponseType*) val;
++ (BOOL) isValid:(MPSEWSCreateItemResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRestrictionType*) val
++ (BOOL) isValid:(MPSEWSRestrictionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val searchExpression] && ![MPSEWSSearchExpressionType isValid:[val searchExpression]]) return FALSE;
+    if ([val searchExpression] && ![MPSEWSSearchExpressionType isValid:[val searchExpression] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

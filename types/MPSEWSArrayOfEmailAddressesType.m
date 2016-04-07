@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfEmailAddressesType*) val
++ (BOOL) isValid:(MPSEWSArrayOfEmailAddressesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val address]) {
         for (MPSEWSEmailAddressType* obj in [val address]) {
-            if (![MPSEWSEmailAddressType isValid:obj]) return FALSE;
+            if (![MPSEWSEmailAddressType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

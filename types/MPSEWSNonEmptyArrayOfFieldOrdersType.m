@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFieldOrdersType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfFieldOrdersType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val fieldOrder]) {
         for (MPSEWSFieldOrderType* obj in [val fieldOrder]) {
-            if (![MPSEWSFieldOrderType isValid:obj]) return FALSE;
+            if (![MPSEWSFieldOrderType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

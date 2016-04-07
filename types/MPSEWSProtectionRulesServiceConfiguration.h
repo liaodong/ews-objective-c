@@ -12,7 +12,7 @@
 @interface MPSEWSProtectionRulesServiceConfiguration : MPSEWSServiceConfiguration
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSProtectionRulesServiceConfiguration*) val;
++ (BOOL) isValid:(MPSEWSProtectionRulesServiceConfiguration*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -119,19 +119,19 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSItemAttachmentType*) val
++ (BOOL) isValid:(MPSEWSItemAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSAttachmentType isValid:val]) return FALSE;
-    if ([val item] && ![MPSEWSItemType isValid:[val item]]) return FALSE;
-    if ([val message] && ![MPSEWSMessageType isValid:[val message]]) return FALSE;
-    if ([val calendarItem] && ![MPSEWSCalendarItemType isValid:[val calendarItem]]) return FALSE;
-    if ([val contact] && ![MPSEWSContactItemType isValid:[val contact]]) return FALSE;
-    if ([val meetingMessage] && ![MPSEWSMeetingMessageType isValid:[val meetingMessage]]) return FALSE;
-    if ([val meetingRequest] && ![MPSEWSMeetingRequestMessageType isValid:[val meetingRequest]]) return FALSE;
-    if ([val meetingResponse] && ![MPSEWSMeetingResponseMessageType isValid:[val meetingResponse]]) return FALSE;
-    if ([val meetingCancellation] && ![MPSEWSMeetingCancellationMessageType isValid:[val meetingCancellation]]) return FALSE;
-    if ([val task] && ![MPSEWSTaskType isValid:[val task]]) return FALSE;
-    if ([val postItem] && ![MPSEWSPostItemType isValid:[val postItem]]) return FALSE;
+    if (![MPSEWSAttachmentType isValid:val forVersion:ver]) return FALSE;
+    if ([val item] && ![MPSEWSItemType isValid:[val item] forVersion:ver]) return FALSE;
+    if ([val message] && ![MPSEWSMessageType isValid:[val message] forVersion:ver]) return FALSE;
+    if ([val calendarItem] && ![MPSEWSCalendarItemType isValid:[val calendarItem] forVersion:ver]) return FALSE;
+    if ([val contact] && ![MPSEWSContactItemType isValid:[val contact] forVersion:ver]) return FALSE;
+    if ([val meetingMessage] && ![MPSEWSMeetingMessageType isValid:[val meetingMessage] forVersion:ver]) return FALSE;
+    if ([val meetingRequest] && ![MPSEWSMeetingRequestMessageType isValid:[val meetingRequest] forVersion:ver]) return FALSE;
+    if ([val meetingResponse] && ![MPSEWSMeetingResponseMessageType isValid:[val meetingResponse] forVersion:ver]) return FALSE;
+    if ([val meetingCancellation] && ![MPSEWSMeetingCancellationMessageType isValid:[val meetingCancellation] forVersion:ver]) return FALSE;
+    if ([val task] && ![MPSEWSTaskType isValid:[val task] forVersion:ver]) return FALSE;
+    if ([val postItem] && ![MPSEWSPostItemType isValid:[val postItem] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

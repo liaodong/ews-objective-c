@@ -35,21 +35,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfAlternateIdsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfAlternateIdsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val alternateId]) {
         for (MPSEWSAlternateIdType* obj in [val alternateId]) {
-            if (![MPSEWSAlternateIdType isValid:obj]) return FALSE;
+            if (![MPSEWSAlternateIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val alternatePublicFolderId]) {
         for (MPSEWSAlternatePublicFolderIdType* obj in [val alternatePublicFolderId]) {
-            if (![MPSEWSAlternatePublicFolderIdType isValid:obj]) return FALSE;
+            if (![MPSEWSAlternatePublicFolderIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val alternatePublicFolderItemId]) {
         for (MPSEWSAlternatePublicFolderItemIdType* obj in [val alternatePublicFolderItemId]) {
-            if (![MPSEWSAlternatePublicFolderItemIdType isValid:obj]) return FALSE;
+            if (![MPSEWSAlternatePublicFolderItemIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

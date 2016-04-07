@@ -43,13 +43,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGroupByType*) val
++ (BOOL) isValid:(MPSEWSGroupByType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseGroupByType isValid:val]) return FALSE;
-    if ([val fieldURI] && ![MPSEWSPathToUnindexedFieldType isValid:[val fieldURI]]) return FALSE;
-    if ([val indexedFieldURI] && ![MPSEWSPathToIndexedFieldType isValid:[val indexedFieldURI]]) return FALSE;
-    if ([val extendedFieldURI] && ![MPSEWSPathToExtendedFieldType isValid:[val extendedFieldURI]]) return FALSE;
-    if ([val aggregateOn] && ![MPSEWSAggregateOnType isValid:[val aggregateOn]]) return FALSE;
+    if (![MPSEWSBaseGroupByType isValid:val forVersion:ver]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSPathToUnindexedFieldType isValid:[val fieldURI] forVersion:ver]) return FALSE;
+    if ([val indexedFieldURI] && ![MPSEWSPathToIndexedFieldType isValid:[val indexedFieldURI] forVersion:ver]) return FALSE;
+    if ([val extendedFieldURI] && ![MPSEWSPathToExtendedFieldType isValid:[val extendedFieldURI] forVersion:ver]) return FALSE;
+    if ([val aggregateOn] && ![MPSEWSAggregateOnType isValid:[val aggregateOn] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

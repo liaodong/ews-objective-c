@@ -11,7 +11,7 @@ static NSSet* enumerations = nil;
     [[[MPSEWSDaysOfWeekType alloc] init] register];
 }
 
-+ (BOOL) isValid:(NSArray<NSString*>*) val
++ (BOOL) isValid:(NSArray<NSString*>*) val forVersion:(MPSEWSExchangeVersion) ver
 {
     for (NSString* v in val)
     {

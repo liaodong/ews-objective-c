@@ -55,10 +55,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUpdateItemResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSUpdateItemResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSItemInfoResponseMessageType isValid:val]) return FALSE;
-    if ([val conflictResults] && ![MPSEWSConflictResultsType isValid:[val conflictResults]]) return FALSE;
+    if (![MPSEWSItemInfoResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val conflictResults] && ![MPSEWSConflictResultsType isValid:[val conflictResults] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

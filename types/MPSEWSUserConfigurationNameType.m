@@ -31,10 +31,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUserConfigurationNameType*) val
++ (BOOL) isValid:(MPSEWSUserConfigurationNameType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSTargetFolderIdType isValid:val]) return FALSE;
-    if ([val name] && ![MPSEWSNonEmptyStringType isValid:[val name]]) return FALSE;
+    if (![MPSEWSTargetFolderIdType isValid:val forVersion:ver]) return FALSE;
+    if ([val name] && ![MPSEWSNonEmptyStringType isValid:[val name] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

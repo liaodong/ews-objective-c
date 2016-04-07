@@ -10,7 +10,7 @@
 @interface MPSEWSIsEqualToType : MPSEWSTwoOperandExpressionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSIsEqualToType*) val;
++ (BOOL) isValid:(MPSEWSIsEqualToType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

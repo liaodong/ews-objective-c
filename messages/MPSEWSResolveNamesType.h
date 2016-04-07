@@ -11,7 +11,7 @@
 @interface MPSEWSResolveNamesType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSResolveNamesType*) val;
++ (BOOL) isValid:(MPSEWSResolveNamesType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUploadItemsType*) val
++ (BOOL) isValid:(MPSEWSUploadItemsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val items] && ![MPSEWSNonEmptyArrayOfUploadItemsType isValid:[val items]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val items] && ![MPSEWSNonEmptyArrayOfUploadItemsType isValid:[val items] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

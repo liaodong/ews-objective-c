@@ -19,9 +19,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBaseGroupByType*) val
++ (BOOL) isValid:(MPSEWSBaseGroupByType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val order] && ![MPSEWSSortDirectionType isValid:[val order]]) return FALSE;
+    if ([val order] && ![MPSEWSSortDirectionType isValid:[val order] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

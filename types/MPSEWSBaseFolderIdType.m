@@ -14,7 +14,7 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBaseFolderIdType*) val
++ (BOOL) isValid:(MPSEWSBaseFolderIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     return TRUE;
 }

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUserConfigurationDictionaryType*) val
++ (BOOL) isValid:(MPSEWSUserConfigurationDictionaryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val dictionaryEntry]) {
         for (MPSEWSUserConfigurationDictionaryEntryType* obj in [val dictionaryEntry]) {
-            if (![MPSEWSUserConfigurationDictionaryEntryType isValid:obj]) return FALSE;
+            if (![MPSEWSUserConfigurationDictionaryEntryType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

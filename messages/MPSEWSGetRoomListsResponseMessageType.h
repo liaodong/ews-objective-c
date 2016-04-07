@@ -11,7 +11,7 @@
 @interface MPSEWSGetRoomListsResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetRoomListsResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSGetRoomListsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

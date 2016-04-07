@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfNotificationEventTypesType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfNotificationEventTypesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val eventType]) {
         for (NSString* obj in [val eventType]) {
-            if (![MPSEWSNotificationEventTypeType isValid:obj]) return FALSE;
+            if (![MPSEWSNotificationEventTypeType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

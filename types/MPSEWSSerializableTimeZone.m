@@ -31,11 +31,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSerializableTimeZone*) val
++ (BOOL) isValid:(MPSEWSSerializableTimeZone*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val bias] && ![MPSEWSIntegerTypeHandler isValid:[val bias]]) return FALSE;
-    if ([val standardTime] && ![MPSEWSSerializableTimeZoneTime isValid:[val standardTime]]) return FALSE;
-    if ([val daylightTime] && ![MPSEWSSerializableTimeZoneTime isValid:[val daylightTime]]) return FALSE;
+    if ([val bias] && ![MPSEWSIntegerTypeHandler isValid:[val bias] forVersion:ver]) return FALSE;
+    if ([val standardTime] && ![MPSEWSSerializableTimeZoneTime isValid:[val standardTime] forVersion:ver]) return FALSE;
+    if ([val daylightTime] && ![MPSEWSSerializableTimeZoneTime isValid:[val daylightTime] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

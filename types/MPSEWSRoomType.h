@@ -10,7 +10,7 @@
 @interface MPSEWSRoomType : MPSEWSDirectoryEntryType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRoomType*) val;
++ (BOOL) isValid:(MPSEWSRoomType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

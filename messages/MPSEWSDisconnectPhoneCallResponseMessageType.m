@@ -43,9 +43,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDisconnectPhoneCallResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSDisconnectPhoneCallResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

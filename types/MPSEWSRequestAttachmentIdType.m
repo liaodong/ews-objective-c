@@ -19,10 +19,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRequestAttachmentIdType*) val
++ (BOOL) isValid:(MPSEWSRequestAttachmentIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseItemIdType isValid:val]) return FALSE;
-    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
+    if (![MPSEWSBaseItemIdType isValid:val forVersion:ver]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

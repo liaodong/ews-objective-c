@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSEmailAddressDictionaryType*) val
++ (BOOL) isValid:(MPSEWSEmailAddressDictionaryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val entry]) {
         for (MPSEWSEmailAddressDictionaryEntryType* obj in [val entry]) {
-            if (![MPSEWSEmailAddressDictionaryEntryType isValid:obj]) return FALSE;
+            if (![MPSEWSEmailAddressDictionaryEntryType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

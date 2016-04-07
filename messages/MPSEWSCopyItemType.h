@@ -10,7 +10,7 @@
 @interface MPSEWSCopyItemType : MPSEWSBaseMoveCopyItemType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCopyItemType*) val;
++ (BOOL) isValid:(MPSEWSCopyItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

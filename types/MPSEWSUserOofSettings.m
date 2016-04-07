@@ -43,13 +43,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUserOofSettings*) val
++ (BOOL) isValid:(MPSEWSUserOofSettings*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val oofState] && ![MPSEWSOofState isValid:[val oofState]]) return FALSE;
-    if ([val externalAudience] && ![MPSEWSExternalAudience isValid:[val externalAudience]]) return FALSE;
-    if ([val duration] && ![MPSEWSDuration isValid:[val duration]]) return FALSE;
-    if ([val internalReply] && ![MPSEWSReplyBody isValid:[val internalReply]]) return FALSE;
-    if ([val externalReply] && ![MPSEWSReplyBody isValid:[val externalReply]]) return FALSE;
+    if ([val oofState] && ![MPSEWSOofState isValid:[val oofState] forVersion:ver]) return FALSE;
+    if ([val externalAudience] && ![MPSEWSExternalAudience isValid:[val externalAudience] forVersion:ver]) return FALSE;
+    if ([val duration] && ![MPSEWSDuration isValid:[val duration] forVersion:ver]) return FALSE;
+    if ([val internalReply] && ![MPSEWSReplyBody isValid:[val internalReply] forVersion:ver]) return FALSE;
+    if ([val externalReply] && ![MPSEWSReplyBody isValid:[val externalReply] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

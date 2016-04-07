@@ -2,6 +2,7 @@
 
 
 #import "MPSEWSHandlerProtocol.h"
+#import "MPSEWSExchangeVersion.h"
 
 /**
  * Handles the XML parsing of the document

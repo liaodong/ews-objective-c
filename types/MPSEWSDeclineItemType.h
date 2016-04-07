@@ -10,7 +10,7 @@
 @interface MPSEWSDeclineItemType : MPSEWSWellKnownResponseObjectType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeclineItemType*) val;
++ (BOOL) isValid:(MPSEWSDeclineItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

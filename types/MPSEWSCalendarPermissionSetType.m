@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCalendarPermissionSetType*) val
++ (BOOL) isValid:(MPSEWSCalendarPermissionSetType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val calendarPermissions] && ![MPSEWSArrayOfCalendarPermissionsType isValid:[val calendarPermissions]]) return FALSE;
-    if ([val unknownEntries] && ![MPSEWSArrayOfUnknownEntriesType isValid:[val unknownEntries]]) return FALSE;
+    if ([val calendarPermissions] && ![MPSEWSArrayOfCalendarPermissionsType isValid:[val calendarPermissions] forVersion:ver]) return FALSE;
+    if ([val unknownEntries] && ![MPSEWSArrayOfUnknownEntriesType isValid:[val unknownEntries] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

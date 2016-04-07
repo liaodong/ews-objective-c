@@ -32,12 +32,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFindConversationType*) val
++ (BOOL) isValid:(MPSEWSFindConversationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val indexedPageItemView] && ![MPSEWSIndexedPageViewType isValid:[val indexedPageItemView]]) return FALSE;
-    if ([val sortOrder] && ![MPSEWSNonEmptyArrayOfFieldOrdersType isValid:[val sortOrder]]) return FALSE;
-    if ([val parentFolderId] && ![MPSEWSTargetFolderIdType isValid:[val parentFolderId]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val indexedPageItemView] && ![MPSEWSIndexedPageViewType isValid:[val indexedPageItemView] forVersion:ver]) return FALSE;
+    if ([val sortOrder] && ![MPSEWSNonEmptyArrayOfFieldOrdersType isValid:[val sortOrder] forVersion:ver]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSTargetFolderIdType isValid:[val parentFolderId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

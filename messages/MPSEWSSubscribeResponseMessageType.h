@@ -10,7 +10,7 @@
 @interface MPSEWSSubscribeResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSubscribeResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSSubscribeResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,7 +11,7 @@
 @interface MPSEWSGetInboxRulesResponseType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetInboxRulesResponseType*) val;
++ (BOOL) isValid:(MPSEWSGetInboxRulesResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

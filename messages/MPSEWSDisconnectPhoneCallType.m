@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDisconnectPhoneCallType*) val
++ (BOOL) isValid:(MPSEWSDisconnectPhoneCallType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val phoneCallId] && ![MPSEWSPhoneCallIdType isValid:[val phoneCallId]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val phoneCallId] && ![MPSEWSPhoneCallIdType isValid:[val phoneCallId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

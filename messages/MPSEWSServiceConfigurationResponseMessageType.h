@@ -13,7 +13,7 @@
 @interface MPSEWSServiceConfigurationResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSServiceConfigurationResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSServiceConfigurationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

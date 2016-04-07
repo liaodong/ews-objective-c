@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -13,7 +14,7 @@
 @interface MPSEWSRulePredicatesType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRulePredicatesType*) val;
++ (BOOL) isValid:(MPSEWSRulePredicatesType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfTimeZoneIdType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfTimeZoneIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val id]) {
         for (NSString* obj in [val id]) {
-            if (![MPSEWSStringTypeHandler isValid:obj]) return FALSE;
+            if (![MPSEWSStringTypeHandler isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

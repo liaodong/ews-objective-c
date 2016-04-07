@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -14,7 +15,7 @@
 @interface MPSEWSArrayOfFoldersType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfFoldersType*) val;
++ (BOOL) isValid:(MPSEWSArrayOfFoldersType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

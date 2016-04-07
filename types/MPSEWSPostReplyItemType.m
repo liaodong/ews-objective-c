@@ -326,10 +326,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPostReplyItemType*) val
++ (BOOL) isValid:(MPSEWSPostReplyItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSPostReplyItemBaseType isValid:val]) return FALSE;
-    if ([val pNewBodyContent] && ![MPSEWSBodyType isValid:[val pNewBodyContent]]) return FALSE;
+    if (![MPSEWSPostReplyItemBaseType isValid:val forVersion:ver]) return FALSE;
+    if ([val pNewBodyContent] && ![MPSEWSBodyType isValid:[val pNewBodyContent] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

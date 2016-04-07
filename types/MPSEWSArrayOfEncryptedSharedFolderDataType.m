@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfEncryptedSharedFolderDataType*) val
++ (BOOL) isValid:(MPSEWSArrayOfEncryptedSharedFolderDataType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val encryptedSharedFolderData]) {
         for (MPSEWSEncryptedSharedFolderDataType* obj in [val encryptedSharedFolderData]) {
-            if (![MPSEWSEncryptedSharedFolderDataType isValid:obj]) return FALSE;
+            if (![MPSEWSEncryptedSharedFolderDataType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

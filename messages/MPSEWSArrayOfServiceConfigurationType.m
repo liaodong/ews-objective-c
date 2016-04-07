@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfServiceConfigurationType*) val
++ (BOOL) isValid:(MPSEWSArrayOfServiceConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val configurationName]) {
         for (NSMutableArray<NSString*>* obj in [val configurationName]) {
-            if (![MPSEWSServiceConfigurationType isValid:obj]) return FALSE;
+            if (![MPSEWSServiceConfigurationType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

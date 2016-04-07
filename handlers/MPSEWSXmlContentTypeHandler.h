@@ -9,7 +9,7 @@
 @interface MPSEWSXmlContentTypeHandler :  MPSEWSHandler 
 
 + (void) initialize;
-+ (BOOL) isValid:(NSData*) data;
++ (BOOL) isValid:(NSData*) data forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) initWithClass: (Class)cls;
 

@@ -37,12 +37,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAttachmentResponseShapeType*) val
++ (BOOL) isValid:(MPSEWSAttachmentResponseShapeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val includeMimeContent] && ![MPSEWSBooleanTypeHandler isValid:[val includeMimeContent]]) return FALSE;
-    if ([val bodyType] && ![MPSEWSBodyTypeResponseType isValid:[val bodyType]]) return FALSE;
-    if ([val filterHtmlContent] && ![MPSEWSBooleanTypeHandler isValid:[val filterHtmlContent]]) return FALSE;
-    if ([val additionalProperties] && ![MPSEWSNonEmptyArrayOfPathsToElementType isValid:[val additionalProperties]]) return FALSE;
+    if ([val includeMimeContent] && ![MPSEWSBooleanTypeHandler isValid:[val includeMimeContent] forVersion:ver]) return FALSE;
+    if ([val bodyType] && ![MPSEWSBodyTypeResponseType isValid:[val bodyType] forVersion:ver]) return FALSE;
+    if ([val filterHtmlContent] && ![MPSEWSBooleanTypeHandler isValid:[val filterHtmlContent] forVersion:ver]) return FALSE;
+    if ([val additionalProperties] && ![MPSEWSNonEmptyArrayOfPathsToElementType isValid:[val additionalProperties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

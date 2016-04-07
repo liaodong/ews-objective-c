@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -20,7 +21,7 @@
 @interface MPSEWSSyncFolderItemsCreateOrUpdateType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSyncFolderItemsCreateOrUpdateType*) val;
++ (BOOL) isValid:(MPSEWSSyncFolderItemsCreateOrUpdateType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

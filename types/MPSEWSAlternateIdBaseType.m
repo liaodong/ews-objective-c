@@ -19,9 +19,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAlternateIdBaseType*) val
++ (BOOL) isValid:(MPSEWSAlternateIdBaseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val format] && ![MPSEWSIdFormatType isValid:[val format]]) return FALSE;
+    if ([val format] && ![MPSEWSIdFormatType isValid:[val format] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

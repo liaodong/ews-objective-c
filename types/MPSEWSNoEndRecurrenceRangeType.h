@@ -10,7 +10,7 @@
 @interface MPSEWSNoEndRecurrenceRangeType : MPSEWSRecurrenceRangeBaseType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSNoEndRecurrenceRangeType*) val;
++ (BOOL) isValid:(MPSEWSNoEndRecurrenceRangeType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

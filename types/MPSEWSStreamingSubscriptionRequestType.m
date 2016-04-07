@@ -31,11 +31,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSStreamingSubscriptionRequestType*) val
++ (BOOL) isValid:(MPSEWSStreamingSubscriptionRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val subscribeToAllFolders] && ![MPSEWSBooleanTypeHandler isValid:[val subscribeToAllFolders]]) return FALSE;
-    if ([val folderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val folderIds]]) return FALSE;
-    if ([val eventTypes] && ![MPSEWSNonEmptyArrayOfNotificationEventTypesType isValid:[val eventTypes]]) return FALSE;
+    if ([val subscribeToAllFolders] && ![MPSEWSBooleanTypeHandler isValid:[val subscribeToAllFolders] forVersion: ver]) return FALSE;
+    if ([val folderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val folderIds] forVersion:ver]) return FALSE;
+    if ([val eventTypes] && ![MPSEWSNonEmptyArrayOfNotificationEventTypesType isValid:[val eventTypes] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -10,7 +10,7 @@
 @interface MPSEWSRecurringDayTransitionType : MPSEWSRecurringTimeTransitionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRecurringDayTransitionType*) val;
++ (BOOL) isValid:(MPSEWSRecurringDayTransitionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

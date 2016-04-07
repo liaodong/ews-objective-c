@@ -10,7 +10,7 @@
 @interface MPSEWSGetInboxRulesRequestType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetInboxRulesRequestType*) val;
++ (BOOL) isValid:(MPSEWSGetInboxRulesRequestType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

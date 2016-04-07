@@ -353,17 +353,17 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSMeetingMessageType*) val
++ (BOOL) isValid:(MPSEWSMeetingMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSMessageType isValid:val]) return FALSE;
-    if ([val associatedCalendarItemId] && ![MPSEWSItemIdType isValid:[val associatedCalendarItemId]]) return FALSE;
-    if ([val isDelegated] && ![MPSEWSBooleanTypeHandler isValid:[val isDelegated]]) return FALSE;
-    if ([val isOutOfDate] && ![MPSEWSBooleanTypeHandler isValid:[val isOutOfDate]]) return FALSE;
-    if ([val hasBeenProcessed] && ![MPSEWSBooleanTypeHandler isValid:[val hasBeenProcessed]]) return FALSE;
-    if ([val responseType] && ![MPSEWSResponseTypeType isValid:[val responseType]]) return FALSE;
-    if ([val uID ] && ![MPSEWSStringTypeHandler isValid:[val uID ]]) return FALSE;
-    if ([val recurrenceId] && ![MPSEWSDateTimeTypeHandler isValid:[val recurrenceId]]) return FALSE;
-    if ([val dateTimeStamp] && ![MPSEWSDateTimeTypeHandler isValid:[val dateTimeStamp]]) return FALSE;
+    if (![MPSEWSMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val associatedCalendarItemId] && ![MPSEWSItemIdType isValid:[val associatedCalendarItemId] forVersion:ver]) return FALSE;
+    if ([val isDelegated] && ![MPSEWSBooleanTypeHandler isValid:[val isDelegated] forVersion:ver]) return FALSE;
+    if ([val isOutOfDate] && ![MPSEWSBooleanTypeHandler isValid:[val isOutOfDate] forVersion:ver]) return FALSE;
+    if ([val hasBeenProcessed] && ![MPSEWSBooleanTypeHandler isValid:[val hasBeenProcessed] forVersion:ver]) return FALSE;
+    if ([val responseType] && ![MPSEWSResponseTypeType isValid:[val responseType] forVersion:ver]) return FALSE;
+    if ([val uID ] && ![MPSEWSStringTypeHandler isValid:[val uID ] forVersion:ver]) return FALSE;
+    if ([val recurrenceId] && ![MPSEWSDateTimeTypeHandler isValid:[val recurrenceId] forVersion:ver]) return FALSE;
+    if ([val dateTimeStamp] && ![MPSEWSDateTimeTypeHandler isValid:[val dateTimeStamp] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

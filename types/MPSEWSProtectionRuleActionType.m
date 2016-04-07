@@ -26,12 +26,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProtectionRuleActionType*) val
++ (BOOL) isValid:(MPSEWSProtectionRuleActionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val name] && ![MPSEWSProtectionRuleActionKindType isValid:[val name]]) return FALSE;
+    if ([val name] && ![MPSEWSProtectionRuleActionKindType isValid:[val name] forVersion: ver]) return FALSE;
     if ([val argument]) {
         for (MPSEWSProtectionRuleArgumentType* obj in [val argument]) {
-            if (![MPSEWSProtectionRuleArgumentType isValid:obj]) return FALSE;
+            if (![MPSEWSProtectionRuleArgumentType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

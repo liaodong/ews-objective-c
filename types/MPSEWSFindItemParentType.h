@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSFindItemParentType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindItemParentType*) val;
++ (BOOL) isValid:(MPSEWSFindItemParentType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

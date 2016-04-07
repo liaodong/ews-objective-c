@@ -10,7 +10,7 @@
 @interface MPSEWSMoveItemResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMoveItemResponseType*) val;
++ (BOOL) isValid:(MPSEWSMoveItemResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRulePredicateSizeRangeType*) val
++ (BOOL) isValid:(MPSEWSRulePredicateSizeRangeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val minimumSize] && ![MPSEWSIntegerTypeHandler isValid:[val minimumSize]]) return FALSE;
-    if ([val maximumSize] && ![MPSEWSIntegerTypeHandler isValid:[val maximumSize]]) return FALSE;
+    if ([val minimumSize] && ![MPSEWSIntegerTypeHandler isValid:[val minimumSize] forVersion:ver]) return FALSE;
+    if ([val maximumSize] && ![MPSEWSIntegerTypeHandler isValid:[val maximumSize] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

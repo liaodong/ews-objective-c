@@ -10,7 +10,7 @@
 @interface MPSEWSFractionalPageViewType : MPSEWSBasePagingType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFractionalPageViewType*) val;
++ (BOOL) isValid:(MPSEWSFractionalPageViewType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

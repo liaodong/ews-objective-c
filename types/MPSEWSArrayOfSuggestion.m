@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfSuggestion*) val
++ (BOOL) isValid:(MPSEWSArrayOfSuggestion*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val suggestion]) {
         for (MPSEWSSuggestion* obj in [val suggestion]) {
-            if (![MPSEWSSuggestion isValid:obj]) return FALSE;
+            if (![MPSEWSSuggestion isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

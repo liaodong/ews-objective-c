@@ -43,9 +43,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRefreshSharingFolderResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSRefreshSharingFolderResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

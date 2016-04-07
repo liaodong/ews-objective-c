@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSInvalidRecipientType*) val
++ (BOOL) isValid:(MPSEWSInvalidRecipientType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val smtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val smtpAddress]]) return FALSE;
-    if ([val responseCode] && ![MPSEWSInvalidRecipientResponseCodeType isValid:[val responseCode]]) return FALSE;
-    if ([val messageText] && ![MPSEWSStringTypeHandler isValid:[val messageText]]) return FALSE;
+    if ([val smtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val smtpAddress] forVersion:ver]) return FALSE;
+    if ([val responseCode] && ![MPSEWSInvalidRecipientResponseCodeType isValid:[val responseCode] forVersion:ver]) return FALSE;
+    if ([val messageText] && ![MPSEWSStringTypeHandler isValid:[val messageText] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

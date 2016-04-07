@@ -10,7 +10,7 @@
 @interface MPSEWSApplyConversationActionResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSApplyConversationActionResponseType*) val;
++ (BOOL) isValid:(MPSEWSApplyConversationActionResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

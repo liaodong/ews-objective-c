@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfSubscriptionIdsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfSubscriptionIdsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val subscriptionId]) {
         for (NSString* obj in [val subscriptionId]) {
-            if (![MPSEWSSubscriptionIdType isValid:obj]) return FALSE;
+            if (![MPSEWSSubscriptionIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

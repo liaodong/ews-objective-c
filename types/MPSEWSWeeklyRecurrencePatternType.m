@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSWeeklyRecurrencePatternType*) val
++ (BOOL) isValid:(MPSEWSWeeklyRecurrencePatternType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val]) return FALSE;
-    if ([val daysOfWeek] && ![MPSEWSDaysOfWeekType isValid:[val daysOfWeek]]) return FALSE;
-    if ([val firstDayOfWeek] && ![MPSEWSDayOfWeekType isValid:[val firstDayOfWeek]]) return FALSE;
+    if (![MPSEWSIntervalRecurrencePatternBaseType isValid:val forVersion:ver]) return FALSE;
+    if ([val daysOfWeek] && ![MPSEWSDaysOfWeekType isValid:[val daysOfWeek] forVersion:ver]) return FALSE;
+    if ([val firstDayOfWeek] && ![MPSEWSDayOfWeekType isValid:[val firstDayOfWeek] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

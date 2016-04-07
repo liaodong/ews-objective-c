@@ -48,14 +48,14 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSerializableTimeZoneTime*) val
++ (BOOL) isValid:(MPSEWSSerializableTimeZoneTime*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val bias] && ![MPSEWSIntegerTypeHandler isValid:[val bias]]) return FALSE;
-    if ([val time] && ![MPSEWSStringTypeHandler isValid:[val time]]) return FALSE;
-    if ([val dayOrder] && ![MPSEWSShortTypeHandler isValid:[val dayOrder]]) return FALSE;
-    if ([val month] && ![MPSEWSShortTypeHandler isValid:[val month]]) return FALSE;
-    if ([val dayOfWeek] && ![MPSEWSDayOfWeekType isValid:[val dayOfWeek]]) return FALSE;
-    if ([val year] && ![MPSEWSStringTypeHandler isValid:[val year]]) return FALSE;
+    if ([val bias] && ![MPSEWSIntegerTypeHandler isValid:[val bias] forVersion:ver]) return FALSE;
+    if ([val time] && ![MPSEWSStringTypeHandler isValid:[val time] forVersion:ver]) return FALSE;
+    if ([val dayOrder] && ![MPSEWSShortTypeHandler isValid:[val dayOrder] forVersion:ver]) return FALSE;
+    if ([val month] && ![MPSEWSShortTypeHandler isValid:[val month] forVersion:ver]) return FALSE;
+    if ([val dayOfWeek] && ![MPSEWSDayOfWeekType isValid:[val dayOfWeek] forVersion:ver]) return FALSE;
+    if ([val year] && ![MPSEWSStringTypeHandler isValid:[val year] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

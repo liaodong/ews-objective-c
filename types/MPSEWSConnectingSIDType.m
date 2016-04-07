@@ -35,12 +35,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSConnectingSIDType*) val
++ (BOOL) isValid:(MPSEWSConnectingSIDType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val principalName] && ![MPSEWSNonEmptyStringType isValid:[val principalName]]) return FALSE;
-    if ([val sID ] && ![MPSEWSNonEmptyStringType isValid:[val sID ]]) return FALSE;
-    if ([val primarySmtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val primarySmtpAddress]]) return FALSE;
-    if ([val smtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val smtpAddress]]) return FALSE;
+    if ([val principalName] && ![MPSEWSNonEmptyStringType isValid:[val principalName] forVersion:ver]) return FALSE;
+    if ([val sID ] && ![MPSEWSNonEmptyStringType isValid:[val sID ] forVersion:ver]) return FALSE;
+    if ([val primarySmtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val primarySmtpAddress] forVersion:ver]) return FALSE;
+    if ([val smtpAddress] && ![MPSEWSNonEmptyStringType isValid:[val smtpAddress] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

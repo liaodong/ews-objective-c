@@ -55,11 +55,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSubscribeResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSSubscribeResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val subscriptionId] && ![MPSEWSSubscriptionIdType isValid:[val subscriptionId]]) return FALSE;
-    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val subscriptionId] && ![MPSEWSSubscriptionIdType isValid:[val subscriptionId] forVersion:ver]) return FALSE;
+    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

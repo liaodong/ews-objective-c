@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfBinaryType*) val
++ (BOOL) isValid:(MPSEWSArrayOfBinaryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val base64Binary]) {
         for (NSData* obj in [val base64Binary]) {
-            if (![MPSEWSBase64BinaryTypeHandler isValid:obj]) return FALSE;
+            if (![MPSEWSBase64BinaryTypeHandler isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

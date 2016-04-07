@@ -321,10 +321,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSResponseObjectType*) val
++ (BOOL) isValid:(MPSEWSResponseObjectType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseObjectCoreType isValid:val]) return FALSE;
-    if ([val objectName] && ![MPSEWSStringTypeHandler isValid:[val objectName]]) return FALSE;
+    if (![MPSEWSResponseObjectCoreType isValid:val forVersion:ver]) return FALSE;
+    if ([val objectName] && ![MPSEWSStringTypeHandler isValid:[val objectName] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

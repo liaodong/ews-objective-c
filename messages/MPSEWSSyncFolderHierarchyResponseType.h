@@ -10,7 +10,7 @@
 @interface MPSEWSSyncFolderHierarchyResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSyncFolderHierarchyResponseType*) val;
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

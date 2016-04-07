@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSConvertIdResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSConvertIdResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val alternateId] && ![MPSEWSAlternateIdBaseType isValid:[val alternateId]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val alternateId] && ![MPSEWSAlternateIdBaseType isValid:[val alternateId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

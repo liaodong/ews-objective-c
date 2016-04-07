@@ -26,9 +26,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCopyFolderType*) val
++ (BOOL) isValid:(MPSEWSCopyFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseMoveCopyFolderType isValid:val]) return FALSE;
+    if (![MPSEWSBaseMoveCopyFolderType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetUserAvailabilityResponseType*) val
++ (BOOL) isValid:(MPSEWSGetUserAvailabilityResponseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val freeBusyResponseArray] && ![MPSEWSArrayOfFreeBusyResponse isValid:[val freeBusyResponseArray]]) return FALSE;
-    if ([val suggestionsResponse] && ![MPSEWSSuggestionsResponseType isValid:[val suggestionsResponse]]) return FALSE;
+    if ([val freeBusyResponseArray] && ![MPSEWSArrayOfFreeBusyResponse isValid:[val freeBusyResponseArray] forVersion:ver]) return FALSE;
+    if ([val suggestionsResponse] && ![MPSEWSSuggestionsResponseType isValid:[val suggestionsResponse] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

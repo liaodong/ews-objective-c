@@ -7,7 +7,7 @@
 {
     [[[MPSEWSBooleanTypeHandler alloc] init] register];
 }
- + (BOOL) isValid:(NSNumber*) val
+ + (BOOL) isValid:(NSNumber*) val forVersion:(MPSEWSExchangeVersion) ver
  {
     (void) val;
     return TRUE;

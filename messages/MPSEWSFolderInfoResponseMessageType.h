@@ -11,7 +11,7 @@
 @interface MPSEWSFolderInfoResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFolderInfoResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSFolderInfoResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

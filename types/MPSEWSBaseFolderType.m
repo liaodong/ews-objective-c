@@ -66,21 +66,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBaseFolderType*) val
++ (BOOL) isValid:(MPSEWSBaseFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId]]) return FALSE;
-    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId]]) return FALSE;
-    if ([val folderClass] && ![MPSEWSStringTypeHandler isValid:[val folderClass]]) return FALSE;
-    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName]]) return FALSE;
-    if ([val totalCount] && ![MPSEWSIntegerTypeHandler isValid:[val totalCount]]) return FALSE;
-    if ([val childFolderCount] && ![MPSEWSIntegerTypeHandler isValid:[val childFolderCount]]) return FALSE;
+    if ([val folderId] && ![MPSEWSFolderIdType isValid:[val folderId] forVersion:ver]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSFolderIdType isValid:[val parentFolderId] forVersion:ver]) return FALSE;
+    if ([val folderClass] && ![MPSEWSStringTypeHandler isValid:[val folderClass] forVersion:ver]) return FALSE;
+    if ([val displayName] && ![MPSEWSStringTypeHandler isValid:[val displayName] forVersion:ver]) return FALSE;
+    if ([val totalCount] && ![MPSEWSIntegerTypeHandler isValid:[val totalCount] forVersion:ver]) return FALSE;
+    if ([val childFolderCount] && ![MPSEWSIntegerTypeHandler isValid:[val childFolderCount] forVersion:ver]) return FALSE;
     if ([val extendedProperty]) {
         for (MPSEWSExtendedPropertyType* obj in [val extendedProperty]) {
-            if (![MPSEWSExtendedPropertyType isValid:obj]) return FALSE;
+            if (![MPSEWSExtendedPropertyType isValid:obj forVersion:ver]) return FALSE;
         }
     }
-    if ([val managedFolderInformation] && ![MPSEWSManagedFolderInformationType isValid:[val managedFolderInformation]]) return FALSE;
-    if ([val effectiveRights] && ![MPSEWSEffectiveRightsType isValid:[val effectiveRights]]) return FALSE;
+    if ([val managedFolderInformation] && ![MPSEWSManagedFolderInformationType isValid:[val managedFolderInformation] forVersion:ver]) return FALSE;
+    if ([val effectiveRights] && ![MPSEWSEffectiveRightsType isValid:[val effectiveRights] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

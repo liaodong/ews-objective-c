@@ -12,7 +12,7 @@
 @interface MPSEWSTaskType : MPSEWSItemType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSTaskType*) val;
++ (BOOL) isValid:(MPSEWSTaskType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

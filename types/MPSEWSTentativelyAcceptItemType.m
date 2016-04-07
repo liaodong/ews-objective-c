@@ -321,9 +321,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTentativelyAcceptItemType*) val
++ (BOOL) isValid:(MPSEWSTentativelyAcceptItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSWellKnownResponseObjectType isValid:val]) return FALSE;
+    if (![MPSEWSWellKnownResponseObjectType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

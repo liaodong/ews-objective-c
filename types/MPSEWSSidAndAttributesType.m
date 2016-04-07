@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSidAndAttributesType*) val
++ (BOOL) isValid:(MPSEWSSidAndAttributesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val attributes] && ![MPSEWSUnsignedIntTypeHandler isValid:[val attributes]]) return FALSE;
-    if ([val securityIdentifier] && ![MPSEWSStringTypeHandler isValid:[val securityIdentifier]]) return FALSE;
+    if ([val attributes] && ![MPSEWSUnsignedIntTypeHandler isValid:[val attributes] forVersion: ver]) return FALSE;
+    if ([val securityIdentifier] && ![MPSEWSStringTypeHandler isValid:[val securityIdentifier] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

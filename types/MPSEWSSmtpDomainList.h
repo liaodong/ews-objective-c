@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSSmtpDomainList : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSmtpDomainList*) val;
++ (BOOL) isValid:(MPSEWSSmtpDomainList*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

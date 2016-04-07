@@ -55,11 +55,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetSharingMetadataResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetSharingMetadataResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val encryptedSharedFolderDataCollection] && ![MPSEWSArrayOfEncryptedSharedFolderDataType isValid:[val encryptedSharedFolderDataCollection]]) return FALSE;
-    if ([val invalidRecipients] && ![MPSEWSArrayOfInvalidRecipientsType isValid:[val invalidRecipients]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val encryptedSharedFolderDataCollection] && ![MPSEWSArrayOfEncryptedSharedFolderDataType isValid:[val encryptedSharedFolderDataCollection] forVersion:ver]) return FALSE;
+    if ([val invalidRecipients] && ![MPSEWSArrayOfInvalidRecipientsType isValid:[val invalidRecipients] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

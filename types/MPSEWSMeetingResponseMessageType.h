@@ -10,7 +10,7 @@
 @interface MPSEWSMeetingResponseMessageType : MPSEWSMeetingMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMeetingResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSMeetingResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

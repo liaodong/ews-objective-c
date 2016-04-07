@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFolderChangeDescriptionType*) val
++ (BOOL) isValid:(MPSEWSFolderChangeDescriptionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSChangeDescriptionType isValid:val]) return FALSE;
+    if (![MPSEWSChangeDescriptionType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

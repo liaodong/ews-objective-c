@@ -10,7 +10,7 @@
 @interface MPSEWSUpdateUserConfigurationResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSUpdateUserConfigurationResponseType*) val;
++ (BOOL) isValid:(MPSEWSUpdateUserConfigurationResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

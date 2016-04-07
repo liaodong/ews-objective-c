@@ -12,7 +12,7 @@
 @interface MPSEWSTwoOperandExpressionType : MPSEWSSearchExpressionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSTwoOperandExpressionType*) val;
++ (BOOL) isValid:(MPSEWSTwoOperandExpressionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

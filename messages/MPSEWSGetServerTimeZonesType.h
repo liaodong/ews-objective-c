@@ -11,7 +11,7 @@
 @interface MPSEWSGetServerTimeZonesType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetServerTimeZonesType*) val;
++ (BOOL) isValid:(MPSEWSGetServerTimeZonesType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -11,7 +11,7 @@
 @interface MPSEWSDisconnectPhoneCallType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDisconnectPhoneCallType*) val;
++ (BOOL) isValid:(MPSEWSDisconnectPhoneCallType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

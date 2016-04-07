@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFolderResponseShapeType*) val
++ (BOOL) isValid:(MPSEWSFolderResponseShapeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val baseShape] && ![MPSEWSDefaultShapeNamesType isValid:[val baseShape]]) return FALSE;
-    if ([val additionalProperties] && ![MPSEWSNonEmptyArrayOfPathsToElementType isValid:[val additionalProperties]]) return FALSE;
+    if ([val baseShape] && ![MPSEWSDefaultShapeNamesType isValid:[val baseShape] forVersion:ver]) return FALSE;
+    if ([val additionalProperties] && ![MPSEWSNonEmptyArrayOfPathsToElementType isValid:[val additionalProperties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

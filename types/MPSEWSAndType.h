@@ -10,7 +10,7 @@
 @interface MPSEWSAndType : MPSEWSMultipleOperandBooleanExpressionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAndType*) val;
++ (BOOL) isValid:(MPSEWSAndType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

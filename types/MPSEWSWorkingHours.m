@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSWorkingHours*) val
++ (BOOL) isValid:(MPSEWSWorkingHours*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val timeZone] && ![MPSEWSSerializableTimeZone isValid:[val timeZone]]) return FALSE;
-    if ([val workingPeriodArray] && ![MPSEWSArrayOfWorkingPeriod isValid:[val workingPeriodArray]]) return FALSE;
+    if ([val timeZone] && ![MPSEWSSerializableTimeZone isValid:[val timeZone] forVersion:ver]) return FALSE;
+    if ([val workingPeriodArray] && ![MPSEWSArrayOfWorkingPeriod isValid:[val workingPeriodArray] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

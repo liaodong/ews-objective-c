@@ -10,7 +10,7 @@
 @interface MPSEWSPathToExceptionFieldType : MPSEWSBasePathToElementType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPathToExceptionFieldType*) val;
++ (BOOL) isValid:(MPSEWSPathToExceptionFieldType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

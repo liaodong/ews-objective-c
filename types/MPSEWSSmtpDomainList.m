@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSmtpDomainList*) val
++ (BOOL) isValid:(MPSEWSSmtpDomainList*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val domain]) {
         for (MPSEWSSmtpDomain* obj in [val domain]) {
-            if (![MPSEWSSmtpDomain isValid:obj]) return FALSE;
+            if (![MPSEWSSmtpDomain isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

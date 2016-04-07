@@ -27,11 +27,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFractionalPageViewType*) val
++ (BOOL) isValid:(MPSEWSFractionalPageViewType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
-    if ([val numerator] && ![MPSEWSIntegerTypeHandler isValid:[val numerator]]) return FALSE;
-    if ([val denominator] && ![MPSEWSIntegerTypeHandler isValid:[val denominator]]) return FALSE;
+    if (![MPSEWSBasePagingType isValid:val forVersion:ver]) return FALSE;
+    if ([val numerator] && ![MPSEWSIntegerTypeHandler isValid:[val numerator] forVersion: ver]) return FALSE;
+    if ([val denominator] && ![MPSEWSIntegerTypeHandler isValid:[val denominator] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

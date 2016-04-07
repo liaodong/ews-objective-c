@@ -10,7 +10,7 @@
 @interface MPSEWSDeleteRuleOperationType : MPSEWSRuleOperationType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeleteRuleOperationType*) val;
++ (BOOL) isValid:(MPSEWSDeleteRuleOperationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

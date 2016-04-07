@@ -24,10 +24,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSmtpDomain*) val
++ (BOOL) isValid:(MPSEWSSmtpDomain*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val includeSubdomains] && ![MPSEWSBooleanTypeHandler isValid:[val includeSubdomains]]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion: ver]) return FALSE;
+    if ([val includeSubdomains] && ![MPSEWSBooleanTypeHandler isValid:[val includeSubdomains] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

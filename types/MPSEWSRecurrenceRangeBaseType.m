@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRecurrenceRangeBaseType*) val
++ (BOOL) isValid:(MPSEWSRecurrenceRangeBaseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val startDate] && ![MPSEWSDateTypeHandler isValid:[val startDate]]) return FALSE;
+    if ([val startDate] && ![MPSEWSDateTypeHandler isValid:[val startDate] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

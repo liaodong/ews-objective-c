@@ -14,7 +14,7 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRecurrencePatternBaseType*) val
++ (BOOL) isValid:(MPSEWSRecurrencePatternBaseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     return TRUE;
 }

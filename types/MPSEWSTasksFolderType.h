@@ -10,7 +10,7 @@
 @interface MPSEWSTasksFolderType : MPSEWSFolderType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSTasksFolderType*) val;
++ (BOOL) isValid:(MPSEWSTasksFolderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

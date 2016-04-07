@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -12,7 +13,7 @@
 @interface MPSEWSFolderChangeType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFolderChangeType*) val;
++ (BOOL) isValid:(MPSEWSFolderChangeType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

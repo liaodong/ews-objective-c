@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -12,7 +13,7 @@
 @interface MPSEWSRecipientTrackingEventType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRecipientTrackingEventType*) val;
++ (BOOL) isValid:(MPSEWSRecipientTrackingEventType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

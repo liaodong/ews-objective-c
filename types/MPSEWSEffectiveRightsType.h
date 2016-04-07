@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSEffectiveRightsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSEffectiveRightsType*) val;
++ (BOOL) isValid:(MPSEWSEffectiveRightsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

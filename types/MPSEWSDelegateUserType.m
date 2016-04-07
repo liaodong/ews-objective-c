@@ -37,12 +37,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDelegateUserType*) val
++ (BOOL) isValid:(MPSEWSDelegateUserType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val userId] && ![MPSEWSUserIdType isValid:[val userId]]) return FALSE;
-    if ([val delegatePermissions] && ![MPSEWSDelegatePermissionsType isValid:[val delegatePermissions]]) return FALSE;
-    if ([val receiveCopiesOfMeetingMessages] && ![MPSEWSBooleanTypeHandler isValid:[val receiveCopiesOfMeetingMessages]]) return FALSE;
-    if ([val viewPrivateItems] && ![MPSEWSBooleanTypeHandler isValid:[val viewPrivateItems]]) return FALSE;
+    if ([val userId] && ![MPSEWSUserIdType isValid:[val userId] forVersion:ver]) return FALSE;
+    if ([val delegatePermissions] && ![MPSEWSDelegatePermissionsType isValid:[val delegatePermissions] forVersion:ver]) return FALSE;
+    if ([val receiveCopiesOfMeetingMessages] && ![MPSEWSBooleanTypeHandler isValid:[val receiveCopiesOfMeetingMessages] forVersion:ver]) return FALSE;
+    if ([val viewPrivateItems] && ![MPSEWSBooleanTypeHandler isValid:[val viewPrivateItems] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

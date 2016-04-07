@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSProtectionRuleType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSProtectionRuleType*) val;
++ (BOOL) isValid:(MPSEWSProtectionRuleType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

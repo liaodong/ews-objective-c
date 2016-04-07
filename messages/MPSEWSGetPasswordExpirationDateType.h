@@ -10,7 +10,7 @@
 @interface MPSEWSGetPasswordExpirationDateType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateType*) val;
++ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

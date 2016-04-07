@@ -11,7 +11,7 @@
 @interface MPSEWSUploadItemsType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSUploadItemsType*) val;
++ (BOOL) isValid:(MPSEWSUploadItemsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDirectoryEntryType*) val
++ (BOOL) isValid:(MPSEWSDirectoryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val id  ] && ![MPSEWSEmailAddressType isValid:[val id  ]]) return FALSE;
+    if ([val id  ] && ![MPSEWSEmailAddressType isValid:[val id  ] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -78,11 +78,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCalendarFolderType*) val
++ (BOOL) isValid:(MPSEWSCalendarFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
-    if ([val sharingEffectiveRights] && ![MPSEWSCalendarPermissionReadAccessType isValid:[val sharingEffectiveRights]]) return FALSE;
-    if ([val permissionSet] && ![MPSEWSCalendarPermissionSetType isValid:[val permissionSet]]) return FALSE;
+    if (![MPSEWSBaseFolderType isValid:val forVersion:ver]) return FALSE;
+    if ([val sharingEffectiveRights] && ![MPSEWSCalendarPermissionReadAccessType isValid:[val sharingEffectiveRights] forVersion:ver]) return FALSE;
+    if ([val permissionSet] && ![MPSEWSCalendarPermissionSetType isValid:[val permissionSet] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

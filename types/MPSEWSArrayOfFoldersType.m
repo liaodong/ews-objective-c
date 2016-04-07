@@ -49,31 +49,31 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfFoldersType*) val
++ (BOOL) isValid:(MPSEWSArrayOfFoldersType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val folder]) {
         for (MPSEWSFolderType* obj in [val folder]) {
-            if (![MPSEWSFolderType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val calendarFolder]) {
         for (MPSEWSCalendarFolderType* obj in [val calendarFolder]) {
-            if (![MPSEWSCalendarFolderType isValid:obj]) return FALSE;
+            if (![MPSEWSCalendarFolderType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val contactsFolder]) {
         for (MPSEWSContactsFolderType* obj in [val contactsFolder]) {
-            if (![MPSEWSContactsFolderType isValid:obj]) return FALSE;
+            if (![MPSEWSContactsFolderType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val searchFolder]) {
         for (MPSEWSSearchFolderType* obj in [val searchFolder]) {
-            if (![MPSEWSSearchFolderType isValid:obj]) return FALSE;
+            if (![MPSEWSSearchFolderType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val tasksFolder]) {
         for (MPSEWSTasksFolderType* obj in [val tasksFolder]) {
-            if (![MPSEWSTasksFolderType isValid:obj]) return FALSE;
+            if (![MPSEWSTasksFolderType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

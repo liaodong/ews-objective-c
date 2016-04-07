@@ -10,7 +10,7 @@
 @interface MPSEWSAcceptSharingInvitationType : MPSEWSReferenceItemResponseType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAcceptSharingInvitationType*) val;
++ (BOOL) isValid:(MPSEWSAcceptSharingInvitationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

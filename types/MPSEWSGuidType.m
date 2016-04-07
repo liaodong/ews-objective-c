@@ -11,7 +11,7 @@ static NSString* pattern = nil;
     [[[MPSEWSGuidType alloc] init] register];
 }
 
-+ (BOOL) isValid:(NSString *) val
++ (BOOL) isValid:(NSString *) val forVersion:(MPSEWSExchangeVersion) ver
 {
     (void) val;
     // pattern = @"[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}";

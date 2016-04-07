@@ -8,7 +8,7 @@
     [[[MPSEWSDerivedItemIdType alloc] init] register];
 }
 
-+ (BOOL) isValid: (NSString *) val
++ (BOOL) isValid: (NSString *) val forVersion:(MPSEWSExchangeVersion) ver
 {
     (void) val;
     return TRUE;

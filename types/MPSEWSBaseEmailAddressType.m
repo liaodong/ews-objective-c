@@ -14,7 +14,7 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBaseEmailAddressType*) val
++ (BOOL) isValid:(MPSEWSBaseEmailAddressType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     return TRUE;
 }

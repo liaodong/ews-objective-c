@@ -10,7 +10,7 @@
 @interface MPSEWSRecurringTimeTransitionType : MPSEWSTransitionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRecurringTimeTransitionType*) val;
++ (BOOL) isValid:(MPSEWSRecurringTimeTransitionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

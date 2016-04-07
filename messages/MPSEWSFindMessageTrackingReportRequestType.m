@@ -84,22 +84,22 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFindMessageTrackingReportRequestType*) val
++ (BOOL) isValid:(MPSEWSFindMessageTrackingReportRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val scope] && ![MPSEWSNonEmptyStringType isValid:[val scope]]) return FALSE;
-    if ([val domain] && ![MPSEWSNonEmptyStringType isValid:[val domain]]) return FALSE;
-    if ([val sender] && ![MPSEWSEmailAddressType isValid:[val sender]]) return FALSE;
-    if ([val purportedSender] && ![MPSEWSEmailAddressType isValid:[val purportedSender]]) return FALSE;
-    if ([val recipient] && ![MPSEWSEmailAddressType isValid:[val recipient]]) return FALSE;
-    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject]]) return FALSE;
-    if ([val startDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startDateTime]]) return FALSE;
-    if ([val endDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endDateTime]]) return FALSE;
-    if ([val messageId] && ![MPSEWSNonEmptyStringType isValid:[val messageId]]) return FALSE;
-    if ([val federatedDeliveryMailbox] && ![MPSEWSEmailAddressType isValid:[val federatedDeliveryMailbox]]) return FALSE;
-    if ([val diagnosticsLevel] && ![MPSEWSStringTypeHandler isValid:[val diagnosticsLevel]]) return FALSE;
-    if ([val serverHint] && ![MPSEWSStringTypeHandler isValid:[val serverHint]]) return FALSE;
-    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val scope] && ![MPSEWSNonEmptyStringType isValid:[val scope] forVersion:ver]) return FALSE;
+    if ([val domain] && ![MPSEWSNonEmptyStringType isValid:[val domain] forVersion:ver]) return FALSE;
+    if ([val sender] && ![MPSEWSEmailAddressType isValid:[val sender] forVersion:ver]) return FALSE;
+    if ([val purportedSender] && ![MPSEWSEmailAddressType isValid:[val purportedSender] forVersion:ver]) return FALSE;
+    if ([val recipient] && ![MPSEWSEmailAddressType isValid:[val recipient] forVersion:ver]) return FALSE;
+    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject] forVersion:ver]) return FALSE;
+    if ([val startDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startDateTime] forVersion:ver]) return FALSE;
+    if ([val endDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endDateTime] forVersion:ver]) return FALSE;
+    if ([val messageId] && ![MPSEWSNonEmptyStringType isValid:[val messageId] forVersion:ver]) return FALSE;
+    if ([val federatedDeliveryMailbox] && ![MPSEWSEmailAddressType isValid:[val federatedDeliveryMailbox] forVersion:ver]) return FALSE;
+    if ([val diagnosticsLevel] && ![MPSEWSStringTypeHandler isValid:[val diagnosticsLevel] forVersion:ver]) return FALSE;
+    if ([val serverHint] && ![MPSEWSStringTypeHandler isValid:[val serverHint] forVersion:ver]) return FALSE;
+    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

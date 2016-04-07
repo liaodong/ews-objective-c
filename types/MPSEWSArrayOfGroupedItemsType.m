@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfGroupedItemsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfGroupedItemsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val groupedItems]) {
         for (MPSEWSGroupedItemsType* obj in [val groupedItems]) {
-            if (![MPSEWSGroupedItemsType isValid:obj]) return FALSE;
+            if (![MPSEWSGroupedItemsType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

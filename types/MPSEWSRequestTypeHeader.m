@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRequestTypeHeader*) val
++ (BOOL) isValid:(MPSEWSRequestTypeHeader*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val requestType] && ![MPSEWSAvailabilityProxyRequestType isValid:[val requestType]]) return FALSE;
+    if ([val requestType] && ![MPSEWSAvailabilityProxyRequestType isValid:[val requestType] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

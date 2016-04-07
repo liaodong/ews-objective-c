@@ -12,7 +12,7 @@
 @interface MPSEWSFindMessageTrackingReportRequestType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindMessageTrackingReportRequestType*) val;
++ (BOOL) isValid:(MPSEWSFindMessageTrackingReportRequestType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

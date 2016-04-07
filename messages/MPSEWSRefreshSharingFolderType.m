@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRefreshSharingFolderType*) val
++ (BOOL) isValid:(MPSEWSRefreshSharingFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val sharingFolderId] && ![MPSEWSFolderIdType isValid:[val sharingFolderId]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val sharingFolderId] && ![MPSEWSFolderIdType isValid:[val sharingFolderId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

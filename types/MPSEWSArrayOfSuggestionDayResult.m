@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfSuggestionDayResult*) val
++ (BOOL) isValid:(MPSEWSArrayOfSuggestionDayResult*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val suggestionDayResult]) {
         for (MPSEWSSuggestionDayResult* obj in [val suggestionDayResult]) {
-            if (![MPSEWSSuggestionDayResult isValid:obj]) return FALSE;
+            if (![MPSEWSSuggestionDayResult isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSApplyConversationActionType*) val
++ (BOOL) isValid:(MPSEWSApplyConversationActionType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val conversationActions] && ![MPSEWSNonEmptyArrayOfApplyConversationActionType isValid:[val conversationActions]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val conversationActions] && ![MPSEWSNonEmptyArrayOfApplyConversationActionType isValid:[val conversationActions] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

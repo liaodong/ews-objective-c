@@ -11,7 +11,7 @@
 @interface MPSEWSExportItemsType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSExportItemsType*) val;
++ (BOOL) isValid:(MPSEWSExportItemsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeleteRuleOperationType*) val
++ (BOOL) isValid:(MPSEWSDeleteRuleOperationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRuleOperationType isValid:val]) return FALSE;
-    if ([val ruleId] && ![MPSEWSStringTypeHandler isValid:[val ruleId]]) return FALSE;
+    if (![MPSEWSRuleOperationType isValid:val forVersion:ver]) return FALSE;
+    if ([val ruleId] && ![MPSEWSStringTypeHandler isValid:[val ruleId] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBaseNotificationEventType*) val
++ (BOOL) isValid:(MPSEWSBaseNotificationEventType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark]]) return FALSE;
+    if ([val watermark] && ![MPSEWSWatermarkType isValid:[val watermark] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

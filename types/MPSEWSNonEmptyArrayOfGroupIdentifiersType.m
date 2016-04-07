@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfGroupIdentifiersType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfGroupIdentifiersType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val groupIdentifier]) {
         for (MPSEWSSidAndAttributesType* obj in [val groupIdentifier]) {
-            if (![MPSEWSSidAndAttributesType isValid:obj]) return FALSE;
+            if (![MPSEWSSidAndAttributesType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

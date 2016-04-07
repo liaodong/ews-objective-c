@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -13,7 +14,7 @@
 @interface MPSEWSArrayOfAttendeeConflictData : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSArrayOfAttendeeConflictData*) val;
++ (BOOL) isValid:(MPSEWSArrayOfAttendeeConflictData*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

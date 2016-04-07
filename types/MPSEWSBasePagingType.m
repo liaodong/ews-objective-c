@@ -19,9 +19,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSBasePagingType*) val
++ (BOOL) isValid:(MPSEWSBasePagingType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val maxEntriesReturned] && ![MPSEWSIntegerTypeHandler isValid:[val maxEntriesReturned]]) return FALSE;
+    if ([val maxEntriesReturned] && ![MPSEWSIntegerTypeHandler isValid:[val maxEntriesReturned] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

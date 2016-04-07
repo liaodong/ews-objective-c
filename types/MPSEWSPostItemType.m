@@ -271,17 +271,17 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPostItemType*) val
++ (BOOL) isValid:(MPSEWSPostItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSItemType isValid:val]) return FALSE;
-    if ([val conversationIndex] && ![MPSEWSBase64BinaryTypeHandler isValid:[val conversationIndex]]) return FALSE;
-    if ([val conversationTopic] && ![MPSEWSStringTypeHandler isValid:[val conversationTopic]]) return FALSE;
-    if ([val from] && ![MPSEWSSingleRecipientType isValid:[val from]]) return FALSE;
-    if ([val internetMessageId] && ![MPSEWSStringTypeHandler isValid:[val internetMessageId]]) return FALSE;
-    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead]]) return FALSE;
-    if ([val postedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val postedTime]]) return FALSE;
-    if ([val references] && ![MPSEWSStringTypeHandler isValid:[val references]]) return FALSE;
-    if ([val sender] && ![MPSEWSSingleRecipientType isValid:[val sender]]) return FALSE;
+    if (![MPSEWSItemType isValid:val forVersion:ver]) return FALSE;
+    if ([val conversationIndex] && ![MPSEWSBase64BinaryTypeHandler isValid:[val conversationIndex] forVersion:ver]) return FALSE;
+    if ([val conversationTopic] && ![MPSEWSStringTypeHandler isValid:[val conversationTopic] forVersion:ver]) return FALSE;
+    if ([val from] && ![MPSEWSSingleRecipientType isValid:[val from] forVersion:ver]) return FALSE;
+    if ([val internetMessageId] && ![MPSEWSStringTypeHandler isValid:[val internetMessageId] forVersion:ver]) return FALSE;
+    if ([val isRead] && ![MPSEWSBooleanTypeHandler isValid:[val isRead] forVersion:ver]) return FALSE;
+    if ([val postedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val postedTime] forVersion:ver]) return FALSE;
+    if ([val references] && ![MPSEWSStringTypeHandler isValid:[val references] forVersion:ver]) return FALSE;
+    if ([val sender] && ![MPSEWSSingleRecipientType isValid:[val sender] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

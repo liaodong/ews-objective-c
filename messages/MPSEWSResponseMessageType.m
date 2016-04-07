@@ -43,13 +43,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val responseClass] && ![MPSEWSResponseClassType isValid:[val responseClass]]) return FALSE;
-    if ([val messageText] && ![MPSEWSStringTypeHandler isValid:[val messageText]]) return FALSE;
-    if ([val responseCode] && ![MPSEWSResponseCodeType isValid:[val responseCode]]) return FALSE;
-    if ([val descriptiveLinkKey] && ![MPSEWSIntegerTypeHandler isValid:[val descriptiveLinkKey]]) return FALSE;
-    if ([val messageXml] && ![MPSEWSXmlContentTypeHandler isValid:[val messageXml]]) return FALSE;
+    if ([val responseClass] && ![MPSEWSResponseClassType isValid:[val responseClass] forVersion: ver]) return FALSE;
+    if ([val messageText] && ![MPSEWSStringTypeHandler isValid:[val messageText] forVersion:ver]) return FALSE;
+    if ([val responseCode] && ![MPSEWSResponseCodeType isValid:[val responseCode] forVersion:ver]) return FALSE;
+    if ([val descriptiveLinkKey] && ![MPSEWSIntegerTypeHandler isValid:[val descriptiveLinkKey] forVersion:ver]) return FALSE;
+    if ([val messageXml] && ![MPSEWSXmlContentTypeHandler isValid:[val messageXml] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

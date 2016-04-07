@@ -32,9 +32,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCopyItemType*) val
++ (BOOL) isValid:(MPSEWSCopyItemType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseMoveCopyItemType isValid:val]) return FALSE;
+    if (![MPSEWSBaseMoveCopyItemType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

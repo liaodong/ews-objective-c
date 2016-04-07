@@ -91,61 +91,61 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfRealItemsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfRealItemsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val item]) {
         for (MPSEWSItemType* obj in [val item]) {
-            if (![MPSEWSItemType isValid:obj]) return FALSE;
+            if (![MPSEWSItemType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val message]) {
         for (MPSEWSMessageType* obj in [val message]) {
-            if (![MPSEWSMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val calendarItem]) {
         for (MPSEWSCalendarItemType* obj in [val calendarItem]) {
-            if (![MPSEWSCalendarItemType isValid:obj]) return FALSE;
+            if (![MPSEWSCalendarItemType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val contact]) {
         for (MPSEWSContactItemType* obj in [val contact]) {
-            if (![MPSEWSContactItemType isValid:obj]) return FALSE;
+            if (![MPSEWSContactItemType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val distributionList]) {
         for (MPSEWSDistributionListType* obj in [val distributionList]) {
-            if (![MPSEWSDistributionListType isValid:obj]) return FALSE;
+            if (![MPSEWSDistributionListType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val meetingMessage]) {
         for (MPSEWSMeetingMessageType* obj in [val meetingMessage]) {
-            if (![MPSEWSMeetingMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSMeetingMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val meetingRequest]) {
         for (MPSEWSMeetingRequestMessageType* obj in [val meetingRequest]) {
-            if (![MPSEWSMeetingRequestMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSMeetingRequestMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val meetingResponse]) {
         for (MPSEWSMeetingResponseMessageType* obj in [val meetingResponse]) {
-            if (![MPSEWSMeetingResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSMeetingResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val meetingCancellation]) {
         for (MPSEWSMeetingCancellationMessageType* obj in [val meetingCancellation]) {
-            if (![MPSEWSMeetingCancellationMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSMeetingCancellationMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val task]) {
         for (MPSEWSTaskType* obj in [val task]) {
-            if (![MPSEWSTaskType isValid:obj]) return FALSE;
+            if (![MPSEWSTaskType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val postItem]) {
         for (MPSEWSPostItemType* obj in [val postItem]) {
-            if (![MPSEWSPostItemType isValid:obj]) return FALSE;
+            if (![MPSEWSPostItemType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

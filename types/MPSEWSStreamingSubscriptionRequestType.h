@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSStreamingSubscriptionRequestType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSStreamingSubscriptionRequestType*) val;
++ (BOOL) isValid:(MPSEWSStreamingSubscriptionRequestType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

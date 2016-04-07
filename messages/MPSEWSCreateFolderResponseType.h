@@ -10,7 +10,7 @@
 @interface MPSEWSCreateFolderResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCreateFolderResponseType*) val;
++ (BOOL) isValid:(MPSEWSCreateFolderResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

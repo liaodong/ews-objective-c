@@ -12,7 +12,7 @@ static NSSet* enumerations = nil;
     [[[MPSEWSProtectionRuleActionKindType alloc] init] register];
 }
 
-+ (BOOL) isValid:(NSString*) val
++ (BOOL) isValid:(NSString*) val forVersion:(MPSEWSExchangeVersion) ver
 {
     return [enumerations containsObject:val];
 }

@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAttendeeType*) val
++ (BOOL) isValid:(MPSEWSAttendeeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
-    if ([val responseType] && ![MPSEWSResponseTypeType isValid:[val responseType]]) return FALSE;
-    if ([val lastResponseTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastResponseTime]]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox] forVersion:ver]) return FALSE;
+    if ([val responseType] && ![MPSEWSResponseTypeType isValid:[val responseType] forVersion:ver]) return FALSE;
+    if ([val lastResponseTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastResponseTime] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

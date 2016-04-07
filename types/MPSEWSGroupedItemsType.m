@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGroupedItemsType*) val
++ (BOOL) isValid:(MPSEWSGroupedItemsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val groupIndex] && ![MPSEWSStringTypeHandler isValid:[val groupIndex]]) return FALSE;
-    if ([val items] && ![MPSEWSArrayOfRealItemsType isValid:[val items]]) return FALSE;
+    if ([val groupIndex] && ![MPSEWSStringTypeHandler isValid:[val groupIndex] forVersion:ver]) return FALSE;
+    if ([val items] && ![MPSEWSArrayOfRealItemsType isValid:[val items] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

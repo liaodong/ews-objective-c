@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryType*) val
++ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val entry]) {
         for (MPSEWSPhysicalAddressDictionaryEntryType* obj in [val entry]) {
-            if (![MPSEWSPhysicalAddressDictionaryEntryType isValid:obj]) return FALSE;
+            if (![MPSEWSPhysicalAddressDictionaryEntryType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

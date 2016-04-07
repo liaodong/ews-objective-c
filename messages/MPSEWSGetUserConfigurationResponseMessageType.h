@@ -11,7 +11,7 @@
 @interface MPSEWSGetUserConfigurationResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetUserConfigurationResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSGetUserConfigurationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

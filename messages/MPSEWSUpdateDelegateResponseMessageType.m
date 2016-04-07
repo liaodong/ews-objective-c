@@ -49,9 +49,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUpdateDelegateResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSUpdateDelegateResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseDelegateResponseMessageType isValid:val]) return FALSE;
+    if (![MPSEWSBaseDelegateResponseMessageType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

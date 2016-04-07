@@ -10,7 +10,7 @@
 @interface MPSEWSConvertIdResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSConvertIdResponseType*) val;
++ (BOOL) isValid:(MPSEWSConvertIdResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

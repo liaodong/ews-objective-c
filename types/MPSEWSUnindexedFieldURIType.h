@@ -220,7 +220,7 @@
 
 /** Register a handler to parse UnindexedFieldURIType */
 + (void) initialize;
-+ (BOOL) isValid:(NSString*)val;
++ (BOOL) isValid:(NSString*)val forVersion:(MPSEWSExchangeVersion) ver;
 
 /** Initialize the handler */
 - (id) init;

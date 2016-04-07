@@ -36,12 +36,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTimeZoneType*) val
++ (BOOL) isValid:(MPSEWSTimeZoneType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val timeZoneName] && ![MPSEWSStringTypeHandler isValid:[val timeZoneName]]) return FALSE;
-    if ([val baseOffset] && ![MPSEWSDurationTypeHandler isValid:[val baseOffset]]) return FALSE;
-    if ([val standard] && ![MPSEWSTimeChangeType isValid:[val standard]]) return FALSE;
-    if ([val daylight] && ![MPSEWSTimeChangeType isValid:[val daylight]]) return FALSE;
+    if ([val timeZoneName] && ![MPSEWSStringTypeHandler isValid:[val timeZoneName] forVersion: ver]) return FALSE;
+    if ([val baseOffset] && ![MPSEWSDurationTypeHandler isValid:[val baseOffset] forVersion:ver]) return FALSE;
+    if ([val standard] && ![MPSEWSTimeChangeType isValid:[val standard] forVersion:ver]) return FALSE;
+    if ([val daylight] && ![MPSEWSTimeChangeType isValid:[val daylight] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

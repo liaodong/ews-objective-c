@@ -38,13 +38,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetUserAvailabilityRequestType*) val
++ (BOOL) isValid:(MPSEWSGetUserAvailabilityRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val timeZone] && ![MPSEWSSerializableTimeZone isValid:[val timeZone]]) return FALSE;
-    if ([val mailboxDataArray] && ![MPSEWSArrayOfMailboxData isValid:[val mailboxDataArray]]) return FALSE;
-    if ([val freeBusyViewOptions] && ![MPSEWSFreeBusyViewOptionsType isValid:[val freeBusyViewOptions]]) return FALSE;
-    if ([val suggestionsViewOptions] && ![MPSEWSSuggestionsViewOptionsType isValid:[val suggestionsViewOptions]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val timeZone] && ![MPSEWSSerializableTimeZone isValid:[val timeZone] forVersion:ver]) return FALSE;
+    if ([val mailboxDataArray] && ![MPSEWSArrayOfMailboxData isValid:[val mailboxDataArray] forVersion:ver]) return FALSE;
+    if ([val freeBusyViewOptions] && ![MPSEWSFreeBusyViewOptionsType isValid:[val freeBusyViewOptions] forVersion:ver]) return FALSE;
+    if ([val suggestionsViewOptions] && ![MPSEWSSuggestionsViewOptionsType isValid:[val suggestionsViewOptions] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

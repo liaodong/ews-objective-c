@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfItemClassType*) val
++ (BOOL) isValid:(MPSEWSArrayOfItemClassType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val itemClass]) {
         for (NSString* obj in [val itemClass]) {
-            if (![MPSEWSItemClassType isValid:obj]) return FALSE;
+            if (![MPSEWSItemClassType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

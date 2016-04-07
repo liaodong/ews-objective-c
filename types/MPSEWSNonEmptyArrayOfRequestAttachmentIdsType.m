@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRequestAttachmentIdsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfRequestAttachmentIdsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val attachmentId]) {
         for (MPSEWSRequestAttachmentIdType* obj in [val attachmentId]) {
-            if (![MPSEWSRequestAttachmentIdType isValid:obj]) return FALSE;
+            if (![MPSEWSRequestAttachmentIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

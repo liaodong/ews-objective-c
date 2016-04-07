@@ -28,11 +28,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSIndexedPageViewType*) val
++ (BOOL) isValid:(MPSEWSIndexedPageViewType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePagingType isValid:val]) return FALSE;
-    if ([val offset] && ![MPSEWSIntegerTypeHandler isValid:[val offset]]) return FALSE;
-    if ([val basePoint] && ![MPSEWSIndexBasePointType isValid:[val basePoint]]) return FALSE;
+    if (![MPSEWSBasePagingType isValid:val forVersion:ver]) return FALSE;
+    if ([val offset] && ![MPSEWSIntegerTypeHandler isValid:[val offset] forVersion: ver]) return FALSE;
+    if ([val basePoint] && ![MPSEWSIndexBasePointType isValid:[val basePoint] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

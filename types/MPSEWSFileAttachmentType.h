@@ -10,7 +10,7 @@
 @interface MPSEWSFileAttachmentType : MPSEWSAttachmentType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFileAttachmentType*) val;
++ (BOOL) isValid:(MPSEWSFileAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

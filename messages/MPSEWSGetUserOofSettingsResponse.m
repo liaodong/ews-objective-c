@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetUserOofSettingsResponse*) val
++ (BOOL) isValid:(MPSEWSGetUserOofSettingsResponse*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage]]) return FALSE;
-    if ([val oofSettings] && ![MPSEWSUserOofSettings isValid:[val oofSettings]]) return FALSE;
-    if ([val allowExternalOof] && ![MPSEWSExternalAudience isValid:[val allowExternalOof]]) return FALSE;
+    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage] forVersion:ver]) return FALSE;
+    if ([val oofSettings] && ![MPSEWSUserOofSettings isValid:[val oofSettings] forVersion:ver]) return FALSE;
+    if ([val allowExternalOof] && ![MPSEWSExternalAudience isValid:[val allowExternalOof] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

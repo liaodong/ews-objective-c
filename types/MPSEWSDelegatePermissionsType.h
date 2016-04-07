@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSDelegatePermissionsType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDelegatePermissionsType*) val;
++ (BOOL) isValid:(MPSEWSDelegatePermissionsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

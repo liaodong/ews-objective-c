@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfPathsToElementType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfPathsToElementType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path]]) return FALSE;
+    if ([val path] && ![MPSEWSBasePathToElementType isValid:[val path] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

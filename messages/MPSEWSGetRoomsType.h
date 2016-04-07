@@ -11,7 +11,7 @@
 @interface MPSEWSGetRoomsType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetRoomsType*) val;
++ (BOOL) isValid:(MPSEWSGetRoomsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

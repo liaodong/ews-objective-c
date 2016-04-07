@@ -24,10 +24,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUserMailboxType*) val
++ (BOOL) isValid:(MPSEWSUserMailboxType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
-    if ([val isArchive] && ![MPSEWSBooleanTypeHandler isValid:[val isArchive]]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ] forVersion: ver]) return FALSE;
+    if ([val isArchive] && ![MPSEWSBooleanTypeHandler isValid:[val isArchive] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

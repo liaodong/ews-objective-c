@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSUserConfigurationDictionaryObjectType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSUserConfigurationDictionaryObjectType*) val;
++ (BOOL) isValid:(MPSEWSUserConfigurationDictionaryObjectType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

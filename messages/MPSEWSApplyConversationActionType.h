@@ -11,7 +11,7 @@
 @interface MPSEWSApplyConversationActionType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSApplyConversationActionType*) val;
++ (BOOL) isValid:(MPSEWSApplyConversationActionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

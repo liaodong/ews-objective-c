@@ -44,13 +44,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSyncFolderHierarchyCreateOrUpdateType*) val
++ (BOOL) isValid:(MPSEWSSyncFolderHierarchyCreateOrUpdateType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val folder] && ![MPSEWSFolderType isValid:[val folder]]) return FALSE;
-    if ([val calendarFolder] && ![MPSEWSCalendarFolderType isValid:[val calendarFolder]]) return FALSE;
-    if ([val contactsFolder] && ![MPSEWSContactsFolderType isValid:[val contactsFolder]]) return FALSE;
-    if ([val searchFolder] && ![MPSEWSSearchFolderType isValid:[val searchFolder]]) return FALSE;
-    if ([val tasksFolder] && ![MPSEWSTasksFolderType isValid:[val tasksFolder]]) return FALSE;
+    if ([val folder] && ![MPSEWSFolderType isValid:[val folder] forVersion:ver]) return FALSE;
+    if ([val calendarFolder] && ![MPSEWSCalendarFolderType isValid:[val calendarFolder] forVersion:ver]) return FALSE;
+    if ([val contactsFolder] && ![MPSEWSContactsFolderType isValid:[val contactsFolder] forVersion:ver]) return FALSE;
+    if ([val searchFolder] && ![MPSEWSSearchFolderType isValid:[val searchFolder] forVersion:ver]) return FALSE;
+    if ([val tasksFolder] && ![MPSEWSTasksFolderType isValid:[val tasksFolder] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

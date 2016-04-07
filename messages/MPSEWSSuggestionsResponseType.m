@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSuggestionsResponseType*) val
++ (BOOL) isValid:(MPSEWSSuggestionsResponseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage]]) return FALSE;
-    if ([val suggestionDayResultArray] && ![MPSEWSArrayOfSuggestionDayResult isValid:[val suggestionDayResultArray]]) return FALSE;
+    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage] forVersion:ver]) return FALSE;
+    if ([val suggestionDayResultArray] && ![MPSEWSArrayOfSuggestionDayResult isValid:[val suggestionDayResultArray] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

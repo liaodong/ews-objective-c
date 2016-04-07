@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRulePredicateDateRangeType*) val
++ (BOOL) isValid:(MPSEWSRulePredicateDateRangeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val startDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startDateTime]]) return FALSE;
-    if ([val endDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endDateTime]]) return FALSE;
+    if ([val startDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startDateTime] forVersion:ver]) return FALSE;
+    if ([val endDateTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endDateTime] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

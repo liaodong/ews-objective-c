@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRuleOperationErrorType*) val
++ (BOOL) isValid:(MPSEWSRuleOperationErrorType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val operationIndex] && ![MPSEWSIntegerTypeHandler isValid:[val operationIndex]]) return FALSE;
-    if ([val validationErrors] && ![MPSEWSArrayOfRuleValidationErrorsType isValid:[val validationErrors]]) return FALSE;
+    if ([val operationIndex] && ![MPSEWSIntegerTypeHandler isValid:[val operationIndex] forVersion:ver]) return FALSE;
+    if ([val validationErrors] && ![MPSEWSArrayOfRuleValidationErrorsType isValid:[val validationErrors] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -10,7 +10,7 @@
 @interface MPSEWSImAddressDictionaryEntryType : MPSEWSStringType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSImAddressDictionaryEntryType*) val;
++ (BOOL) isValid:(MPSEWSImAddressDictionaryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

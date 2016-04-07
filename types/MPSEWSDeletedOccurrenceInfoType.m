@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeletedOccurrenceInfoType*) val
++ (BOOL) isValid:(MPSEWSDeletedOccurrenceInfoType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val start] && ![MPSEWSDateTimeTypeHandler isValid:[val start]]) return FALSE;
+    if ([val start] && ![MPSEWSDateTimeTypeHandler isValid:[val start] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

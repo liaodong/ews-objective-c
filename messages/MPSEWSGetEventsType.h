@@ -10,7 +10,7 @@
 @interface MPSEWSGetEventsType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetEventsType*) val;
++ (BOOL) isValid:(MPSEWSGetEventsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

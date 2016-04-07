@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetMailTipsResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetMailTipsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val responseMessages] && ![MPSEWSArrayOfMailTipsResponseMessageType isValid:[val responseMessages]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val responseMessages] && ![MPSEWSArrayOfMailTipsResponseMessageType isValid:[val responseMessages] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

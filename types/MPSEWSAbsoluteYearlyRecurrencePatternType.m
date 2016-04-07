@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAbsoluteYearlyRecurrencePatternType*) val
++ (BOOL) isValid:(MPSEWSAbsoluteYearlyRecurrencePatternType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRecurrencePatternBaseType isValid:val]) return FALSE;
-    if ([val dayOfMonth] && ![MPSEWSIntegerTypeHandler isValid:[val dayOfMonth]]) return FALSE;
-    if ([val month] && ![MPSEWSMonthNamesType isValid:[val month]]) return FALSE;
+    if (![MPSEWSRecurrencePatternBaseType isValid:val forVersion:ver]) return FALSE;
+    if ([val dayOfMonth] && ![MPSEWSIntegerTypeHandler isValid:[val dayOfMonth] forVersion:ver]) return FALSE;
+    if ([val month] && ![MPSEWSMonthNamesType isValid:[val month] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

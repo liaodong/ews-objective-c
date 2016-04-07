@@ -10,7 +10,7 @@
 @interface MPSEWSInternetHeaderType : MPSEWSStringType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSInternetHeaderType*) val;
++ (BOOL) isValid:(MPSEWSInternetHeaderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

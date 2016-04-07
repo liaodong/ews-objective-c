@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSMailboxStatisticsSearchResultType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMailboxStatisticsSearchResultType*) val;
++ (BOOL) isValid:(MPSEWSMailboxStatisticsSearchResultType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

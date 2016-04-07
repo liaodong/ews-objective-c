@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTrackingPropertyType*) val
++ (BOOL) isValid:(MPSEWSTrackingPropertyType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value]]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion:ver]) return FALSE;
+    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

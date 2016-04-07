@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRoomType*) val
++ (BOOL) isValid:(MPSEWSRoomType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSDirectoryEntryType isValid:val]) return FALSE;
+    if (![MPSEWSDirectoryEntryType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

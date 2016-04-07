@@ -11,7 +11,7 @@
 @interface MPSEWSDistinguishedFolderIdType : MPSEWSBaseFolderIdType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDistinguishedFolderIdType*) val;
++ (BOOL) isValid:(MPSEWSDistinguishedFolderIdType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

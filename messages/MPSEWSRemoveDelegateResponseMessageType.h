@@ -10,7 +10,7 @@
 @interface MPSEWSRemoveDelegateResponseMessageType : MPSEWSBaseDelegateResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRemoveDelegateResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSRemoveDelegateResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

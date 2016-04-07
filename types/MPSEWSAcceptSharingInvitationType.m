@@ -321,9 +321,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAcceptSharingInvitationType*) val
++ (BOOL) isValid:(MPSEWSAcceptSharingInvitationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSReferenceItemResponseType isValid:val]) return FALSE;
+    if (![MPSEWSReferenceItemResponseType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfPeriodsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfPeriodsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val period]) {
         for (MPSEWSPeriodType* obj in [val period]) {
-            if (![MPSEWSPeriodType isValid:obj]) return FALSE;
+            if (![MPSEWSPeriodType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

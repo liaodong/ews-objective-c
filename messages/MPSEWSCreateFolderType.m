@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCreateFolderType*) val
++ (BOOL) isValid:(MPSEWSCreateFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val parentFolderId] && ![MPSEWSTargetFolderIdType isValid:[val parentFolderId]]) return FALSE;
-    if ([val folders] && ![MPSEWSNonEmptyArrayOfFoldersType isValid:[val folders]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val parentFolderId] && ![MPSEWSTargetFolderIdType isValid:[val parentFolderId] forVersion:ver]) return FALSE;
+    if ([val folders] && ![MPSEWSNonEmptyArrayOfFoldersType isValid:[val folders] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

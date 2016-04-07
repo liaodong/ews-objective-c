@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -18,7 +19,7 @@
 @interface MPSEWSRecurrenceType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRecurrenceType*) val;
++ (BOOL) isValid:(MPSEWSRecurrenceType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

@@ -35,21 +35,21 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangeDescriptionsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfItemChangeDescriptionsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val appendToItemField]) {
         for (MPSEWSAppendToItemFieldType* obj in [val appendToItemField]) {
-            if (![MPSEWSAppendToItemFieldType isValid:obj]) return FALSE;
+            if (![MPSEWSAppendToItemFieldType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val setItemField]) {
         for (MPSEWSSetItemFieldType* obj in [val setItemField]) {
-            if (![MPSEWSSetItemFieldType isValid:obj]) return FALSE;
+            if (![MPSEWSSetItemFieldType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val deleteItemField]) {
         for (MPSEWSDeleteItemFieldType* obj in [val deleteItemField]) {
-            if (![MPSEWSDeleteItemFieldType isValid:obj]) return FALSE;
+            if (![MPSEWSDeleteItemFieldType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

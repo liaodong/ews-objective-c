@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSResolutionType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSResolutionType*) val;
++ (BOOL) isValid:(MPSEWSResolutionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

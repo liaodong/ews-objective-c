@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDeleteFolderFieldType*) val
++ (BOOL) isValid:(MPSEWSDeleteFolderFieldType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSFolderChangeDescriptionType isValid:val]) return FALSE;
+    if (![MPSEWSFolderChangeDescriptionType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

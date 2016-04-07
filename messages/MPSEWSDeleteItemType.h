@@ -11,7 +11,7 @@
 @interface MPSEWSDeleteItemType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSDeleteItemType*) val;
++ (BOOL) isValid:(MPSEWSDeleteItemType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

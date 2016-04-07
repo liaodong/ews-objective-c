@@ -10,7 +10,7 @@
 @interface MPSEWSCalendarViewType : MPSEWSBasePagingType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSCalendarViewType*) val;
++ (BOOL) isValid:(MPSEWSCalendarViewType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

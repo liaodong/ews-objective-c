@@ -289,7 +289,7 @@ static const char* prefix = "MPSEWS";
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid:(%s) val;\n\n", returnType);
+    fprintf (file, "+ (BOOL) isValid:(%s) val forVersion:(MPSEWSExchangeVersion) ver;\n\n", returnType);
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -323,7 +323,7 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid:(%s) val\n", returnType);
+    fprintf (file, "+ (BOOL) isValid:(%s) val forVersion:(MPSEWSExchangeVersion) ver\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    (void) val;\n");
     fprintf (file, "    // pattern = @\"%s\";\n", [pattern UTF8String]);
@@ -390,7 +390,7 @@ static const char* prefix = "MPSEWS";
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid: (%s) val;\n\n", returnType);
+    fprintf (file, "+ (BOOL) isValid: (%s) val forVersion:(MPSEWSExchangeVersion) ver;\n\n", returnType);
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -419,7 +419,7 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid: (%s) val\n", returnType);
+    fprintf (file, "+ (BOOL) isValid: (%s) val forVersion:(MPSEWSExchangeVersion) ver\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    (void) val;\n");
     fprintf (file, "    return TRUE;\n");
@@ -487,7 +487,7 @@ static const char* prefix = "MPSEWS";
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid: (%s) val;\n\n", returnType);
+    fprintf (file, "+ (BOOL) isValid: (%s) val forVersion:(MPSEWSExchangeVersion) ver;\n\n", returnType);
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -519,7 +519,7 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid: (%s) val\n", returnType);
+    fprintf (file, "+ (BOOL) isValid: (%s) val forVersion:(MPSEWSExchangeVersion) ver\n", returnType);
     fprintf (file, "{\n");
     fprintf (file, "    (void) val;\n");
     if (min) fprintf (file, "    if ([val intValue] < %s) return FALSE;\n", [min UTF8String]);
@@ -596,7 +596,7 @@ static const char* prefix = "MPSEWS";
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid:(NSString*) val;\n\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val forVersion:(MPSEWSExchangeVersion) ver;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -628,7 +628,7 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid:(NSString*) val\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val forVersion:(MPSEWSExchangeVersion) ver\n");
     fprintf (file, "{\n");
     fprintf (file, "    return [val length] > minLength && [val length] < maxLength;\n");
     fprintf (file, "}\n\n");
@@ -695,7 +695,7 @@ static const char* prefix = "MPSEWS";
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid:(NSString*)val;\n\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*)val forVersion:(MPSEWSExchangeVersion) ver;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -740,7 +740,7 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid:(NSString*) val\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val forVersion:(MPSEWSExchangeVersion) ver\n");
     fprintf (file, "{\n");
     fprintf (file, "    return [enumerations containsObject:val];\n");
     fprintf (file, "}\n\n");
@@ -812,7 +812,7 @@ static const char* prefix = "MPSEWS";
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid:(NSArray<NSString*>*)val;\n\n");
+    fprintf (file, "+ (BOOL) isValid:(NSArray<NSString*>*)val forVersion:(MPSEWSExchangeVersion) ver;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -850,7 +850,7 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid:(NSString*) val\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*) val forVersion:(MPSEWSExchangeVersion) ver\n");
     fprintf (file, "{\n");
     fprintf (file, "    return [enumerations containsObject:val];\n");
     fprintf (file, "}\n\n");
@@ -897,7 +897,7 @@ static const char* prefix = "MPSEWS";
    
     fprintf (file, "/** Register a handler to parse %s */\n", name);
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid:(NSString*)val;\n\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*)val forVersion:(MPSEWSExchangeVersion) ver;\n\n");
 
     fprintf (file, "/** Initialize the handler */\n");
     fprintf (file, "- (id) init;\n");
@@ -920,9 +920,9 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [[[%s%s alloc] init] register];\n", prefix, name);
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid:(NSString*)val\n");
+    fprintf (file, "+ (BOOL) isValid:(NSString*)val forVersion:(MPSEWSExchangeVersion) ver\n");
     fprintf (file, "{\n");
-    fprintf (file, "    return [%sNonEmptyStringType isValid:val];\n", prefix);
+    fprintf (file, "    return [%sNonEmptyStringType isValid:val forVersion:ver];\n", prefix);
     fprintf (file, "}\n\n");
 
     fprintf (file, "- (id) init\n");
@@ -1097,6 +1097,10 @@ static const char* prefix = "MPSEWS";
     if (![base isEqual:@"NSObject"]) {
         fprintf (file, "#import \"%s.h\"\n", [base UTF8String]);
     }
+    else {
+        fprintf (file, "#import \"../handlers/MPSEWSObjectTypeHandler.h\"\n");
+    }
+
     fprintf (file, "\n\n\n");
     NSMutableSet<NSString*>* forwards = [[NSMutableSet<NSString*> alloc] init];
     for  (Element* e in elements) {
@@ -1128,7 +1132,7 @@ static const char* prefix = "MPSEWS";
     [elem setResultType:[@"MPSEWS" stringByAppendingString:[[elem name] stringByAppendingString:@"*"]]];
    
     fprintf (file, "+ (void) initialize;\n");
-    fprintf (file, "+ (BOOL) isValid:(%s%s*) val;\n\n", prefix, name);
+    fprintf (file, "+ (BOOL) isValid:(%s%s*) val forVersion:(MPSEWSExchangeVersion) ver;\n\n", prefix, name);
 
     fprintf (file, "- (id) init;\n");
     fprintf (file, "- (Class) handlerClass;\n");
@@ -1308,17 +1312,17 @@ static const char* prefix = "MPSEWS";
     fprintf (file, "    [handler register];\n");
     fprintf (file, "}\n\n");
 
-    fprintf (file, "+ (BOOL) isValid:(%s%s*) val\n", prefix, name);
+    fprintf (file, "+ (BOOL) isValid:(%s%s*) val forVersion:(MPSEWSExchangeVersion) ver\n", prefix, name);
     fprintf (file, "{   (void) val;\n");
 
     tlength = 4;
     nlength = 4;
     if (![base isEqual:@"NSObject"]) {
-        fprintf (file, "    if (![%s isValid:val]) return FALSE;\n", [base UTF8String]);
+        fprintf (file, "    if (![%s isValid:val forVersion:ver]) return FALSE;\n", [base UTF8String]);
     }
     for (Element* e in attributes)
     {
-        fprintf (file, "    if ([val %s] && ![%s%s isValid:[val %s]]) return FALSE;\n",
+        fprintf (file, "    if ([val %s] && ![%s%s isValid:[val %s] forVersion: ver]) return FALSE;\n",
                                       [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String],
                                       prefix,
                                       [[self pad:[self handler:[e type]]      toLength:(tlength - 4)] UTF8String],
@@ -1331,7 +1335,7 @@ static const char* prefix = "MPSEWS";
         {
             fprintf (file, "    if ([val %s]) {\n", [[self propertyName:[e name]] UTF8String]);
             fprintf (file, "        for (%s obj in [val %s]) {\n", [[self objectType:[e type]] UTF8String], [[self propertyName:[e name]] UTF8String]);
-            fprintf (file, "            if (![%s%s isValid:obj]) return FALSE;\n",
+            fprintf (file, "            if (![%s%s isValid:obj forVersion:ver]) return FALSE;\n",
                                         prefix,
                                         [[self pad:[self handler:[e type]]      toLength:(tlength - 4)] UTF8String]);
             fprintf (file, "        }\n");
@@ -1339,7 +1343,7 @@ static const char* prefix = "MPSEWS";
         }
         else
         {
-            fprintf (file, "    if ([val %s] && ![%s%s isValid:[val %s]]) return FALSE;\n",
+            fprintf (file, "    if ([val %s] && ![%s%s isValid:[val %s] forVersion:ver]) return FALSE;\n",
                                         [[self pad:[self propertyName:[e name]] toLength:nlength] UTF8String],
                                         prefix,
                                         [[self pad:[self handler:[e type]]      toLength:(tlength - 4)] UTF8String],

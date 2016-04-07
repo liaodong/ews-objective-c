@@ -11,7 +11,7 @@
 @interface MPSEWSRefreshSharingFolderType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRefreshSharingFolderType*) val;
++ (BOOL) isValid:(MPSEWSRefreshSharingFolderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

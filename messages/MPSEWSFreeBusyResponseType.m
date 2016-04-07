@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFreeBusyResponseType*) val
++ (BOOL) isValid:(MPSEWSFreeBusyResponseType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage]]) return FALSE;
-    if ([val freeBusyView] && ![MPSEWSFreeBusyView isValid:[val freeBusyView]]) return FALSE;
+    if ([val responseMessage] && ![MPSEWSResponseMessageType isValid:[val responseMessage] forVersion:ver]) return FALSE;
+    if ([val freeBusyView] && ![MPSEWSFreeBusyView isValid:[val freeBusyView] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

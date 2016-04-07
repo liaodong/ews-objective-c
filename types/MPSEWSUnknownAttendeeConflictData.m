@@ -14,9 +14,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSUnknownAttendeeConflictData*) val
++ (BOOL) isValid:(MPSEWSUnknownAttendeeConflictData*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSAttendeeConflictData isValid:val]) return FALSE;
+    if (![MPSEWSAttendeeConflictData isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

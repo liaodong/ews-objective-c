@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPermissionSetType*) val
++ (BOOL) isValid:(MPSEWSPermissionSetType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val permissions] && ![MPSEWSArrayOfPermissionsType isValid:[val permissions]]) return FALSE;
-    if ([val unknownEntries] && ![MPSEWSArrayOfUnknownEntriesType isValid:[val unknownEntries]]) return FALSE;
+    if ([val permissions] && ![MPSEWSArrayOfPermissionsType isValid:[val permissions] forVersion:ver]) return FALSE;
+    if ([val unknownEntries] && ![MPSEWSArrayOfUnknownEntriesType isValid:[val unknownEntries] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

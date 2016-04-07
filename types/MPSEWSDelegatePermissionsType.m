@@ -45,14 +45,14 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDelegatePermissionsType*) val
++ (BOOL) isValid:(MPSEWSDelegatePermissionsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val calendarFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val calendarFolderPermissionLevel]]) return FALSE;
-    if ([val tasksFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val tasksFolderPermissionLevel]]) return FALSE;
-    if ([val inboxFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val inboxFolderPermissionLevel]]) return FALSE;
-    if ([val contactsFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val contactsFolderPermissionLevel]]) return FALSE;
-    if ([val notesFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val notesFolderPermissionLevel]]) return FALSE;
-    if ([val journalFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val journalFolderPermissionLevel]]) return FALSE;
+    if ([val calendarFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val calendarFolderPermissionLevel] forVersion:ver]) return FALSE;
+    if ([val tasksFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val tasksFolderPermissionLevel] forVersion:ver]) return FALSE;
+    if ([val inboxFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val inboxFolderPermissionLevel] forVersion:ver]) return FALSE;
+    if ([val contactsFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val contactsFolderPermissionLevel] forVersion:ver]) return FALSE;
+    if ([val notesFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val notesFolderPermissionLevel] forVersion:ver]) return FALSE;
+    if ([val journalFolderPermissionLevel] && ![MPSEWSDelegateFolderPermissionLevelType isValid:[val journalFolderPermissionLevel] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

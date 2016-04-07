@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfPermissionsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfPermissionsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val permission]) {
         for (MPSEWSPermissionType* obj in [val permission]) {
-            if (![MPSEWSPermissionType isValid:obj]) return FALSE;
+            if (![MPSEWSPermissionType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPhoneNumberDictionaryType*) val
++ (BOOL) isValid:(MPSEWSPhoneNumberDictionaryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val entry]) {
         for (MPSEWSPhoneNumberDictionaryEntryType* obj in [val entry]) {
-            if (![MPSEWSPhoneNumberDictionaryEntryType isValid:obj]) return FALSE;
+            if (![MPSEWSPhoneNumberDictionaryEntryType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

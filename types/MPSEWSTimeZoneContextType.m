@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSTimeZoneContextType*) val
++ (BOOL) isValid:(MPSEWSTimeZoneContextType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val timeZoneDefinition] && ![MPSEWSTimeZoneDefinitionType isValid:[val timeZoneDefinition]]) return FALSE;
+    if ([val timeZoneDefinition] && ![MPSEWSTimeZoneDefinitionType isValid:[val timeZoneDefinition] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

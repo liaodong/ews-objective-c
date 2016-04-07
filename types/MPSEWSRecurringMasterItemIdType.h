@@ -10,7 +10,7 @@
 @interface MPSEWSRecurringMasterItemIdType : MPSEWSBaseItemIdType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSRecurringMasterItemIdType*) val;
++ (BOOL) isValid:(MPSEWSRecurringMasterItemIdType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

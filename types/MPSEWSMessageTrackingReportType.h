@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -13,7 +14,7 @@
 @interface MPSEWSMessageTrackingReportType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMessageTrackingReportType*) val;
++ (BOOL) isValid:(MPSEWSMessageTrackingReportType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

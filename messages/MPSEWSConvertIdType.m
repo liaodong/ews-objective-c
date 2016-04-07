@@ -25,11 +25,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSConvertIdType*) val
++ (BOOL) isValid:(MPSEWSConvertIdType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val destinationFormat] && ![MPSEWSIdFormatType isValid:[val destinationFormat]]) return FALSE;
-    if ([val sourceIds] && ![MPSEWSNonEmptyArrayOfAlternateIdsType isValid:[val sourceIds]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val destinationFormat] && ![MPSEWSIdFormatType isValid:[val destinationFormat] forVersion: ver]) return FALSE;
+    if ([val sourceIds] && ![MPSEWSNonEmptyArrayOfAlternateIdsType isValid:[val sourceIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

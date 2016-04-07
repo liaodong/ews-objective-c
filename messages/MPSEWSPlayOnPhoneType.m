@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPlayOnPhoneType*) val
++ (BOOL) isValid:(MPSEWSPlayOnPhoneType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId]]) return FALSE;
-    if ([val dialString] && ![MPSEWSStringTypeHandler isValid:[val dialString]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val itemId] && ![MPSEWSItemIdType isValid:[val itemId] forVersion:ver]) return FALSE;
+    if ([val dialString] && ![MPSEWSStringTypeHandler isValid:[val dialString] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

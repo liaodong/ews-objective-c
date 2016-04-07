@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSItemInfoResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSItemInfoResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val items] && ![MPSEWSArrayOfRealItemsType isValid:[val items]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val items] && ![MPSEWSArrayOfRealItemsType isValid:[val items] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

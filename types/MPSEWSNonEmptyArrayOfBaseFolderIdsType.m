@@ -28,16 +28,16 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfBaseFolderIdsType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfBaseFolderIdsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val folderId]) {
         for (MPSEWSFolderIdType* obj in [val folderId]) {
-            if (![MPSEWSFolderIdType isValid:obj]) return FALSE;
+            if (![MPSEWSFolderIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     if ([val distinguishedFolderId]) {
         for (MPSEWSDistinguishedFolderIdType* obj in [val distinguishedFolderId]) {
-            if (![MPSEWSDistinguishedFolderIdType isValid:obj]) return FALSE;
+            if (![MPSEWSDistinguishedFolderIdType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

@@ -19,9 +19,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSExcludesValueType*) val
++ (BOOL) isValid:(MPSEWSExcludesValueType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val value] && ![MPSEWSExcludesAttributeType isValid:[val value]]) return FALSE;
+    if ([val value] && ![MPSEWSExcludesAttributeType isValid:[val value] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

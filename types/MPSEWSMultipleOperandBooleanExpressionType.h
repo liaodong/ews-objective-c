@@ -11,7 +11,7 @@
 @interface MPSEWSMultipleOperandBooleanExpressionType : MPSEWSSearchExpressionType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMultipleOperandBooleanExpressionType*) val;
++ (BOOL) isValid:(MPSEWSMultipleOperandBooleanExpressionType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

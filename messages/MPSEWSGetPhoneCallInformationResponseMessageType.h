@@ -11,7 +11,7 @@
 @interface MPSEWSGetPhoneCallInformationResponseMessageType : MPSEWSResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetPhoneCallInformationResponseMessageType*) val;
++ (BOOL) isValid:(MPSEWSGetPhoneCallInformationResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

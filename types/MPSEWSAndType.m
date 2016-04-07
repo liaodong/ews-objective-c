@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAndType*) val
++ (BOOL) isValid:(MPSEWSAndType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSMultipleOperandBooleanExpressionType isValid:val]) return FALSE;
+    if (![MPSEWSMultipleOperandBooleanExpressionType isValid:val forVersion:ver]) return FALSE;
     return TRUE;
 }
 

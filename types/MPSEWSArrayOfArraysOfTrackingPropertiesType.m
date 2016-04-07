@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfArraysOfTrackingPropertiesType*) val
++ (BOOL) isValid:(MPSEWSArrayOfArraysOfTrackingPropertiesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val arrayOfTrackingPropertiesType]) {
         for (MPSEWSArrayOfTrackingPropertiesType* obj in [val arrayOfTrackingPropertiesType]) {
-            if (![MPSEWSArrayOfTrackingPropertiesType isValid:obj]) return FALSE;
+            if (![MPSEWSArrayOfTrackingPropertiesType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

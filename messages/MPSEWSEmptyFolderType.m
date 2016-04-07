@@ -30,12 +30,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSEmptyFolderType*) val
++ (BOOL) isValid:(MPSEWSEmptyFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType]]) return FALSE;
-    if ([val deleteSubFolders] && ![MPSEWSBooleanTypeHandler isValid:[val deleteSubFolders]]) return FALSE;
-    if ([val folderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val folderIds]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val deleteType] && ![MPSEWSDisposalType isValid:[val deleteType] forVersion: ver]) return FALSE;
+    if ([val deleteSubFolders] && ![MPSEWSBooleanTypeHandler isValid:[val deleteSubFolders] forVersion: ver]) return FALSE;
+    if ([val folderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val folderIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

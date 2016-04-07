@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSEncryptedSharedFolderDataType*) val
++ (BOOL) isValid:(MPSEWSEncryptedSharedFolderDataType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val token] && ![MPSEWSXmlContentTypeHandler isValid:[val token]]) return FALSE;
-    if ([val data] && ![MPSEWSXmlContentTypeHandler isValid:[val data]]) return FALSE;
+    if ([val token] && ![MPSEWSXmlContentTypeHandler isValid:[val token] forVersion:ver]) return FALSE;
+    if ([val data] && ![MPSEWSXmlContentTypeHandler isValid:[val data] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

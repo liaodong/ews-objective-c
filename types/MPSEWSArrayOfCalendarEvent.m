@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfCalendarEvent*) val
++ (BOOL) isValid:(MPSEWSArrayOfCalendarEvent*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val calendarEvent]) {
         for (MPSEWSCalendarEvent* obj in [val calendarEvent]) {
-            if (![MPSEWSCalendarEvent isValid:obj]) return FALSE;
+            if (![MPSEWSCalendarEvent isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

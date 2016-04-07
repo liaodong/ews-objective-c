@@ -65,17 +65,17 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFindMessageTrackingSearchResultType*) val
++ (BOOL) isValid:(MPSEWSFindMessageTrackingSearchResultType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject]]) return FALSE;
-    if ([val sender] && ![MPSEWSEmailAddressType isValid:[val sender]]) return FALSE;
-    if ([val purportedSender] && ![MPSEWSEmailAddressType isValid:[val purportedSender]]) return FALSE;
-    if ([val recipients] && ![MPSEWSArrayOfRecipientsType isValid:[val recipients]]) return FALSE;
-    if ([val submittedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val submittedTime]]) return FALSE;
-    if ([val messageTrackingReportId] && ![MPSEWSNonEmptyStringType isValid:[val messageTrackingReportId]]) return FALSE;
-    if ([val previousHopServer] && ![MPSEWSNonEmptyStringType isValid:[val previousHopServer]]) return FALSE;
-    if ([val firstHopServer] && ![MPSEWSNonEmptyStringType isValid:[val firstHopServer]]) return FALSE;
-    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties]]) return FALSE;
+    if ([val subject] && ![MPSEWSStringTypeHandler isValid:[val subject] forVersion:ver]) return FALSE;
+    if ([val sender] && ![MPSEWSEmailAddressType isValid:[val sender] forVersion:ver]) return FALSE;
+    if ([val purportedSender] && ![MPSEWSEmailAddressType isValid:[val purportedSender] forVersion:ver]) return FALSE;
+    if ([val recipients] && ![MPSEWSArrayOfRecipientsType isValid:[val recipients] forVersion:ver]) return FALSE;
+    if ([val submittedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val submittedTime] forVersion:ver]) return FALSE;
+    if ([val messageTrackingReportId] && ![MPSEWSNonEmptyStringType isValid:[val messageTrackingReportId] forVersion:ver]) return FALSE;
+    if ([val previousHopServer] && ![MPSEWSNonEmptyStringType isValid:[val previousHopServer] forVersion:ver]) return FALSE;
+    if ([val firstHopServer] && ![MPSEWSNonEmptyStringType isValid:[val firstHopServer] forVersion:ver]) return FALSE;
+    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

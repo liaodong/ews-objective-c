@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfRecipientTrackingEventType*) val
++ (BOOL) isValid:(MPSEWSArrayOfRecipientTrackingEventType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val recipientTrackingEvent]) {
         for (MPSEWSRecipientTrackingEventType* obj in [val recipientTrackingEvent]) {
-            if (![MPSEWSRecipientTrackingEventType isValid:obj]) return FALSE;
+            if (![MPSEWSRecipientTrackingEventType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

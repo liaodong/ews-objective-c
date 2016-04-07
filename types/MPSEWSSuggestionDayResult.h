@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -10,7 +11,7 @@
 @interface MPSEWSSuggestionDayResult : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSSuggestionDayResult*) val;
++ (BOOL) isValid:(MPSEWSSuggestionDayResult*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

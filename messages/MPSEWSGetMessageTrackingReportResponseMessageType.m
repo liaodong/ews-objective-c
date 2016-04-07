@@ -67,13 +67,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetMessageTrackingReportResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetMessageTrackingReportResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val messageTrackingReport] && ![MPSEWSMessageTrackingReportType isValid:[val messageTrackingReport]]) return FALSE;
-    if ([val diagnostics] && ![MPSEWSArrayOfStringsType isValid:[val diagnostics]]) return FALSE;
-    if ([val errors] && ![MPSEWSArrayOfArraysOfTrackingPropertiesType isValid:[val errors]]) return FALSE;
-    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val messageTrackingReport] && ![MPSEWSMessageTrackingReportType isValid:[val messageTrackingReport] forVersion:ver]) return FALSE;
+    if ([val diagnostics] && ![MPSEWSArrayOfStringsType isValid:[val diagnostics] forVersion:ver]) return FALSE;
+    if ([val errors] && ![MPSEWSArrayOfArraysOfTrackingPropertiesType isValid:[val errors] forVersion:ver]) return FALSE;
+    if ([val properties] && ![MPSEWSArrayOfTrackingPropertiesType isValid:[val properties] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

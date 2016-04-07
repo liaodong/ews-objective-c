@@ -25,11 +25,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetServerTimeZonesType*) val
++ (BOOL) isValid:(MPSEWSGetServerTimeZonesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val returnFullTimeZoneData] && ![MPSEWSBooleanTypeHandler isValid:[val returnFullTimeZoneData]]) return FALSE;
-    if ([val ids ] && ![MPSEWSNonEmptyArrayOfTimeZoneIdType isValid:[val ids ]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val returnFullTimeZoneData] && ![MPSEWSBooleanTypeHandler isValid:[val returnFullTimeZoneData] forVersion: ver]) return FALSE;
+    if ([val ids ] && ![MPSEWSNonEmptyArrayOfTimeZoneIdType isValid:[val ids ] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

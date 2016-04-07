@@ -36,13 +36,13 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSServerVersionInfoType*) val
++ (BOOL) isValid:(MPSEWSServerVersionInfoType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val majorVersion] && ![MPSEWSIntegerTypeHandler isValid:[val majorVersion]]) return FALSE;
-    if ([val minorVersion] && ![MPSEWSIntegerTypeHandler isValid:[val minorVersion]]) return FALSE;
-    if ([val majorBuildNumber] && ![MPSEWSIntegerTypeHandler isValid:[val majorBuildNumber]]) return FALSE;
-    if ([val minorBuildNumber] && ![MPSEWSIntegerTypeHandler isValid:[val minorBuildNumber]]) return FALSE;
-    if ([val version] && ![MPSEWSStringTypeHandler isValid:[val version]]) return FALSE;
+    if ([val majorVersion] && ![MPSEWSIntegerTypeHandler isValid:[val majorVersion] forVersion: ver]) return FALSE;
+    if ([val minorVersion] && ![MPSEWSIntegerTypeHandler isValid:[val minorVersion] forVersion: ver]) return FALSE;
+    if ([val majorBuildNumber] && ![MPSEWSIntegerTypeHandler isValid:[val majorBuildNumber] forVersion: ver]) return FALSE;
+    if ([val minorBuildNumber] && ![MPSEWSIntegerTypeHandler isValid:[val minorBuildNumber] forVersion: ver]) return FALSE;
+    if ([val version] && ![MPSEWSStringTypeHandler isValid:[val version] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

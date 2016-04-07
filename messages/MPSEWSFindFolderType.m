@@ -49,15 +49,15 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFindFolderType*) val
++ (BOOL) isValid:(MPSEWSFindFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val traversal] && ![MPSEWSFolderQueryTraversalType isValid:[val traversal]]) return FALSE;
-    if ([val folderShape] && ![MPSEWSFolderResponseShapeType isValid:[val folderShape]]) return FALSE;
-    if ([val indexedPageFolderView] && ![MPSEWSIndexedPageViewType isValid:[val indexedPageFolderView]]) return FALSE;
-    if ([val fractionalPageFolderView] && ![MPSEWSFractionalPageViewType isValid:[val fractionalPageFolderView]]) return FALSE;
-    if ([val restriction] && ![MPSEWSRestrictionType isValid:[val restriction]]) return FALSE;
-    if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val traversal] && ![MPSEWSFolderQueryTraversalType isValid:[val traversal] forVersion: ver]) return FALSE;
+    if ([val folderShape] && ![MPSEWSFolderResponseShapeType isValid:[val folderShape] forVersion:ver]) return FALSE;
+    if ([val indexedPageFolderView] && ![MPSEWSIndexedPageViewType isValid:[val indexedPageFolderView] forVersion:ver]) return FALSE;
+    if ([val fractionalPageFolderView] && ![MPSEWSFractionalPageViewType isValid:[val fractionalPageFolderView] forVersion:ver]) return FALSE;
+    if ([val restriction] && ![MPSEWSRestrictionType isValid:[val restriction] forVersion:ver]) return FALSE;
+    if ([val parentFolderIds] && ![MPSEWSNonEmptyArrayOfBaseFolderIdsType isValid:[val parentFolderIds] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

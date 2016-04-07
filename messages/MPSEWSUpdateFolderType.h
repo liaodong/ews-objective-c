@@ -11,7 +11,7 @@
 @interface MPSEWSUpdateFolderType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSUpdateFolderType*) val;
++ (BOOL) isValid:(MPSEWSUpdateFolderType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

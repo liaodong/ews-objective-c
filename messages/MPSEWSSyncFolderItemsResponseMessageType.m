@@ -60,12 +60,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSyncFolderItemsResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSSyncFolderItemsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState]]) return FALSE;
-    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange]]) return FALSE;
-    if ([val changes] && ![MPSEWSSyncFolderItemsChangesType isValid:[val changes]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val syncState] && ![MPSEWSStringTypeHandler isValid:[val syncState] forVersion:ver]) return FALSE;
+    if ([val includesLastItemInRange] && ![MPSEWSBooleanTypeHandler isValid:[val includesLastItemInRange] forVersion:ver]) return FALSE;
+    if ([val changes] && ![MPSEWSSyncFolderItemsChangesType isValid:[val changes] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

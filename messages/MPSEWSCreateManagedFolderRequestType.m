@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCreateManagedFolderRequestType*) val
++ (BOOL) isValid:(MPSEWSCreateManagedFolderRequestType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val folderNames] && ![MPSEWSNonEmptyArrayOfFolderNamesType isValid:[val folderNames]]) return FALSE;
-    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val folderNames] && ![MPSEWSNonEmptyArrayOfFolderNamesType isValid:[val folderNames] forVersion:ver]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddressType isValid:[val mailbox] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

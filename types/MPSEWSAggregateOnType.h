@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -12,7 +13,7 @@
 @interface MPSEWSAggregateOnType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSAggregateOnType*) val;
++ (BOOL) isValid:(MPSEWSAggregateOnType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

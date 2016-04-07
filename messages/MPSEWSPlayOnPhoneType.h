@@ -11,7 +11,7 @@
 @interface MPSEWSPlayOnPhoneType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPlayOnPhoneType*) val;
++ (BOOL) isValid:(MPSEWSPlayOnPhoneType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

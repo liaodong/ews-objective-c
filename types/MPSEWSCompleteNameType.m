@@ -65,18 +65,18 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCompleteNameType*) val
++ (BOOL) isValid:(MPSEWSCompleteNameType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val title] && ![MPSEWSStringTypeHandler isValid:[val title]]) return FALSE;
-    if ([val firstName] && ![MPSEWSStringTypeHandler isValid:[val firstName]]) return FALSE;
-    if ([val middleName] && ![MPSEWSStringTypeHandler isValid:[val middleName]]) return FALSE;
-    if ([val lastName] && ![MPSEWSStringTypeHandler isValid:[val lastName]]) return FALSE;
-    if ([val suffix] && ![MPSEWSStringTypeHandler isValid:[val suffix]]) return FALSE;
-    if ([val initials] && ![MPSEWSStringTypeHandler isValid:[val initials]]) return FALSE;
-    if ([val fullName] && ![MPSEWSStringTypeHandler isValid:[val fullName]]) return FALSE;
-    if ([val nickname] && ![MPSEWSStringTypeHandler isValid:[val nickname]]) return FALSE;
-    if ([val yomiFirstName] && ![MPSEWSStringTypeHandler isValid:[val yomiFirstName]]) return FALSE;
-    if ([val yomiLastName] && ![MPSEWSStringTypeHandler isValid:[val yomiLastName]]) return FALSE;
+    if ([val title] && ![MPSEWSStringTypeHandler isValid:[val title] forVersion:ver]) return FALSE;
+    if ([val firstName] && ![MPSEWSStringTypeHandler isValid:[val firstName] forVersion:ver]) return FALSE;
+    if ([val middleName] && ![MPSEWSStringTypeHandler isValid:[val middleName] forVersion:ver]) return FALSE;
+    if ([val lastName] && ![MPSEWSStringTypeHandler isValid:[val lastName] forVersion:ver]) return FALSE;
+    if ([val suffix] && ![MPSEWSStringTypeHandler isValid:[val suffix] forVersion:ver]) return FALSE;
+    if ([val initials] && ![MPSEWSStringTypeHandler isValid:[val initials] forVersion:ver]) return FALSE;
+    if ([val fullName] && ![MPSEWSStringTypeHandler isValid:[val fullName] forVersion:ver]) return FALSE;
+    if ([val nickname] && ![MPSEWSStringTypeHandler isValid:[val nickname] forVersion:ver]) return FALSE;
+    if ([val yomiFirstName] && ![MPSEWSStringTypeHandler isValid:[val yomiFirstName] forVersion:ver]) return FALSE;
+    if ([val yomiLastName] && ![MPSEWSStringTypeHandler isValid:[val yomiLastName] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

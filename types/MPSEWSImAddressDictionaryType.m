@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSImAddressDictionaryType*) val
++ (BOOL) isValid:(MPSEWSImAddressDictionaryType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val entry]) {
         for (MPSEWSImAddressDictionaryEntryType* obj in [val entry]) {
-            if (![MPSEWSImAddressDictionaryEntryType isValid:obj]) return FALSE;
+            if (![MPSEWSImAddressDictionaryEntryType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

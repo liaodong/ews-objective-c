@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNonEmptyArrayOfDeletedOccurrencesType*) val
++ (BOOL) isValid:(MPSEWSNonEmptyArrayOfDeletedOccurrencesType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val deletedOccurrence]) {
         for (MPSEWSDeletedOccurrenceInfoType* obj in [val deletedOccurrence]) {
-            if (![MPSEWSDeletedOccurrenceInfoType isValid:obj]) return FALSE;
+            if (![MPSEWSDeletedOccurrenceInfoType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

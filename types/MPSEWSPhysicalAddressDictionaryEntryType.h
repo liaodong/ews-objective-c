@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -9,7 +10,7 @@
 @interface MPSEWSPhysicalAddressDictionaryEntryType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryEntryType*) val;
++ (BOOL) isValid:(MPSEWSPhysicalAddressDictionaryEntryType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

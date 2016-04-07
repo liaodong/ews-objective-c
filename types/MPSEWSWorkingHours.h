@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSWorkingHours : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSWorkingHours*) val;
++ (BOOL) isValid:(MPSEWSWorkingHours*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

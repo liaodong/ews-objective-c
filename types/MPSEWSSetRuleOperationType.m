@@ -20,10 +20,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSetRuleOperationType*) val
++ (BOOL) isValid:(MPSEWSSetRuleOperationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRuleOperationType isValid:val]) return FALSE;
-    if ([val rule] && ![MPSEWSRuleType isValid:[val rule]]) return FALSE;
+    if (![MPSEWSRuleOperationType isValid:val forVersion:ver]) return FALSE;
+    if ([val rule] && ![MPSEWSRuleType isValid:[val rule] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

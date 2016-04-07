@@ -44,15 +44,15 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPathToExtendedFieldType*) val
++ (BOOL) isValid:(MPSEWSPathToExtendedFieldType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBasePathToElementType isValid:val]) return FALSE;
-    if ([val distinguishedPropertySetId] && ![MPSEWSDistinguishedPropertySetType isValid:[val distinguishedPropertySetId]]) return FALSE;
-    if ([val propertySetId] && ![MPSEWSGuidType isValid:[val propertySetId]]) return FALSE;
-    if ([val propertyTag] && ![MPSEWSPropertyTagType isValid:[val propertyTag]]) return FALSE;
-    if ([val propertyName] && ![MPSEWSStringTypeHandler isValid:[val propertyName]]) return FALSE;
-    if ([val propertyId] && ![MPSEWSIntegerTypeHandler isValid:[val propertyId]]) return FALSE;
-    if ([val propertyType] && ![MPSEWSMapiPropertyTypeType isValid:[val propertyType]]) return FALSE;
+    if (![MPSEWSBasePathToElementType isValid:val forVersion:ver]) return FALSE;
+    if ([val distinguishedPropertySetId] && ![MPSEWSDistinguishedPropertySetType isValid:[val distinguishedPropertySetId] forVersion: ver]) return FALSE;
+    if ([val propertySetId] && ![MPSEWSGuidType isValid:[val propertySetId] forVersion: ver]) return FALSE;
+    if ([val propertyTag] && ![MPSEWSPropertyTagType isValid:[val propertyTag] forVersion: ver]) return FALSE;
+    if ([val propertyName] && ![MPSEWSStringTypeHandler isValid:[val propertyName] forVersion: ver]) return FALSE;
+    if ([val propertyId] && ![MPSEWSIntegerTypeHandler isValid:[val propertyId] forVersion: ver]) return FALSE;
+    if ([val propertyType] && ![MPSEWSMapiPropertyTypeType isValid:[val propertyType] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

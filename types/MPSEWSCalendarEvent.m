@@ -37,12 +37,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSCalendarEvent*) val
++ (BOOL) isValid:(MPSEWSCalendarEvent*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val startTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startTime]]) return FALSE;
-    if ([val endTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endTime]]) return FALSE;
-    if ([val busyType] && ![MPSEWSLegacyFreeBusyType isValid:[val busyType]]) return FALSE;
-    if ([val calendarEventDetails] && ![MPSEWSCalendarEventDetails isValid:[val calendarEventDetails]]) return FALSE;
+    if ([val startTime] && ![MPSEWSDateTimeTypeHandler isValid:[val startTime] forVersion:ver]) return FALSE;
+    if ([val endTime] && ![MPSEWSDateTimeTypeHandler isValid:[val endTime] forVersion:ver]) return FALSE;
+    if ([val busyType] && ![MPSEWSLegacyFreeBusyType isValid:[val busyType] forVersion:ver]) return FALSE;
+    if ([val calendarEventDetails] && ![MPSEWSCalendarEventDetails isValid:[val calendarEventDetails] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

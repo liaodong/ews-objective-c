@@ -59,16 +59,16 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSAttachmentType*) val
++ (BOOL) isValid:(MPSEWSAttachmentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val attachmentId] && ![MPSEWSAttachmentIdType isValid:[val attachmentId]]) return FALSE;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val contentType] && ![MPSEWSStringTypeHandler isValid:[val contentType]]) return FALSE;
-    if ([val contentId] && ![MPSEWSStringTypeHandler isValid:[val contentId]]) return FALSE;
-    if ([val contentLocation] && ![MPSEWSStringTypeHandler isValid:[val contentLocation]]) return FALSE;
-    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size]]) return FALSE;
-    if ([val lastModifiedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastModifiedTime]]) return FALSE;
-    if ([val isInline] && ![MPSEWSBooleanTypeHandler isValid:[val isInline]]) return FALSE;
+    if ([val attachmentId] && ![MPSEWSAttachmentIdType isValid:[val attachmentId] forVersion:ver]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion:ver]) return FALSE;
+    if ([val contentType] && ![MPSEWSStringTypeHandler isValid:[val contentType] forVersion:ver]) return FALSE;
+    if ([val contentId] && ![MPSEWSStringTypeHandler isValid:[val contentId] forVersion:ver]) return FALSE;
+    if ([val contentLocation] && ![MPSEWSStringTypeHandler isValid:[val contentLocation] forVersion:ver]) return FALSE;
+    if ([val size] && ![MPSEWSIntegerTypeHandler isValid:[val size] forVersion:ver]) return FALSE;
+    if ([val lastModifiedTime] && ![MPSEWSDateTimeTypeHandler isValid:[val lastModifiedTime] forVersion:ver]) return FALSE;
+    if ([val isInline] && ![MPSEWSBooleanTypeHandler isValid:[val isInline] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

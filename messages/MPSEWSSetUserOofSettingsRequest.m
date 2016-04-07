@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSetUserOofSettingsRequest*) val
++ (BOOL) isValid:(MPSEWSSetUserOofSettingsRequest*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val mailbox] && ![MPSEWSEmailAddress isValid:[val mailbox]]) return FALSE;
-    if ([val userOofSettings] && ![MPSEWSUserOofSettings isValid:[val userOofSettings]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val mailbox] && ![MPSEWSEmailAddress isValid:[val mailbox] forVersion:ver]) return FALSE;
+    if ([val userOofSettings] && ![MPSEWSUserOofSettings isValid:[val userOofSettings] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

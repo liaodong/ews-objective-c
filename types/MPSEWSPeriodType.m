@@ -28,11 +28,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSPeriodType*) val
++ (BOOL) isValid:(MPSEWSPeriodType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val bias] && ![MPSEWSDurationTypeHandler isValid:[val bias]]) return FALSE;
-    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name]]) return FALSE;
-    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ]]) return FALSE;
+    if ([val bias] && ![MPSEWSDurationTypeHandler isValid:[val bias] forVersion: ver]) return FALSE;
+    if ([val name] && ![MPSEWSStringTypeHandler isValid:[val name] forVersion: ver]) return FALSE;
+    if ([val id  ] && ![MPSEWSStringTypeHandler isValid:[val id  ] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

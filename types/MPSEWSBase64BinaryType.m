@@ -10,7 +10,7 @@
      MPSEWSObjectTypeHandler* handler = [[MPSEWSObjectTypeHandler alloc] initWithClass:[MPSEWSBase64BinaryType class] andContentHandlerClass:[MPSEWSBase64BinaryTypeHandler class]];
      [handler register];
 }
-+ (BOOL) isValid:(MPSEWSBase64BinaryType*)val
++ (BOOL) isValid:(MPSEWSBase64BinaryType*)val forVersion:(MPSEWSExchangeVersion) ver
 {
     (void) val;
     return TRUE; // FIX ME

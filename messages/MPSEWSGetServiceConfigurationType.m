@@ -26,11 +26,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetServiceConfigurationType*) val
++ (BOOL) isValid:(MPSEWSGetServiceConfigurationType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val actingAs] && ![MPSEWSEmailAddressType isValid:[val actingAs]]) return FALSE;
-    if ([val requestedConfiguration] && ![MPSEWSArrayOfServiceConfigurationType isValid:[val requestedConfiguration]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val actingAs] && ![MPSEWSEmailAddressType isValid:[val actingAs] forVersion:ver]) return FALSE;
+    if ([val requestedConfiguration] && ![MPSEWSArrayOfServiceConfigurationType isValid:[val requestedConfiguration] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

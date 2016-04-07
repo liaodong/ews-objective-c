@@ -37,12 +37,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSRuleValidationErrorType*) val
++ (BOOL) isValid:(MPSEWSRuleValidationErrorType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val fieldURI] && ![MPSEWSRuleFieldURIType isValid:[val fieldURI]]) return FALSE;
-    if ([val errorCode] && ![MPSEWSRuleValidationErrorCodeType isValid:[val errorCode]]) return FALSE;
-    if ([val errorMessage] && ![MPSEWSStringTypeHandler isValid:[val errorMessage]]) return FALSE;
-    if ([val fieldValue] && ![MPSEWSStringTypeHandler isValid:[val fieldValue]]) return FALSE;
+    if ([val fieldURI] && ![MPSEWSRuleFieldURIType isValid:[val fieldURI] forVersion:ver]) return FALSE;
+    if ([val errorCode] && ![MPSEWSRuleValidationErrorCodeType isValid:[val errorCode] forVersion:ver]) return FALSE;
+    if ([val errorMessage] && ![MPSEWSStringTypeHandler isValid:[val errorMessage] forVersion:ver]) return FALSE;
+    if ([val fieldValue] && ![MPSEWSStringTypeHandler isValid:[val fieldValue] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -13,7 +13,7 @@
 @interface MPSEWSFindConversationType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSFindConversationType*) val;
++ (BOOL) isValid:(MPSEWSFindConversationType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

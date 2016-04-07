@@ -26,10 +26,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSNumberedRecurrenceRangeType*) val
++ (BOOL) isValid:(MPSEWSNumberedRecurrenceRangeType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSRecurrenceRangeBaseType isValid:val]) return FALSE;
-    if ([val numberOfOccurrences] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfOccurrences]]) return FALSE;
+    if (![MPSEWSRecurrenceRangeBaseType isValid:val forVersion:ver]) return FALSE;
+    if ([val numberOfOccurrences] && ![MPSEWSIntegerTypeHandler isValid:[val numberOfOccurrences] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

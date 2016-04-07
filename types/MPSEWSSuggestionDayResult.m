@@ -32,11 +32,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSuggestionDayResult*) val
++ (BOOL) isValid:(MPSEWSSuggestionDayResult*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val date] && ![MPSEWSDateTimeTypeHandler isValid:[val date]]) return FALSE;
-    if ([val dayQuality] && ![MPSEWSSuggestionQuality isValid:[val dayQuality]]) return FALSE;
-    if ([val suggestionArray] && ![MPSEWSArrayOfSuggestion isValid:[val suggestionArray]]) return FALSE;
+    if ([val date] && ![MPSEWSDateTimeTypeHandler isValid:[val date] forVersion:ver]) return FALSE;
+    if ([val dayQuality] && ![MPSEWSSuggestionQuality isValid:[val dayQuality] forVersion:ver]) return FALSE;
+    if ([val suggestionArray] && ![MPSEWSArrayOfSuggestion isValid:[val suggestionArray] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

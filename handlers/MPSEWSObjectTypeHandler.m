@@ -23,6 +23,7 @@
 
     [self setProp: property];
     [self setCls:  cls];
+	[self setSel:  nil];
 
     selector = nil;
 
@@ -44,7 +45,7 @@
 - (SEL) selector
 {
     if (!selector) {
-        selector = NSSelectorFromString([[self sel] stringByAppendingString:@":"]);
+		selector = NSSelectorFromString([[self sel] stringByAppendingString:@":"]);
     }
     return selector;
 }
@@ -76,9 +77,9 @@
 
     clazz = c;
 
-    keys       = [[NSMutableArray alloc] initWithCapacity: 32];
-    elements   = [[NSMutableDictionary alloc] initWithCapacity: 32];
-    attributes = [[NSMutableDictionary alloc] initWithCapacity: 8];
+    keys      = [[NSMutableArray alloc] initWithCapacity: 32];
+    elements  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+	attributes = [[NSMutableDictionary alloc] initWithCapacity:10];
 
     contentHandlerClass = h;
 
@@ -91,9 +92,9 @@
 
     clazz = c;
 
-    keys       = [[NSMutableArray alloc] initWithCapacity: 32];
-    elements   = [[NSMutableDictionary alloc] initWithCapacity: 32];
-    attributes = [[NSMutableDictionary alloc] initWithCapacity: 8];
+    keys      = [[NSMutableArray alloc] initWithCapacity: 32];
+    elements  = [[NSMutableDictionary alloc] initWithCapacity: 32];
+	attributes = [[NSMutableDictionary alloc] initWithCapacity:10];
 
     contentHandlerClass = nil;
 

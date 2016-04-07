@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfSearchItemKindsType*) val
++ (BOOL) isValid:(MPSEWSArrayOfSearchItemKindsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val searchItemKind]) {
         for (NSString* obj in [val searchItemKind]) {
-            if (![MPSEWSSearchItemKindType isValid:obj]) return FALSE;
+            if (![MPSEWSSearchItemKindType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

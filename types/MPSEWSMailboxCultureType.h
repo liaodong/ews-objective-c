@@ -10,7 +10,7 @@
 @interface MPSEWSMailboxCultureType : MPSEWSLanguageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSMailboxCultureType*) val;
++ (BOOL) isValid:(MPSEWSMailboxCultureType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

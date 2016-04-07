@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfFindMessageTrackingSearchResultType*) val
++ (BOOL) isValid:(MPSEWSArrayOfFindMessageTrackingSearchResultType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val messageTrackingSearchResult]) {
         for (MPSEWSFindMessageTrackingSearchResultType* obj in [val messageTrackingSearchResult]) {
-            if (![MPSEWSFindMessageTrackingSearchResultType isValid:obj]) return FALSE;
+            if (![MPSEWSFindMessageTrackingSearchResultType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

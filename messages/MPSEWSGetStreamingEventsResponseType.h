@@ -10,7 +10,7 @@
 @interface MPSEWSGetStreamingEventsResponseType : MPSEWSBaseResponseMessageType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetStreamingEventsResponseType*) val;
++ (BOOL) isValid:(MPSEWSGetStreamingEventsResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

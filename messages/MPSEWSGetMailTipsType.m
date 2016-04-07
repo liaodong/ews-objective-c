@@ -32,12 +32,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetMailTipsType*) val
++ (BOOL) isValid:(MPSEWSGetMailTipsType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseRequestType isValid:val]) return FALSE;
-    if ([val sendingAs] && ![MPSEWSEmailAddressType isValid:[val sendingAs]]) return FALSE;
-    if ([val recipients] && ![MPSEWSArrayOfRecipientsType isValid:[val recipients]]) return FALSE;
-    if ([val mailTipsRequested] && ![MPSEWSMailTipTypes isValid:[val mailTipsRequested]]) return FALSE;
+    if (![MPSEWSBaseRequestType isValid:val forVersion:ver]) return FALSE;
+    if ([val sendingAs] && ![MPSEWSEmailAddressType isValid:[val sendingAs] forVersion:ver]) return FALSE;
+    if ([val recipients] && ![MPSEWSArrayOfRecipientsType isValid:[val recipients] forVersion:ver]) return FALSE;
+    if ([val mailTipsRequested] && ![MPSEWSMailTipTypes isValid:[val mailTipsRequested] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

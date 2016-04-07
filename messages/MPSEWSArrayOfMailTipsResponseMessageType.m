@@ -21,11 +21,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSArrayOfMailTipsResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSArrayOfMailTipsResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
     if ([val mailTipsResponseMessageType]) {
         for (MPSEWSMailTipsResponseMessageType* obj in [val mailTipsResponseMessageType]) {
-            if (![MPSEWSMailTipsResponseMessageType isValid:obj]) return FALSE;
+            if (![MPSEWSMailTipsResponseMessageType isValid:obj forVersion:ver]) return FALSE;
         }
     }
     return TRUE;

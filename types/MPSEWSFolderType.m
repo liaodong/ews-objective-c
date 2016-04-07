@@ -77,11 +77,11 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFolderType*) val
++ (BOOL) isValid:(MPSEWSFolderType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseFolderType isValid:val]) return FALSE;
-    if ([val permissionSet] && ![MPSEWSPermissionSetType isValid:[val permissionSet]]) return FALSE;
-    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount]]) return FALSE;
+    if (![MPSEWSBaseFolderType isValid:val forVersion:ver]) return FALSE;
+    if ([val permissionSet] && ![MPSEWSPermissionSetType isValid:[val permissionSet] forVersion:ver]) return FALSE;
+    if ([val unreadCount] && ![MPSEWSIntegerTypeHandler isValid:[val unreadCount] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

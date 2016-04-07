@@ -20,9 +20,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSSendNotificationResultType*) val
++ (BOOL) isValid:(MPSEWSSendNotificationResultType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val subscriptionStatus] && ![MPSEWSSubscriptionStatusType isValid:[val subscriptionStatus]]) return FALSE;
+    if ([val subscriptionStatus] && ![MPSEWSSubscriptionStatusType isValid:[val subscriptionStatus] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -19,9 +19,9 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSProtectionRuleArgumentType*) val
++ (BOOL) isValid:(MPSEWSProtectionRuleArgumentType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value]]) return FALSE;
+    if ([val value] && ![MPSEWSStringTypeHandler isValid:[val value] forVersion: ver]) return FALSE;
     return TRUE;
 }
 

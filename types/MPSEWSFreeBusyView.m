@@ -38,12 +38,12 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSFreeBusyView*) val
++ (BOOL) isValid:(MPSEWSFreeBusyView*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if ([val freeBusyViewType] && ![MPSEWSFreeBusyViewType isValid:[val freeBusyViewType]]) return FALSE;
-    if ([val mergedFreeBusy] && ![MPSEWSStringTypeHandler isValid:[val mergedFreeBusy]]) return FALSE;
-    if ([val calendarEventArray] && ![MPSEWSArrayOfCalendarEvent isValid:[val calendarEventArray]]) return FALSE;
-    if ([val workingHours] && ![MPSEWSWorkingHours isValid:[val workingHours]]) return FALSE;
+    if ([val freeBusyViewType] && ![MPSEWSFreeBusyViewType isValid:[val freeBusyViewType] forVersion:ver]) return FALSE;
+    if ([val mergedFreeBusy] && ![MPSEWSStringTypeHandler isValid:[val mergedFreeBusy] forVersion:ver]) return FALSE;
+    if ([val calendarEventArray] && ![MPSEWSArrayOfCalendarEvent isValid:[val calendarEventArray] forVersion:ver]) return FALSE;
+    if ([val workingHours] && ![MPSEWSWorkingHours isValid:[val workingHours] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

@@ -12,7 +12,7 @@
 @interface MPSEWSGetMailTipsType : MPSEWSBaseRequestType
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetMailTipsType*) val;
++ (BOOL) isValid:(MPSEWSGetMailTipsType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

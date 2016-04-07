@@ -8,9 +8,9 @@
     [[[MPSEWSWatermarkType alloc] init] register];
 }
 
-+ (BOOL) isValid:(NSString*)val
++ (BOOL) isValid:(NSString*)val forVersion:(MPSEWSExchangeVersion) ver
 {
-    return [MPSEWSNonEmptyStringType isValid:val];
+    return [MPSEWSNonEmptyStringType isValid:val forVersion:ver];
 }
 
 - (id) init

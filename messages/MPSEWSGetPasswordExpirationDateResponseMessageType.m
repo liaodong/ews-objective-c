@@ -49,10 +49,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateResponseMessageType*) val
++ (BOOL) isValid:(MPSEWSGetPasswordExpirationDateResponseMessageType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSResponseMessageType isValid:val]) return FALSE;
-    if ([val passwordExpirationDate] && ![MPSEWSDateTimeTypeHandler isValid:[val passwordExpirationDate]]) return FALSE;
+    if (![MPSEWSResponseMessageType isValid:val forVersion:ver]) return FALSE;
+    if ([val passwordExpirationDate] && ![MPSEWSDateTimeTypeHandler isValid:[val passwordExpirationDate] forVersion:ver]) return FALSE;
     return TRUE;
 }
 

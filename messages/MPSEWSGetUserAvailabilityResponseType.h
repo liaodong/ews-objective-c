@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "../handlers/MPSEWSObjectTypeHandler.h"
 
 
 
@@ -11,7 +12,7 @@
 @interface MPSEWSGetUserAvailabilityResponseType : NSObject
 
 + (void) initialize;
-+ (BOOL) isValid:(MPSEWSGetUserAvailabilityResponseType*) val;
++ (BOOL) isValid:(MPSEWSGetUserAvailabilityResponseType*) val forVersion:(MPSEWSExchangeVersion) ver;
 
 - (id) init;
 - (Class) handlerClass;

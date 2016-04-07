@@ -25,10 +25,10 @@
     [handler register];
 }
 
-+ (BOOL) isValid:(MPSEWSDistinguishedGroupByType*) val
++ (BOOL) isValid:(MPSEWSDistinguishedGroupByType*) val forVersion:(MPSEWSExchangeVersion) ver
 {   (void) val;
-    if (![MPSEWSBaseGroupByType isValid:val]) return FALSE;
-    if ([val standardGroupBy] && ![MPSEWSStandardGroupByType isValid:[val standardGroupBy]]) return FALSE;
+    if (![MPSEWSBaseGroupByType isValid:val forVersion:ver]) return FALSE;
+    if ([val standardGroupBy] && ![MPSEWSStandardGroupByType isValid:[val standardGroupBy] forVersion:ver]) return FALSE;
     return TRUE;
 }
 
