@@ -62,16 +62,13 @@
     return [MPSEWSHandler handlerForClass:[handlers objectForKey: tag]];
 }
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(NSArray*) array withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(NSArray*) array withTag:(NSString*) outerTag
 {
     SEL handlerClass = @selector(handlerClass);
 
-    bool hasElements = FALSE;
-
+    [buffer appendString:@"<"];
+    [buffer appendString:outerTag];
     [buffer appendString:@">"];
-    if (indent) {
-        [indent appendString:@"  "];
-    }
     for (NSObject* obj in array)
     {
         Class cls = nil;
@@ -83,35 +80,13 @@
         }
 
         NSString* key = cls ? [elements objectForKey:NSStringFromClass(cls)] : [self tag];
-
         if (!key) continue;
 
-        if (!hasElements) {
-            hasElements = TRUE;
-        }
-        if (indent)
-        {
-            [buffer appendString:@"\n"];
-            [buffer appendString:indent];
-        }
-        [buffer appendString:@"<"];
-        [buffer appendString:key];
-        [[MPSEWSHandler handlerForClass:[handlers objectForKey:key]] writeXmlInto:buffer for:obj withIndentation:indent];
-        [buffer appendString:@"</"];
-        [buffer appendString:key];
-        [buffer appendString:@">"];
+        [[MPSEWSHandler handlerForClass:[handlers objectForKey:key]] writeXmlInto:buffer for:obj withTag:key];
     }
-    if (indent) {
-        NSRange range;
-        range.location = [indent length] - 2;
-        range.length   = 2;
-        [indent deleteCharactersInRange:range];
-    }
-    if (indent && hasElements)
-    {
-        [buffer appendString:@"\n"];
-        [buffer appendString:indent];
-    }
+    [buffer appendString:@"</"];
+    [buffer appendString:outerTag];
+    [buffer appendString:@">"];
 }
 
 

@@ -139,10 +139,21 @@
     return self;
 }
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withTag:(NSString*) tag
 {
     NSData* data = (NSData*) object;
     (void) data;
+    if (tag) {
+        [buffer appendString:@"<"];
+        [buffer appendString: tag];
+        [buffer appendString:@">"];
+    }
+    [buffer appendString:[NSString stringWithUTF8String:[data bytes]]];
+    if (tag) {
+        [buffer appendString:@"</"];
+        [buffer appendString: tag];
+        [buffer appendString:@">"];
+    }
 }
 
 - (BOOL) parse

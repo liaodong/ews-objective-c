@@ -187,9 +187,12 @@
     return [MPSEWSHandler handlerForClass:[[elements objectForKey: tag] cls]];
 }
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withTag:(NSString*)tag 
 {
-    bool hasElements = FALSE;
+    NSAssert (tag, @"Tag can't be nil for object");
+
+    [buffer appendString:@"<"];
+    [buffer appendString:tag];
 
     for (NSString* key in attributes)
     {
@@ -200,7 +203,7 @@
             [buffer appendString:@" "];
             [buffer appendString:key];
             [buffer appendString:@"=\""];
-            [[MPSEWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:v withIndentation:indent];
+            [[MPSEWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:v withTag:nil];
             [buffer appendString:@"\""];
         }
     }
@@ -209,12 +212,8 @@
     if (contentHandlerClass) {
         id v = [object valueForKey:@"simpleContent"];
         if (v) {
-            [[MPSEWSHandler handlerForClass:contentHandlerClass] writeXmlInto:buffer for:v withIndentation:indent];
+            [[MPSEWSHandler handlerForClass:contentHandlerClass] writeXmlInto:buffer for:v withTag:nil];
         }
-    }
-
-    if (indent) {
-        [indent appendString:@"  "];
     }
 
     for (NSString* key in keys)
@@ -227,20 +226,7 @@
             if (v)
             {
                 for (id e in v) {
-                    if (!hasElements) {
-                        hasElements = TRUE;
-                    }
-                    if (indent)
-                    {
-                        [buffer appendString:@"\n"];
-                        [buffer appendString:indent];
-                    }
-                    [buffer appendString:@"<"];
-                    [buffer appendString:key];
-                    [[MPSEWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:e withIndentation:indent];
-                    [buffer appendString:@"</"];
-                    [buffer appendString:key];
-                    [buffer appendString:@">"];
+                    [[MPSEWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:e withTag:key];
                 }
             }
         }
@@ -249,36 +235,13 @@
             id v = [object valueForKey:[h prop]];
             if (v)
             {
-                if (!hasElements) {
-                    hasElements = TRUE;
-                }
-                if (indent)
-                {
-                    [buffer appendString:@"\n"];
-                    [buffer appendString:indent];
-                }
-                [buffer appendString:@"<"];
-                [buffer appendString:key];
-                [[MPSEWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:v withIndentation:indent];
-                [buffer appendString:@"</"];
-                [buffer appendString:key];
-                [buffer appendString:@">"];
+                [[MPSEWSHandler handlerForClass:[h cls]] writeXmlInto:buffer for:v withTag:key];
             }
         }
     }
-    if (indent) {
-        NSRange range;
-        range.location = [indent length] - 2;
-        range.length   = 2;
-        [indent deleteCharactersInRange:range];
-    }
-
-    if (indent && hasElements)
-    {
-
-        [buffer appendString:@"\n"];
-        [buffer appendString:indent];
-    }
+    [buffer appendString:@"</"];
+    [buffer appendString:tag];
+    [buffer appendString:@">"];
 }
 
 

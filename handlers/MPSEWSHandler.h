@@ -31,7 +31,7 @@
 
 - (id<MPSEWSHandlerProtocol>) handlerForElement: (NSString *) tag namespace:(char) ns;
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withTag:(NSString*) tag;
 
 - (void) register;
 

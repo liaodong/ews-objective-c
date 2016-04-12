@@ -23,7 +23,7 @@
 
 - (id) updateObjectBeforeAssignment:(id) obj;
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withTag:(NSString*) tag;
 
 - (BOOL) parse;
 

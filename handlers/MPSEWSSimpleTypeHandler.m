@@ -39,10 +39,19 @@
     
 }
 
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withTag:(NSString*) tag
 {
-    [buffer appendString:@">"];
+    if (tag) {
+        [buffer appendString:@"<"];
+        [buffer appendString:tag];
+        [buffer appendString:@">"];
+    }
     [self writeXmlInto:buffer for:object];
+    if (tag) {
+        [buffer appendString:@"</"];
+        [buffer appendString:tag];
+        [buffer appendString:@">"];
+    }
 }
  
 - (BOOL) isInline

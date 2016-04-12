@@ -26,7 +26,7 @@
 - (id<MPSEWSHandlerProtocol>) handlerForElement:(NSString*) elementName namespace:(char) ns;
 
 /** XML String generation from Object representation, indent should be nil for compact representation */
-- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withIndentation:(NSMutableString*) indent;
+- (void) writeXmlInto:(NSMutableString*)buffer for:(id) object withTag:(NSString*) tag;
 
 /** Should we parse and create objects or just create the XML structure. */
 - (BOOL) parse;

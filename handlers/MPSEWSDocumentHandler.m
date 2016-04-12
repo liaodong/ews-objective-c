@@ -271,8 +271,6 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
 
 + (void) toXml:(id) object buffer:(NSMutableString*)buffer
 {
-    NSMutableString* indent = nil; // [[NSMutableString alloc] init];
-
     NSString* root = [rootTagsForCls valueForKey:NSStringFromClass([object handlerClass])];
 
     id<MPSEWSHandlerProtocol> handler = [handlersForTag valueForKey:root];
@@ -286,16 +284,8 @@ static NSMutableDictionary* rootTagsForCls; // Give an object, which handler (fr
     [buffer appendString:@"<soap:Header><t:RequestServerVersion Version=\"Exchange2010_SP2\" /></soap:Header>"];
     [buffer appendString:@"<soap:Body>"];
 
-    [buffer appendString:@"<"];
-    [buffer appendString:root];
-    [buffer appendString:@" xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\""];
+    [handler  writeXmlInto:buffer for:object withTag:root];
 
-    [handler  writeXmlInto:buffer for:object withIndentation:indent];
-
-    [buffer appendString:@"</"];
-    [buffer appendString:root];
-    [buffer appendString:@">"];
-    
     [buffer appendString:@"</soap:Body>"];
     [buffer appendString:@"</soap:Envelope>"];
 }
